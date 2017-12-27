@@ -12,3 +12,5 @@ doc
 .ruby-version
 .idea
 coverage
+rep_data
+pg_data

@@ -1,0 +1,32 @@
+version: '2'
+services:
+  replication:
+    build:
+      context: .
+      dockerfile: ./docker/replicator.dockerfile
+    volumes:
+      - ./minute-reps:/minute-reps
+  db:
+    build:
+      context: .
+      dockerfile: ./docker/db.dockerfile
+    environment:
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - ./pg_data:/var/lib/postgresql/data
+  migration:
+    build:
+      context: .
+      dockerfile: ./docker/app.dockerfile
+    command: bundle exec rake db:migrate
+    depends_on:
+      - db
+  rails-port:
+    build:
+      context: .
+      dockerfile: ./docker/app.dockerfile
+    command: bundle exec rails server -b 0.0.0.0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - migration

@@ -130,7 +130,7 @@ CREATE TYPE user_status_enum AS ENUM (
 
 CREATE FUNCTION maptile_for_point(bigint, bigint, integer) RETURNS integer
     LANGUAGE c STRICT
-    AS '$libdir/libpgosm', 'maptile_for_point';
+    AS '/railsport/db/functions/libpgosm', 'maptile_for_point';
 
 
 --
@@ -139,7 +139,7 @@ CREATE FUNCTION maptile_for_point(bigint, bigint, integer) RETURNS integer
 
 CREATE FUNCTION tile_for_point(integer, integer) RETURNS bigint
     LANGUAGE c STRICT
-    AS '$libdir/libpgosm', 'tile_for_point';
+    AS '/railsport/db/functions/libpgosm', 'tile_for_point';
 
 
 --
@@ -148,7 +148,7 @@ CREATE FUNCTION tile_for_point(integer, integer) RETURNS bigint
 
 CREATE FUNCTION xid_to_int4(xid) RETURNS integer
     LANGUAGE c IMMUTABLE STRICT
-    AS '$libdir/libpgosm', 'xid_to_int4';
+    AS '/railsport/db/functions/libpgosm', 'xid_to_int4';
 
 
 SET default_tablespace = '';
