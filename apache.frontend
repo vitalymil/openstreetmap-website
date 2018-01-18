@@ -1,0 +1,243 @@
+<VirtualHost *:80>
+  #
+  # Basic server configuration
+  #
+  ServerName localhost
+  ServerAlias api.openstreetmap.org www.openstreetmap.org 127.0.0.1
+  ServerAdmin webmaster@openstreetmap.org
+
+  #
+  # Setup logging
+  #
+  LogFormat "%h %l %u %t \"%r\" %>s %O \"%{Referer}i\" \"%{User-Agent}i\" %Dus %{UNIQUE_ID}e" combined_with_time
+  CustomLog /var/log/apache2/access.log combined_with_time
+  ErrorLog /var/log/apache2/error.log
+
+  #
+  # Turn on various features
+  #
+  ExpiresActive On
+  RewriteEngine on
+
+  #
+  # Add the unique ID to the request headers
+  #
+  RequestHeader set X-Request-Id %{UNIQUE_ID}e
+
+  #
+  # Remove Proxy request header to mitigate https://httpoxy.org/
+  #
+  RequestHeader unset Proxy early
+
+  #
+  # Block troublesome GPX data scrapping
+  #
+  RewriteCond %{REQUEST_METHOD} HEAD
+  RewriteRule ^/trace/\d+/data - [F,L]
+
+  #
+  # Block tilesAtHome
+  #
+  RewriteCond %{HTTP_USER_AGENT} tilesAtHome
+  RewriteRule . - [F,L]
+
+  #
+  # Block changeset scraper
+  #
+  RewriteCond %{HTTP_USER_AGENT} "OSMApp Tuner"
+  RewriteRule . - [F,L]
+
+  #
+  # Block requests for the old 404 map tile
+  #
+  RewriteRule ^/openlayers/img/404.png$ - [G,L]
+
+  #
+  # Block attempts to access old API versions
+  #
+  RewriteRule ^/api/0.[12345]/ - [G,L]
+
+  #
+  # Block JOSM revisions  1722-1727 as they have a serious bug that causes
+  # lat/lon to be swapped (https://josm.openstreetmap.de/ticket/2804)
+  #
+  RewriteCond %{HTTP_USER_AGENT} "^JOSM/[0-9]+\.[0-9]+ \(172[234567]\)"
+  RewriteRule . - [F,L]
+
+  #
+  # Block a changeset that seems to lock things up
+  #
+  RewriteRule ^/api/0.6/changeset/6823497/download$ - [F,L]
+
+  #
+  # Force special MIME type for crossdomain.xml files
+  #
+  <Files crossdomain.xml>
+    ForceType text/x-cross-domain-policy
+  </Files>
+
+  #
+  # Set expiry for assets
+  #
+  <Location /assets/>
+    Header unset Last-Modified
+    Header unset ETag
+    FileETag None
+
+    ExpiresDefault "access plus 1 year"
+  </Location>
+
+  #
+  # Set expiry for attachments
+  #
+  <Location /attachments/>
+    Header unset Last-Modified
+    Header unset ETag
+    FileETag None
+
+    ExpiresDefault "access plus 1 year"
+  </Location>
+
+  #
+  # Set expiry for other static content
+  #
+  <Location /export/embed.html>
+    ExpiresDefault "access plus 7 days"
+  </Location>
+  <Location /images/>
+    ExpiresDefault "access plus 10 years"
+  </Location>
+  <Location /javascripts/>
+    ExpiresDefault "access plus 10 years"
+  </Location>
+  <Location /openlayers/>
+    ExpiresDefault "access plus 7 days"
+  </Location>
+  <Location /stylesheets/>
+    ExpiresDefault "access plus 10 years"
+  </Location>
+
+  #
+  # Set expiry for Potlatch 1
+  #
+  <Location /potlatch/>
+    ExpiresDefault "access plus 7 days"
+  </Location>
+
+  #
+  # Set expiry for Potlatch 2
+  #
+  <Location /potlatch2/>
+    ExpiresByType application/x-shockwave-flash "access plus 1 day"
+    ExpiresByType application/xml "access plus 1 day"
+    ExpiresByType text/css "access plus 1 day"
+    ExpiresByType image/png "access plus 7 days"
+  </Location>
+
+  #
+  # Configure rails
+  #
+  DocumentRoot /railsport/public
+  RailsEnv production
+  PassengerMinInstances 10
+  PassengerMaxRequests 5000
+  PassengerMaxRequestQueueSize 250
+  PassengerPreStart http://www.openstreetmap.org/
+  SetEnv SECRET_KEY_BASE 2ce5ed17771b4fdc3f755c5b98459d67816f99ec5889ec2fa7bf2bd3cba3ad5cc453693ce3c5d121669be478fb811136f4f483e6f39ac1f0e34ba66e8acab574
+  Alias /favicon.ico </railsport/app/assets/favicons/favicon.ico
+  Alias /openlayers /railsport/vendor/assets/openlayers
+  Alias /stats /store/rails/stats
+  Alias /user/image /store/rails/user/image
+  Alias /attachments /store/rails/attachments
+
+  #
+  # Preserve the host name when forwarding to the proxy
+  #
+  ProxyPreserveHost on
+
+  #
+  # Set a long timeout - changeset uploads can take a long time
+  #
+  ProxyTimeout 3600
+
+  #
+  # Allow all proxy requests
+  #
+  <Proxy *>
+    Require all granted
+  </Proxy>
+
+  #
+  # Pass some other API calls to the backends via a load balancer
+  #
+  ProxyPass /api/0.6/map balancer://backend/api/0.6/map
+  ProxyPass /api/0.6/tracepoints balancer://backend/api/0.6/tracepoints
+  ProxyPass /api/0.6/amf/read balancer://backend/api/0.6/amf/read
+  ProxyPass /api/0.6/swf/trackpoints balancer://backend/api/0.6/swf/trackpoints
+  ProxyPassMatch ^(/api/0\.6/changeset/[0-9]+)$ balancer://backend$1
+  ProxyPassMatch ^(/api/0\.6/changeset/[0-9]+/upload)$ balancer://backend$1
+  ProxyPassMatch ^(/api/0\.6/changeset/[0-9]+/download)$ balancer://backend$1
+  ProxyPassMatch ^(/api/0\.6/(node|way|relation)/[0-9]+)$ balancer://backend$1
+  ProxyPassMatch ^(/api/0\.6/(node|way|relation)/[0-9]+/(full|history|search|ways))$ balancer://backend$1
+  ProxyPass /api/0.6/nodes balancer://backend/api/0.6/nodes
+  ProxyPass /api/0.6/ways balancer://backend/api/0.6/ways
+  ProxyPass /api/0.6/relations balancer://backend/api/0.6/relations
+  ProxyPassMatch ^(/trace/[0-9]+/data(|/|.xml))$ balancer://backend$1
+
+  #
+  # Redirect ACME certificate challenges
+  #
+  RedirectPermanent /.well-known/acme-challenge/ http://acme.openstreetmap.org/.well-known/acme-challenge/
+
+  #
+  # Redirect trac and wiki requests to the right places
+  #
+  RedirectPermanent /trac/ https://trac.openstreetmap.org/
+  RedirectPermanent /wiki/ https://wiki.openstreetmap.org/
+
+  #
+  # Define a load balancer for the local backends
+  # VITALY: Need to change to Backend (API) LB address
+  #
+  <Proxy balancer://backend>
+    ProxySet lbmethod=bybusyness
+    BalancerMember http://osm-backend
+  </Proxy>
+
+  #
+  # Redirect requests which should be secure to https
+  # VITALY: Need to uncomment and change to LB HTTPS
+  #
+  #RewriteCond %{REQUEST_URI} ^/login(\.html)?$ [OR]
+  #RewriteCond %{REQUEST_URI} ^/user/(new|create-account\.html)$ [OR]
+  #RewriteCond %{REQUEST_URI} ^/user/terms$ [OR]
+  #RewriteCond %{REQUEST_URI} ^/user/save$ [OR]
+  #RewriteCond %{REQUEST_URI} ^/user/([^/]+)/account$ [OR]
+  #RewriteCond %{REQUEST_URI} ^/user/reset-password$
+  #RewriteRule ^(.*)$ http://localhost:3000$1 [L,NE,R=permanent]
+
+</VirtualHost>
+
+<Directory /railsport/public>
+  Require all granted
+</Directory>
+
+<Directory /railsport/app/assets>
+  Require all granted
+</Directory>
+
+<Directory /railsport/vendor/assets>
+  Require all granted
+</Directory>
+
+<Directory /store/rails/stats>
+  Require all granted
+</Directory>
+
+<Directory /store/rails/user/image>
+  Require all granted
+</Directory>
+
+<Directory /store/rails/attachments>
+  Require all granted
+</Directory>

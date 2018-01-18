@@ -43,12 +43,14 @@ L.OSM.Map = L.Map.extend({
       }));
     }
 
+    /*
     this.baseLayers.push(new L.OSM.HOT({
       attribution: copyright + ". Tiles courtesy of <a href='http://hot.openstreetmap.org/' target='_blank'>Humanitarian OpenStreetMap Team</a>",
       code: "H",
       keyid: "hot",
       name: I18n.t("javascripts.map.base.hot")
     }));
+    */
 
     this.noteLayer = new L.FeatureGroup();
     this.noteLayer.options = {code: 'N'};

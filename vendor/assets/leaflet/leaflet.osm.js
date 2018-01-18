@@ -4,7 +4,7 @@ L.OSM.TileLayer = L.TileLayer.extend({
   options: {
     url: document.location.protocol === 'https:' ?
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' :
-      'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      'http://localhost:2000/{z}/{x}/{y}.png',
     attribution: '© <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors'
   },
 
@@ -18,7 +18,7 @@ L.OSM.Mapnik = L.OSM.TileLayer.extend({
   options: {
     url: document.location.protocol === 'https:' ?
       'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png' :
-      'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      'http://localhost:2000/osm_tiles/{z}/{x}/{y}.png',
     maxZoom: 19
   }
 });

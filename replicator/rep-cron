@@ -1,1 +1,0 @@
-* * * * * root /osmosis/bin/osmosis --replicate-apidb authFile=/replicator/auth.conf validateSchemaVersion=false --write-replication workingDirectory=/rep_data/export

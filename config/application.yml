@@ -74,7 +74,7 @@ defaults: &defaults
   # Enable legacy OAuth 1.0 support
   oauth_10_support: true
   # URL of Nominatim instance to use for geocoding
-  nominatim_url: "//nominatim.openstreetmap.org/"
+  nominatim_url: "//osm-nominatim/nominatim/"
   # Default editor
   default_editor: "id"
   # OAuth consumer key for Potlatch 2
@@ -82,7 +82,7 @@ defaults: &defaults
   # OAuth consumer key for the web site
   #oauth_key: ""
   # OAuth consumer key for iD
-  id_key: "ECiuXbiUP9CKqrF6401jCxJmZwk314GPgsKzgpZi"
+  id_key: "xEAWkuF0o8hsW3O25OoBnxRlO9f9JPhDyQgkTAvN"
   # Whether to require users to view the CTs before continuing to edit...
   require_terms_seen: false
   # Whether to require users to agree to the CTs before editing
@@ -97,7 +97,7 @@ defaults: &defaults
     # Blacklist here
     - ".*\\.here\\.com[/:].*"
   # URL of Overpass instance to use for feature queries
-  overpass_url: "//overpass-api.de/api/interpreter"
+  overpass_url: "//localhost:7000/api/interpreter"
   # Routing endpoints
   graphhopper_url: "//graphhopper.com/api/1/route"
   mapquest_directions_url: "//open.mapquestapi.com/directions/v2/route"

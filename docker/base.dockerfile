@@ -12,8 +12,23 @@ RUN apt-get install -y \
         libsasl2-dev imagemagick phantomjs \
  && gem2.3 install bundler
 
+RUN apt-get install -y dirmngr gnupg
+RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
+RUN apt-get install -y apt-transport-https ca-certificates
+RUN echo deb https://oss-binaries.phusionpassenger.com/apt/passenger xenial main > /etc/apt/sources.list.d/passenger.list
+RUN apt-get update
+RUN apt-get install -y libapache2-mod-passenger
+
 RUN mkdir /railsport
 WORKDIR /railsport
 COPY Gemfile /railsport/Gemfile
 COPY Gemfile.lock /railsport/Gemfile.lock
 RUN bundle install
+
+RUN apt-get install -y libpqxx-dev libfcgi-dev \
+        libboost-dev libboost-regex-dev libboost-program-options-dev \
+        libboost-date-time-dev libboost-filesystem-dev \
+        libboost-system-dev libboost-locale-dev libmemcached-dev \
+        libcrypto++-dev automake autoconf libtool libyajl-dev
+
+WORKDIR /
