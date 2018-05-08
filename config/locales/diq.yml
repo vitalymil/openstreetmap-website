@@ -99,8 +99,8 @@ diq:
   browse:
     created: Vıraziye
     closed: Racneya
-    created_html: <abbr title='%{title}'>%{time} veror</abbr> vıraziye
-    closed_html: <abbr title='%{title}'>%{time} veror</abbr> racneye
+    created_html: Verê <abbr title='%{title}'>%{time} de</abbr> vıraziyo
+    closed_html: Verê <abbr title='%{title}'>%{time} de</abbr> kılid biyo
     version: Versiyon
     in_changeset: Qeydê Vurnayışan
     anonymous: anonim
@@ -207,7 +207,7 @@ diq:
       title_nearby: Nezdıra vurriyayışê setê karberi
       load_more: Dehana vêşi
     rss:
-      full: Vaten pêro
+      full: Heme werênayış
   diary_entry:
     new:
       publish_button: Vıla ke
@@ -241,40 +241,10 @@ diq:
       ago: Verdê %{ago}
       newer_comments: Tewr Vatışê Newey
       older_comments: Vatışo Tewr Kehan
-  export:
-    title: Teber de
-    start:
-      area_to_export: Cayo ke cıra bıvciyo
-      manually_select: Be desti ra yew cayo bin weçıne
-      format_to_export: Formatê teberi ra eştışi
-      osm_xml_data: OpenStreetMap XML Data
-      licence: Lisans
-      too_large:
-        planet:
-          title: Geyrenıka OSM
-        overpass:
-          title: Overpass API
-        metro:
-          title: Çap kerdenê Metroy
-          description: Çap kerdenê metroyan u banliyo
-        other:
-          title: Çemê bini
-      options: Weçinegi
-      format: Format
-      scale: Sence
-      max: maks
-      image_size: Gırdiya Resimi
-      zoom: Nezdı fi
-      add_marker: Xeriter rê yew nışan berz
-      latitude: 'Verıniye:'
-      longitude: 'Derganiye:'
-      output: Vıcyaen
-      export_button: Teber de
   geocoder:
     search:
       title:
         latlon: <a href="http://openstreetmap.org/">OSM</a> ra neticey
-        uk_postcode: <a href="http://www.npemap.org.uk/">FreeThe Postcode</a> ra neticey
         ca_postcode: <a href="http://geocoder.ca/">Geocoder.CA</a> ra neticey
         osm_nominatim: <a href="http://nominatim.openstreetmap.org/">OSM Nominatim</a>
           ra neticey
@@ -324,33 +294,26 @@ diq:
           crematorium: Krematoryum
           dentist: Dındandar
           doctors: Dıxtori
-          dormitory: Ware
           drinking_water: Awa Şımıtışi
           driving_school: Kursa Ramenan
           embassy: Sefirey
-          emergency_phone: Vistren Telefon
           fast_food: Fast Food
           ferry_terminal: Terminala Feriboter
-          fire_hydrant: Mıslıxa Şewati
           fire_station: Itfaiye
           food_court: Kerwanseray
           fountain: Fıskiye
           fuel: Petrol
           gambling: Kumarxane
           grave_yard: Mezla ser
-          gym: Merkeza Fitnessi / Salona Spori
-          health_centre: Merkeza Weşiney
           hospital: Nêweşxane
           hunting_stand: Standê Seydwanan
           ice_cream: Dondırme
           kindergarten: Kreş
           library: Kıtıbxane
-          market: Market
           marketplace: Heruna bazari
           monastery: Manastır
           motorcycle_parking: Motorpiskilet park kerdış
           nightclub: Kluba Şewer
-          nursery: Kreş
           nursing_home: Rehatxane
           office: Ofis
           parking: Otopark
@@ -364,7 +327,6 @@ diq:
           prison: Hepısxane
           pub: Biraxane
           public_building: Binaya Şaran
-          reception_area: Heruna Resepsiyoni
           recycling: Heruna peyd amayışi
           restaurant: Restaurant
           retirement_home: Weynexane
@@ -460,7 +422,6 @@ diq:
           trunk: Letebıyayi ser ray
           trunk_link: Lwtebıyayi ser ray
           unclassified: Nêrêzbıyayi ray
-          unsurfaced: Raya xam
           "yes": Ray
         historic:
           archaeological_site: Arkeolojik Ca
@@ -523,7 +484,6 @@ diq:
         leisure:
           beach_resort: Dewa plajın
           bird_hide: Cay mıriçık weynayışi
-          club: Klüb
           common: Umumi erd
           dog_park: Parka kutıkan
           fishing: Heruna masan
@@ -616,8 +576,6 @@ diq:
           "yes": Ofis
         place:
           allotments: Bostan
-          block: Blok
-          airport: Meydanê hewayi
           city: Suk
           country: Dewlete
           county: Welat
@@ -628,7 +586,6 @@ diq:
           island: Ada
           islet: Adeqeq
           locality: Wereyin
-          moor: Lıncane
           municipality: Belediya
           neighbourhood: Mehla
           postcode: Kodê posteyi
@@ -675,7 +632,7 @@ diq:
           gallery: Galeri
           garden_centre: Merkeza Hêgay
           gift: Çiyo Hediye
-          salon: Kuafor
+          "yes": Dukan
         tourism:
           gallery: Galeriye
           hostel: Hostel
@@ -688,6 +645,7 @@ diq:
           canal: Kenal
           dam: Berac
           lock: İskele
+          river: Ro
     description:
       types:
         cities: Suki
@@ -699,17 +657,12 @@ diq:
     sign_up: qeyd be
     edit: Bıvırne
     history: Tarix
-    export: Tebergroten
+    export: Teberdayış
     data: Melumati
     help: Peşti
     copyright: Heqa telıfi
     community: Cemaet
     community_blogs: Blogê Cemaeti
-  license_page:
-    native:
-      title: Heqa na pele de
-  welcome_page:
-    title: Xeyr amey!
   notifier:
     diary_comment_notification:
       hi: Merheba %{to_user},
@@ -763,8 +716,41 @@ diq:
     sent_message_summary:
       delete_button: Bestere
   site:
+    copyright:
+      native:
+        title: Heqa na pele de
+    index:
+      permalink: Gıreyo daimi
     edit:
       user_page_link: pela karberi
+    export:
+      title: Teberdayış
+      area_to_export: Cayo ke cıra bıvciyo
+      manually_select: Be desti ra yew cayo bin weçıne
+      format_to_export: Formatê teberi ra eştışi
+      osm_xml_data: OpenStreetMap XML Data
+      licence: Lisans
+      too_large:
+        planet:
+          title: Geyrenıka OSM
+        overpass:
+          title: Overpass API
+        metro:
+          title: Çap kerdenê Metroy
+          description: Çap kerdenê metroyan u banliyo
+        other:
+          title: Çemê bini
+      options: Weçinegi
+      format: Format
+      scale: Sence
+      max: maks
+      image_size: Gırdiya Resimi
+      zoom: Nezdı fi
+      add_marker: Xeriter rê yew nışan berz
+      latitude: 'Verıniye:'
+      longitude: 'Derganiye:'
+      output: Vıcyaen
+      export_button: Teberdayış
     sidebar:
       search_results: Neticeyê geyrayışi
       close: Racnê
@@ -809,6 +795,8 @@ diq:
       text: Metın
       image: Resım
       url: GRE
+    welcome:
+      title: Xeyr amey!
   trace:
     edit:
       filename: 'Namey dosya:'
@@ -941,7 +929,7 @@ diq:
       remove as friend: Embazan ra vec
       add as friend: Embazi cı ke
       mapper since: 'Demê herdnigarwaniye:'
-      ago: (%{time_in_words_ago} veror)
+      ago: (%{time_in_words_ago} ver)
       ct undecided: Darıdeyo
       ct declined: Red kerd
       ct accepted: Verdê %{ago} qebul ke
@@ -952,7 +940,6 @@ diq:
       description: Şınasnayış
       user location: Heruna karberi
       settings_link_text: eyari
-      your friends: Embazê to
       km away: '%{count} km duriyo'
       m away: '%{count} metre nezdiyo'
       role:
@@ -1036,7 +1023,7 @@ diq:
       confirm: Tesdiq ke
     revoke:
       confirm: Tesdiq ke
-  user_block:
+  user_blocks:
     new:
       title: '%{name}i rê blok vırazeno.'
       heading: '%{name}i ro blok vırazeno.'
@@ -1057,19 +1044,6 @@ diq:
     period:
       one: 1 seate
       other: '%{count} seati'
-    partial:
-      show: Bımocne
-      edit: Bıvırne
-      revoke: Terkne!
-      confirm: Vac welay?
-      display_name: Karberê kılitbiyayey
-      creator_name: Vıraştoğ
-      status: Weziyet
-      revoker_name: Terknoğ
-      not_revoked: (nê terkiyayo)
-      showing_page: Pele %{page}
-      next: Peyên »
-      previous: « Verên
     helper:
       time_future: '%{time} dı bıqediyo'
       time_past: Verdê %{time} qedya
@@ -1090,7 +1064,20 @@ diq:
       revoke: Terkne!
       confirm: Vac welay?
       revoker: 'Terkner:'
-  note:
+    block:
+      not_revoked: (nê terkiyayo)
+      show: Bımocne
+      edit: Bıvırne
+      revoke: Terkne!
+    blocks:
+      display_name: Karberê kılitbiyayey
+      creator_name: Vıraştoğ
+      status: Weziyet
+      revoker_name: Terknoğ
+      showing_page: Pele %{page}
+      next: Peyên »
+      previous: « Verên
+  notes:
     entry:
       comment: Mışewre
   javascripts:
@@ -1111,7 +1098,9 @@ diq:
     notes:
       show:
         comment: Mışewre
-  redaction:
+    directions:
+      time: Zeman
+  redactions:
     edit:
       description: Şınasnayış
     new:

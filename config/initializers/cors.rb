@@ -7,9 +7,7 @@ module OpenStreetMap
   class Cors < Rack::Cors
     def call(env)
       status, headers, body = super env
-      if headers["Access-Control-Allow-Origin"]
-        headers["Cache-Control"] = "no-cache"
-      end
+      headers["Cache-Control"] = "no-cache" if headers["Access-Control-Allow-Origin"]
       [status, headers, body]
     end
   end
@@ -25,5 +23,8 @@ Rails.configuration.middleware.use OpenStreetMap::Cors do
     origins "*"
     resource "/oauth/*", :headers => :any, :methods => [:get, :post]
     resource "/api/*", :headers => :any, :methods => [:get, :post, :put, :delete]
+    resource "/diary/rss", :headers => :any, :methods => [:get]
+    resource "/diary/*/rss", :headers => :any, :methods => [:get]
+    resource "/user/*/diary/rss", :headers => :any, :methods => [:get]
   end
 end

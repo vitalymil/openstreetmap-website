@@ -1,8 +1,7 @@
 //= require jquery.simulate
 
 OSM.Query = function(map) {
-  var protocol = document.location.protocol === "https:" ? "https:" : "http:",
-    url = protocol + OSM.OVERPASS_URL,
+  var url = OSM.OVERPASS_URL,
     queryButton = $(".control-query .control-button"),
     uninterestingTags = ['source', 'source_ref', 'source:ref', 'history', 'attribution', 'created_by', 'tiger:county', 'tiger:tlid', 'tiger:upload_uuid', 'KSJ2:curve_id', 'KSJ2:lat', 'KSJ2:lon', 'KSJ2:coordinate', 'KSJ2:filename', 'note:ja'],
     marker;
@@ -288,7 +287,7 @@ OSM.Query = function(map) {
       nodes = "node(" + around + ")",
       ways = "way(" + around + ")",
       relations = "relation(" + around + ")",
-      nearby = "(" + nodes + ";" + ways + ");out tags geom(" + bbox + ");" + relations + ";out geom(" + bbox + ");",
+      nearby = "(" + nodes + ";" + ways + ";);out tags geom(" + bbox + ");" + relations + ";out geom(" + bbox + ");",
       isin = "is_in(" + lat + "," + lng + ")->.a;way(pivot.a);out tags bb;out ids geom(" + bbox + ");relation(pivot.a);out tags bb;";
 
     $("#sidebar_content .query-intro")

@@ -135,6 +135,8 @@ mk:
         title_comment: Измени %{id} - %{comment}
       join_discussion: Најавете се за да се приклучите во разговорот
       discussion: Разговор
+      still_open: Измените сè уште се отворени — разговорот ќе се отвори штом ќе се
+        затворат измените.
     node:
       title: 'Јазол: %{name}'
       history_title: 'Историја на јазолот: %{name}'
@@ -236,7 +238,7 @@ mk:
     list:
       title: Измени
       title_user: Измени на %{user}
-      title_friend: Измени на ваши пријатели
+      title_friend: Измени на мои пријатели
       title_nearby: Измени од соседни корисници
       empty: Не пронајдов збирови од промени.
       empty_area: Нема збирови од промени во ова подрачје.
@@ -266,7 +268,7 @@ mk:
       user_title: Дневник на %{user}
       in_language_title: Дневнички написи на %{language}
       new: 'Нов дневнички запис:'
-      new_title: Напишете нов запис во вашиот кориснички дневник
+      new_title: Напишете нов запис во корисничкиот дневник
       no_entries: Нема дневнички ставки
       recent_entries: Скорешни дневнички записи
       older_entries: Постари ставки
@@ -332,64 +334,15 @@ mk:
       ago: пред %{ago}
       newer_comments: Понови коментари
       older_comments: Постари коментари
-  export:
-    title: Извези
-    start:
-      area_to_export: Простор за извоз
-      manually_select: Рачно изберете друга површина
-      format_to_export: Формат за извоз
-      osm_xml_data: OpenStreetMap XML податоци
-      map_image: Слика на картата (прикажува стандарден слој)
-      embeddable_html: HTML-код за вметнување
-      licence: Лиценца
-      export_details: Податоците на OpenStreetMap се нудат под <a href="http://opendatacommons.org/licenses/odbl/1.0/">Лиценцата
-        за отворени бази на Складиштето на отворени податоци</a> (ODbL, Open Data
-        Commons Open Database License).
-      too_large:
-        advice: 'Ако не успее увозот погоре, послужете се со некој од долунаведените
-          извори:'
-        body: 'Подрачјето е преголемо за да може да се извезе како XML-податоци. Приближете
-          или изберете помала површина. Можете и да се послужите со еден од следниве
-          извори за крупно преземање:'
-        planet:
-          title: Планетата на OSM
-          description: Редовно подновувани примероци на целата база на OpenStreetMap
-        overpass:
-          title: Извршник „Надвозник“
-          description: Преземете ја оваа рамка од огледална база на базата на OpenStreetMap
-        geofabrik:
-          title: Преземања на Geofabrik
-          description: Редовно подновувани извадоци од континенти, земји и избрани
-            градови
-        metro:
-          title: Метроизвадоци
-          description: Извадоци за поважните градови во свеетот и нивните околни подрачја
-        other:
-          title: Други извори
-          description: Другите извори се наведени на викито на OpenStreetMap
-      options: Нагодувања
-      format: Формат
-      scale: Размер
-      max: најв.
-      image_size: Големина на сликата
-      zoom: Приближи
-      add_marker: Додај бележник на картата
-      latitude: Г.Ш.
-      longitude: Г.Д.
-      output: Излезни податоци
-      paste_html: Ископирајте го HTML кодот за да го вметнете во страницата.
-      export_button: Извези
   geocoder:
     search:
       title:
-        latlon: <a href="http://openstreetmap.org/">Внатрешни</a> исходни ставки
-        uk_postcode: Исход од <a href="http://www.npemap.org.uk/">NPEMap / FreeThe
-          Postcode</a>
-        ca_postcode: Исход од <a href="http://geocoder.ca/">Geocoder.CA</a>
-        osm_nominatim: Исход од <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
+        latlon: <a href="https://openstreetmap.org/">Внатрешни</a> исходни ставки
+        ca_postcode: Исход од <a href="https://geocoder.ca/">Geocoder.CA</a>
+        osm_nominatim: Исход од <a href="https://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a>
         geonames: Исход од <a href="http://www.geonames.org/">GeoNames</a>
-        osm_nominatim_reverse: Исход од <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
+        osm_nominatim_reverse: Исход од <a href="https://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a>
         geonames_reverse: Исход од <a href="http://www.geonames.org/">GeoNames</a>
     search_osm_nominatim:
@@ -399,12 +352,19 @@ mk:
           chair_lift: Клупна жичница
           drag_lift: Влечна жичница
           gondola: Кабинска жичница
+          platter: Скилифт
+          pylon: Жичен јарбол
           station: Гондолска станица
+          t-bar: Влечен лифт
         aeroway:
           aerodrome: Аеродром
+          airstrip: Леталиште
           apron: Рампа
           gate: Порта
+          hangar: Хангар
           helipad: Хелиодром
+          holding_position: Задржна положба
+          parking_position: Оставна положба
           runway: Писта
           taxiway: Рулажна патека
           terminal: Терминал
@@ -439,37 +399,32 @@ mk:
           crematorium: Крематориум
           dentist: Забар
           doctors: Доктори
-          dormitory: Студентски дом
           drinking_water: Пивка вода
           driving_school: Автошкола
           embassy: Амбасада
-          emergency_phone: Итен телефон
           fast_food: Брза храна
           ferry_terminal: Траектска станица
-          fire_hydrant: Противпожарен хидрант
           fire_station: Пожарна
           food_court: Штандови за брза храна
           fountain: Фонтана
           fuel: Гориво
           gambling: Коцкање
           grave_yard: Гробишта
-          gym: Фитнес/вежбалница
-          health_centre: Здравствен центар
+          grit_bin: Пескарница
           hospital: Болница
           hunting_stand: Ловечка кула
           ice_cream: Сладолед
           kindergarten: Градинка
           library: Библиотека
-          market: Пазар
           marketplace: Пазариште
           monastery: Манастир
           motorcycle_parking: Паркиралиште за мотоцикли
           nightclub: Ноќен клуб
-          nursery: Јасли
           nursing_home: Старечки дом
           office: Канцеларија
           parking: Паркиралиште
           parking_entrance: Влез во паркиралиште
+          parking_space: Паркинг-место
           pharmacy: Аптека
           place_of_worship: Верски објект
           police: Полиција
@@ -479,7 +434,6 @@ mk:
           prison: Затвор
           pub: Пивница
           public_building: Јавен објект
-          reception_area: Рецепција
           recycling: Рециклирање
           restaurant: Ресторан
           retirement_home: Старечки дом
@@ -504,6 +458,7 @@ mk:
           village_hall: Месна заедница
           waste_basket: Корпа за отпадоци
           waste_disposal: Депонија
+          water_point: Водоводен приклучок
           youth_centre: Младински центар
         boundary:
           administrative: Административна граница
@@ -512,6 +467,7 @@ mk:
           protected_area: Заштитено подрачје
         bridge:
           aqueduct: Аквадукт
+          boardwalk: Шеталиште
           suspension: Висечки мост
           swing: Вртечки мост
           viaduct: Вијадукт
@@ -531,25 +487,31 @@ mk:
           "yes": Занаетчиски дуќан
         emergency:
           ambulance_station: Итна помош
+          assembly_point: Собиралиште
           defibrillator: Дефибрилатор
           landing_site: Место за итно слетување
           phone: Итен телефон
+          water_tank: Итен водосклад
+          "yes": Итна помош
         highway:
           abandoned: Напуштен автопат
           bridleway: Коњски пат
           bus_guideway: Автобуски шини
           bus_stop: Автобуска постојка
           construction: Автопат во изградба
+          corridor: Премин
           cycleway: Велосипедска патека
           elevator: Лифт
           emergency_access_point: Прва помош
           footway: Тротоар
           ford: Брод
+          give_way: Знак за предност
           living_street: Маалска улица
           milestone: Милјоказ
           motorway: Автопат
           motorway_junction: Клучка
           motorway_link: Приклучен пат
+          passing_place: Минувалиште
           path: Патека
           pedestrian: Пешачка патека
           platform: Платформа
@@ -566,6 +528,7 @@ mk:
           services: Крајпатен сервис
           speed_camera: Брзиноловец
           steps: Скалила
+          stop: Знак за запирање
           street_lamp: Улична светилка
           tertiary: Третостепен пат
           tertiary_link: Третостепен пат
@@ -574,8 +537,8 @@ mk:
           trail: Патека
           trunk: Магистрала
           trunk_link: Магистрала
+          turning_loop: Повратен јазол
           unclassified: Некласификуван пат
-          unsurfaced: Неасфалтиран пат
           "yes": Пат
         historic:
           archaeological_site: Археолошки локалитет
@@ -594,6 +557,7 @@ mk:
           manor: Велепоседнички дом
           memorial: Споменик
           mine: Рудник
+          mine_shaft: Рудничко окно
           monument: Споменик
           roman_road: Римски пат
           ruins: Рушевини
@@ -603,6 +567,7 @@ mk:
           wayside_cross: Крајпатен крст
           wayside_shrine: Крајпатен параклис
           wreck: Бродолом
+          "yes": Историско место
         junction:
           "yes": Раскрсница
         landuse:
@@ -640,9 +605,9 @@ mk:
         leisure:
           beach_resort: Крајбрежно одморалиште
           bird_hide: Набљудувалиште за птици
-          club: Клуб
           common: Општествена земја
           dog_park: Парк за кучиња
+          firepit: Огниште
           fishing: Рибарење
           fitness_centre: Центар за фитнес
           fitness_station: Технички преглед
@@ -667,15 +632,46 @@ mk:
           water_park: Аквапарк
           "yes": Разонода
         man_made:
+          adit: Помошно окно
+          beacon: Светилник
+          beehive: Пчеларник
+          breakwater: Бранобран
+          bridge: Мост
+          bunker_silo: Бункер
+          chimney: Оџак
+          crane: Кран
+          dolphin: Пристан. дирек
+          dyke: Ров
+          embankment: Кеј
+          flagpole: Јарбол
+          gasometer: Гасомер
+          groyne: Брежна препрека
+          kiln: Печка
           lighthouse: Светилник
+          mast: Јарбол
+          mine: Рудник
+          mineshaft: Рудничко окно
+          monitoring_station: Надгледна станица
+          petroleum_well: Нафтен извор
+          pier: Пристан. мост
           pipeline: Цевковод
+          silo: Силос
+          storage_tank: Резервоар
+          surveillance: Надзор
           tower: Кула
+          wastewater_plant: Пречистителна станица
+          watermill: Воденица
+          water_tower: Водокула
+          water_well: Бунар
+          water_works: Водоводна станица
+          windmill: Ветерница
           works: Фабрика
           "yes": Вештачки
         military:
           airfield: Воено слетувалиште
           barracks: Касарна
           bunker: Бункер
+          "yes": Војска
         mountain_pass:
           "yes": Планински превој
         natural:
@@ -721,11 +717,14 @@ mk:
           accountant: Сметководител
           administrative: Управа
           architect: Архитект
+          association: Здружение
           company: Фирма
+          educational_institution: Образовна установа
           employment_agency: Агенција за вработување
           estate_agent: Агенција за недвижности
           government: Владина служба
           insurance: Служба за осигурување
+          it: Информатичка служба
           lawyer: Адвокат
           ngo: НВО-канцеларија
           telecommunication: Телекомуникациска канцеларија
@@ -733,9 +732,8 @@ mk:
           "yes": Канцеларија
         place:
           allotments: Парцели
-          block: Блок
-          airport: Аеродром
           city: Град
+          city_block: Градски блок
           country: Земја
           county: Округ
           farm: Фарма
@@ -746,12 +744,13 @@ mk:
           islet: Островче
           isolated_dwelling: Зафрлено живееалиште
           locality: Месност
-          moor: Пустара
           municipality: Општина
           neighbourhood: Соседство
           postcode: Поштенски број
+          quarter: Четврт
           region: Област
           sea: Море
+          square: Плоштад
           state: Покраина
           subdivision: Админ. подрачје
           suburb: Населба
@@ -763,10 +762,8 @@ mk:
           abandoned: Напуштена железничка линија
           construction: Железничка линија во изградба
           disused: Напуштена железничка линија
-          disused_station: Напуштена железничка станица
           funicular: Искачница
           halt: Железничка постојка
-          historic_station: Историска железничка станица
           junction: Железнички јазол
           level_crossing: Надвозник
           light_rail: Лека железница
@@ -792,6 +789,7 @@ mk:
           beauty: Козметика
           beverages: Пијалоци
           bicycle: Продавница за велосипеди
+          bookmaker: Бележник
           books: Книжарница
           boutique: Бутик
           butcher: Месарница
@@ -830,12 +828,16 @@ mk:
           hairdresser: Фризер
           hardware: Алат и опрема
           hifi: Аудиосистеми
-          insurance: Осигурително
+          houseware: Продавница за покуќнина
+          interior_decoration: Внатрешно уредување
           jewelry: Јувелир
           kiosk: Трафика
+          kitchen: Кујнска продавница
           laundry: Пералница
+          lottery: Лотарија
           mall: Трговски центар
           market: Пазар
+          massage: Масажа
           mobile_phone: Мобиларница
           motorcycle: Моторцикли
           music: Музички дуќан
@@ -843,21 +845,27 @@ mk:
           optician: Оптичар
           organic: Здрава храна
           outdoor: Продавница на отворено
+          paint: Бои и лакови
+          pawnbroker: Заложница
           pet: Домашни миленици
           pharmacy: Аптека
           photo: Фотографски дуќан
-          salon: Салон
+          seafood: Морска храна
           second_hand: Половна роба
           shoes: Обувки
-          shopping_centre: Трговски центар
           sports: Спортски дуќан
           stationery: Прибор и репроматеријали
           supermarket: Супермаркет
           tailor: Кројач
+          ticket: Билетарница
+          tobacco: Тутунарница
           toys: Продавница за играчки
           travel_agency: Туристичка агенција
+          tyres: Автогуми
+          vacant: Празна продавница
+          variety_store: Сештарница
           video: Видеотека
-          wine: Алкохолни пијалоци
+          wine: Винска продавница
           "yes": Дуќан
         tourism:
           alpine_hut: Планинска куќарка
@@ -881,6 +889,7 @@ mk:
           viewpoint: Видиковец
           zoo: Зоолошка
         tunnel:
+          building_passage: Премин на зграда
           culvert: Пропусен канал
           "yes": Тунел
         waterway:
@@ -912,7 +921,7 @@ mk:
         level10: Населбена граница
     description:
       title:
-        osm_nominatim: Местоположба од <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
+        osm_nominatim: Местоположба од <a href="https://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a>
         geonames: Местоположба од <a href="http://www.geonames.org/">GeoNames</a>
       types:
@@ -972,266 +981,6 @@ mk:
       text: Дарувајте
     learn_more: Дознајте повеќе
     more: Повеќе
-  license_page:
-    foreign:
-      title: За овој превод
-      text: Во случај на спротиставеност помеѓу оваа преведена страница и %{english_original_link},
-        предност има англиската страница
-      english_link: англискиот оригинал
-    native:
-      title: За страницава
-      text: Ја гледате англиската верзија на страницата за авторски права. Можете
-        да се вратите на %{native_link} на оваа страница или пак можете да престанете
-        со читање за авторските права и да %{mapping_link}.
-      native_link: македонската верзија
-      mapping_link: почнете да ги работите картите
-    legal_babble:
-      title_html: Авторски права и лиценца
-      intro_1_html: "OpenStreetMap<sup><a href=\"#trademarks\">&reg;</a></sup> има
-        <i>отворени податоци</i> под лиценцата <a\nhref=\"http://opendatacommons.org/licenses/odbl/\">Open
-        Data\nCommons Open Database License</a> (ODbL) од <a\n \t+\t\nhref=\"http://osmfoundation.org/\">фондацијата
-        OpenStreetMap</a> (OSMF)."
-      intro_2_html: "Нашите податоци слободно можете да ги умножувате, распространувате,
-        предавате и менувате, \nдоколку ја наведете OpenStreetMap и нејзините\nучесници.
-        Доколку ги измените или дополните податоците,\nдобиеното можете да го распространувате
-        само под истата лиценца. Вашите права и одговорност ќе ги најдете\nво целосниот
-        <a\nhref=\"http://opendatacommons.org/licenses/odbl/1.0/\">правен текст</a>."
-      intro_3_html: |-
-        Картографијата во нашите полиња на картите и нашата документација
-        се нудат под лиценцата <a href="http://creativecommons.org/licenses/by-sa/2.0/deed.mk">Криејтив комонс Наведи извор-Сподели под исти услови 2.0</a> (CC-BY-SA).
-      credit_title_html: Како да ја наведете OpenStreetMap
-      credit_1_html: |-
-        Задолжително наведувајте нè со &ldquo;&copy; Учесници на
-        OpenStreetMap &rdquo;.
-      credit_2_html: "Исто така мора јасно да истакнете дека податоците се нудат под
-        \nЛиценцата за отворени бази, и, доколку ги користите нашите полиња на картите,
-        дека\nкартографијата е под лиценцата CC-BY-SA. Ова може да го сторите со ставање
-        на врска\nдо <a href=\"http://www.openstreetmap.org/copyright\">оваа страница
-        за авторство</a>. \nДруга можност (задолжителна ако го распространувате OSM
-        во \nподаточен облик) е непосредно да го наведете името на лиценцата и да
-        ставите врска. \nВо медиумите каде врските не се можни are not possible (на
-        пр. печатени дела), предлагаме \nда ги упатите читателите кон openstreetmap.org
-        (можеби со проширување на \n'OpenStreetMap' на оваа полна адреса), кон opendatacommons.org
-        и\n(ако е релевантно) кон creativecommons.org."
-      credit_3_html: |-
-        Кај пребарливата електронска карта, припишувањето треба да се прикаже во аголот од картата.
-        На пример:
-      attribution_example:
-        alt: Пример за тоа како да ја наведете OpenStreetMap на некоја страница
-        title: Пример за наведување
-      more_title_html: Повеќе информации
-      more_1_html: |-
-        Повеќе за употребата на нашите податоци и како да нè наведете ќе најдете на <a
-        href="http://osmfoundation.org/Licence">лиценцната страница</a>.
-      more_2_html: |-
-        Иако OpenStreetMap работи со отворени податоци, ние не можеме да понудиме
-        бесплатни извршници (API) за карти на трети лица.
-        Погледајте ги <a href="https://operations.osmfoundation.org/policies/api/">правилата за употреба на извршникот</a>,
-        <a href="https://operations.osmfoundation.org/policies/tiles/">правилата за полињата</a>
-        и <a href="https://operations.osmfoundation.org/policies/nominatim/">за Nominatim</a>.
-      contributors_title_html: Нашите учесници
-      contributors_intro_html: |-
-        Во нашиот проект учествуваат илјадници поединци. Користиме и
-        податоци со отворена лиценца од државни картографски установи
-        и други извори, меѓу кои се:
-      contributors_at_html: |-
-        <strong>Австрија</strong>: Содржи податоци од
-        <a href="http://data.wien.gv.at/">Град Виена</a> (под
-        <a href="http://creativecommons.org/licenses/by/3.0/at/deed.mk">CC BY</a>),
-        <a href="http://www.vorarlberg.at/vorarlberg/bauen_wohnen/bauen/vermessung_geoinformation/weitereinformationen/services/wmsdienste.htm">Покраина Предарлска</a> и
-        Покраина Тирол (под <a href="http://www.tirol.gv.at/applikationen/e-government/data/nutzungsbedingungen/">CC-BY AT со исправки</a>).
-      contributors_ca_html: |-
-        <strong>Canada</strong>: Содржи податоци од
-        GeoBase&reg;, GeoGratis (&copy; Министерство за природни ресурси на Канада), CanVec (&copy; Министерство за природни ресурси на Канада), and StatCan (Географско одделение,
-        Статистичка служба на Канада).
-      contributors_fi_html: |-
-        <strong>Финска</strong>: Содржи податоци од топографската база и други ресурси на Државната геодетска служба на Финска, под лиценцата
-        <a href="http://www.maanmittauslaitos.fi/en/NLS_open_data_licence_version1_20120501">NLSFI</a>.
-      contributors_fr_html: |-
-        <strong>Франција</strong>: Содржи податоци од
-        Генералната даночна управа.
-      contributors_nl_html: |-
-        <strong>Холандија</strong>: Содржи &copy; податоци од AND, 2007
-        (<a href="http://www.and.com">www.and.com</a>)
-      contributors_nz_html: |-
-        <strong>Нов Зеланд</strong>: Содржи податоци од
-        Катастарската служба на Нов Зеланд. Крунски авторски права.
-      contributors_si_html: |-
-        <strong>Словенија</strong>: Содржи податоци од
-        <a href="http://www.gu.gov.si/en/">Геодетската управа</a> и
-        <a href="http://www.mkgp.gov.si/en/">Министерството за земјоделство, шумарство и храна</a>
-        (јавни информации од Словенија).
-      contributors_za_html: |-
-        <strong>ЈАР</strong>: Содржи податоци од
-        <a href="http://www.ngi.gov.za/">Главната управа:
-        Национална катастарска служба</a>, државни авторски права задржани.
-      contributors_gb_html: |-
-        <strong>Велика Британија</strong>: Содржи податоци
-        од Картографскиот завод на Обединетото Кралство&copy; Крунски авторски права и
-        права на базата 2010-12.
-      contributors_footer_1_html: |-
-        Повеќе информации за овие и други извори искористени
-        за подобрување на OpenStreetMap ќе најдете на страницата <a
-        href="http://wiki.openstreetmap.org/wiki/Contributors">Учесници</a> на викито на OpenStreetMap.
-      contributors_footer_2_html: |-
-        Употребата на податоците на OpenStreetMap не подразбира дека добавувачот
-        на изворните податоци го застапува или рекламира OpenStreetMap, дава било каква гаранција, или
-        дека прифаќа било каква одговорност.
-      infringement_title_html: Прекршување на авторските права
-      infringement_1_html: |-
-        Би сакале да ги потсетиме учесниците на OSM дека никогаш не смеат да ставаат
-        податоци од извори заштитени со авторски права (на пр. Google Карти или печатени карти) без
-        изрична дозвола од имателите на тие права.
-      infringement_2_html: "Доколку сметате дека базата на OpenStreetMap или ова мрежно
-        место\nсодржи бесправно или неисправно поставени податоци, погледајте ја\n<a
-        href=\"http://www.osmfoundation.org/wiki/License/Takedown_procedure\">процедурата
-        \nза отстранување</a> или поднесете жалба на \n<a href=\"http://dmca.openstreetmap.org/\">оваа
-        наменска страница</a>."
-      trademarks_title_html: <span id="trademarks"></span>Заштитни знаци
-      trademarks_1_html: OpenStreetMap, логото со лупа и  „State of the Map“ („Состојба
-        на картата“) се заштитни знаци на задолжбината OpenStreetMap. Ако имате прашања
-        во врска со употребата на знаците, пишете ѝ на <a href="http://wiki.osmfoundation.org/wiki/Licensing_Working_Group">Работната
-        група за лиценци</a>.
-  welcome_page:
-    title: Добре дојдовте!
-    introduction_html: Добре дојдовте на OpenStreetMap — слободна и уредлива карта
-      на светот. Сега веќе сте регистрирани, што значи дека можете да почнете со работа.
-      Еве мала помош за најважните работи што треба да ги знаете.
-    whats_on_the_map:
-      title: Што има на картата
-      on_html: На OpenStreetMap се ставаат најразчични <em>вистински и тековни</em>
-        нешта — милиони објекти и згради, патишта и други поединости за местата. Можете
-        да ставате сè што постои и што ве интересира.
-      off_html: Она што <em>нема</em> тука да го најдете се судови и вреднувања, историски
-        (повеќе непостоечки) градби, нагаѓања и податоци од извори заштитени со авторски
-        права. Не копирајте и прецртувајте карти од семрежјето или од книги и атласи,
-        освен ако немате посебна дозвола.
-    basic_terms:
-      title: Основни картографски поими
-      paragraph_1_html: OpenStreetMap има свој жаргон. Еве некои корисни поими.
-      editor_html: <strong>Уредник</strong> е програм или мрежно место што се користи
-        за уредување на карти.
-      node_html: <strong>Јазол</strong> е точка на картата, како на пр. извесен ресторан
-        или дрво.
-      way_html: <strong>Пат</strong> е линија или подрачје, како пат, поток, езеро
-        или објект (здание).
-      tag_html: <strong>Ознака</strong> е податок за јазол или пат, како на пр. име
-        на ресторан или дозволената брзина на улица.
-    rules:
-      title: Правила!
-      paragraph_1_html: "OpenStreetMap има само малку формални правила, но очекуваме
-        сите учесници да соработуваат и општат со заедницата. Доколку имате на ум
-        други активности освен рачно уредување, прочитајте и проследете го упатството
-        \n<a href='http://wiki.openstreetmap.org/wiki/Import/Guidelines'>Увоз</a>
-        и \n<a href='http://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct'>Автоматизирани
-        уредувања</a>."
-    questions:
-      title: Имате прашања?
-      paragraph_1_html: |-
-        OpenStreetMap има неколку ресурси каде можете да дознаете за проектот, да поставувате прашања,
-        да водите заедничка дискусија и да документирате картографски теми.
-        <a href='%{help_url}'>Помош ќе добиете тука</a>.
-    start_mapping: Почнете да ги работите картите
-    add_a_note:
-      title: Немате време да уредувате? Ставете белешка.
-      paragraph_1_html: Ако сакате да направите само поситна поправка и немате време
-        да се зачленувате и обучувате, тогаш просто ставете белешка.
-      paragraph_2_html: |-
-        Едноставно појдете на <a href='%{map_url}'>картата</a> и стиснете на иконата со белешка:
-        <span class='icon note'></span>. Со ова ќе ставите бележник на картата, што потоа можете да го преместувате со влечење. Внесете ја пораката, па зачувајте. Другите кратографи потоа ќе иследат за што станува збор.
-  fixthemap:
-    title: Пријава на проблем / Исправка на картата
-    how_to_help:
-      title: Како да помогнете
-      join_the_community:
-        title: Приклучете се во заедницата
-        explanation_html: Ако имате забележано проблем со податоците на нашите карти
-          (на пр. недостасува пат или адреса), најдобро е да се приклучите на заедницата
-          на OpenStreetMap или пак самите да ги исправите податоците.
-      add_a_note:
-        instructions_html: |-
-          Просто стиснете на <a class='icon note'></a> или пак на истата икона од приказникот на картата.
-          Со ова на неа ќе ставите бележник, кој можете да го преместувате со влечење. Ставете ја пораката, па стиснете да зачувате. Потоа другите картографи ќе го иследат проблемот.
-    other_concerns:
-      title: Други проблеми
-      explanation_html: "Ако сте загрижени за тоа како се користат нашите податоци
-        или во врска со содржините, повеќе правни информации ќе добиете на\n<a href='/copyright'>страницата
-        за авторски права</a> или обратете се кај соодветната \n<a href='http://wiki.osmfoundation.org/wiki/Working_Groups'>работна
-        група на OSMF</a>."
-  help_page:
-    title: Помош
-    introduction: |-
-      OpenStreetMap има неколку ресурси каде можете да дознаете за проектот, да поставувате прашања,
-      да водите заедничка дискусија и да документирате картографски теми.
-    welcome:
-      url: /welcome
-      title: Добре дојдовте на OSM
-      description: Започнете со овој брз водич низ основите на OpenStreetMap.
-    beginners_guide:
-      url: http://wiki.openstreetmap.org/wiki/Beginners%27_guide
-      title: Почетен курс
-      description: Напатствија за почетници, напишани од заедницата.
-    help:
-      url: https://help.openstreetmap.org/
-      title: help.openstreetmap.org
-      description: Поставете прашање или побарајте во одговорите на порталот за прашања
-        и одговори на OSM.
-    mailing_lists:
-      title: Поштенски списоци
-      description: Поставете прашање или разговарајте за интересни прашања на широк
-        опсег на тематски и регионални поштенски списоци.
-    forums:
-      title: Форуми
-      description: Прашања и разговори за оние кои претпочитаат да општат со објави.
-    irc:
-      title: IRC
-      description: Разговор во живо на најразлични јазици и на многу теми.
-    switch2osm:
-      title: Преод на OSM
-      description: Помош за претпријатија и организации кои преоѓаат на  карти на
-        OpenStreetMap и други услуги.
-    wiki:
-      url: http://wiki.openstreetmap.org/wiki/Mk:Main_Page
-      title: wiki.openstreetmap.org
-      description: Прелистајте ја подробната документација за OSM на викито.
-  about_page:
-    next: Следно
-    copyright_html: <span>&copy;</span>Учесници на<br>OpenStreetMap
-    used_by: '%{name} обезбедува картографски податоци на илјадници мрежни места,
-      мобилни прилози и сметачки уреди'
-    lede_text: |-
-      OpenStreetMap ја гради заедница од учесници што придонесуваат со свои содржини и ги одржуваат податоците
-      за патишта, патеки, кафеани, железнички станици и многу друго ширум светот.
-    local_knowledge_title: Месни сознанија
-    local_knowledge_html: |-
-      OpenStreetMap полага особена важност на месни сознија. Учесниците користат
-      воздушни снимки, ГПС-уреди и пообични теренски карти
-      со цел да се провери исправноста
-      и актуелноста на OSM.
-    community_driven_title: Проектот го работи заедницата
-    community_driven_html: "Заедницата на OpenStreetMap е разнообразна, посветена
-      и секојдневно расте.\nМеѓу учесниците имаме аматерски картографи, стручњаци
-      во ГИС, технолози што работат со опслужувачите на OSM, \nхуманитарни работници
-      што картираат подрачја погодени \nод катастрофи и разни други.\nПовеќе за заедницата
-      ќе дознаете на <a href='https://blog.openstreetmap.org'>блогот на OpenStreetMap</a>,\n<a
-      href='%{diary_path}'>корисничките дневници</a>,\n<a href='http://blogs.openstreetmap.org/'>блоговите
-      на заедницата</a> и страниците на\n<a href='http://www.osmfoundation.org/'>Фондацијата
-      OSM</a> website."
-    open_data_title: Отворени податоци
-    open_data_html: |-
-      OpenStreetMap е проект со <i>отворени податоци</i>: можете слободно да го користите за било која цел
-      доколку ја наведете OpenStreetMap и нејзините учесници. Ако решите да ги менувате податоците или да се надоврзувате на нив, добиеното дело можете да го распространувате исклучиво
-      под истата лиценца. Повеќе ќе најдете на страницата <a href='%{copyright_path}'>Авторски права и лиценцирање</a>.
-    legal_title: Правни работи
-    legal_html: "Ова мрежно место и многу други поврзани услуги со кои раководи  \n<a
-      href='http://osmfoundation.org/'>Задолжбината OpenStreetMap</a> (OSMF) \nво
-      име на заедницата. Употребата на сите услуги што ги нуди OSMF подлежи на нашите
-      <a href=\"http://wiki.openstreetmap.org/wiki/Acceptable_Use_Policy\">\nПравила
-      за прифатлива употреба</a> и <a href=\"http://wiki.osmfoundation.org/wiki/Privacy_Policy\">Правилата
-      за заштита на личните податоци</a>\n<br> \nВе молиме <a href='http://osmfoundation.org/Contact'>контактирајте
-      ја OSMF</a> \nако имате прашања во врска со лиценцирањето, авторките права и
-      други правни прашања и проблеми."
-    partners_title: Партнери
   notifier:
     diary_comment_notification:
       subject: '[OpenStreetMap] %{user} коментираше на дневничка ставка'
@@ -1264,7 +1013,7 @@ mk:
         more_info_1: Повеќе информации за проблеми при увозот на GPX податотеки, и
           како да
         more_info_2: 'ги избегнете ,ќе најдете на:'
-        import_failures_url: http://wiki.openstreetmap.org/wiki/GPX_Import_Failures?uselang=mk
+        import_failures_url: https://wiki.openstreetmap.org/wiki/GPX_Import_Failures?uselang=mk
       success:
         subject: '[OpenStreetMap] Успешен увоз на GPX-податотека'
         loaded_successfully: успешно се вчита со %{trace_points} од вкупно можни %{possible_points}
@@ -1420,6 +1169,166 @@ mk:
     delete:
       deleted: Пораката е избришана
   site:
+    about:
+      next: Следно
+      copyright_html: <span>&copy;</span>Учесници на<br>OpenStreetMap
+      used_by: '%{name} обезбедува картографски податоци на илјадници мрежни места,
+        мобилни прилози и сметачки уреди'
+      lede_text: |-
+        OpenStreetMap ја гради заедница од учесници што придонесуваат со свои содржини и ги одржуваат податоците
+        за патишта, патеки, кафеани, железнички станици и многу друго ширум светот.
+      local_knowledge_title: Месни сознанија
+      local_knowledge_html: |-
+        OpenStreetMap полага особена важност на месни сознија. Учесниците користат
+        воздушни снимки, ГПС-уреди и пообични теренски карти
+        со цел да се провери исправноста
+        и актуелноста на OSM.
+      community_driven_title: Проектот го работи заедницата
+      community_driven_html: "Заедницата на OpenStreetMap е разнообразна, посветена
+        и секојдневно расте.\nМеѓу учесниците имаме аматерски картографи, стручњаци
+        во ГИС, технолози што работат со опслужувачите на OSM, \nхуманитарни работници
+        што картираат подрачја погодени \nод катастрофи и разни други.\nПовеќе за
+        заедницата ќе дознаете на <a href='https://blog.openstreetmap.org'>блогот
+        на OpenStreetMap</a>,\n<a href='%{diary_path}'>корисничките дневници</a>,\n<a
+        href='https://blogs.openstreetmap.org/'>блоговите на заедницата</a> и страниците
+        на\n<a href='https://www.osmfoundation.org/'>Фондацијата OSM</a> website."
+      open_data_title: Отворени податоци
+      open_data_html: |-
+        OpenStreetMap е проект со <i>отворени податоци</i>: можете слободно да го користите за било која цел
+        доколку ја наведете OpenStreetMap и нејзините учесници. Ако решите да ги менувате податоците или да се надоврзувате на нив, добиеното дело можете да го распространувате исклучиво
+        под истата лиценца. Повеќе ќе најдете на страницата <a href='%{copyright_path}'>Авторски права и лиценцирање</a>.
+      legal_title: Правни работи
+      legal_html: "Ова мрежно место и многу други поврзани услуги со кои раководи
+        \ \n<a href='https://osmfoundation.org/'>Задолжбината OpenStreetMap</a> (OSMF)
+        \nво име на заедницата. Употребата на сите услуги што ги нуди OSMF подлежи
+        на нашите <a href=\"https://wiki.openstreetmap.org/wiki/Acceptable_Use_Policy\">\nПравила
+        за прифатлива употреба</a> и <a href=\"https://wiki.osmfoundation.org/wiki/Privacy_Policy\">Правилата
+        за заштита на личните податоци</a>\n<br> \nВе молиме <a href='https://osmfoundation.org/Contact'>контактирајте
+        ја OSMF</a> \nако имате прашања во врска со лиценцирањето, авторките права
+        и други правни прашања и проблеми.\n<br>\nOpenStreetMap, логото со лупа и
+        „Состојба на картата“ се <a href=\"https://wiki.osmfoundation.org/wiki/Trademark_Policy\">заштитни
+        знаци на OSMF</a>."
+      partners_title: Партнери
+    copyright:
+      foreign:
+        title: За овој превод
+        text: Во случај на спротиставеност помеѓу оваа преведена страница и %{english_original_link},
+          предност има англиската страница
+        english_link: англискиот оригинал
+      native:
+        title: За страницава
+        text: Ја гледате англиската верзија на страницата за авторски права. Можете
+          да се вратите на %{native_link} на оваа страница или пак можете да престанете
+          со читање за авторските права и да %{mapping_link}.
+        native_link: македонската верзија
+        mapping_link: почнете да ги работите картите
+      legal_babble:
+        title_html: Авторски права и лиценца
+        intro_1_html: "OpenStreetMap<sup><a href=\"#trademarks\">&reg;</a></sup> има
+          <i>отворени податоци</i> под лиценцата <a\nhref=\"https://opendatacommons.org/licenses/odbl/\">Open
+          Data\nCommons Open Database License</a> (ODbL) од <a\n \t+\t\nhref=\"https://osmfoundation.org/\">фондацијата
+          OpenStreetMap</a> (OSMF)."
+        intro_2_html: "Нашите податоци слободно можете да ги умножувате, распространувате,
+          предавате и менувате, \nдоколку ја наведете OpenStreetMap и нејзините\nучесници.
+          Доколку ги измените или дополните податоците,\nдобиеното можете да го распространувате
+          само под истата лиценца. Вашите права и одговорност ќе ги најдете\nво целосниот
+          <a\nhref=\"https://opendatacommons.org/licenses/odbl/1.0/\">правен текст</a>."
+        intro_3_html: |-
+          Картографијата во нашите полиња на картите и нашата документација
+          се нудат под лиценцата <a href="https://creativecommons.org/licenses/by-sa/2.0/deed.mk">Криејтив комонс Наведи извор-Сподели под исти услови 2.0</a> (CC-BY-SA).
+        credit_title_html: Како да ја наведете OpenStreetMap
+        credit_1_html: |-
+          Задолжително наведувајте нè со &ldquo;&copy; Учесници на
+          OpenStreetMap &rdquo;.
+        credit_2_html: "Исто така мора јасно да истакнете дека податоците се нудат
+          под \nЛиценцата за отворени бази, и, доколку ги користите нашите полиња
+          на картите, дека\nкартографијата е под лиценцата CC-BY-SA. Ова може да го
+          сторите со ставање на врска\nдо <a href=\"https://www.openstreetmap.org/copyright\">оваа
+          страница за авторство</a>. \nДруга можност (задолжителна ако го распространувате
+          OSM во \nподаточен облик) е непосредно да го наведете името на лиценцата
+          и да ставите врска. \nВо медиумите каде врските не се можни are not possible
+          (на пр. печатени дела), предлагаме \nда ги упатите читателите кон openstreetmap.org
+          (можеби со проширување на \n'OpenStreetMap' на оваа полна адреса), кон opendatacommons.org
+          и\n(ако е релевантно) кон creativecommons.org."
+        credit_3_html: |-
+          Кај пребарливата електронска карта, припишувањето треба да се прикаже во аголот од картата.
+          На пример:
+        attribution_example:
+          alt: Пример за тоа како да ја наведете OpenStreetMap на некоја страница
+          title: Пример за наведување
+        more_title_html: Повеќе информации
+        more_1_html: |-
+          Повеќе за употребата на нашите податоци и како да нè наведете ќе најдете на <a
+          href="https://osmfoundation.org/Licence">лиценцната страница</a>.
+        more_2_html: |-
+          Иако OpenStreetMap работи со отворени податоци, ние не можеме да понудиме
+          бесплатни извршници (API) за карти на трети лица.
+          Погледајте ги <a href="https://operations.osmfoundation.org/policies/api/">правилата за употреба на извршникот</a>,
+          <a href="https://operations.osmfoundation.org/policies/tiles/">правилата за полињата</a>
+          и <a href="https://operations.osmfoundation.org/policies/nominatim/">за Nominatim</a>.
+        contributors_title_html: Нашите учесници
+        contributors_intro_html: |-
+          Во нашиот проект учествуваат илјадници поединци. Користиме и
+          податоци со отворена лиценца од државни картографски установи
+          и други извори, меѓу кои се:
+        contributors_at_html: |-
+          <strong>Австрија</strong>: Содржи податоци од
+          <a href="https://data.wien.gv.at/">Град Виена</a> (под
+          <a href="https://creativecommons.org/licenses/by/3.0/at/deed.mk">CC BY</a>),
+          <a href="https://www.vorarlberg.at/vorarlberg/bauen_wohnen/bauen/vermessung_geoinformation/weitereinformationen/services/wmsdienste.htm">Покраина Предарлска</a> и
+          Покраина Тирол (под <a href="https://www.tirol.gv.at/applikationen/e-government/data/nutzungsbedingungen/">CC-BY AT со исправки</a>).
+        contributors_ca_html: |-
+          <strong>Canada</strong>: Содржи податоци од
+          GeoBase&reg;, GeoGratis (&copy; Министерство за природни ресурси на Канада), CanVec (&copy; Министерство за природни ресурси на Канада), and StatCan (Географско одделение,
+          Статистичка служба на Канада).
+        contributors_fi_html: |-
+          <strong>Финска</strong>: Содржи податоци од топографската база и други ресурси на Државната геодетска служба на Финска, под лиценцата
+          <a href="https://www.maanmittauslaitos.fi/en/opendata-licence-version1">NLSFI</a>.
+        contributors_fr_html: |-
+          <strong>Франција</strong>: Содржи податоци од
+          Генералната даночна управа.
+        contributors_nl_html: |-
+          <strong>Холандија</strong>: Содржи &copy; податоци од AND, 2007
+          (<a href="https://www.and.com">www.and.com</a>)
+        contributors_nz_html: |-
+          <strong>Нов Зеланд</strong>: Содржи податоци од
+          Катастарската служба на Нов Зеланд. Крунски авторски права.
+        contributors_si_html: |-
+          <strong>Словенија</strong>: Содржи податоци од
+          <a href="http://www.gu.gov.si/en/">Геодетската управа</a> и
+          <a href="http://www.mkgp.gov.si/en/">Министерството за земјоделство, шумарство и храна</a>
+          (јавни информации од Словенија).
+        contributors_za_html: |-
+          <strong>ЈАР</strong>: Содржи податоци од
+          <a href="http://www.ngi.gov.za/">Главната управа:
+          Национална катастарска служба</a>, државни авторски права задржани.
+        contributors_gb_html: |-
+          <strong>Велика Британија</strong>: Содржи податоци
+          од Картографскиот завод на Обединетото Кралство&copy; Крунски авторски права и
+          права на базата 2010-12.
+        contributors_footer_1_html: |-
+          Повеќе информации за овие и други извори искористени
+          за подобрување на OpenStreetMap ќе најдете на страницата <a
+          href="https://wiki.openstreetmap.org/wiki/Contributors">Учесници</a> на викито на OpenStreetMap.
+        contributors_footer_2_html: |-
+          Употребата на податоците на OpenStreetMap не подразбира дека добавувачот
+          на изворните податоци го застапува или рекламира OpenStreetMap, дава било каква гаранција, или
+          дека прифаќа било каква одговорност.
+        infringement_title_html: Прекршување на авторските права
+        infringement_1_html: |-
+          Би сакале да ги потсетиме учесниците на OSM дека никогаш не смеат да ставаат
+          податоци од извори заштитени со авторски права (на пр. Google Карти или печатени карти) без
+          изречна дозвола од имателите на тие права.
+        infringement_2_html: "Доколку сметате дека базата на OpenStreetMap или ова
+          мрежно место\nсодржи бесправно или неисправно поставени податоци, погледајте
+          ја\n<a href=\"https://www.osmfoundation.org/wiki/License/Takedown_procedure\">процедурата
+          \nза отстранување</a> или поднесете жалба на \n<a href=\"http://dmca.openstreetmap.org/\">оваа
+          наменска страница</a>."
+        trademarks_title_html: <span id="trademarks"></span>Заштитни знаци
+        trademarks_1_html: OpenStreetMap, логото со лупа и  „State of the Map“ („Состојба
+          на картата“) се заштитни знаци на задолжбината OpenStreetMap. Ако имате
+          прашања во врска со употребата на знаците, погл. <a href="https://wiki.osmfoundation.org/wiki/Trademark_Policy">Работната
+          група за лиценци</a>.
     index:
       js_1: Или користите прелистувач кој не поддржува JavaScript, или пак сте го
         оневозможиле тој програм.
@@ -1439,19 +1348,124 @@ mk:
       user_page_link: корисничка страница
       anon_edits_link_text: Дознајте зошто ова е така.
       flash_player_required: Ќе ви треба Flash-програм за да го користите Potlatch
-        - Flash-уредник за OpenStreetMap. Можете да <a href="http://www.adobe.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">го
-        преземете Flash Player од Adobe.com</a>. Имате и <a href="http://wiki.openstreetmap.org/wiki/Editing">неколку
+        — Flash-уредник за OpenStreetMap. Можете да <a href="https://get.adobe.com/flashplayer/">го
+        преземете Flash Player од Adobe.com</a>. Имате и <a href="https://wiki.openstreetmap.org/wiki/Editing">неколку
         други можности</a> за уредување на OpenStreetMap.
       potlatch_unsaved_changes: Имате незачувани промени. (За да зачувате во Potlatch,
         треба го одселектирате тековниот пат или точка, ако уредувате во живо, или
         стиснете на „зачувај“ ако го имате тоа копче.)
-      potlatch2_not_configured: Potlatch 2 не е поставен - погледајте ја страницата
-        http://wiki.openstreetmap.org/wiki/The_Rails_Port
+      potlatch2_not_configured: Potlatch 2 не е поставен — погледајте ја страницата
+        https://wiki.openstreetmap.org/wiki/The_Rails_Port
       potlatch2_unsaved_changes: Имате незачувани промени. (Зачувувањето во Potlatch
         2 се врши со стискање на „зачувај“.)
       id_not_configured: Не му се зададени поставки на уредувачкиот програм „iD“
       no_iframe_support: Вашиот прелистувач не поддржува „иРамки“ (iframes) со HTML,
         без кои оваа можност не може да работи.
+    export:
+      title: Извези
+      area_to_export: Простор за извоз
+      manually_select: Рачно изберете друга површина
+      format_to_export: Формат за извоз
+      osm_xml_data: OpenStreetMap XML податоци
+      map_image: Слика на картата (прикажува стандарден слој)
+      embeddable_html: HTML-код за вметнување
+      licence: Лиценца
+      export_details: Податоците на OpenStreetMap се нудат под <a href="https://opendatacommons.org/licenses/odbl/1.0/">Лиценцата
+        за отворени бази на Складиштето на отворени податоци</a> (ODbL, Open Data
+        Commons Open Database License).
+      too_large:
+        advice: 'Ако не успее увозот погоре, послужете се со некој од долунаведените
+          извори:'
+        body: 'Подрачјето е преголемо за да може да се извезе како XML-податоци. Приближете
+          или изберете помала површина. Можете и да се послужите со еден од следниве
+          извори за крупно преземање:'
+        planet:
+          title: Планетата на OSM
+          description: Редовно подновувани примероци на целата база на OpenStreetMap
+        overpass:
+          title: Извршник „Надвозник“
+          description: Преземете ја оваа рамка од огледална база на базата на OpenStreetMap
+        geofabrik:
+          title: Преземања на Geofabrik
+          description: Редовно подновувани извадоци од континенти, земји и избрани
+            градови
+        metro:
+          title: Метроизвадоци
+          description: Извадоци за поважните градови во свеетот и нивните околни подрачја
+        other:
+          title: Други извори
+          description: Другите извори се наведени на викито на OpenStreetMap
+      options: Нагодувања
+      format: Формат
+      scale: Размер
+      max: најв.
+      image_size: Големина на сликата
+      zoom: Приближи
+      add_marker: Додај бележник на картата
+      latitude: Г.Ш.
+      longitude: Г.Д.
+      output: Излезни податоци
+      paste_html: Ископирајте го HTML кодот за да го вметнете во страницата.
+      export_button: Извези
+    fixthemap:
+      title: Пријава на проблем / Исправка на картата
+      how_to_help:
+        title: Како да помогнете
+        join_the_community:
+          title: Приклучете се во заедницата
+          explanation_html: Ако имате забележано проблем со податоците на нашите карти
+            (на пр. недостасува пат или адреса), најдобро е да се приклучите на заедницата
+            на OpenStreetMap или пак самите да ги исправите податоците.
+        add_a_note:
+          instructions_html: |-
+            Просто стиснете на <a class='icon note'></a> или пак на истата икона од приказникот на картата.
+            Со ова на неа ќе ставите бележник, кој можете да го преместувате со влечење. Ставете ја пораката, па стиснете да зачувате. Потоа другите картографи ќе го иследат проблемот.
+      other_concerns:
+        title: Други проблеми
+        explanation_html: "Ако сте загрижени за тоа како се користат нашите податоци
+          или во врска со содржините, повеќе правни информации ќе добиете на\n<a href='/copyright'>страницата
+          за авторски права</a> или обратете се кај соодветната \n<a href='https://wiki.osmfoundation.org/wiki/Working_Groups'>работна
+          група на OSMF</a>."
+    help:
+      title: Помош
+      introduction: |-
+        OpenStreetMap има неколку ресурси каде можете да дознаете за проектот, да поставувате прашања,
+        да водите заедничка дискусија и да документирате картографски теми.
+      welcome:
+        url: /welcome
+        title: Добре дојдовте на OSM
+        description: Започнете со овој брз водич низ основите на OpenStreetMap.
+      beginners_guide:
+        url: https://wiki.openstreetmap.org/wiki/Beginners%27_guide
+        title: Почетен курс
+        description: Напатствија за почетници, напишани од заедницата.
+      help:
+        url: https://help.openstreetmap.org/
+        title: help.openstreetmap.org
+        description: Поставете прашање или побарајте во одговорите на порталот за
+          прашања и одговори на OSM.
+      mailing_lists:
+        url: http://lists.openstreetmap.org/
+        title: Поштенски списоци
+        description: Поставете прашање или разговарајте за интересни прашања на широк
+          опсег на тематски и регионални поштенски списоци.
+      forums:
+        url: http://forum.openstreetmap.org/
+        title: Форуми
+        description: Прашања и разговори за оние кои претпочитаат да општат со објави.
+      irc:
+        url: http://irc.openstreetmap.org/
+        title: IRC
+        description: Разговор во живо на најразлични јазици и на многу теми.
+      switch2osm:
+        url: https://switch2osm.org/
+        title: Преод на OSM
+        description: Помош за претпријатија и организации кои преоѓаат на  карти на
+          OpenStreetMap и други услуги.
+      wiki:
+        url: https://wiki.openstreetmap.org/wiki/Mk:Main_Page
+        title: wiki.openstreetmap.org
+        description: Прелистајте ја подробната документација за OSM на викито.
     sidebar:
       search_results: Исход од пребарувањето
       close: Затвори
@@ -1464,6 +1478,7 @@ mk:
       where_am_i: Каде е ова?
       where_am_i_title: Опишете ја тековната местоположба со помош на пребарувачот
       submit_text: Дај
+      reverse_directions_text: Смени насока
     key:
       table:
         entry:
@@ -1538,7 +1553,7 @@ mk:
       edit: Уреди
       preview: Преглед
     markdown_help:
-      title_html: Парсирано со <a href="http://daringfireball.net/projects/markdown/">Markdown</a>
+      title_html: Расчленето со <a href="https://daringfireball.net/projects/markdown/">Markdown</a>
       headings: Наслови
       heading: Наслов
       subheading: Поднаслов
@@ -1551,6 +1566,53 @@ mk:
       image: Слика
       alt: Алтернативен текст
       url: URL
+    welcome:
+      title: Добре дојдовте!
+      introduction_html: Добре дојдовте на OpenStreetMap — слободна и уредлива карта
+        на светот. Сега веќе сте регистрирани, што значи дека можете да почнете со
+        работа. Еве мала помош за најважните работи што треба да ги знаете.
+      whats_on_the_map:
+        title: Што има на картата
+        on_html: На OpenStreetMap се ставаат најразчични <em>вистински и тековни</em>
+          нешта — милиони објекти и згради, патишта и други поединости за местата.
+          Можете да ставате сè што постои и што ве интересира.
+        off_html: Она што <em>нема</em> тука да го најдете се судови и вреднувања,
+          историски (повеќе непостоечки) градби, нагаѓања и податоци од извори заштитени
+          со авторски права. Не копирајте и прецртувајте карти од семрежјето или од
+          книги и атласи, освен ако немате посебна дозвола.
+      basic_terms:
+        title: Основни картографски поими
+        paragraph_1_html: OpenStreetMap има свој жаргон. Еве некои корисни поими.
+        editor_html: <strong>Уредник</strong> е програм или мрежно место што се користи
+          за уредување на карти.
+        node_html: <strong>Јазол</strong> е точка на картата, како на пр. извесен
+          ресторан или дрво.
+        way_html: <strong>Пат</strong> е линија или подрачје, како пат, поток, езеро
+          или објект (здание).
+        tag_html: <strong>Ознака</strong> е податок за јазол или пат, како на пр.
+          име на ресторан или дозволената брзина на улица.
+      rules:
+        title: Правила!
+        paragraph_1_html: "OpenStreetMap има само малку формални правила, но очекуваме
+          сите учесници да соработуваат и општат со заедницата. Доколку имате на ум
+          други активности освен рачно уредување, прочитајте и проследете го упатството
+          \n<a href='https://wiki.openstreetmap.org/wiki/Import/Guidelines'>Увоз</a>
+          и \n<a href='https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct'>Автоматизирани
+          уредувања</a>."
+      questions:
+        title: Имате прашања?
+        paragraph_1_html: |-
+          OpenStreetMap има неколку ресурси каде можете да дознаете за проектот, да поставувате прашања,
+          да водите заедничка дискусија и да документирате картографски теми.
+          <a href='%{help_url}'>Помош ќе добиете тука</a>.
+      start_mapping: Почнете да ги работите картите
+      add_a_note:
+        title: Немате време да уредувате? Ставете белешка.
+        paragraph_1_html: Ако сакате да направите само поситна поправка и немате време
+          да се зачленувате и обучувате, тогаш просто ставете белешка.
+        paragraph_2_html: |-
+          Едноставно појдете на <a href='%{map_url}'>картата</a> и стиснете на иконата со белешка:
+          <span class='icon note'></span>. Со ова ќе ставите бележник на картата, што потоа можете да го преместувате со влечење. Внесете ја пораката, па зачувајте. Другите кратографи потоа ќе иследат за што станува збор.
   trace:
     visibility:
       private: Доверливо (споделено само како анонимни, неподредени точки)
@@ -1581,7 +1643,7 @@ mk:
       save_button: Зачувај промени
       visibility: 'Видливост:'
       visibility_help: што значи ова?
-      visibility_help_url: http://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces?uselang=mk
+      visibility_help_url: https://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces?uselang=mk
     trace_form:
       upload_gpx: 'Подгни GPX -одатотека:'
       description: 'Опис:'
@@ -1589,14 +1651,14 @@ mk:
       tags_help: одделено со запирка
       visibility: 'Видливост:'
       visibility_help: што значи ова?
-      visibility_help_url: http://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces?uselang=mk
+      visibility_help_url: https://wiki.openstreetmap.org/wiki/Visibility_of_GPS_traces?uselang=mk
       upload_button: Подигни
       help: Помош
-      help_url: http://wiki.openstreetmap.org/wiki/Upload?uselang=mk
+      help_url: https://wiki.openstreetmap.org/wiki/Upload?uselang=mk
     trace_header:
       upload_trace: Подигни трага
       see_all_traces: Погледајте ги сите траги
-      see_your_traces: Погледајте ги сите траги
+      see_my_traces: Мои траги
       traces_waiting:
         one: Имате %{count} трага што чека на подигање. Би ве посоветувале да ја почекате
           да заврши пред да подигате други, за да не ја кочите редицата во која чекаат
@@ -1625,6 +1687,7 @@ mk:
       delete_track: Избриши ја трагава
       trace_not_found: Трагата не беше најдена!
       visibility: 'Видливост:'
+      confirm_delete: Да ја избришам трагава?
     trace_paging_nav:
       showing_page: Страница %{page}
       older: Постари траги
@@ -1647,12 +1710,12 @@ mk:
       map: карта
     list:
       public_traces: Јавни ГПС-траги
-      your_traces: Ваши ГПС-траги
+      my_traces: Мои ГПС-траги
       public_traces_from: Јавни ГПС-траги од %{user}
       description: Прелистување на скороподигнати ГПС-траги
       tagged_with: '  означено со %{tags}'
       empty_html: Тука сè уште нема ништо. <a href='%{upload_link}'>Подигнете нова
-        трага</a> или дознајте повеќе за ГПС-трагите на <a href='http://wiki.openstreetmap.org/wiki/Mk:Beginners_Guide_1.2'>нивната
+        трага</a> или дознајте повеќе за ГПС-трагите на <a href='https://wiki.openstreetmap.org/wiki/Mk:Beginners_Guide_1.2'>нивната
         викстраница</a>.
     delete:
       scheduled_for_deletion: Трагата е закажана за бришење
@@ -1685,7 +1748,7 @@ mk:
         Најавете се на мрежниот посредник за да ги погледате Условите за учесниците.
         Нема потреба да се согласувате со услоците, но мора да ги прочитате.
   oauth:
-    oauthorize:
+    authorize:
       title: Овластете пристап до вашата сметка
       request_access: Извршникот %{app_name} бара пристап до вашата сметка, %{user}.
         Видете дали би сакале извршникот да ги има следните можности. Можете да одберете
@@ -1699,11 +1762,11 @@ mk:
       allow_write_gpx: подига ГПС-траги.
       allow_write_notes: измена на белешки.
       grant_access: Дај пристап
-    oauthorize_success:
+    authorize_success:
       title: Барањето за овластување е дозволено
       allowed: На извршникот %{app_name} му дадовте пристап до вашата сметка.
       verification: Потврдниот код гласи %{code}.
-    oauthorize_failure:
+    authorize_failure:
       title: Барањето за овластување не успеа
       denied: На извршникот %{app_name} му го одбивте пристапот до вашата сметка.
       invalid: Шифрата за овластување е неважечка.
@@ -1862,12 +1925,12 @@ mk:
           <p>За разлика од некои други карти, OpenStreetMap во целост ја изработуваат луѓе како вас. Секој слободно може да врши поправки, да ја подновува, да ја презема и користи.</p>
           <p>Регистрирајте се за да почнете со ваше учество. Ќе ви испратиме потврда за сметката по е-пошта.</p>
       license_agreement: Кога ќе ја потврдите вашата сметка, ќе треба да се согласите
-        со <a href="http://www.osmfoundation.org/wiki/License/Contributor_Terms">условите
+        со <a href="https://www.osmfoundation.org/wiki/License/Contributor_Terms">условите
         за учесници</a>.
       email address: 'Е-пошта:'
       confirm email address: 'Потврдете ја е-поштата:'
       not displayed publicly: Вашата адреса нема да се прикажува јавно. Повеќе информации
-        за ова ќе најдете во <a href="http://wiki.osmfoundation.org/wiki/Privacy_Policy"
+        за ова ќе најдете во <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy"
         title="OSMF privacy policy including section on email addresses">Правилата
         за заштита на личните податоци</a>.
       display name: 'Име за приказ:'
@@ -1883,7 +1946,7 @@ mk:
       terms accepted: Ви благодариме што ги прифативте новите услови за учество!
       terms declined: Жалиме што не се согласувате со новите Услови за учество. Повеќе
         информации ќе најдете на <a href="%{url}">оваа страница</a>.
-      terms declined url: http://wiki.openstreetmap.org/wiki/Contributor_Terms_Declined?uselang=mk
+      terms declined url: https://wiki.openstreetmap.org/wiki/Contributor_Terms_Declined?uselang=mk
     terms:
       title: Услови на учество
       heading: Услови на учество
@@ -1893,11 +1956,11 @@ mk:
       consider_pd: Покрај горенаведената согласност, сметам дека мојот придонес е
         во јавна сопственост
       consider_pd_why: Што е ова?
-      consider_pd_why_url: http://www.osmfoundation.org/wiki/License/Why_would_I_want_my_contributions_to_be_public_domain?uselang=mk
+      consider_pd_why_url: https://www.osmfoundation.org/wiki/License/Why_would_I_want_my_contributions_to_be_public_domain?uselang=mk
       guidance: 'Информации што ќе ви помогнат да ги разберете овие услови: a <a href="%{summary}">краток
         опис</a> и некои <a href="%{translations}">неформали преводи</a>'
       agree: Се согласувам
-      declined: http://wiki.openstreetmap.org/wiki/Contributor_Terms_Declined?uselang=mk
+      declined: https://wiki.openstreetmap.org/wiki/Contributor_Terms_Declined?uselang=mk
       decline: Одбиј
       you need to accept or decline: Прочитајте ги новите Услови за учество, а потоа
         согласете се или одбијте ги.
@@ -1948,7 +2011,7 @@ mk:
       if set location: Задајте ја вашата местоположба на страницата %{settings_link}
         за да ги видите соседните корисници околу вас.
       settings_link_text: прилагодувања
-      your friends: Ваши пријатели
+      my friends: Мои пријатели
       no friends: Сè уште немате додадено пријатели.
       km away: '%{count} км од вас'
       m away: '%{count} м од вас'
@@ -1991,12 +2054,12 @@ mk:
       email never displayed publicly: (никогаш не се прикажува јавно)
       external auth: 'Надворешна заверка:'
       openid:
-        link: http://wiki.openstreetmap.org/wiki/MK:OpenID?uselang=mk
+        link: https://wiki.openstreetmap.org/wiki/MK:OpenID?uselang=mk
         link text: што е ова?
       public editing:
         heading: 'Јавно уредување:'
         enabled: Овозможено. Сега не е анонимно и може да се уредуваат податоци.
-        enabled link: http://wiki.openstreetmap.org/wiki/Anonymous_edits
+        enabled link: https://wiki.openstreetmap.org/wiki/Anonymous_edits
         enabled link text: што е ова?
         disabled: Оневозможено и не може да се уредуваат податоци, сите претходни
           уредувања се анонимни.
@@ -2007,7 +2070,7 @@ mk:
           порака или да ви ја видат местоположбата. За да покажете што уредувате и
           да овозможите корисниците да ве контактираат преку оваа страница, стиснете
           на копчето подолу. <b>По преодот на 0.6 API, само јавни корисници можат
-          да уредуваат податоци на карти</b>. (<a href="http://wiki.openstreetmap.org/wiki/Anonymous_edits">дознајте
+          да уредуваат податоци на карти</b>. (<a href="https://wiki.openstreetmap.org/wiki/Anonymous_edits">дознајте
           зошто</a>).<ul> <li>Ако станете јавен корисник, вашата е-пошта сепак нема
           да се открие.</li> <li>Оваа постапка не може да се врати, и сите нови корисници
           сега се автоматски јавни.</li> </ul>
@@ -2019,7 +2082,7 @@ mk:
           и прифатите новите Услови за учество
         agreed_with_pd: Исто така изјавивте дека вашите уредувања ги сметате за јавна
           сопственост.
-        link: http://www.osmfoundation.org/wiki/License/Contributor_Terms?uselang=mk
+        link: https://www.osmfoundation.org/wiki/License/Contributor_Terms?uselang=mk
         link text: што е ова?
       profile description: 'Опис за профилот:'
       preferred languages: 'Претпочитани јазици:'
@@ -2027,7 +2090,7 @@ mk:
       image: 'Слика:'
       gravatar:
         gravatar: Користи Gravatar
-        link: http://wiki.openstreetmap.org/wiki/Gravatar?uselang=mk
+        link: https://wiki.openstreetmap.org/wiki/Gravatar?uselang=mk
         link text: што е ова?
         disabled: Граватарот е исклучен.
         enabled: Вашиот граватар е вклучен.
@@ -2136,6 +2199,8 @@ mk:
       not_a_role: Низата `%{role}' не претставува важечка улога.
       already_has_role: Корисникот веќе ја има улогата %{role}.
       doesnt_have_role: Корисникот ја нема улогата %{role}.
+      not_revoke_admin_current_user: Не можам да му ја одземам администраторската
+        улога на тековниот корисник.
     grant:
       title: Потврди доделување на улога
       heading: Потврди доделување на улога
@@ -2152,7 +2217,7 @@ mk:
       confirm: Потврди
       fail: Не можев да го лишам корисникот`%{name}' од улогата `%{role}'. Проверете
         дали корисникот и улогата се важечки.
-  user_block:
+  user_blocks:
     model:
       non_moderator_update: Морате да бидете модератор за да правите или подновувате
         блокови.
@@ -2213,20 +2278,6 @@ mk:
     period:
       one: еден час
       other: '%{count} часа'
-    partial:
-      show: Прикажи
-      edit: Уреди
-      revoke: Поништи!
-      confirm: Дали сте сигурни?
-      display_name: Блокиран корисник
-      creator_name: Создавач
-      reason: Причина за блокирање
-      status: Статус
-      revoker_name: 'Поништил:'
-      not_revoked: (не се поништува)
-      showing_page: Страница %{page}
-      next: Следна »
-      previous: « Претходна
     helper:
       time_future: Истекува за %{time}.
       until_login: Активно додека не се најави корисникот.
@@ -2256,8 +2307,22 @@ mk:
       back: Преглед на сите блокови
       revoker: 'Поништувач:'
       needs_view: Овој корисник мора да се најави пред да се исчисти блокот.
-  note:
-    description:
+    block:
+      not_revoked: (не се поништува)
+      show: Прикажи
+      edit: Уреди
+      revoke: Поништи!
+    blocks:
+      display_name: Блокиран корисник
+      creator_name: Создавач
+      reason: Причина за блокирање
+      status: Статус
+      revoker_name: 'Поништил:'
+      showing_page: Страница %{page}
+      next: Следна »
+      previous: « Претходна
+  notes:
+    comment:
       opened_at_html: Создадена пред %{when}
       opened_at_by_html: Создадена пред %{when} од %{user}
       commented_at_html: Подновена пред %{when}
@@ -2382,20 +2447,31 @@ mk:
         mapquest_car: Автомобил (MapQuest)
         mapquest_foot: Пешки (MapQuest)
         osrm_car: Автомобил (OSRM)
-        mapzen_bicycle: Велосипед (Mapzen)
-        mapzen_car: Автомобил (Mapzen)
-        mapzen_foot: Пешки (Mapzen)
       descend: Надолно
       directions: Насоки
       distance: Растојание
       errors:
         no_route: Не можев да најдам маршрута помеѓу тие две места.
-        no_place: За жал, не можев да го најдам тоа место.
+        no_place: За жал, не можев да го најдам  местото „%{place}“.
       instructions:
         continue_without_exit: Продолжете на %{name}
         slight_right_without_exit: Малку надесно на %{name}
-        offramp_right_without_exit: На десниот исклучок, свртете на %{name}
-        onramp_right_without_exit: Исклучете се десно, одејќи на %{name}
+        offramp_right: Свртете на излезот десно
+        offramp_right_with_exit: Свртете на излезот %{exit} десно
+        offramp_right_with_exit_name: Свртете на излезот %{exit} десно на %{name}
+        offramp_right_with_exit_directions: Свртете на излезот %{exit} десно кон %{directions}
+        offramp_right_with_exit_name_directions: Свртете на излезот %{exit} десно
+          на %{name}, кон %{directions}
+        offramp_right_with_name: На излезот десно, исклучете се на %{name}
+        offramp_right_with_directions: На излезот десно, свртете кон %{directions}
+        offramp_right_with_name_directions: На излезот десно, свртете на %{name} кон
+          %{directions}
+        onramp_right_without_exit: На влезот десно приклучете се на %{name}
+        onramp_right_with_directions: Свртете на влезот десно кон %{directions}
+        onramp_right_with_name_directions: На влезот десно приклучете се на %{name},
+          кон %{directions}
+        onramp_right_without_directions: Свртете во влезот десно
+        onramp_right: Свртете во влезот десно
         endofroad_right_without_exit: На крајот од патот свртете десно на %{name}
         merge_right_without_exit: Навлезете десно во %{name}
         fork_right_without_exit: На разгранокот свртете десно на %{name}
@@ -2404,29 +2480,53 @@ mk:
         uturn_without_exit: Полукружно свртете долж %{name}
         sharp_left_without_exit: Остро налево на %{name}
         turn_left_without_exit: Свртете лево на %{name}
-        offramp_left_without_exit: На левиот исклучок, свртете на %{name}
-        onramp_left_without_exit: Исклучете се лево, одејќи на %{name}
+        offramp_left: Свртете на излезот лево
+        offramp_left_with_exit: Свртете на излезот %{exit} лево
+        offramp_left_with_exit_name: Свртете на излезот %{exit} лево на %{name}
+        offramp_left_with_exit_directions: Свртете на излезот %{exit} лево кон на
+          %{directions}
+        offramp_left_with_exit_name_directions: Свртете на излезот %{exit} лево на
+          %{name}, кон %{directions}
+        offramp_left_with_name: На левиот исклучок, свртете на %{name}
+        offramp_left_with_directions: На излезот лево, свртете кон %{directions}
+        offramp_left_with_name_directions: На излезот лево, свртете на %{name} кон
+          %{directions}
+        onramp_left_without_exit: На влезот лево приклучете се на %{name}
+        onramp_left_with_directions: Свртете на влезот лево кон %{directions}
+        onramp_left_with_name_directions: На влезот лево приклучете се на %{name},
+          кон %{directions}
+        onramp_left_without_directions: Свртете во влезот лево
+        onramp_left: Свртете во влезот лево
         endofroad_left_without_exit: На крајот од патот свртете лево на %{name}
         merge_left_without_exit: Навлезете лево во %{name}
         fork_left_without_exit: На разгранокот свртете лево на %{name}
         slight_left_without_exit: Малку налево на %{name}
         via_point_without_exit: (преку точката)
         follow_without_exit: Следете го %{name}
-        roundabout_without_exit: На кружниот тек свртете на %{name}
+        roundabout_without_exit: На кружниот тек излезете на %{name}
         leave_roundabout_without_exit: Напуштете го кружниот тек — %{name}
         stay_roundabout_without_exit: Останете на кружниот тек — %{name}
-        start_without_exit: Почнете на крајот од %{name}
+        start_without_exit: Почнете на %{name}
         destination_without_exit: Стигнавте на одредиштето
         against_oneway_without_exit: Оди обратно во еднонасочната на %{name}
         end_oneway_without_exit: Крај на еднонасочната на %{name}
         roundabout_with_exit: На кружниот тек, свртете на %{exit} излегувајќи на %{name}
-        turn_left_with_exit: На кружниот тек свртете лево на %{name}
-        slight_left_with_exit: На кружниот тек благо лево на %{name}
-        turn_right_with_exit: На кружниот тек свртете десно на %{name}
-        slight_right_with_exit: На кружниот тек благо десно на %{name}
-        continue_with_exit: На кружниот тек продолжете право на %{name}
+        roundabout_with_exit_ordinal: На кружниот тек, свртете на %{exit} излез кон
+          %{name}
+        exit_roundabout: Излезете од кружниот тек кон %{name}
         unnamed: неименувано
         courtesy: Насоките ги добивте благодарение на %{link}
+        exit_counts:
+          first: првиот
+          second: вториот
+          third: третиот
+          fourth: четвртиот
+          fifth: петтиот
+          sixth: шестиот
+          seventh: седмиот
+          eighth: осмиот
+          ninth: деветтиот
+          tenth: десеттиот
       time: Време
     query:
       node: Јазол
@@ -2442,7 +2542,7 @@ mk:
       show_address: Прикажи адреса
       query_features: Можности за барања
       centre_map: Тука сосредоточи ја картата
-  redaction:
+  redactions:
     edit:
       description: Опис
       heading: Уреди редакција

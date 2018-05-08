@@ -33,7 +33,7 @@ class TraceController < ApplicationController
     @title = if target_user.nil?
                t "trace.list.public_traces"
              elsif current_user && current_user == target_user
-               t "trace.list.your_traces"
+               t "trace.list.my_traces"
              else
                t "trace.list.public_traces_from", :user => target_user.display_name
              end
@@ -119,9 +119,7 @@ class TraceController < ApplicationController
         if @trace.id
           flash[:notice] = t "trace.create.trace_uploaded"
 
-          if current_user.traces.where(:inserted => false).count > 4
-            flash[:warning] = t "trace.trace_header.traces_waiting", :count => current_user.traces.where(:inserted => false).count
-          end
+          flash[:warning] = t "trace.trace_header.traces_waiting", :count => current_user.traces.where(:inserted => false).count if current_user.traces.where(:inserted => false).count > 4
 
           redirect_to :action => :list, :display_name => current_user.display_name
         end
@@ -176,9 +174,7 @@ class TraceController < ApplicationController
         @trace.description = params[:trace][:description]
         @trace.tagstring = params[:trace][:tagstring]
         @trace.visibility = params[:trace][:visibility]
-        if @trace.save
-          redirect_to :action => "view", :display_name => current_user.display_name
-        end
+        redirect_to :action => "view", :display_name => current_user.display_name if @trace.save
       end
     end
   rescue ActiveRecord::RecordNotFound
@@ -190,13 +186,13 @@ class TraceController < ApplicationController
 
     if !trace.visible?
       head :not_found
-    elsif current_user.nil? || trace.user != current_user
+    elsif current_user.nil? || (trace.user != current_user && !current_user.administrator? && !current_user.moderator?)
       head :forbidden
     else
       trace.visible = false
       trace.save
       flash[:notice] = t "trace.delete.scheduled_for_deletion"
-      redirect_to :action => :list, :display_name => current_user.display_name
+      redirect_to :action => :list, :display_name => trace.user.display_name
     end
   rescue ActiveRecord::RecordNotFound
     head :not_found
@@ -205,9 +201,7 @@ class TraceController < ApplicationController
   def georss
     @traces = Trace.visible_to_all.visible
 
-    if params[:display_name]
-      @traces = @traces.joins(:user).where(:users => { :display_name => params[:display_name] })
-    end
+    @traces = @traces.joins(:user).where(:users => { :display_name => params[:display_name] }) if params[:display_name]
 
     @traces = @traces.tagged(params[:tag]) if params[:tag]
     @traces = @traces.order("timestamp DESC")

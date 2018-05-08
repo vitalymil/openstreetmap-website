@@ -2,6 +2,7 @@
 # Exported from translatewiki.net
 # Export driver: phpyaml
 # Author: Meno25
+# Author: علاء
 ---
 arz:
   activerecord:
@@ -184,34 +185,10 @@ arz:
       all:
         title: مدخلات اليوميه فى خريطه الشارع المفتوحة
         description: المدخلات الحديثه فى يوميه مستخدمى خريطه الشارع المفتوحة
-  export:
-    start:
-      area_to_export: المنطقه المطلوب تصديرها
-      manually_select: اختر يدويًا منطقه أخرى
-      format_to_export: الهيئه المطلوب تصديرها
-      osm_xml_data: معطيات خريطه الطريق المفتوح بنسق إكس أم أل
-      embeddable_html: HTML مضمن
-      licence: الرخصة
-      export_details: بيانات خريطه الشارع المفتوحه مرخصه تحت <a href="http://creativecommons.org/licenses/by-sa/2.0/">رخصه
-        المشاع الإبداعى، النسبه، نسخه 2.0</a>.
-      options: خيارات
-      format: الهيئة
-      scale: القياس
-      max: الأقصى
-      image_size: حجم الصورة
-      zoom: تكبير
-      add_marker: أضف علامه على الخريطة
-      latitude: 'خط العرض:'
-      longitude: 'خط الطول:'
-      output: الخرج
-      paste_html: ألصق HTML لتضمينه فى موقع ما
-      export_button: صدِّر
   geocoder:
     search:
       title:
         latlon: نتائج <a href="http://openstreetmap.org/">داخليًا</a>
-        uk_postcode: نتائج من <a href="http://www.npemap.org.uk/">NPEMap / FreeThe
-          Postcode</a>
         ca_postcode: نتائج من <a href="http://geocoder.ca/">Geocoder.CA</a>
         osm_nominatim: نتائج من <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a>
@@ -242,29 +219,22 @@ arz:
           crematorium: محرقه جثث
           dentist: طبيب أسنان
           doctors: أطباء
-          dormitory: عنبر نوم
           drinking_water: مياه عذبة
           driving_school: مدرسه تعليم قيادة
           embassy: سفارة
-          emergency_phone: هاتف طوارئ
           fast_food: وجبات سريعة
           ferry_terminal: مرسى عبّارة
-          fire_hydrant: مواد مكافحه حرائق
           fire_station: فوج إطفاء
           fountain: نافورة
           fuel: وقود
           grave_yard: مقبرة
-          gym: مركز للرشاقة/الرياضة
-          health_centre: مركز صحي
           hospital: مستشفى
           hunting_stand: مربط للصيد
           ice_cream: مثلجات
           kindergarten: حضانه أطفال
           library: مكتبة
-          market: سوق
           marketplace: سوق
           nightclub: نادى ليلي
-          nursery: رعايه تمريضية
           nursing_home: دار رعايه مسنين/معاقين
           office: مكتب
           parking: موقف سيارات
@@ -277,7 +247,6 @@ arz:
           prison: سجن
           pub: حانة
           public_building: مبنى عام
-          reception_area: منطقه استقبال
           recycling: نقطه إعاده تصنيع
           restaurant: مطعم
           sauna: حمّام بخارى حار
@@ -329,7 +298,6 @@ arz:
           trunk: طريق رئيسي
           trunk_link: طريق رئيسي
           unclassified: طريق غير مصنّف
-          unsurfaced: طريق غير معبد
         historic:
           archaeological_site: موقع أثري
           battlefield: ساحه معركة
@@ -422,7 +390,6 @@ arz:
           wetland: أرض رطبة
           wood: حرج
         place:
-          airport: مطار
           city: مدينة
           country: دولة
           county: مقاطعة
@@ -433,7 +400,6 @@ arz:
           island: جزيرة
           islet: جزيره صغيرة
           locality: محلة
-          moor: أرض جرداء
           municipality: بلدية
           postcode: الرمز البريدي
           region: منطقة
@@ -447,9 +413,7 @@ arz:
           abandoned: سكه حديد مهجورة
           construction: سكه حديديه تحت الإنشاء
           disused: سكه حديد مهجورة
-          disused_station: محطه سكه حديد مهجورة
           halt: موقف قطار
-          historic_station: محطه سكه حديد تاريخية
           junction: تقاطع سكك حديدية
           level_crossing: تقاطع سكك حديدية
           monorail: قطار ذات سكه حديد واحدة
@@ -495,7 +459,6 @@ arz:
           grocery: بقالة
           hairdresser: مزين/مصفف شعر
           hardware: متجر عتاد
-          insurance: بوليسات تأمين
           jewelry: متجر مجوهرات
           kiosk: كشك
           laundry: مصبغة
@@ -510,9 +473,7 @@ arz:
           outdoor: متجر للنشاطات الخارجية
           pet: متجر حيوانات أليفة
           photo: متجر صور
-          salon: صالون
           shoes: متجر أحذية
-          shopping_centre: مركز التسوق
           sports: متجر رياضة
           stationery: محل قرطاسية
           supermarket: سوبرماركت
@@ -713,6 +674,27 @@ arz:
       potlatch_unsaved_changes: لديك تغييرات غير محفوظه. (للحفظ فى Potlatch، يجب إلغاء
         الطريق أو النقطه الحاليين إن كان التعديل فى الوضع المباشر، أو انقر فوق حفظ
         إن كان لديك زر الحفظ.)
+    export:
+      area_to_export: المنطقه المطلوب تصديرها
+      manually_select: اختر يدويًا منطقه أخرى
+      format_to_export: الهيئه المطلوب تصديرها
+      osm_xml_data: معطيات خريطه الطريق المفتوح بنسق إكس أم أل
+      embeddable_html: HTML مضمن
+      licence: الرخصة
+      export_details: بيانات خريطه الشارع المفتوحه مرخصه تحت <a href="http://creativecommons.org/licenses/by-sa/2.0/">رخصه
+        المشاع الإبداعى، النسبه، نسخه 2.0</a>.
+      options: خيارات
+      format: الهيئة
+      scale: القياس
+      max: الأقصى
+      image_size: حجم الصورة
+      zoom: تكبير
+      add_marker: أضف علامه على الخريطة
+      latitude: 'خط العرض:'
+      longitude: 'خط الطول:'
+      output: الخرج
+      paste_html: ألصق HTML لتضمينه فى موقع ما
+      export_button: صدِّر
     sidebar:
       search_results: نتائج البحث
       close: أغلق
@@ -814,7 +796,6 @@ arz:
       help: المساعدة
     trace_header:
       see_all_traces: شاهد كل الآثار
-      see_your_traces: شاهد جميع آثارك
       traces_waiting: لديك %{count} أثر فى انتظار التحميل. يرجى مراعاه الانتظار قبل
         تحميل أكثر من ذلك، بحيث تتجنب إعاقه طابور التحميل لباقى المستخدمين.
     trace_optionals:
@@ -854,7 +835,6 @@ arz:
       map: خريطة
     list:
       public_traces: آثار جى بى إس عمومية
-      your_traces: آثار جى بى إس الخاصه بك
       public_traces_from: آثار جى بى إس عموميه من %{user}
       tagged_with: ' موسوم مع %{tags}'
     delete:
@@ -874,7 +854,7 @@ arz:
       blocked: لقد تم عرقله وصولك إلى الـ API. يرجى تسجيل الدخول من صفحه الموقع لمعرفه
         المزيد.
   oauth:
-    oauthorize:
+    authorize:
       request_access: التطبيق %{app_name} يطلب الوصول إلى حسابك. يرجى التحقق ما إذا
         كنت تريد أن يكون للتطبيق هذه القدرات. يمكن أن تختار ما تشاء.
       allow_to: 'اسمح للتطبيق بأن:'
@@ -995,7 +975,7 @@ arz:
     view:
       my diary: يوميتي
       new diary entry: مدخله يوميه جديدة
-      my edits: مساهماتي
+      my edits: مساهمات
       my traces: آثاري
       my settings: إعداداتي
       blocks on me: العرقلات علي
@@ -1015,7 +995,6 @@ arz:
       if set location: إن قمت بتعيين موقعك، خريطه وأشياء جميله سوف تظهر أدناه. يمكنك
         تحديد موقع منزلك من صفحه %{settings_link}.
       settings_link_text: إعدادات
-      your friends: أصدقاؤك
       no friends: لم تقم بإضافه أى أصدقاء بعد.
       km away: على بعد %{count}كم
       m away: على بعد %{count}متر
@@ -1120,7 +1099,7 @@ arz:
       confirm: أكّد
       fail: لا يمكن إبطال الدور '%{role}' من المستخدم '%{name}'. يرجى التحقق من أن
         المستخدم والدور كلاهما صحيحين.
-  user_block:
+  user_blocks:
     model:
       non_moderator_update: يجب أن تكون وسيط لإنشاء أو تحديث عرقله.
       non_moderator_revoke: يجب أن تكون وسيط لإبطال عرقله.
@@ -1180,17 +1159,6 @@ arz:
       one: ساعه واحد
       two: ساعتين
       other: '%{count} ساعة'
-    partial:
-      show: اعرض
-      edit: عدّل
-      revoke: ابطل!
-      confirm: هل أنت متأكد؟
-      display_name: مستخدم معرقل
-      creator_name: المنشئ
-      reason: السبب للعرقلة
-      status: الحالة
-      revoker_name: مُبطل بواسطة
-      not_revoked: (لم تلغ)
     helper:
       time_future: ينتهى فى %{time}.
       until_login: نشط حتى يقوم المستخدم بتسجيل الدخول.
@@ -1217,6 +1185,17 @@ arz:
       back: اعرض كل العرقلات
       revoker: 'المبطل:'
       needs_view: المستخدم يحتاج لتسجيل الدخول قبل أن يتم مسح هذه العرقله.
+    block:
+      not_revoked: (لم تلغ)
+      show: اعرض
+      edit: عدّل
+      revoke: ابطل!
+    blocks:
+      display_name: مستخدم معرقل
+      creator_name: المنشئ
+      reason: السبب للعرقلة
+      status: الحالة
+      revoker_name: مُبطل بواسطة
   javascripts:
     map:
       base:

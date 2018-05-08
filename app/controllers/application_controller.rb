@@ -29,9 +29,7 @@ class ApplicationController < ActionController::Base
         end
       end
     elsif session[:token]
-      if self.current_user = User.authenticate(:token => session[:token])
-        session[:user] = current_user.id
-      end
+      session[:user] = current_user.id if self.current_user = User.authenticate(:token => session[:token])
     end
   rescue StandardError => ex
     logger.info("Exception authorizing user: #{ex}")
@@ -177,7 +175,7 @@ class ApplicationController < ActionController::Base
   end
 
   def authorize(realm = "Web Password", errormessage = "Couldn't authenticate you")
-    # make the @user object from any auth sources we have
+    # make the current_user object from any auth sources we have
     setup_user_auth
 
     # handle authenticate pass/fail
@@ -298,13 +296,13 @@ class ApplicationController < ActionController::Base
   end
 
   def preferred_languages
-    @languages ||= if params[:locale]
-                     Locale.list(params[:locale])
-                   elsif current_user
-                     current_user.preferred_languages
-                   else
-                     Locale.list(http_accept_language.user_preferred_languages)
-                   end
+    @preferred_languages ||= if params[:locale]
+                               Locale.list(params[:locale])
+                             elsif current_user
+                               current_user.preferred_languages
+                             else
+                               Locale.list(http_accept_language.user_preferred_languages)
+                             end
   end
 
   helper_method :preferred_languages
@@ -379,11 +377,9 @@ class ApplicationController < ActionController::Base
   end
 
   ##
-  # ensure that there is a "this_user" instance variable
-  def lookup_this_user
-    unless @this_user = User.active.find_by(:display_name => params[:display_name])
-      render_unknown_user params[:display_name]
-    end
+  # ensure that there is a "user" instance variable
+  def lookup_user
+    render_unknown_user params[:display_name] unless @user = User.active.find_by(:display_name => params[:display_name])
   end
 
   ##
@@ -413,8 +409,8 @@ class ApplicationController < ActionController::Base
 
   def map_layout
     append_content_security_policy_directives(
-      :child_src => %w[127.0.0.1:8111 127.0.0.1:8112],
-      :connect_src => %w[nominatim.openstreetmap.org overpass-api.de router.project-osrm.org valhalla.mapzen.com],
+      :child_src => %w[127.0.0.1:8111],
+      :connect_src => %w[nominatim.openstreetmap.org overpass-api.de router.project-osrm.org],
       :form_action => %w[render.openstreetmap.org],
       :script_src => %w[graphhopper.com open.mapquestapi.com],
       :img_src => %w[developer.mapquest.com]
@@ -469,9 +465,7 @@ class ApplicationController < ActionController::Base
       authdata = request.env["HTTP_AUTHORIZATION"].to_s.split
     end
     # only basic authentication supported
-    if authdata && authdata[0] == "Basic"
-      user, pass = Base64.decode64(authdata[1]).split(":", 2)
-    end
+    user, pass = Base64.decode64(authdata[1]).split(":", 2) if authdata && authdata[0] == "Basic"
     [user, pass]
   end
 

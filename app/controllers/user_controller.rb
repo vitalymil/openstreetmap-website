@@ -45,9 +45,7 @@ class UserController < ApplicationController
       if current_user
         current_user.terms_seen = true
 
-        if current_user.save
-          flash[:notice] = t("user.new.terms declined", :url => t("user.new.terms declined url")).html_safe
-        end
+        flash[:notice] = t("user.new.terms declined", :url => t("user.new.terms declined url")).html_safe if current_user.save
 
         if params[:referer]
           redirect_to params[:referer]
@@ -379,7 +377,7 @@ class UserController < ApplicationController
   end
 
   def api_read
-    if @this_user.visible?
+    if @user.visible?
       render :action => :api_read, :content_type => "text/xml"
     else
       head :gone
@@ -387,7 +385,7 @@ class UserController < ApplicationController
   end
 
   def api_details
-    @this_user = current_user
+    @user = current_user
     render :action => :api_read, :content_type => "text/xml"
   end
 
@@ -400,11 +398,11 @@ class UserController < ApplicationController
   end
 
   def view
-    @this_user = User.find_by(:display_name => params[:display_name])
+    @user = User.find_by(:display_name => params[:display_name])
 
-    if @this_user &&
-       (@this_user.visible? || (current_user && current_user.administrator?))
-      @title = @this_user.display_name
+    if @user &&
+       (@user.visible? || (current_user && current_user.administrator?))
+      @title = @user.display_name
     else
       render_unknown_user params[:display_name]
     end
@@ -464,15 +462,15 @@ class UserController < ApplicationController
   ##
   # sets a user's status
   def set_status
-    @this_user.status = params[:status]
-    @this_user.save
+    @user.status = params[:status]
+    @user.save
     redirect_to :action => "view", :display_name => params[:display_name]
   end
 
   ##
   # delete a user, marking them as deleted and removing personal data
   def delete
-    @this_user.delete
+    @user.delete
     redirect_to :action => "view", :display_name => params[:display_name]
   end
 
@@ -533,9 +531,7 @@ class UserController < ApplicationController
       session[:new_user].auth_provider = provider
       session[:new_user].auth_uid = uid
 
-      if email_verified && email == session[:new_user].email
-        session[:new_user].status = "active"
-      end
+      session[:new_user].status = "active" if email_verified && email == session[:new_user].email
 
       redirect_to :action => "terms"
     else
@@ -765,17 +761,17 @@ class UserController < ApplicationController
   end
 
   ##
-  # ensure that there is a "this_user" instance variable
+  # ensure that there is a "user" instance variable
   def lookup_user_by_id
-    @this_user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   ##
-  # ensure that there is a "this_user" instance variable
+  # ensure that there is a "user" instance variable
   def lookup_user_by_name
-    @this_user = User.find_by(:display_name => params[:display_name])
+    @user = User.find_by(:display_name => params[:display_name])
   rescue ActiveRecord::RecordNotFound
-    redirect_to :action => "view", :display_name => params[:display_name] unless @this_user
+    redirect_to :action => "view", :display_name => params[:display_name] unless @user
   end
 
   ##

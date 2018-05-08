@@ -38,7 +38,7 @@ textarea,
 body { font: #{$typeheight}/#{$lineheight} "Helvetica Neue",Arial,sans-serif; }
 
 abbr, acronym {
-  border-bottom: .1em dotted;
+  text-decoration: underline dotted;
   cursor: help;
 }
 
@@ -163,24 +163,24 @@ small, aside {
   overflow: hidden;
 }
 
-.icon.search      { background-position: 0 0; }
-.icon.donate      { background-position: -20px 0; }
-.icon.zoomin      { background-position: -40px 0; }
-.icon.zoomout     { background-position: -60px 0; }
-.icon.geolocate   { background-position: -80px 0; }
-.active .icon.geolocate   { background-position: -80px -20px; }
-.icon.layers      { background-position: -100px 0; }
-.icon.key         { background-position: -120px 0; }
-.icon.share       { background-position: -140px 0; }
-.icon.clipboard   { background-position: -160px 0; }
-.icon.link        { background-position: -180px 0; }
-.icon.close       { background-position: -200px 0; }
+.icon.search      { /* no-r2 */ background-position: 0 0; }
+.icon.donate      { /* no-r2 */ background-position: -20px 0; }
+.icon.zoomin      { /* no-r2 */ background-position: -40px 0; }
+.icon.zoomout     { /* no-r2 */ background-position: -60px 0; }
+.icon.geolocate   { /* no-r2 */ background-position: -80px 0; }
+.active .icon.geolocate   { /* no-r2 */ background-position: -80px -20px; }
+.icon.layers      { /* no-r2 */ background-position: -100px 0; }
+.icon.key         { /* no-r2 */ background-position: -120px 0; }
+.icon.share       { /* no-r2 */ background-position: -140px 0; }
+.icon.clipboard   { /* no-r2 */ background-position: -160px 0; }
+.icon.link        { /* no-r2 */ background-position: -180px 0; }
+.icon.close       { /* no-r2 */ background-position: -200px 0; }
 .close-wrap:hover .icon.close,
-.icon.close:hover { background-position: -200px -20px; }
-.icon.check       { background-position: -220px 0; }
-.icon.note        { background-position: -240px 0; }
-.icon.note.grey   { background-position: -240px -20px; }
-.icon.query       { background-position: -260px 0; }
+.icon.close:hover { /* no-r2 */ background-position: -200px -20px; }
+.icon.check       { /* no-r2 */ background-position: -220px 0; }
+.icon.note        { /* no-r2 */ background-position: -240px 0; }
+.icon.note.grey   { /* no-r2 */ background-position: -240px -20px; }
+.icon.query       { /* no-r2 */ background-position: -260px 0; }
 
 /* Rules for links */
 
@@ -938,6 +938,10 @@ header .search_forms,
     border-radius: 0 2px 2px 0;
   }
 
+  input.error {
+    background-color: rgba($red, 0.4);
+  }
+
   select {
     /* this next line is to polyfill the vertical alignment of text within a select element,
      * which is different between firefox and chrome. */
@@ -1001,6 +1005,11 @@ header .search_forms,
     img {
       vertical-align: middle;
     }
+  }
+
+  a.reverse_directions {
+    cursor: pointer;
+    margin: 0px 0px 5px 25px;
   }
 }
 

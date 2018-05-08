@@ -96,7 +96,7 @@ bg:
     anonymous: анонимен
     no_comment: (без коментар)
     part_of: Част от
-    download_xml: Сваляне на GPX
+    download_xml: Изтегляне на XML
     view_history: Показване на историята
     view_details: Вижте детайлите
     location: 'Местоположение:'
@@ -199,6 +199,7 @@ bg:
       empty_area: Няма списъци с промени в този район.
       empty_user: Няма списъци с промени от този потребител.
       no_more: Не са намерени повече списъци с промени.
+      no_more_area: Няма повече списъци с промени за този район.
       load_more: Зареждане на още
     rss:
       commented_at_html: Обновено преди %{when}
@@ -260,40 +261,10 @@ bg:
       ago: преди %{ago}
       newer_comments: По-нови коментари
       older_comments: По-стари коментари
-  export:
-    title: Изнасяне
-    start:
-      area_to_export: Зона за изнасяне
-      manually_select: Ръчно избиране на друга област
-      format_to_export: Формат за изнасяне
-      embeddable_html: HTML-код за вграждане
-      licence: Лиценз
-      too_large:
-        advice: 'Ако изнасянето по-горе не сработи, моля, използвайте един от следните
-          източници:'
-        planet:
-          title: Planet OSM
-        overpass:
-          title: Overpass API
-        other:
-          title: Други източници
-      options: Настройки
-      format: Формат
-      scale: Мащаб
-      max: макс.
-      image_size: Размер на изображението
-      zoom: Мащабиране
-      add_marker: Добавяне на маркер на картата
-      latitude: 'Геогр. шир:'
-      longitude: 'Геогр. дълж:'
-      output: Изход
-      export_button: Изнасяне
   geocoder:
     search:
       title:
         latlon: <a href="http://openstreetmap.org/">Вътрешни</a> резултати
-        uk_postcode: Резултати от <a href="http://www.npemap.org.uk/">NPEMap / FreeThe
-          Postcode</a>
         ca_postcode: Резултати от <a href="http://geocoder.us/">Geocoder.CA</a>
         osm_nominatim: Резултати от <a href="http://nominatim.openstreetmap.org">OpenStreetMap
           Nominatim</a>
@@ -306,8 +277,10 @@ bg:
         aerialway:
           cable_car: Кабинков лифт
           chair_lift: Седалков лифт
+          pylon: Пилон
         aeroway:
           gate: Врата
+          hangar: Хангар
           helipad: Вертолетна площадка
           runway: Писта
           taxiway: Път за рулиране
@@ -341,25 +314,20 @@ bg:
           crematorium: Крематориум
           dentist: Зъболекар
           doctors: Лекари
-          dormitory: Пансион
           drinking_water: Питейна вода
           driving_school: Автошкола
           embassy: Посолство
-          emergency_phone: Телефон за спешни повиквания
           fast_food: Заведения за бързо хранене
           ferry_terminal: Фериботен терминал
-          fire_hydrant: Пожарен кран
           fire_station: Пожарна станция
           fountain: Фонтан
           fuel: Гориво
           gambling: Хазартни игри
           grave_yard: Гробище
-          gym: Фитнес зала
           hospital: Болница
           ice_cream: Сладолед
           kindergarten: Детска градина
           library: Библиотека
-          market: Пазар
           marketplace: Пазар
           monastery: Манастир
           nightclub: Нощен клуб
@@ -371,10 +339,10 @@ bg:
           police: Полиция
           post_box: Пощенска кутия
           post_office: Поща
+          preschool: Предучилищна група
           prison: Затвор
           pub: Кръчма
           public_building: Обществена сграда
-          reception_area: Рецепция
           restaurant: Ресторант
           retirement_home: Старчески дом
           sauna: Сауна
@@ -394,6 +362,7 @@ bg:
           veterinary: Ветеринарна клиника
           village_hall: Кметство
           waste_basket: Кошче за боклук
+          water_point: Вода за животни
           youth_centre: Младежки център
         boundary:
           administrative: Административна граница
@@ -422,6 +391,7 @@ bg:
           defibrillator: Дефибрилатор
           landing_site: Място за аварийно кацане
           phone: Телефон за спешни повиквания
+          "yes": Спешна помощ
         highway:
           abandoned: Изоставена магистрала
           bridleway: Конен път
@@ -450,12 +420,12 @@ bg:
           service: Сервизен път
           speed_camera: Камера за контрол на скоростта
           steps: Стълбище
+          stop: Знак Стоп
           street_lamp: Улична лампа
           track: Селски път
           traffic_signals: Светофар
           trunk: Междуградски път
           trunk_link: Междуградски път
-          unsurfaced: Път без настилка
           "yes": Път
         historic:
           archaeological_site: Разкопки
@@ -510,7 +480,6 @@ bg:
           vineyard: Лозя
         leisure:
           beach_resort: Морски курорт
-          club: Клуб
           dog_park: Парк за кучета
           fishing: Място за риболов
           fitness_centre: Фитнес център
@@ -531,7 +500,14 @@ bg:
           swimming_pool: Плувен басейн
           water_park: Аквапарк
         man_made:
+          bridge: Мост
+          bunker_silo: Бункер
+          chimney: Комин
           lighthouse: Фар
+          mast: Мачта
+          mine: Рудник
+          pier: Пирс
+          silo: Силоз
           tower: Кула
           works: Фабрика
         military:
@@ -582,7 +558,6 @@ bg:
           "yes": Офис
         place:
           allotments: Градини
-          airport: Летище
           city: Град
           country: Страна
           county: Област
@@ -592,12 +567,12 @@ bg:
           houses: Къщи
           island: Остров
           islet: Островче
-          moor: Тресавище
           municipality: Община
           neighbourhood: Квартал
           postcode: Пощенски код
           region: Регион
           sea: Море
+          square: Площад
           state: Държава
           suburb: Предградие
           town: Град
@@ -607,9 +582,7 @@ bg:
           abandoned: Изоставена железопътна линия
           construction: Железопътна линия в строеж
           disused: Изоставена ж.п. линия
-          disused_station: изоставена гара
           halt: Железопътна спирка
-          historic_station: Гара с историческо значение
           junction: Железопътен възел
           level_crossing: Прелез
           light_rail: Лека железница
@@ -637,6 +610,7 @@ bg:
           car_repair: Автосервиз
           carpet: Магазин за килими
           clothes: Магазин за дрехи
+          deli: Деликатесен магазин
           department_store: Универсален магазин
           dry_cleaning: Химическо чистене
           fish: Рибен магазин
@@ -650,7 +624,6 @@ bg:
           greengrocer: Плод и зеленчук
           grocery: Магазин за хранителни стоки
           hairdresser: Фризьорски салон
-          insurance: Застраховане
           jewelry: Бижутериен магазин
           laundry: Пералня
           mall: Търговски център
@@ -662,7 +635,6 @@ bg:
           pharmacy: Аптека
           photo: Фотомагазин
           shoes: Магазин за обувки
-          shopping_centre: Търговски център
           sports: Спортен магазин
           stationery: Канцеларски материали
           supermarket: Супермаркет
@@ -739,62 +711,6 @@ bg:
       text: Направете дарение
     learn_more: Научете повече
     more: Още
-  license_page:
-    foreign:
-      title: За този превод
-      text: В случай на противоречие между тази преведена страница и %{english_original_link},
-        страницата на английски ще е с приоритет
-      english_link: Оригиналът на английски
-    native:
-      title: За тази страница
-      mapping_link: картографиране
-    legal_babble:
-      title_html: Авторски права и лиценз
-      contributors_fr_html: |-
-        <strong>Франция</strong>: Съдържа данни от
-        Главната данъчна дирекция.
-      infringement_title_html: Нарушаване на авторските права
-      trademarks_title_html: <span id="trademarks"></span>Търговски марки
-      trademarks_1_html: OpenStreetMap и логото с лупата са регистрирани търговски
-        марки на фондация OpenStreetMap. Ако имате въпроси относно използването на
-        тези знаци, моля изпратете Вашите въпроси на <a href="http://wiki.osmfoundation.org/wiki/Licensing_Working_Group">работната
-        група по лиценза</a>.
-  welcome_page:
-    title: Добре дошли!
-    rules:
-      title: Правилата!
-    questions:
-      title: Въпроси?
-    add_a_note:
-      title: Нямате време за редактиране? Добавете бележка!
-  fixthemap:
-    how_to_help:
-      title: Как да помогна
-      join_the_community:
-        title: Присъединете са към общността
-  help_page:
-    welcome:
-      title: Добре дошли в OSM
-    beginners_guide:
-      title: Наръчник за начинаещи
-    help:
-      url: https://help.openstreetmap.org/
-      title: help.openstreetmap.org
-    mailing_lists:
-      title: Пощенски списъци
-    forums:
-      title: Форуми
-    irc:
-      title: IRC
-    switch2osm:
-      title: switch2osm
-    wiki:
-      url: http://wiki.openstreetmap.org/
-      title: wiki.openstreetmap.org
-  about_page:
-    next: Следващ
-    legal_title: Правни въпроси
-    partners_title: Партньори
   notifier:
     diary_comment_notification:
       hi: Здравейте %{to_user},
@@ -856,10 +772,10 @@ bg:
       unread_button: Отбелязване като непрочетено
       read_button: Отбелязване като прочетено
       reply_button: Отговор
-      delete_button: Изтрий
+      delete_button: Изтриване
     new:
-      title: Изпратете съобщение
-      send_message_to: Изпратете ново съобщение на %{name}
+      title: Изпращане на съобщение
+      send_message_to: Изпращане ново съобщение на %{name}
       subject: Тема
       body: Текст
       send_button: Изпращане
@@ -892,10 +808,86 @@ bg:
     delete:
       deleted: Съобщението беше изтрито
   site:
+    about:
+      next: Следващ
+      legal_title: Правни въпроси
+      partners_title: Партньори
+    copyright:
+      foreign:
+        title: За този превод
+        text: В случай на противоречие между тази преведена страница и %{english_original_link},
+          страницата на английски ще е с приоритет
+        english_link: Оригиналът на английски
+      native:
+        title: За тази страница
+        mapping_link: картографиране
+      legal_babble:
+        title_html: Авторски права и лиценз
+        contributors_fr_html: |-
+          <strong>Франция</strong>: Съдържа данни от
+          Главната данъчна дирекция.
+        infringement_title_html: Нарушаване на авторските права
+        trademarks_title_html: <span id="trademarks"></span>Търговски марки
+        trademarks_1_html: OpenStreetMap и логото с лупата са регистрирани търговски
+          марки на фондация OpenStreetMap. Ако имате въпроси относно използването
+          на тези знаци, моля изпратете Вашите въпроси на <a href="http://wiki.osmfoundation.org/wiki/Licensing_Working_Group">работната
+          група по лиценза</a>.
     index:
       permalink: Постоянна връзка
       shortlink: Къса връзка
       createnote: Добавяне на бележка
+    export:
+      title: Изнасяне
+      area_to_export: Зона за изнасяне
+      manually_select: Ръчно избиране на друга област
+      format_to_export: Формат за изнасяне
+      osm_xml_data: OpenStreetMap XML данни
+      embeddable_html: HTML-код за вграждане
+      licence: Лиценз
+      too_large:
+        advice: 'Ако изнасянето по-горе не сработи, моля, използвайте един от следните
+          източници:'
+        planet:
+          title: Planet OSM
+        overpass:
+          title: Overpass API
+        other:
+          title: Други източници
+      options: Настройки
+      format: Формат
+      scale: Мащаб
+      max: макс.
+      image_size: Размер на изображението
+      zoom: Мащабиране
+      add_marker: Добавяне на маркер на картата
+      latitude: 'Геогр. шир:'
+      longitude: 'Геогр. дълж:'
+      output: Изход
+      export_button: Изнасяне
+    fixthemap:
+      how_to_help:
+        title: Как да помогна
+        join_the_community:
+          title: Присъединете са към общността
+    help:
+      welcome:
+        title: Добре дошли в OSM
+      beginners_guide:
+        title: Наръчник за начинаещи
+      help:
+        url: https://help.openstreetmap.org/
+        title: help.openstreetmap.org
+      mailing_lists:
+        title: Пощенски списъци
+      forums:
+        title: Форуми
+      irc:
+        title: IRC
+      switch2osm:
+        title: switch2osm
+      wiki:
+        url: http://wiki.openstreetmap.org/
+        title: wiki.openstreetmap.org
     sidebar:
       search_results: Резултати от търсенето
       close: Затваряне
@@ -934,19 +926,19 @@ bg:
           - терминал
           admin: Административна граница
           forest: Гора
-          wood: Лес
+          wood: Дървета
           golf: Игрище за голф
           park: Парк
           resident: Жилищна зона
           common:
             1: ливада
-          retail: Зона за търговия на дребно
+          retail: Търговска зона
           industrial: Промишлена зона
           commercial: Търговска зона
           heathland: Пустош
           lake:
           - Езеро
-          farm: Земеделско стопанство
+          farm: Ферма
           brownfield: Място за строеж
           cemetery: Гробище
           allotments: Градини
@@ -983,10 +975,18 @@ bg:
       image: Изображение
       alt: Алтернативен текст
       url: Адрес
+    welcome:
+      title: Добре дошли!
+      rules:
+        title: Правилата!
+      questions:
+        title: Въпроси?
+      add_a_note:
+        title: Нямате време за редактиране? Добавете бележка!
   trace:
     edit:
       filename: 'Име на файл:'
-      download: сваляне
+      download: изтегляне
       uploaded_at: 'Качени:'
       points: 'Точки:'
       map: карта
@@ -1008,7 +1008,6 @@ bg:
     trace_header:
       upload_trace: Качете GPS-следа
       see_all_traces: Вижте всички следи
-      see_your_traces: Вижте вашите следи
     trace_optionals:
       tags: Етикети
     view:
@@ -1039,12 +1038,11 @@ bg:
       map: карта
     list:
       public_traces: Публични GPS-следи
-      your_traces: Вашите GPS-следи
       public_traces_from: Публични GPS-следи от потребител %{user}
     description:
       description_without_count: GPX-файл от %{user}
   oauth:
-    oauthorize:
+    authorize:
       allow_write_api: промени картата.
   oauth_clients:
     new:
@@ -1158,7 +1156,6 @@ bg:
       description: Описание
       user location: Местоположение
       settings_link_text: настройки
-      your friends: Вашите приятели
       no friends: Все още нямате добавени приятели.
       km away: '%{count} км от вас'
       nearby users: Други потребители наблизо
@@ -1217,18 +1214,19 @@ bg:
       confirm: Потвърждаване
     revoke:
       confirm: Потвърждаване
-  user_block:
-    partial:
+  user_blocks:
+    show:
+      ago: преди %{time}
       edit: Редактиране
+    block:
+      edit: Редактиране
+    blocks:
       display_name: Блокиран потребител
       creator_name: Създател
       reason: Причина за блокиране
       status: Статут
       showing_page: Страница %{page}
-    show:
-      ago: преди %{time}
-      edit: Редактиране
-  note:
+  notes:
     rss:
       closed: закрита бележка (около %{place})
     entry:
@@ -1237,6 +1235,7 @@ bg:
       creator: Автор
       ago_html: преди %{when}
   javascripts:
+    close: Затваряне
     share:
       title: Споделяне
       cancel: Отказ
@@ -1294,9 +1293,6 @@ bg:
         mapquest_car: Кола (MapQuest)
         mapquest_foot: Пеша (MapQuest)
         osrm_car: Кола (OSRM)
-        mapzen_bicycle: Велосипед (Mapzen)
-        mapzen_car: Кола (Mapzen)
-        mapzen_foot: Пеша (Mapzen)
       directions: Насоки
       distance: Разстояние
       instructions:

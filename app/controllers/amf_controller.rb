@@ -110,17 +110,17 @@ class AmfController < ApplicationController
   def amf_handle_error(call, rootobj, rootid)
     yield
   rescue OSM::APIAlreadyDeletedError => ex
-    return [-4, ex.object, ex.object_id]
+    [-4, ex.object, ex.object_id]
   rescue OSM::APIVersionMismatchError => ex
-    return [-3, [rootobj, rootid], [ex.type.downcase, ex.id, ex.latest]]
+    [-3, [rootobj, rootid], [ex.type.downcase, ex.id, ex.latest]]
   rescue OSM::APIUserChangesetMismatchError => ex
-    return [-2, ex.to_s]
+    [-2, ex.to_s]
   rescue OSM::APIBadBoundingBox => ex
-    return [-2, "Sorry - I can't get the map for that area. The server said: #{ex}"]
+    [-2, "Sorry - I can't get the map for that area. The server said: #{ex}"]
   rescue OSM::APIError => ex
-    return [-1, ex.to_s]
+    [-1, ex.to_s]
   rescue StandardError => ex
-    return [-2, "An unusual error happened (in #{call}). The server said: #{ex}"]
+    [-2, "An unusual error happened (in #{call}). The server said: #{ex}"]
   end
 
   def amf_handle_error_with_timeout(call, rootobj, rootid)
@@ -437,9 +437,9 @@ class AmfController < ApplicationController
     revdates.collect! { |d| [(d + 1).strftime("%d %b %Y, %H:%M:%S")] + revusers[d.to_i] }
     revdates.uniq!
 
-    return ["way", wayid, revdates]
+    ["way", wayid, revdates]
   rescue ActiveRecord::RecordNotFound
-    return ["way", wayid, []]
+    ["way", wayid, []]
   end
 
   # Find history of a node. Returns 'node', id, and an array of previous versions as above.
@@ -448,9 +448,9 @@ class AmfController < ApplicationController
     history = Node.find(nodeid).old_nodes.unredacted.reverse.collect do |old_node|
       [(old_node.timestamp + 1).strftime("%d %b %Y, %H:%M:%S")] + change_user(old_node)
     end
-    return ["node", nodeid, history]
+    ["node", nodeid, history]
   rescue ActiveRecord::RecordNotFound
-    return ["node", nodeid, []]
+    ["node", nodeid, []]
   end
 
   def change_user(obj)
@@ -508,14 +508,10 @@ class AmfController < ApplicationController
     rels = []
     if searchterm.to_i > 0
       rel = Relation.where(:id => searchterm.to_i).first
-      if rel && rel.visible
-        rels.push([rel.id, rel.tags, rel.members, rel.version])
-      end
+      rels.push([rel.id, rel.tags, rel.members, rel.version]) if rel && rel.visible
     else
       RelationTag.where("v like ?", "%#{searchterm}%").limit(11).each do |t|
-        if t.relation.visible
-          rels.push([t.relation.id, t.relation.tags, t.relation.members, t.relation.version])
-        end
+        rels.push([t.relation.id, t.relation.tags, t.relation.members, t.relation.version]) if t.relation.visible
       end
     end
     rels
@@ -558,9 +554,7 @@ class AmfController < ApplicationController
             mid = renumberednodes[mid] if m[0] == "Node"
             mid = renumberedways[mid] if m[0] == "Way"
           end
-          if mid
-            typedmembers << [m[0], mid, m[2].delete("\000-\037\ufffe\uffff", "^\011\012\015")]
-          end
+          typedmembers << [m[0], mid, m[2].delete("\000-\037\ufffe\uffff", "^\011\012\015")] if mid
         end
 
         # assign new contents
@@ -748,9 +742,7 @@ class AmfController < ApplicationController
             return [-4, "node", id]
           end
 
-          unless visible || node.ways.empty?
-            return -1, "Point #{id} has since become part of a way, so you cannot save it as a POI.", id, id, version
-          end
+          return -1, "Point #{id} has since become part of a way, so you cannot save it as a POI.", id, id, version unless visible || node.ways.empty?
         end
         # We always need a new node, based on the data that has been sent to us
         new_node = Node.new
@@ -793,9 +785,7 @@ class AmfController < ApplicationController
       n = Node.where(:id => id).first
       if n
         v = n.version
-        unless timestamp == ""
-          n = OldNode.where("node_id = ? AND timestamp <= ?", id, timestamp).unredacted.order("timestamp DESC").first
-        end
+        n = OldNode.where("node_id = ? AND timestamp <= ?", id, timestamp).unredacted.order("timestamp DESC").first unless timestamp == ""
       end
 
       if n
@@ -875,7 +865,7 @@ class AmfController < ApplicationController
   end
 
   def getlocales
-    @locales ||= Locale.list(Dir.glob(Rails.root.join("config", "potlatch", "locales", "*")).collect { |f| File.basename(f, ".yml") })
+    @getlocales ||= Locale.list(Dir.glob(Rails.root.join("config", "potlatch", "locales", "*")).collect { |f| File.basename(f, ".yml") })
   end
 
   ##

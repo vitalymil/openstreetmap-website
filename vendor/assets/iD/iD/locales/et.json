@@ -262,11 +262,6 @@
                 "connected_to_hidden": "Seda ei saa tükeldada, kuna see on ühendatud peidetud objektiga."
             },
             "restriction": {
-                "help": {
-                    "toggle": "Klõpsa, et vahetada pöörde piiranguid.",
-                    "toggle_on": "Klõpsa, et lisada piirang \"{restriction}\".",
-                    "toggle_off": "Klõpsa, et eemaldada piirang \"{restriction}\"."
-                },
                 "annotation": {
                     "create": "Lisatud pöörde piirang",
                     "delete": "Kustutatud pöörde piirang"
@@ -396,17 +391,26 @@
         "background": {
             "title": "Taust",
             "description": "Tausta seaded",
-            "percent_brightness": "heledus {opacity}%",
+            "backgrounds": "Taustad",
             "none": "Puudub",
+            "switch": "Vaheta tagasi selle tausta vastu",
             "custom": "Kohandatud",
             "custom_button": "Muuda kohandatud tausta",
-            "fix_misalignment": "Korrigeeri kattekaardi nihet",
+            "custom_prompt": "Sisesta paanide internetiaadressi vormel. Sobivad järgmised sõned:\n   - {zoom} või {z}, {x}, {y}, kui kasutad paaniskeemi Z/X/Y\n   - {-y} või {ty}, kui kasutad TMS-skeemi ümberpööratud Y-koordinaate\n   - {u}, kui kasutad ruutpaani skeemi (quadtile)\n   - {switch:a,b,c}, kui kasutad DNS-serveri multipleksimist\n\nNäide:\n{example}",
+            "overlays": "Ülekatted",
+            "imagery_source_faq": "Pildimaterjali teave / teata probleemist",
             "reset": "lähtesta",
-            "offset": "Lohista alumist halli kasti, et sättida kattekaardi nihet või siseta nihe meetrites.",
+            "display_options": "Kuvasuvandid",
+            "brightness": "Heledus",
+            "contrast": "Kontrast",
+            "saturation": "Küllastus",
+            "sharpness": "Teravus",
             "minimap": {
-                "description": "Pisikaart",
+                "description": "Näita pisikaarti",
                 "tooltip": "Näita väljasuumitud kaarti, et aidata tuvastada kuvatud ala."
-            }
+            },
+            "fix_misalignment": "Korrigeeri pildimaterjali nihet",
+            "offset": "Lohista alumist halli kasti, et sättida kattekaardi nihet või siseta nihe meetrites."
         },
         "map_data": {
             "title": "Kaardi andmed",
@@ -526,13 +530,7 @@
             }
         },
         "success": {
-            "edited_osm": "Sa täiendasid OSM-i!",
             "just_edited": "Täiendasid just OpenStreetMapi!",
-            "view_on_osm": "Vaata OSM-is",
-            "facebook": "Jaga Facebookis",
-            "twitter": "Jaga Twitteris",
-            "google": "Jaga Google+-is",
-            "help_html": "Sinu muudatused peaksid ilmuma kihil \"Standard\" mõne minuti jooksul. Teiste kihtide ja teatud objektidega võib kauem minna.",
             "help_link_text": "Üksikasjad"
         },
         "confirm": {
@@ -561,7 +559,6 @@
             "untagged_line": "Sildistamata joon",
             "untagged_area": "Sildistamata ala",
             "untagged_relation": "Sildistamata relatsioon",
-            "many_deletions": "Oled kustutamas {n} objekti. Kas oled sa kindel, et soovid seda teha? See kustutab need kaardilt, mida kõik näevad aadressil openstreetmap.org.",
             "tag_suggests_area": "Silt {tag} viitab, et joon peaks olema ala, kuid see pole ala.",
             "deprecated_tags": "Iganenud sildid: {tags}"
         },
@@ -578,19 +575,25 @@
             "browse": "Sirvi faili"
         },
         "mapillary_images": {
-            "tooltip": "Tänava-tasandi fotod Mapillary'st",
-            "title": "Foto-kate (Mapillary)"
+            "tooltip": "Tänavatasandi fotod Mapillaryst",
+            "title": "Fotokate (Mapillary)"
         },
         "mapillary_signs": {
-            "tooltip": "Liiklusmärgid Mapillary'st (Foto-kate peab olema lubatud)",
-            "title": "Liiklusmärgi-kate (Mapillary)"
+            "tooltip": "Liiklusmärgid Mapillaryst (fotokate peab olema lubatud)",
+            "title": "Liiklusmärkide kate (Mapillary)"
         },
         "mapillary": {
-            "view_on_mapillary": "Vaata seda fotot Mapillary's"
+            "view_on_mapillary": "Vaata seda fotot Mapillarys"
+        },
+        "openstreetcam_images": {
+            "tooltip": "Tänavatasandi fotod OpenStreetCamist",
+            "title": "Fotokate (OpenStreetCam)"
         },
         "help": {
             "title": "Abi",
-            "imagery": "# Aerofoto\n\nAerofotod on kaardistamisel oluliseks algallikaks. Valik aerofotosid on kättesaadavad paremal asuva redaktori taustaseadete menüü kaudu, vaikimisi on taustaks [Bing Maps](http://www.bing.com/maps/) satelliitfoto.\n\nEesti puhul on reeglina kõige täpsemaks ning ajakohasemaks aerofotoks Maa-ameti ortokaart. Selleks, et avada OSM ID-redaktor vaikimisi Maa-ameti ortofoto taustaga, kasuta veebibrauseris aadressi http://www.openstreetmap.org/edit#background=custom:http://kaart.maakaart.ee/orto/{z}/{x}/{y}.jpeg&map=@zoom/@lon/@lat, milles @zoom/@lon/@lat asenda reaalsete väärtustega (näit. 15/59.3438/24.5892).\n\nMõnikord on aerofoto kaardiandmete suhtes nihkes. Kui märkad, et massiliselt objekte on nihkes siis ära asu kohe nende asukohti muutma vaid võrdle erinevaid aerofotosid ja vajadusel kohanda vastavalt aerofoto asendit taustaseadete menüü valiku 'Korrigeeri nihet' abil.\n"
+            "editing": {
+                "keyboard_h": "Kiirklahvid"
+            }
         },
         "intro": {
             "graph": {
@@ -622,6 +625,15 @@
                 "title": "Alusta muutmist",
                 "save": "Ära unusta oma muudatusi regulaarselt salvestada!",
                 "start": "Alusta kaardistamist!"
+            }
+        },
+        "shortcuts": {
+            "title": "Kiirklahvid",
+            "browsing": {
+                "display_options": {
+                    "background_switch": "Vaheta tagasi viimase tausta vastu",
+                    "minimap": "Lülita pisikaart sisse või välja"
+                }
             }
         },
         "presets": {
@@ -798,18 +810,8 @@
                 "capacity": {
                     "label": "Mahtutavus"
                 },
-                "cardinal_direction": {
-                    "label": "Suund"
-                },
                 "castle_type": {
                     "label": "Tüüp"
-                },
-                "clock_direction": {
-                    "label": "Suund",
-                    "options": {
-                        "anticlockwise": "Vastupäeva",
-                        "clockwise": "Päripäeva"
-                    }
                 },
                 "club": {
                     "label": "Tüüp"
@@ -886,6 +888,9 @@
                         "cycleway:right": "Paremas servas"
                     }
                 },
+                "dance/style": {
+                    "label": "Tantsustiilid"
+                },
                 "date": {
                     "label": "Kuupäev"
                 },
@@ -894,6 +899,46 @@
                 },
                 "denomination": {
                     "label": "Usulahk"
+                },
+                "direction": {
+                    "label": "Suund (kraade päripäeva)",
+                    "placeholder": "45, 90, 180, 270"
+                },
+                "direction_cardinal": {
+                    "label": "Suund",
+                    "options": {
+                        "E": "Ida",
+                        "ENE": "Idakirre",
+                        "ESE": "Idakagu",
+                        "N": "Põhi",
+                        "NE": "Kirre",
+                        "NNE": "Põhjakirre",
+                        "NNW": "Põhjaloe",
+                        "NW": "Loe",
+                        "S": "Lõuna",
+                        "SE": "Kagu",
+                        "SSE": "Lõunakagu",
+                        "SSW": "Lõunaedel",
+                        "SW": "Edel",
+                        "W": "Lääs",
+                        "WNW": "Lääneloe",
+                        "WSW": "Lääneedel"
+                    }
+                },
+                "direction_clock": {
+                    "label": "Suund",
+                    "options": {
+                        "anticlockwise": "Vastupäeva",
+                        "clockwise": "Päripäeva"
+                    }
+                },
+                "direction_vertex": {
+                    "label": "Suund",
+                    "options": {
+                        "backward": "Tagasi",
+                        "both": "Mõlemad / Kõik",
+                        "forward": "Edasi"
+                    }
                 },
                 "dock": {
                     "label": "Tüüp"
@@ -955,6 +1000,9 @@
                 "healthcare/speciality": {
                     "label": "Erialad"
                 },
+                "horse_riding": {
+                    "label": "Ratsutamine"
+                },
                 "iata": {
                     "label": "IATA"
                 },
@@ -1000,6 +1048,10 @@
                 },
                 "maxspeed": {
                     "label": "Kiiruspiirang"
+                },
+                "maxspeed/advisory": {
+                    "label": "Soovitatav suurim kiirus",
+                    "placeholder": "30, 50, 70..."
                 },
                 "name": {
                     "label": "Nimi",
@@ -1053,7 +1105,9 @@
                 "oneway": {
                     "label": "Ühesuunaline",
                     "options": {
+                        "alternating": "Vahelduv",
                         "no": "Ei",
+                        "reversible": "Ümberpööratav",
                         "undefined": "Eeldatavasti mitte",
                         "yes": "Jah"
                     }
@@ -1061,7 +1115,9 @@
                 "oneway_yes": {
                     "label": "Ühesuunaline",
                     "options": {
+                        "alternating": "Vahelduv",
                         "no": "Ei",
+                        "reversible": "Ümberpööratav",
                         "undefined": "Eeldatavasti Jah",
                         "yes": "Jah"
                     }
@@ -1071,13 +1127,6 @@
                 },
                 "operator": {
                     "label": "Operaator"
-                },
-                "parallel_direction": {
-                    "label": "Suund",
-                    "options": {
-                        "backward": "Taha",
-                        "forward": "Ette"
-                    }
                 },
                 "park_ride": {
                     "label": "Pargi ja Reisi"
@@ -1110,15 +1159,19 @@
                 "railway": {
                     "label": "Tüüp"
                 },
+                "railway/signal/direction": {
+                    "label": "Suund",
+                    "options": {
+                        "backward": "Tagasi",
+                        "both": "Mõlemad / Kõik",
+                        "forward": "Edasi"
+                    }
+                },
                 "recycling_accepts": {
                     "label": "Võtab vastu"
                 },
-                "recycling_type": {
-                    "label": "Ümbertöötluse tüüp",
-                    "options": {
-                        "centre": "Ümbertöötluskeskus",
-                        "container": "Konteiner"
-                    }
+                "ref/isil": {
+                    "label": "ISIL-kood"
                 },
                 "relation": {
                     "label": "Tüüp"
@@ -1266,8 +1319,19 @@
                 "traffic_signals": {
                     "label": "Tüüp"
                 },
+                "traffic_signals/direction": {
+                    "label": "Suund",
+                    "options": {
+                        "backward": "Tagasi",
+                        "both": "Mõlemad / Kõik",
+                        "forward": "Edasi"
+                    }
+                },
                 "trees": {
                     "label": "Puud"
+                },
+                "usage_rail": {
+                    "label": "Kasutusostarve"
                 },
                 "visibility": {
                     "label": "Nähtavus"
@@ -1293,6 +1357,9 @@
                 },
                 "wheelchair": {
                     "label": "Pääs ratastooliga"
+                },
+                "wholesale": {
+                    "label": "Hulgikaubandus"
                 },
                 "width": {
                     "label": "Laius (meetrites)"
@@ -1327,6 +1394,9 @@
                 "aeroway/terminal": {
                     "name": "Lennuterminal",
                     "terms": "terminal,lennujaam"
+                },
+                "allotments/plot": {
+                    "name": "Ühisaia krunt"
                 },
                 "amenity": {
                     "name": "Hüve"
@@ -1372,9 +1442,6 @@
                 "amenity/bureau_de_change": {
                     "name": "Valuutavahetus",
                     "terms": "rahavahetus"
-                },
-                "amenity/bus_station": {
-                    "name": "Bussijaam"
                 },
                 "amenity/cafe": {
                     "name": "Kohvik"
@@ -1460,10 +1527,6 @@
                 "amenity/fast_food": {
                     "name": "Kiirtoitlustus"
                 },
-                "amenity/ferry_terminal": {
-                    "name": "Praamiterminal",
-                    "terms": "Praamisadam, sadam"
-                },
                 "amenity/fire_station": {
                     "name": "Tuletõrjedepoo",
                     "terms": "tuletõrjujad"
@@ -1512,6 +1575,9 @@
                     "name": "Turg",
                     "terms": "Turuplats"
                 },
+                "amenity/monastery": {
+                    "name": "Kloostriala"
+                },
                 "amenity/motorcycle_parking": {
                     "name": "Mootorratta parkla"
                 },
@@ -1533,7 +1599,8 @@
                     "terms": "parkla"
                 },
                 "amenity/pharmacy": {
-                    "name": "Apteek"
+                    "name": "Apteek",
+                    "terms": "ravimid"
                 },
                 "amenity/place_of_worship": {
                     "name": "Pühakoda",
@@ -1582,11 +1649,11 @@
                     "terms": "külastuskeskus"
                 },
                 "amenity/recycling": {
-                    "name": "Taaskasutus",
-                    "terms": "Taara,taaraautomaat,jäätmed,prügi,pudelid,klaas,purgid,praht,konteiner"
+                    "name": "Jäätmekonteiner",
+                    "terms": "taaskasutus,konteiner,prügi,jäätmed,ohtlikud"
                 },
                 "amenity/recycling_centre": {
-                    "name": "Jäätmejaam",
+                    "name": "Ümbertöötluskeskus",
                     "terms": "Taaskasutuskeskus"
                 },
                 "amenity/register_office": {
@@ -1602,6 +1669,9 @@
                 "amenity/shelter": {
                     "name": "Varjualune",
                     "terms": "ulualune,räästaalune,peavari"
+                },
+                "amenity/smoking_area": {
+                    "name": "Suitsetamise koht"
                 },
                 "amenity/social_facility": {
                     "name": "Sotsiaalkeskus",
@@ -1719,6 +1789,10 @@
                 "barrier/hedge": {
                     "name": "Hekk"
                 },
+                "barrier/kerb": {
+                    "name": "Kiviääris",
+                    "terms": "ääris"
+                },
                 "barrier/kissing_gate": {
                     "name": "Karjavärav"
                 },
@@ -1754,6 +1828,10 @@
                     "name": "Küün",
                     "terms": "Tall, laut"
                 },
+                "building/bungalow": {
+                    "name": "Bangalo",
+                    "terms": "bungalo"
+                },
                 "building/bunker": {
                     "name": "Punker"
                 },
@@ -1769,6 +1847,10 @@
                 },
                 "building/church": {
                     "name": "Kirikuhoone"
+                },
+                "building/civic": {
+                    "name": "Kultuurihoone",
+                    "terms": "linna,keskus,seltsimaja,rahvamaja"
                 },
                 "building/college": {
                     "name": "Kolledžihoone"
@@ -1787,6 +1869,14 @@
                 },
                 "building/entrance": {
                     "name": "Sissepääs"
+                },
+                "building/farm": {
+                    "name": "Maamaja",
+                    "terms": "talumaja,elumaja,elamu,maja,rehi*"
+                },
+                "building/farm_auxiliary": {
+                    "name": "Taluhoone",
+                    "terms": "hoone,ait,abihoone,laut,küün"
                 },
                 "building/garage": {
                     "name": "Garaaž",
@@ -1832,6 +1922,10 @@
                 "building/roof": {
                     "name": "Katus"
                 },
+                "building/ruins": {
+                    "name": "Hoone varemed",
+                    "terms": "varemed,purunenud,maha jäätud"
+                },
                 "building/school": {
                     "name": "Koolihoone",
                     "terms": "õppehoone,algkool,keskkool"
@@ -1847,15 +1941,25 @@
                     "name": "Tall",
                     "terms": "Hobusetall"
                 },
+                "building/stadium": {
+                    "name": "Staadionihoone"
+                },
                 "building/static_caravan": {
                     "name": "Paikne haagismaja",
                     "terms": "Haagiselamu,haagismaja,teisaldatav maja"
+                },
+                "building/temple": {
+                    "name": "Templihoone",
+                    "terms": "tempel"
                 },
                 "building/terrace": {
                     "name": "Terrassmaja"
                 },
                 "building/train_station": {
                     "name": "Raudteejaam"
+                },
+                "building/transportation": {
+                    "name": "Transpordihoone"
                 },
                 "building/university": {
                     "name": "Ülikoolihoone"
@@ -1866,6 +1970,9 @@
                 "camp_site/camp_pitch": {
                     "name": "Kämpingukoht",
                     "terms": "karavaniplats,kämpinguplats,telgiplats,telgikoht"
+                },
+                "circular": {
+                    "name": "Liiklusring"
                 },
                 "club": {
                     "name": "Klubi"
@@ -2025,6 +2132,10 @@
                 "emergency/phone": {
                     "name": "Hädaabi telefon"
                 },
+                "emergency/water_tank": {
+                    "name": "Tuletõrjevee mahuti",
+                    "terms": "veevõtukoht,tuletõrjemahuti"
+                },
                 "entrance": {
                     "name": "Sisse- ja Väljapääs"
                 },
@@ -2072,6 +2183,10 @@
                     "name": "Hooldekodu",
                     "terms": "hospiits"
                 },
+                "healthcare/laboratory": {
+                    "name": "Meditsiiniline labor",
+                    "terms": "labor*,verelabor*"
+                },
                 "healthcare/midwife": {
                     "name": "Ämmaemand"
                 },
@@ -2080,9 +2195,6 @@
                 },
                 "highway/bridleway": {
                     "name": "Ratsutamisrada"
-                },
-                "highway/bus_stop": {
-                    "name": "Bussipeatus"
                 },
                 "highway/corridor": {
                     "name": "Sisekoridor",
@@ -2127,6 +2239,9 @@
                 },
                 "highway/motorway_link": {
                     "name": "Kiirtee ühenduslõik"
+                },
+                "highway/passing_place": {
+                    "name": "Möödasõidukoht"
                 },
                 "highway/path": {
                     "name": "Rada"
@@ -2314,8 +2429,8 @@
                     "name": "Metsamaa"
                 },
                 "landuse/garages": {
-                    "name": "Garaažid",
-                    "terms": "Garaazid"
+                    "name": "Maakasutus garaažidele",
+                    "terms": "garaažid"
                 },
                 "landuse/grass": {
                     "name": "Muru"
@@ -2396,6 +2511,13 @@
                 "leisure": {
                     "name": "Vaba aeg"
                 },
+                "leisure/amusement_arcade": {
+                    "name": "Videomängumasin",
+                    "terms": "telekamäng,mängukonsool"
+                },
+                "leisure/beach_resort": {
+                    "name": "Rannakuurort"
+                },
                 "leisure/bowling_alley": {
                     "name": "Boolingusaal",
                     "terms": "bowling,keegel,keeglisaal,hobikeegel"
@@ -2403,6 +2525,9 @@
                 "leisure/dance": {
                     "name": "Tantsusaal",
                     "terms": "tantsuhall"
+                },
+                "leisure/dancing_school": {
+                    "name": "Tantsukool"
                 },
                 "leisure/dog_park": {
                     "name": "Koerapark"
@@ -2528,6 +2653,10 @@
                     "name": "Stoll",
                     "terms": "suue,kaevandus,sissepääs,horisontaalne,kaeveõõne,rõhtkaeve,koobas"
                 },
+                "man_made/antenna": {
+                    "name": "Antenn",
+                    "terms": "raadio,saatja,mast,side,televisiooni,edastus,levi,signaal"
+                },
                 "man_made/breakwater": {
                     "name": "Lainemurdja",
                     "terms": "sadamatamm,kaitsetamm,tamm"
@@ -2560,6 +2689,9 @@
                 },
                 "man_made/observation": {
                     "name": "Vaatlustorn"
+                },
+                "man_made/observatory": {
+                    "name": "Observatoorium"
                 },
                 "man_made/petroleum_well": {
                     "name": "Nafta puurkaev"
@@ -2640,6 +2772,10 @@
                 "natural/heath": {
                     "name": "Nõmm"
                 },
+                "natural/mud": {
+                    "name": "Muda",
+                    "terms": "märgala,soo"
+                },
                 "natural/peak": {
                     "name": "Mäetipp",
                     "terms": "tipp"
@@ -2701,6 +2837,10 @@
                 },
                 "office": {
                     "name": "Kontor"
+                },
+                "office/company": {
+                    "name": "Ettevõtte kontor",
+                    "terms": "kontor,firma,korporatiiv"
                 },
                 "office/government": {
                     "name": "Valitsuse kontor"
@@ -2779,12 +2919,6 @@
                     "name": "Trafo",
                     "terms": "Transformaator"
                 },
-                "public_transport/platform": {
-                    "name": "Platvorm"
-                },
-                "public_transport/stop_position": {
-                    "name": "Peatuskoht"
-                },
                 "railway": {
                     "name": "Raudtee"
                 },
@@ -2802,10 +2936,6 @@
                 "railway/funicular": {
                     "name": "Köisraudtee"
                 },
-                "railway/halt": {
-                    "name": "Peatuskoht",
-                    "terms": "pooljaam"
-                },
                 "railway/level_crossing": {
                     "name": "Raudtee-ülesõidukoht",
                     "terms": "ülesõit,ristumine,rongi"
@@ -2817,17 +2947,9 @@
                 "railway/narrow_gauge": {
                     "name": "Kitsarööpaline raudtee"
                 },
-                "railway/platform": {
-                    "name": "Raudteeplatvorm",
-                    "terms": "platvorm,perroon,raudteeperroon"
-                },
                 "railway/rail": {
                     "name": "Raudtee",
                     "terms": "rongitee"
-                },
-                "railway/station": {
-                    "name": "Raudteejaam",
-                    "terms": "jaam,rongijaam"
                 },
                 "railway/subway": {
                     "name": "Metroo"
@@ -2838,9 +2960,6 @@
                 },
                 "railway/tram": {
                     "name": "Tramm"
-                },
-                "railway/tram_stop": {
-                    "name": "Trammipeatus"
                 },
                 "relation": {
                     "name": "Seos",
@@ -2855,6 +2974,10 @@
                 "shop": {
                     "name": "Pood",
                     "terms": "kauplus"
+                },
+                "shop/agrarian": {
+                    "name": "Põllumajandustarvete kauplus",
+                    "terms": "aiatarbed,talupidamistarbed,põllumasinad,seemned,masinad"
                 },
                 "shop/alcohol": {
                     "name": "Alkoholipood"
@@ -2943,8 +3066,8 @@
                     "name": "Juustupood"
                 },
                 "shop/chemist": {
-                    "name": "Apteek",
-                    "terms": "Ravimid"
+                    "name": "Kodukeemia kauplus",
+                    "terms": "puhastus*,ravimid,kemikaal*,pesuvahend*,üldpuhastus*,hügieeni*,tarbed,keemia"
                 },
                 "shop/chocolate": {
                     "name": "Šokolaadikauplus",
@@ -3067,6 +3190,10 @@
                     "name": "Rauakauplus",
                     "terms": "tööriistad,kinnitusvahendid"
                 },
+                "shop/health_food": {
+                    "name": "Tervisliku toidu kauplus",
+                    "terms": "vitamiinid,tervis,terviklikud,mahe,vegan,täistera,toidulisandid"
+                },
                 "shop/hearing_aids": {
                     "name": "Kuulmisabipood"
                 },
@@ -3089,10 +3216,6 @@
                 "shop/jewelry": {
                     "name": "Ehtepood",
                     "terms": "ehted,kalliskivid"
-                },
-                "shop/kiosk": {
-                    "name": "Kiosk",
-                    "terms": "putka,ajalehekiosk"
                 },
                 "shop/kitchen": {
                     "name": "Köögimööblikauplus",
@@ -3283,6 +3406,10 @@
                 "shop/weapons": {
                     "name": "Relvapood"
                 },
+                "shop/wholesale": {
+                    "name": "Hulgikauplus",
+                    "terms": "hulgikaup"
+                },
                 "shop/window_blind": {
                     "name": "Aknakatete kauplus",
                     "terms": "rulood,ribikardinad,lamellkardinad"
@@ -3432,16 +3559,16 @@
                     "name": "Tagasipöörd keelatud"
                 },
                 "type/restriction/only_left_turn": {
-                    "name": "Ainult vasakpöörd",
-                    "terms": "ainult vasakule,kohustuslik sõidusuund vasakule"
+                    "name": "Ainult vasakpööre"
                 },
                 "type/restriction/only_right_turn": {
-                    "name": "Ainult parempöörd",
-                    "terms": "ainult paremale,kohustuslik sõidusuund paremale"
+                    "name": "Ainult parempööre"
                 },
                 "type/restriction/only_straight_on": {
-                    "name": "Pööramine keelatud",
-                    "terms": "Kohustuslik sõidusuund otse,ainult otse"
+                    "name": "Ainult otse"
+                },
+                "type/restriction/only_u_turn": {
+                    "name": "Ainult ümberpöörd"
                 },
                 "type/route": {
                     "name": "Marsruut"
@@ -3505,7 +3632,7 @@
                     "name": "Kanal"
                 },
                 "waterway/dam": {
-                    "name": "Tamm"
+                    "name": "Pais"
                 },
                 "waterway/ditch": {
                     "name": "Kraav"
@@ -3547,9 +3674,53 @@
                     "name": "Kosk"
                 },
                 "waterway/weir": {
-                    "name": "Pais",
+                    "name": "Ülevoolupais",
                     "terms": "tamm"
                 }
+            }
+        },
+        "imagery": {
+            "Bing": {
+                "description": "Satelliidi- ja aerofotod.",
+                "name": "Bingi aerofotod"
+            },
+            "DigitalGlobe-Premium": {
+                "description": "DigitalGlobe'i satelliidifotod (premium)",
+                "name": "DigitalGlobe'i pildimaterjal (premium)"
+            },
+            "DigitalGlobe-Standard": {
+                "description": "DigitalGlobe'i satelliidifotod (standard)",
+                "name": "DigitalGlobe'i pildimaterjal (standard)"
+            },
+            "EsriWorldImagery": {
+                "description": "Esri Worldi pildimaterjal.",
+                "name": "Esri Worldi pildimaterjal"
+            },
+            "EsriWorldImageryClarity": {
+                "description": "Esri arhiivimaterjal, mis võib olla tavakihi piltidest selgem ja täpsem.",
+                "name": "Esri Worldi pildimaterjal (selgem, beeta)"
+            },
+            "MAPNIK": {
+                "description": "OpenStreetMapi vaikekiht.",
+                "name": "OpenStreetMap (standard)"
+            },
+            "Mapbox": {
+                "description": "Satelliidi- ja aerofotod.",
+                "name": "Mapboxi satelliidifotod"
+            },
+            "mapbox_locator_overlay": {
+                "description": "Näita tähtsamaid objekte, et aidata orienteeruda.",
+                "name": "Asukoha ülekate"
+            },
+            "osm-gps": {
+                "description": "Avalikud GPS-rajad, mis on OpenStreetMapi üles laaditud.",
+                "name": "OpenStreetMapi GPS-rajad"
+            },
+            "stamen-terrain-background": {
+                "name": "Stameni reljeefikaart"
+            },
+            "tf-landscape": {
+                "name": "Thunderforesti maastikukaart"
             }
         }
     }

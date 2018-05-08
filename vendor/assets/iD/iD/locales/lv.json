@@ -194,7 +194,6 @@
         "background": {
             "title": "Fons",
             "description": "Fona iestatījumi",
-            "percent_brightness": "{opacity}% caurspīdīgums",
             "reset": "Atiestatīt"
         },
         "feature": {
@@ -218,12 +217,7 @@
             }
         },
         "success": {
-            "edited_osm": "Jūs izmainījāt OSM!",
-            "just_edited": "Jūs nupat rediģējāt OpenStreetMap",
-            "view_on_osm": "Apskatīt OSM",
-            "facebook": "Dalīties Facebook",
-            "twitter": "Dalīties uz Facebook",
-            "google": "Dalīties uz Google+"
+            "just_edited": "Jūs nupat rediģējāt OpenStreetMap"
         },
         "confirm": {
             "cancel": "Atcelt"
@@ -345,9 +339,6 @@
                 },
                 "capacity": {
                     "label": "Ietilpība"
-                },
-                "cardinal_direction": {
-                    "label": "Virziens"
                 },
                 "construction": {
                     "label": "Tips"
@@ -647,9 +638,6 @@
                 "highway": {
                     "name": "Šoseja"
                 },
-                "highway/bus_stop": {
-                    "name": "Autobusa pietura"
-                },
                 "highway/cycleway": {
                     "name": "Veloceliņš"
                 },
@@ -883,9 +871,6 @@
                 },
                 "railway/rail": {
                     "name": "Sliedes"
-                },
-                "railway/station": {
-                    "name": "Dzelzceļa stacija"
                 },
                 "railway/subway": {
                     "name": "Metro"

@@ -319,43 +319,10 @@ fur:
       ago: '%{ago} indaûr'
       newer_comments: Coments plui gnûfs
       older_comments: Coments plui vieris
-  export:
-    title: Espuarte
-    start:
-      area_to_export: Aree di espuartâ
-      manually_select: Sielç a man une aree divierse
-      format_to_export: Formât di espuartâ
-      osm_xml_data: Dâts XML di OpenStreetMap
-      licence: Licence
-      export_details: I dâts di OpenStreetMap a son dâts fûr sot de licence <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open
-        Data Commons Open Database License</a> (ODbL).
-      too_large:
-        body: Cheste aree e je masse grande par espuartâle come dâts XML di OpenStreetMap.
-          Par plasê incrès il zoom, sielç une aree plui piçule o dopre une des sorzints
-          ca sot par discjamâ un grum di dâts.
-        overpass:
-          title: API Overpass
-        other:
-          title: Altris sorzints
-          description: Altris sorzints elencadis su la wiki di OpenStreetMap
-      options: Opzions
-      format: 'Formât:'
-      scale: Scjale
-      max: max
-      image_size: 'Dimensions figure:'
-      zoom: Ingrandiment
-      add_marker: Zonte un segnalut ae mape
-      latitude: 'Lat:'
-      longitude: 'Lon:'
-      output: Jessude
-      paste_html: Tache l'HTML par inserîlu tal to sît web
-      export_button: Espuarte
   geocoder:
     search:
       title:
         latlon: Risultâts cjolts dal <a href="http://openstreetmap.org/">sît interni</a>
-        uk_postcode: Risultâts cjolts di <a href="http://www.npemap.org.uk/">NPEMap
-          / FreeThe Postcode</a>
         ca_postcode: Risultâts cjolts di <a href="http://geocoder.ca/">Geocoder.CA</a>
         osm_nominatim: Risultâts di <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a>
@@ -388,22 +355,17 @@ fur:
           crematorium: Crematori
           dentist: Dentist
           doctors: Dotôrs
-          dormitory: Dormitori
           drinking_water: Aghe potabil
           driving_school: Scuele guide
           embassy: Ambassade
-          emergency_phone: Telefon di emergjence
           ferry_terminal: Terminâl traghets
-          fire_hydrant: Idrant
           fire_station: Stazion dai pompîrs
           fountain: Fontane
           fuel: Stazion di riforniment
-          health_centre: Centri pe salût
           hospital: Ospedâl
           ice_cream: Gjelato
           kindergarten: Scuelute
           library: Biblioteche
-          market: Marcjât
           nightclub: Club noturni
           office: Ufizi
           parking: Parcament
@@ -470,7 +432,6 @@ fur:
           tertiary: Strade terziarie
           tertiary_link: Strade terziarie
           track: Piste
-          unsurfaced: Strade no asfaltade
         historic:
           archaeological_site: Sît archeologic
           battlefield: Cjamp di bataie
@@ -551,7 +512,6 @@ fur:
           travel_agent: Agjenzie di viaçs
           "yes": Ufizi
         place:
-          airport: Aeropuart
           city: Citât
           country: Paîs
           county: Contee
@@ -575,7 +535,6 @@ fur:
           abandoned: Ferade bandonade
           construction: Ferade in costruzion
           disused: Ferade bandonade
-          disused_station: Stazion de ferade bandonade
           halt: Fermade de ferade
           level_crossing: Passaç a nivel
           light_rail: Ferade lizere
@@ -598,7 +557,6 @@ fur:
           electronics: Buteghe di eletroniche
           gallery: Galarie di art
           hairdresser: Piruchîr o barbîr
-          insurance: Assicurazion
           jewelry: Buteghe dal oresin
           laundry: Lavandarie
           market: Marcjât
@@ -696,48 +654,6 @@ fur:
       text: Done alc
     learn_more: Par savênt di plui
     more: Plui
-  license_page:
-    foreign:
-      title: Informazions su cheste traduzion
-    native:
-      title: Informazions su cheste pagjine
-      mapping_link: scomence a mapâ
-    legal_babble:
-      title_html: Copyright e licence
-      attribution_example:
-        title: Esempli di atribuzion
-      more_title_html: Par savênt di plui
-      contributors_title_html: Nestris colaboradôrs
-  welcome_page:
-    title: Benvignût!
-    whats_on_the_map:
-      title: Ce ch'al è su la mape
-    questions:
-      title: Domandis?
-    start_mapping: Scomence a mapâ
-    add_a_note:
-      title: No tu âs timp par fâ i cambiaments? Zonte une note!
-  fixthemap:
-    title: Segnale un probleme / Comede la mape
-    how_to_help:
-      title: Cemût contribuî
-      join_the_community:
-        title: Jentre te comunitât
-    other_concerns:
-      title: Altris aspiets
-  help_page:
-    title: Cemût vê un jutori
-    welcome:
-      url: /welcome
-      title: Benvignûts in OSM
-    wiki:
-      url: http://wiki.openstreetmap.org/
-      title: wiki.openstreetmap.org
-  about_page:
-    next: Prossim
-    copyright_html: <span>&copy;</span>Colaboradôrs<br> di OpenStreetMap
-    local_knowledge_title: Cognossince locâl
-    open_data_title: Dâts vierts
   notifier:
     diary_comment_notification:
       subject: '[OpenStreetMap] %{user} al à zontât un coment ae tô vôs dal diari'
@@ -840,6 +756,23 @@ fur:
     delete:
       deleted: Messaç eliminât
   site:
+    about:
+      next: Prossim
+      copyright_html: <span>&copy;</span>Colaboradôrs<br> di OpenStreetMap
+      local_knowledge_title: Cognossince locâl
+      open_data_title: Dâts vierts
+    copyright:
+      foreign:
+        title: Informazions su cheste traduzion
+      native:
+        title: Informazions su cheste pagjine
+        mapping_link: scomence a mapâ
+      legal_babble:
+        title_html: Copyright e licence
+        attribution_example:
+          title: Esempli di atribuzion
+        more_title_html: Par savênt di plui
+        contributors_title_html: Nestris colaboradôrs
     index:
       js_1: Tu stâs doprant un sgarfadôr che nol supuarte JavaScript o ben JavaScript
         al è stât disativât.
@@ -869,6 +802,52 @@ fur:
         2, tu scugnis fracâ sul boton pal salvataç)
       no_iframe_support: Il to sgarfadôr nol supuarte i iframes HTML, che a coventin
         par cheste funzion.
+    export:
+      title: Espuarte
+      area_to_export: Aree di espuartâ
+      manually_select: Sielç a man une aree divierse
+      format_to_export: Formât di espuartâ
+      osm_xml_data: Dâts XML di OpenStreetMap
+      licence: Licence
+      export_details: I dâts di OpenStreetMap a son dâts fûr sot de licence <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open
+        Data Commons Open Database License</a> (ODbL).
+      too_large:
+        body: Cheste aree e je masse grande par espuartâle come dâts XML di OpenStreetMap.
+          Par plasê incrès il zoom, sielç une aree plui piçule o dopre une des sorzints
+          ca sot par discjamâ un grum di dâts.
+        overpass:
+          title: API Overpass
+        other:
+          title: Altris sorzints
+          description: Altris sorzints elencadis su la wiki di OpenStreetMap
+      options: Opzions
+      format: 'Formât:'
+      scale: Scjale
+      max: max
+      image_size: 'Dimensions figure:'
+      zoom: Ingrandiment
+      add_marker: Zonte un segnalut ae mape
+      latitude: 'Lat:'
+      longitude: 'Lon:'
+      output: Jessude
+      paste_html: Tache l'HTML par inserîlu tal to sît web
+      export_button: Espuarte
+    fixthemap:
+      title: Segnale un probleme / Comede la mape
+      how_to_help:
+        title: Cemût contribuî
+        join_the_community:
+          title: Jentre te comunitât
+      other_concerns:
+        title: Altris aspiets
+    help:
+      title: Cemût vê un jutori
+      welcome:
+        url: /welcome
+        title: Benvignûts in OSM
+      wiki:
+        url: http://wiki.openstreetmap.org/
+        title: wiki.openstreetmap.org
     sidebar:
       search_results: Risultâts de ricercje
       close: Siere
@@ -934,6 +913,15 @@ fur:
       image: Figure
       alt: Test alternatîf
       url: URL
+    welcome:
+      title: Benvignût!
+      whats_on_the_map:
+        title: Ce ch'al è su la mape
+      questions:
+        title: Domandis?
+      start_mapping: Scomence a mapâ
+      add_a_note:
+        title: No tu âs timp par fâ i cambiaments? Zonte une note!
   trace:
     create:
       upload_trace: Cjame percors GPS
@@ -969,7 +957,6 @@ fur:
     trace_header:
       upload_trace: Cjame un percors
       see_all_traces: Cjale ducj i percors
-      see_your_traces: Cjale ducj i miei percors
     trace_optionals:
       tags: Etichetis
     view:
@@ -1012,7 +999,6 @@ fur:
       map: mape
     list:
       public_traces: Percors GPS publics
-      your_traces: Percors GPS personâi
       public_traces_from: Percors GPS publics di %{user}
       description: Viôt i percors GPS cjamâts sù tai ultins timps
       tagged_with: ' etichetât cun %{tags}'
@@ -1021,7 +1007,7 @@ fur:
     description:
       description_without_count: File GPS di %{user}
   oauth:
-    oauthorize:
+    authorize:
       request_access: La aplicazion %{app_name} e je daûr a domandâ di vê acès al
         to profîl, %{user}. Controle se tu sês dacuardi che la aplicazion e podedi
         fâ chestis robis. Tu puedis sielzi ogni opzion in mût indipendent.
@@ -1033,7 +1019,7 @@ fur:
       allow_read_gpx: lei i tiei percors GPS privâts.
       allow_write_gpx: cjamâ percors GPS.
       allow_write_notes: cambiâ lis notis.
-    oauthorize_success:
+    authorize_success:
       verification: Il codiç di verifiche al è %{code}.
   oauth_clients:
     new:
@@ -1186,7 +1172,6 @@ fur:
       if set location: Impueste il to lûc iniziâl intes %{settings_link} par viodi
         i utents dongje di te.
       settings_link_text: impostazions
-      your friends: I tiei amîs
       no friends: No tu âs ancjemò nissun amì.
       km away: '%{count}km di distance'
       m away: '%{count}m di distance'
@@ -1317,7 +1302,7 @@ fur:
       confirm: Conferme
     revoke:
       confirm: Conferme
-  user_block:
+  user_blocks:
     not_found:
       back: Torne al somari
     new:
@@ -1341,20 +1326,6 @@ fur:
     period:
       one: 1 ore
       other: '%{count} oris'
-    partial:
-      show: Mostre
-      edit: Cambie
-      revoke: Revoche!
-      confirm: Sêstu sigûr?
-      display_name: Utent blocât
-      creator_name: Creadôr
-      reason: Reson dal bloc
-      status: Stât
-      revoker_name: Revocât di
-      not_revoked: (no revocât)
-      showing_page: Pagjine %{page}
-      next: Sucessîf »
-      previous: « Precedent
     helper:
       time_future: Finìs ca di %{time}.
       time_past: Finît %{time} indaûr.
@@ -1379,8 +1350,22 @@ fur:
       reason: 'Reson dal bloc:'
       back: Cjale ducj i blocs
       revoker: 'Chel che al à revocât:'
-  note:
-    description:
+    block:
+      not_revoked: (no revocât)
+      show: Mostre
+      edit: Cambie
+      revoke: Revoche!
+    blocks:
+      display_name: Utent blocât
+      creator_name: Creadôr
+      reason: Reson dal bloc
+      status: Stât
+      revoker_name: Revocât di
+      showing_page: Pagjine %{page}
+      next: Sucessîf »
+      previous: « Precedent
+  notes:
+    comment:
       opened_at_html: Creât %{when} indaûr
       opened_at_by_html: Creât %{when} indaûr di %{user}
       commented_at_html: Inzornade %{when} indaûr
@@ -1495,7 +1480,7 @@ fur:
       nothing_found: Nissune carataristiche cjatade
       error: 'Erôr contatant %{server}: %{error}'
       timeout: Timp scjadût contatant %{server}
-  redaction:
+  redactions:
     edit:
       description: Descrizion
     new:

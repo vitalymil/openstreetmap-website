@@ -8,18 +8,14 @@ module BrowseHelper
            object.id
          end
     name = t "printable_name.with_id", :id => id.to_s
-    if version
-      name = t "printable_name.with_version", :id => name, :version => object.version.to_s
-    end
+    name = t "printable_name.with_version", :id => name, :version => object.version.to_s if version
 
     # don't look at object tags if redacted, so as to avoid giving
     # away redacted version tag information.
     unless object.redacted?
       locale = I18n.locale.to_s
 
-      while locale =~ /-[^-]+/ && !object.tags.include?("name:#{I18n.locale}")
-        locale = locale.sub(/-[^-]+/, "")
-      end
+      locale = locale.sub(/-[^-]+/, "") while locale =~ /-[^-]+/ && !object.tags.include?("name:#{I18n.locale}")
 
       if object.tags.include? "name:#{locale}"
         name = t "printable_name.with_name_html", :name => content_tag(:bdi, object.tags["name:#{locale}"].to_s), :id => content_tag(:bdi, name)
@@ -115,9 +111,9 @@ module BrowseHelper
     lookup_us = lookup.tr(" ", "_")
 
     if page = WIKI_PAGES.dig(locale, type, lookup_us)
-      url = "http://wiki.openstreetmap.org/wiki/#{page}?uselang=#{locale}"
+      url = "https://wiki.openstreetmap.org/wiki/#{page}?uselang=#{locale}"
     elsif page = WIKI_PAGES.dig("en", type, lookup_us)
-      url = "http://wiki.openstreetmap.org/wiki/#{page}?uselang=#{locale}"
+      url = "https://wiki.openstreetmap.org/wiki/#{page}?uselang=#{locale}"
     end
 
     url
@@ -158,7 +154,7 @@ module BrowseHelper
     end
 
     {
-      :url => "http://#{lang}.wikipedia.org/wiki/#{value}?uselang=#{I18n.locale}#{encoded_section}",
+      :url => "https://#{lang}.wikipedia.org/wiki/#{value}?uselang=#{I18n.locale}#{encoded_section}",
       :title => value + section
     }
   end
@@ -171,7 +167,7 @@ module BrowseHelper
         :title => value
       }]
     # Key has to be one of the accepted wikidata-tags
-    elsif key =~ /(architect|artist|brand|operator|subject):wikidata/ &&
+    elsif key =~ /(architect|artist|brand|name:etymology|network|operator|subject):wikidata/ &&
           # Value has to be a semicolon-separated list of wikidata-IDs (whitespaces allowed before and after semicolons)
           value =~ /^[Qq][1-9][0-9]*(\s*;\s*[Qq][1-9][0-9]*)*$/
       # Splitting at every semicolon to get a separate hash for each wikidata-ID

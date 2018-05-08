@@ -68,11 +68,11 @@ class ClientApplication < ActiveRecord::Base
   end
 
   def oauth_server
-    @oauth_server ||= OAuth::Server.new("http://" + SERVER_URL)
+    @oauth_server ||= OAuth::Server.new("https://" + SERVER_URL)
   end
 
   def credentials
-    @oauth_client ||= OAuth::Consumer.new(key, secret)
+    @credentials ||= OAuth::Consumer.new(key, secret)
   end
 
   def create_request_token(_params = {})

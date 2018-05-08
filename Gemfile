@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 # Require rails
-gem "rails", "5.1.4"
+gem "rails", "5.1.5"
 
 # Require things which have moved to gems in ruby 1.9
 gem "bigdecimal", "~> 1.1.0", :platforms => :ruby_19
@@ -13,7 +13,7 @@ gem "psych", :platforms => :ruby_20
 gem "json"
 
 # Use postgres as the database
-gem "pg"
+gem "pg", "~> 0.18"
 
 # Use SCSS for stylesheets
 gem "sass-rails", "~> 5.0"
@@ -48,7 +48,7 @@ gem "http_accept_language", "~> 2.0.0"
 gem "i18n-js", ">= 3.0.0"
 gem "oauth-plugin", ">= 0.5.1"
 gem "openstreetmap-deadlock_retry", ">= 1.3.0", :require => "deadlock_retry"
-gem "paperclip", "~> 4.0"
+gem "paperclip", "~> 5.2"
 gem "rack-cors"
 gem "rails-i18n", "~> 4.0.0"
 gem "record_tag_helper"
@@ -105,6 +105,8 @@ gem "logstasher"
 # Gems useful for development
 group :development do
   gem "annotate"
+  gem "better_errors"
+  gem "binding_of_caller"
   gem "listen"
   gem "vendorer"
 end

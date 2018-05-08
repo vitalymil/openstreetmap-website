@@ -161,28 +161,72 @@ input::-moz-focus-inner {
 .cf:after {
     clear: both;
 }
-
-use { pointer-events: none; }
-
 /* base styles */
-.layer-osm path:not(.oneway) { fill: none; }     /* IE needs :not(.oneway) */
+.layer-osm path:not(.oneway-marker-path) {                /* IE/Edge needs :not(.oneway) */
+    fill: none;
+}
+.layer-osm path.viewfield-marker-path {                   /* IE/Edge rule for <use> marker style */
+    fill: #333;
+    fill-opacity: 0.75;
+    stroke: #fff;
+    stroke-width: 0.5px;
+    stroke-opacity: 0.75;
+}
+.fill-wireframe .layer-osm path.viewfield-marker-path {   /* IE/Edge rule for <use> marker style */
+    fill: none;
+}
 
 /* the above fill: none rule affects paths in <use> shadow dom only in Firefox */
 .layer-osm use.icon path { fill: #333; }                       /* FF svg Maki icons */
 .layer-osm .turn use path { fill: #000; }                      /* FF turn restriction icons */
-#turn-only-shape2, #turn-only-u-shape2 { fill: #7092FF; }  /* FF turn-only, turn-only-u */
-#turn-no-shape2, #turn-no-u-shape2     { fill: #E06D5F; }  /* FF turn-no, turn-no-u */
-#turn-yes-shape2, #turn-yes-u-shape2   { fill: #8CD05F; }  /* FF turn-yes, turn-yes-u */
+#turn-only-shape2, #turn-only-u-shape2 { fill: #7092ff; }      /* FF turn-only, turn-only-u */
+#turn-no-shape2, #turn-no-u-shape2     { fill: #e06d5f; }      /* FF turn-no, turn-no-u */
+#turn-yes-shape2, #turn-yes-u-shape2   { fill: #8cd05f; }      /* FF turn-yes, turn-yes-u */
 
-g.point .shadow,
-g.vertex .shadow,
-g.midpoint .shadow {
-    pointer-events: all;
+
+/* No interactivity except what we specifically allow */
+.layer-osm * {
+    pointer-events: none;
 }
 
-path.shadow {
+.lasso #map {
+    pointer-events: visibleStroke;
+}
+
+
+/* `.target` objects are interactive */
+/* They can be picked up, clicked, hovered, or things can connect to them */
+.node.target {
+    pointer-events: fill;
+    fill-opacity: 0.8;
+    fill: currentColor;
+    stroke: none;
+}
+
+.way.target {
     pointer-events: stroke;
+    fill: none;
+    stroke-width: 12;
+    stroke-opacity: 0.8;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
 }
+
+/* `.target-nope` objects are explicitly forbidden to join to */
+.surface:not(.nope-disabled) .node.target.target-nope,
+.surface:not(.nope-disabled) .way.target.target-nope {
+    cursor: not-allowed;
+}
+
+
+/* `.active` objects (currently being drawn or dragged) are not interactive */
+/* This is important to allow the events to drop through to whatever is */
+/* below them on the map, so you can still hover and connect to other things. */
+.layer-osm .active {
+    pointer-events: none !important;
+}
+
 
 /* points */
 
@@ -206,10 +250,6 @@ g.point.hover:not(.selected) .shadow {
 
 g.point.selected .shadow {
     stroke-opacity: 0.7;
-}
-
-g.point.active, g.point.active * {
-    pointer-events: none;
 }
 
 g.point ellipse.stroke {
@@ -251,28 +291,6 @@ g.midpoint .shadow {
     fill-opacity: 0;
 }
 
-g.vertex.vertex-hover {
-    display: none;
-}
-
-.mode-draw-area g.vertex.vertex-hover,
-.mode-draw-line g.vertex.vertex-hover,
-.mode-add-area  g.vertex.vertex-hover,
-.mode-add-line  g.vertex.vertex-hover,
-.mode-add-point g.vertex.vertex-hover,
-.mode-drag-node g.vertex.vertex-hover {
-    display: block;
-}
-
-.mode-draw-area .hover-disabled g.vertex.vertex-hover,
-.mode-draw-line .hover-disabled g.vertex.vertex-hover,
-.mode-add-area  .hover-disabled g.vertex.vertex-hover,
-.mode-add-line  .hover-disabled g.vertex.vertex-hover,
-.mode-add-point .hover-disabled g.vertex.vertex-hover,
-.mode-drag-node .hover-disabled g.vertex.vertex-hover {
-    display: none;
-}
-
 g.vertex.related:not(.selected) .shadow,
 g.vertex.hover:not(.selected) .shadow,
 g.midpoint.related:not(.selected) .shadow,
@@ -284,13 +302,6 @@ g.vertex.selected .shadow {
     fill-opacity: 0.7;
 }
 
-.mode-draw-area g.midpoint,
-.mode-draw-line g.midpoint,
-.mode-add-area g.midpoint,
-.mode-add-line g.midpoint,
-.mode-add-point g.midpoint {
-  display: none;
-}
 
 /* lines */
 
@@ -301,7 +312,7 @@ g.vertex.selected .shadow {
 
 path.line {
     stroke-linecap: round;
-    stroke-linejoin: bevel;
+    stroke-linejoin: round;
 }
 
 path.stroke {
@@ -333,8 +344,7 @@ path.line.stroke {
 /* Labels / Markers */
 
 text {
-    font-size:10px;
-    pointer-events: none;
+    font-size: 10px;
     color: #222;
     opacity: 1;
 }
@@ -343,10 +353,10 @@ text {
     fill: #002F35;
 }
 
-path.oneway {
+.onewaygroup path.oneway,
+.viewfieldgroup path.viewfield {
     stroke-width: 6px;
 }
-
 
 text.arealabel-halo,
 text.linelabel-halo,
@@ -359,7 +369,6 @@ text.pointlabel {
     font-size: 12px;
     font-weight: bold;
     fill: #333;
-    pointer-events: none;
     -webkit-transition: opacity 100ms linear;
     transition: opacity 100ms linear;
     -moz-transition: opacity 100ms linear;
@@ -373,14 +382,14 @@ text.pointlabel {
   dominant-baseline: auto;
 }
 
-.layer-halo text {
+.layer-labels-halo text {
     opacity: 0.7;
     stroke: #fff;
     stroke-width: 5px;
     stroke-miterlimit: 1;
 }
 
-text.proximate {
+text.nolabel {
     opacity: 0;
 }
 
@@ -401,7 +410,7 @@ text.point {
 }
 
 
-/* Turns */
+/* Turn Restrictions */
 
 g.turn rect,
 g.turn circle {
@@ -410,13 +419,37 @@ g.turn circle {
 }
 
 .form-field-restrictions .vertex {
-    pointer-events: none;
     cursor: auto !important;
+    pointer-events: none;
 }
 
-.lasso #map {
-    pointer-events: visibleStroke;
+/* Turn restriction paths and vertices */
+.surface.tr .way.target,
+.surface.tr path.shadow.selected,
+.surface.tr path.shadow.related {
+    stroke-width: 25px;
 }
+
+.surface.tr path.shadow.selected,
+.surface.tr path.shadow.related,
+.surface.tr g.vertex.selected .shadow,
+.surface.tr g.vertex.related .shadow {
+    stroke-opacity: 0.7;
+    stroke: #777;
+}
+.surface.tr path.shadow.related.allow,
+.surface.tr g.vertex.related.allow .shadow {
+    stroke: #5b3;
+}
+.surface.tr path.shadow.related.restrict,
+.surface.tr g.vertex.related.restrict .shadow {
+    stroke: #d53;
+}
+.surface.tr path.shadow.related.only,
+.surface.tr g.vertex.related.only .shadow {
+    stroke: #68f;
+}
+
 
 /* GPX Paths */
 
@@ -425,14 +458,29 @@ g.turn circle {
 }
 
 path.gpx {
-    stroke: #FF26D4;
+    stroke: #ff26d4;
     stroke-width: 2;
     fill: none;
 }
 
-text.gpx {
-    fill: #FF26D4;
+text.gpxlabel-halo,
+text.gpxlabel {
+    font-size: 10px;
+    font-weight: bold;
+    dominant-baseline: middle;
 }
+
+text.gpxlabel {
+    fill: #ff26d4;
+}
+
+text.gpxlabel-halo {
+    opacity: 0.7;
+    stroke: #000;
+    stroke-width: 5px;
+    stroke-miterlimit: 1;
+}
+
 
 /* Default - light gray */
 path.area.stroke {
@@ -944,6 +992,7 @@ path.casing.tag-unclassified {
 /* narrow highways */
 
 path.shadow.tag-highway-living_street,
+path.shadow.tag-highway-bus_guideway,
 path.shadow.tag-highway-service,
 path.shadow.tag-highway-track,
 path.shadow.tag-highway-road,
@@ -954,6 +1003,7 @@ path.shadow.tag-road {
     stroke-width: 16;
 }
 path.casing.tag-highway-living_street,
+path.casing.tag-highway-bus_guideway,
 path.casing.tag-highway-service,
 path.casing.tag-highway-track,
 path.casing.tag-highway-road,
@@ -964,6 +1014,7 @@ path.casing.tag-road {
     stroke-width: 7;
 }
 path.stroke.tag-highway-living_street,
+path.stroke.tag-highway-bus_guideway,
 path.stroke.tag-highway-service,
 path.stroke.tag-highway-track,
 path.stroke.tag-highway-road,
@@ -1024,6 +1075,7 @@ path.stroke.tag-steps {
 }
 
 .low-zoom path.shadow.tag-highway-living_street,
+.low-zoom path.shadow.tag-highway-bus_guideway,
 .low-zoom path.shadow.tag-highway-service,
 .low-zoom path.shadow.tag-highway-track,
 .low-zoom path.shadow.tag-highway-road,
@@ -1034,6 +1086,7 @@ path.stroke.tag-steps {
     stroke-width: 12;
 }
 .low-zoom path.casing.tag-highway-living_street,
+.low-zoom path.casing.tag-highway-bus_guideway,
 .low-zoom path.casing.tag-highway-service,
 .low-zoom path.casing.tag-highway-track,
 .low-zoom path.casing.tag-highway-road,
@@ -1044,6 +1097,7 @@ path.stroke.tag-steps {
     stroke-width: 5;
 }
 .low-zoom path.stroke.tag-highway-living_street,
+.low-zoom path.stroke.tag-highway-bus_guideway,
 .low-zoom path.stroke.tag-highway-service,
 .low-zoom path.stroke.tag-highway-track,
 .low-zoom path.stroke.tag-highway-road,
@@ -1174,15 +1228,19 @@ path.casing.tag-service {
     stroke:#666;
 }
 
+/* special service roads and bus guideways */
 /* with `service=* tag`  (e.g. parking_aisle, alley, drive-through */
+.preset-icon .icon.highway-bus_guideway,
 .preset-icon .icon.highway-service.tag-service {
     color: #dcd9b9;
     fill: #666;
 }
+path.stroke.tag-highway-bus_guideway,
 path.stroke.tag-highway-service.tag-service,
 path.stroke.tag-service.tag-service {
     stroke: #dcd9b9;
 }
+path.casing.tag-highway-bus_guideway,
 path.casing.tag-highway-service.tag-service,
 path.casing.tag-service.tag-service {
     stroke: #666;
@@ -1667,6 +1725,28 @@ path.casing.tag-boundary-national_park {
 }
 
 
+/* Tree Rows */
+path.shadow.tag-natural-tree_row {
+    stroke-width: 16;
+}
+path.casing.tag-natural-tree_row {
+    stroke-width: 7;
+}
+path.stroke.tag-natural-tree_row {
+    stroke-width: 5;
+}
+
+.low-zoom path.shadow.tag-natural-tree_row {
+    stroke-width: 12;
+}
+.low-zoom path.casing.tag-natural-tree_row {
+    stroke-width: 5;
+}
+.low-zoom path.stroke.tag-natural-tree_row {
+    stroke-width: 3;
+}
+
+
 /* barriers */
 path.stroke.tag-barrier {
     stroke: #ddd;
@@ -1840,6 +1920,11 @@ path.fill.tag-amenity-shelter {
 }
 /* Cursors */
 
+.nope,
+.nope * {
+    cursor: not-allowed !important;
+}
+
 .map-in-map,
 #map {
     cursor: auto; /* Opera */
@@ -1889,16 +1974,6 @@ path.fill.tag-amenity-shelter {
     cursor: url(<%= asset_path("iD/img/cursor-select-remove.png") %>), pointer; /* FF */
 }
 
-#map .point:active,
-#map .vertex:active,
-#map .line:active,
-#map .area:active,
-#map .midpoint:active,
-#map .mode-select .selected {
-    cursor: pointer; /* Opera */
-    cursor: url(<%= asset_path("iD/img/cursor-select-acting.png") %>), pointer; /* FF */
-}
-
 .mode-draw-line #map,
 .mode-draw-area #map,
 .mode-add-line  #map,
@@ -1908,20 +1983,20 @@ path.fill.tag-amenity-shelter {
     cursor: url(<%= asset_path("iD/img/cursor-draw.png") %>) 9 9, crosshair; /* FF */
 }
 
-.mode-draw-line .way.hover,
-.mode-draw-area .way.hover,
-.mode-add-line  .way.hover,
-.mode-add-area  .way.hover,
-.mode-drag-node .way.hover {
+.mode-draw-line .way.target,
+.mode-draw-area .way.target,
+.mode-add-line  .way.target,
+.mode-add-area  .way.target,
+.mode-drag-node .way.target {
     cursor: crosshair; /* Opera */
     cursor: url(<%= asset_path("iD/img/cursor-draw-connect-line.png") %>) 9 9, crosshair; /* FF */
 }
 
-.mode-draw-line .vertex.hover,
-.mode-draw-area .vertex.hover,
-.mode-add-line  .vertex.hover,
-.mode-add-area  .vertex.hover,
-.mode-drag-node .vertex.hover {
+.mode-draw-line .vertex.target,
+.mode-draw-area .vertex.target,
+.mode-add-line  .vertex.target,
+.mode-add-area  .vertex.target,
+.mode-drag-node .vertex.target {
     cursor: crosshair; /* Opera */
     cursor: url(<%= asset_path("iD/img/cursor-draw-connect-vertex.png") %>) 9 9, crosshair; /* FF */
 }
@@ -1959,7 +2034,7 @@ path.fill.tag-amenity-shelter {
     position: absolute;
     right: 0;
     top: 0;
-    z-index: 500;
+    z-index: 48;
 }
 
 .photo-wrapper,
@@ -2176,6 +2251,14 @@ path.fill.tag-amenity-shelter {
     background: rgba(0,0,0,0.85);
     color: #fff;
 }
+
+.osc-image-wrap {
+    transform-origin:0 0;
+    -ms-transform-origin:0 0;
+    -webkit-transform-origin:0 0;
+    -moz-transform-origin:0 0;
+    -o-transform-origin:0 0;
+}
 /* Fill Styles */
 
 .low-zoom.fill-wireframe path.stroke,
@@ -2200,6 +2283,7 @@ path.fill.tag-amenity-shelter {
 }
 
 .fill-wireframe .point,
+.fill-wireframe .vertex.active,
 .fill-wireframe .areaicon,
 .fill-wireframe .areaicon-halo,
 .fill-wireframe path.casing,
@@ -2211,31 +2295,11 @@ path.fill.tag-amenity-shelter {
 .fill-partial path.area.fill {
     fill-opacity: 0;
     stroke-width: 60px;
+    pointer-events: none;
+}
+.mode-browse .fill-partial path.area.fill,
+.mode-select .fill-partial path.area.fill {
     pointer-events: visibleStroke;
-}
-
-/* Modes */
-
-.mode-draw-line .vertex.active,
-.mode-draw-area .vertex.active,
-.mode-drag-node .vertex.active {
-    display: none;
-}
-
-.mode-draw-line .way.active,
-.mode-draw-area .way.active,
-.mode-drag-node .active {
-    pointer-events: none;
-}
-
-/* Ensure drawing doesn't interact with area fills. */
-.mode-add-point path.area.fill,
-.mode-draw-line path.area.fill,
-.mode-draw-area path.area.fill,
-.mode-add-line path.area.fill,
-.mode-add-area path.area.fill,
-.mode-drag-node path.area.fill {
-    pointer-events: none;
 }
 /* Basics
 ------------------------------------------------------- */
@@ -2369,7 +2433,6 @@ a, button, input, textarea {
 a,
 button,
 .checkselect label:hover,
-.opacity-options li,
 .radial-menu-item {
     cursor: pointer;
 }
@@ -2401,6 +2464,17 @@ h4, h5 {
 :focus {
     outline-color: transparent;
     outline-style: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #aaa;
+    opacity: 1; /* Firefox */
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color: #aaa;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: #aaa;
 }
 
 p {
@@ -2507,7 +2581,7 @@ table th {
 }
 
 table.tags, table.tags td, table.tags th {
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     padding: 4px;
 }
 
@@ -2543,7 +2617,7 @@ ul li { list-style: none;}
     display: block;
     height: 30px;
     background-color: white;
-    color: #7092FF;
+    color: #7092ff;
     cursor: pointer;
 }
 
@@ -2652,7 +2726,7 @@ li.hide {
 
 button {
     text-align: center;
-    line-height:20px;
+    line-height: 20px;
     border:0;
     background: white;
     font-weight: bold;
@@ -2896,16 +2970,12 @@ button.save.has-count .count::before {
 }
 
 .header h3 {
-    text-align: left;
+    text-align: center;
     margin-bottom: 0;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    padding: 20px 20px 20px 40px;
-}
-[dir='rtl'] .header h3 {
-    text-align: right;
-    padding: 20px 40px 20px 20px;
+    padding: 20px;
 }
 
 .header button,
@@ -2921,12 +2991,14 @@ button.save.has-count .count::before {
     height: 100%;
 }
 
+.field-help-title button.close,
 .entity-editor-pane .header button.preset-close,
 .preset-list-pane .header button.preset-choose {
     position: absolute;
     right: 0;
     top: 0;
 }
+[dir='rtl'] .field-help-title button.close,
 [dir='rtl'] .entity-editor-pane .header button.preset-close,
 [dir='rtl'] .preset-list-pane .header button.preset-choose {
     left: 0;
@@ -2953,7 +3025,7 @@ button.save.has-count .count::before {
     position: absolute;
     right: 0;
     top: 0;
-    height: 60px;
+    height: 59px;
     z-index: 50;
 }
 [dir='rtl'] .modal > button {
@@ -2978,6 +3050,30 @@ button.save.has-count .count::before {
     bottom: 0;
     position: absolute;
 }
+
+
+/* Hide-Toggle
+------------------------------------------------------- */
+
+.hide-toggle .icon.pre-text {
+    vertical-align: text-top;
+    width: 16px;
+    height: 16px;
+    margin-left: -3px;
+}
+[dir='rtl'] .hide-toggle .icon.pre-text {
+    margin-left: 0;
+    margin-right: -3px;
+}
+
+a:visited.hide-toggle,
+a.hide-toggle {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 5px;
+}
+
 
 /* Inspector
 ------------------------------------------------------- */
@@ -3020,7 +3116,6 @@ button.save.has-count .count::before {
     left: 0;
     bottom: 0;
 }
-
 
 .feature-list-pane .inspector-body {
     top: 120px;
@@ -3310,7 +3405,7 @@ button.save.has-count .count::before {
 
 .preset-list-item button.tag-reference-button {
     height: 100%;
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     border-radius: 0 3px 3px 0;
     position: absolute;
     top: 0;
@@ -3382,7 +3477,7 @@ button.save.has-count .count::before {
 }
 
 .preset-editor a.hide-toggle {
-    margin: 0 20px 10px 20px;
+    margin: 0 20px 5px 20px;
 }
 
 .preset-editor .form-fields-container {
@@ -3457,7 +3552,7 @@ button.save.has-count .count::before {
 }
 [dir='rtl'] .form-label button {
     border-left: none;
-    border-right: 1px solid #CCC;
+    border-right: 1px solid #ccc;
     border-radius: 4px 0 0 0;
     width: 31px;
 }
@@ -3483,6 +3578,7 @@ button.save.has-count .count::before {
     border-top: 0;
     border-radius: 0 0 4px 4px;
     overflow: hidden;
+    position: relative;
 }
 
 .form-field textarea {
@@ -3813,13 +3909,13 @@ input[type=number] {
     float: left;
     height: 100%;
     width: 32px;
-    border-left: 1px solid #CCC;
+    border-left: 1px solid #ccc;
     border-radius: 0;
     background: rgba(0, 0, 0, 0);
 }
 [dir='rtl'] .spin-control button{
     border-left: 0;
-    border-right: 1px solid #CCC;
+    border-right: 1px solid #ccc;
 }
 
 .spin-control button.decrement {
@@ -3843,13 +3939,13 @@ input[type=number] {
 }
 
 .spin-control button.decrement::after {
-    border-top: 5px solid #CCC;
+    border-top: 5px solid #ccc;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
 }
 
 .spin-control button.increment::after {
-    border-bottom: 5px solid #CCC;
+    border-bottom: 5px solid #ccc;
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
 }
@@ -3861,7 +3957,7 @@ input[type=number] {
     display: block;
     background: white;
     padding: 5px 10px;
-    color: #7092FF;
+    color: #7092ff;
 }
 
 .checkselect label:hover {
@@ -3906,11 +4002,13 @@ input[type=number] {
     content: none;
 }
 
+#preset-input-maxspeed_advisory,
 #preset-input-maxspeed {
     border-right: none;
     border-radius: 0 0 0 4px;
     width: 80%;
 }
+[dir='rtl'] #preset-input-maxspeed_advisory,
 [dir='rtl'] #preset-input-maxspeed {
     border-right: 1px solid #ccc;
     border-radius: 0 0 4px 0;
@@ -3959,7 +4057,7 @@ input[type=number] {
     right: 1px;
     width: 32px;
     margin-left: -32px;
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     border-top-width: 0;
     border-right-width: 0;
     border-radius: 0 0 4px 0;
@@ -3986,7 +4084,7 @@ input[type=number] {
     content: "";
     display: block;
     position: absolute;
-    background:#ccc;
+    background: #ccc;
     height: 11px;
     width: 1px;
     left: 0;
@@ -4051,9 +4149,52 @@ input[type=number] {
 
 /* Restrictions editor */
 
-.form-field-restrictions .preset-input-wrap {
+.form-field-restrictions .restriction-controls-container {
+    background-color: #fff;
+    border-top: 1px solid #ccc;
+    width: 100%;
+    padding: 5px;
+}
+
+.restriction-controls-container .restriction-controls {
+    display: table;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.restriction-controls .restriction-control {
+    display: table-row;
+    padding: 5px 10px;
+    height: 25px;
+}
+
+.restriction-control input,
+.restriction-control span {
+    display: table-cell;
+    text-align: start;
+    padding: 0px 5px;
+}
+
+.restriction-control span.restriction-control-label {
+    text-align: end;
+}
+
+.restriction-control input {
+    width: 60px;
+    padding: 0;
+    margin: 0px 5px;
+    vertical-align: middle;
+}
+
+.form-field-restrictions .restriction-container {
     position: relative;
-    height: 300px;
+    height: 370px;
+}
+/* zero width space, so container takes up space */
+.form-field-restrictions .restriction-container:after {
+    content: '\200b';
 }
 
 .form-field-restrictions svg.surface {
@@ -4061,7 +4202,7 @@ input[type=number] {
     height: 100%;
 }
 
-.form-field-restrictions .restriction-help {
+.restriction-container .restriction-help {
     z-index: 1;
     position: absolute;
     top: 0;
@@ -4069,8 +4210,54 @@ input[type=number] {
     right: 0;
     padding: 2px 6px;
     background-color: rgba(255, 255, 255, .8);
-    color: #999;
+    color: #888;
     text-align: center;
+    pointer-events: none;
+
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.restriction-help span {
+    margin: 2px;
+}
+
+.restriction-help .qualifier {
+    color: #666;
+    font-weight: bold;
+}
+.restriction-help .qualifier.allow {
+    color: #8b5;
+}
+.restriction-help .qualifier.restrict {
+    color: #d53;
+}
+.restriction-help .qualifier.only {
+    color: #78f;
+}
+
+/* Changeset editor while comment text is empty */
+
+.form-field-comment:not(.present) #preset-input-comment {
+    border-color: rgb(230, 100, 100);
+}
+
+.form-field-comment:not(.present) .form-label {
+    border-color: rgb(230, 100, 100);
+    background: rgba(230, 100, 100, 0.2);
+}
+
+.form-field-comment:not(.present) .form-label {
+}
+
+.form-field-comment:not(.present) .form-label-button-wrap {
+    border-color: rgb(230, 100, 100);
+}
+
+.form-field-comment:not(.present) button {
+    border-color: rgb(230, 100, 100);
 }
 
 /* combobox dropdown */
@@ -4078,10 +4265,10 @@ input[type=number] {
 div.combobox {
     z-index: 9999;
     display: none;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,.1);
+    box-shadow: 0 4px 10px 1px rgba(0,0,0,.2);
     margin-top: -1px;
     background: white;
-    max-height: 120px;
+    max-height: 245px;
     overflow-y: auto;
     overflow-x: hidden;
     border: 1px solid #ccc;
@@ -4091,7 +4278,7 @@ div.combobox {
 .combobox a {
     display: block;
     padding: 5px 10px;
-    border-top:1px solid #ccc;
+    border-top: 1px solid #ccc;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -4104,6 +4291,7 @@ div.combobox {
 
 .combobox a:first-child {
     border-top: 0;
+    padding: 4px 10px;
 }
 
 .combobox-caret {
@@ -4120,7 +4308,7 @@ div.combobox {
 }
 
 .combobox-caret::after {
-    content:"";
+    content: "";
     height: 0; width: 0;
     position: absolute;
     left: 0; right: 0; bottom: 0; top: 0;
@@ -4129,6 +4317,107 @@ div.combobox {
     border-left: 5px solid transparent;
     border-right: 5px solid transparent;
 }
+
+/* Field Help */
+
+.field-help-body {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 20px;
+    right: 20px;
+    margin: 5px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+    z-index: 20;
+    background: rgba(255,255,255,0.95);
+    box-shadow: 0 0 30px 5px rgba(0,0,0,.4);
+}
+
+.field-help-title h2 {
+    padding: 10px;
+    margin-bottom: 0px;
+    font-size: 17px;
+}
+.field-help-title button {
+    width: 45px;
+    height: 55px;
+    border-radius: 0;
+}
+
+.field-help-nav {
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+.field-help-nav-item {
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+    color: #666;
+}
+.field-help-nav-item.active {
+    color: #7092ff;
+}
+.field-help-nav-item:hover {
+    color: #597be7;
+    background-color: #efefef;
+}
+
+.field-help-content {
+    padding: 10px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.field-help-content h3 {
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+.field-help-content p {
+    margin-bottom: 15px;
+}
+.field-help-content ul li {
+    list-style: inside;
+    margin-bottom: 5px;
+}
+
+.field-help-content .field-help-image {
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.field-help-content svg.turn {
+    width: 40px;
+    height: 20px;
+}
+.field-help-content svg.shadow {
+    opacity: 0.7;
+    width: 60px;
+    height: 20px;
+}
+.field-help-content svg.from {
+    color: #777;
+}
+.field-help-content svg.allow {
+    color: #5b3;
+}
+.field-help-content svg.restrict {
+    color: #d53;
+}
+.field-help-content svg.only {
+    color: #68f;
+}
+
+.field-help-content p.from_shadow,
+.field-help-content p.allow_shadow,
+.field-help-content p.restrict_shadow,
+.field-help-content p.allow_turn,
+.field-help-content p.restrict_turn {
+    margin-bottom: 5px;
+}
+
 
 /* Raw Tag Editor */
 
@@ -4155,12 +4444,12 @@ div.combobox {
     height: 31px;
     border: 0;
     border-radius: 0;
-    border-bottom: 1px solid #CCC;
-    border-left: 1px solid #CCC;
+    border-bottom: 1px solid #ccc;
+    border-left: 1px solid #ccc;
 }
 [dir='rtl'] .tag-row input {
     border-left: none;
-    border-right: 1px solid #CCC;
+    border-right: 1px solid #ccc;
 }
 
 .tag-row .key-wrap,
@@ -4180,14 +4469,14 @@ div.combobox {
 }
 
 .tag-row input.value {
-    border-right: 1px solid #CCC;
+    border-right: 1px solid #ccc;
 }
 [dir='rtl'] .tag-row input.value {
-    border-left: 1px solid #CCC;
+    border-left: 1px solid #ccc;
 }
 
 .tag-row:first-child input.key {
-    border-top: 1px solid #CCC;
+    border-top: 1px solid #ccc;
     border-top-left-radius: 4px;
 }
 [dir='rtl'] .tag-row:first-child input.key {
@@ -4196,14 +4485,14 @@ div.combobox {
 }
 
 .tag-row:first-child input.value {
-    border-top: 1px solid #CCC;
+    border-top: 1px solid #ccc;
 }
 
 .tag-row button {
     position: absolute;
     height: 31px;
     right: 10%;
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     border-top-width: 0;
     border-left-width: 0;
 }
@@ -4409,7 +4698,7 @@ div.full-screen > button:hover {
 
 .map-controls {
     right: 0;
-    top: 70px;
+    top: 132px;
     width: 40px;
     position: fixed;
     z-index: 100;
@@ -4435,26 +4724,45 @@ div.full-screen > button:hover {
 }
 
 /* Zoomer */
-
-.zoombuttons button.zoom-in {
+.zoombuttons > button.zoom-in {
     border-radius: 4px 0 0 0;
 }
-[dir='rtl'] .zoombuttons button.zoom-in {
+[dir='rtl'] .zoombuttons > button.zoom-in {
     border-radius: 0 4px 0 0;
 }
 
-/* Background / Map Data Settings */
+/* Geolocator */
+.geolocate-control {
+    margin-bottom: 10px;
+}
+.geolocate-control > button {
+    border-radius: 0 0 0 4px;
+}
+[dir='rtl'] .geolocate-control > button {
+    border-radius: 0 0 4px 0;
+}
+
+/* Pane Buttons */
+.help-control > button {
+    border-radius: 0 0 0 4px;
+}
+[dir='rtl'] .help-control > button {
+    border-radius: 0 0 4px 0;
+}
 
 .map-data-control button {
     border-radius: 0;
 }
 
-.background-control button {
+.background-control > button {
     border-radius: 4px 0 0 0;
 }
-[dir='rtl'] .background-control button {
+[dir='rtl'] .background-control > button {
     border-radius: 0 4px 0 0;
 }
+
+
+/* Background / Map Data Settings */
 
 .map-data-control,
 .background-control {
@@ -4463,16 +4771,12 @@ div.full-screen > button:hover {
 
 .imagery-faq {
     margin-bottom: 10px;
-}
-
-.map-data-control .hide-toggle,
-.background-control .hide-toggle {
-    padding-bottom: 10px;
+    white-space: nowrap;
 }
 
 .layer-list, .controls-list {
     margin-bottom: 10px;
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     border-radius: 4px;
 }
 
@@ -4480,7 +4784,7 @@ div.full-screen > button:hover {
     position: relative;
     height: 30px;
     background-color: white;
-    color: #7092FF;
+    color: #7092ff;
 }
 
 .layer-list:empty {
@@ -4509,7 +4813,7 @@ div.full-screen > button:hover {
 
 .layer-list li.active,
 .layer-list li.switch {
-    background: #E8EBFF;
+    background: #e8ebff;
 }
 
 .layer-list li.best > div.best {
@@ -4541,60 +4845,38 @@ div.full-screen > button:hover {
     text-overflow: ellipsis;
 }
 
-.minimap-toggle {
-    display: block;
-    padding: 5px 10px;
-    cursor: pointer;
-    color: #7092FF;
-    border-radius: 3px;
+
+/* Background Display Options */
+
+.display-options-container {
+    padding: 10px;
 }
 
-.minimap-toggle.active {
-    background: #E8EBFF;
+.display-control h5 {
+    padding-bottom: 0;
+    padding-top: 10px;
 }
 
-.minimap-toggle:hover {
-    background-color: #ececec;
+.display-control h5 span {
+    margin: 5px;
 }
 
-.hide-toggle {
-    display: block;
-    padding-left: 12px;
-    position: relative;
-}
-[dir='rtl'] .hide-toggle {
-    padding-left: 0;
-    padding-right: 12px;
+.display-control .display-option-input {
+    height: 20px;
+    width: 155px;
 }
 
-.hide-toggle:before {
-    content: '';
-    display: block;
-    position: absolute;
-    height: 0;
-    width: 0;
-    left: 0;
-    top: 5px;
-    border-top:  4px solid transparent;
-    border-bottom:  4px solid transparent;
-    border-left:  8px solid #7092ff;
+.display-control button {
+    height: 30px;
+    width: 30px;
+    margin-left: 5px;
+    margin-right: 0px;
+    vertical-align: text-bottom;
+    border-radius: 4px;
 }
-[dir='rtl'] .hide-toggle:before {
-    left: auto;
-    right: 0;
-    border-left: none;
-    border-right: 8px solid #7092ff;
-}
-
-.hide-toggle.expanded:before {
-    border-top:  8px solid #7092ff;
-    border-bottom: 0;
-    border-right:  4px solid transparent;
-    border-left:  4px solid transparent;
-}
-[dir='rtl'] .hide-toggle.expanded:before {
-    border-left: 4px solid transparent;
-    border-right: 4px solid transparent;
+[dir='rtl'] .display-control button {
+    margin-left: 0px;
+    margin-right: 5px;
 }
 
 
@@ -4650,7 +4932,7 @@ div.full-screen > button:hover {
 }
 
 .nudge-container input.error {
-    border: 1px solid #FF7878;
+    border: 1px solid #ff7878;
     border-radius: 2px;
     background: #ffb;
 }
@@ -4702,92 +4984,43 @@ div.full-screen > button:hover {
 }
 
 .background-control .nudge.right::after {
-    border-top:  5px solid transparent;
-    border-bottom:  5px solid transparent;
-    border-left:  5px solid #222;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-left: 5px solid #222;
 }
 
 .background-control .nudge.left::after {
-    border-top:  5px solid transparent;
-    border-bottom:  5px solid transparent;
-    border-right:  5px solid #222;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    border-right: 5px solid #222;
 }
 
 .background-control .nudge.top::after {
-    border-right:  5px solid transparent;
-    border-left:  5px solid transparent;
-    border-bottom:  5px solid #222;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-bottom: 5px solid #222;
 }
 
 .background-control .nudge.bottom::after {
-    border-right:  5px solid transparent;
-    border-left:  5px solid transparent;
-    border-top:  5px solid #222;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    border-top: 5px solid #222;
 }
 
-.opacity-options {
-    background: url(<%= asset_path("iD/img/background-pattern-opacity.png") %>) 0 0 repeat;
-    height: 20px;
-    width: 82px;
-    position: absolute;
-    right: 50px;
-    top: 20px;
-    border: 1px solid #ccc;
-}
-[dir='rtl'] .opacity-options {
-    left: 50px;
-    right: auto;
-}
-
-.opacity-options li {
-    height: 100%;
-    display: block;
-    float: left;
-}
-
-.opacity-options li .select-box{
-    position: absolute;
-    width: 20px;
-    height: 18px;
-    z-index: 9999;
-}
-
-.map-data-control li:hover .select-box,
-.map-data-control li.selected .select-box,
-.background-control li:hover .select-box,
-.background-control li.selected .select-box {
-    border: 2px solid #7092ff;
-    background: rgba(89, 123, 231, .5);
-    opacity: .5;
-}
-
-.map-data-control li.selected:hover .select-box,
-.map-data-control li.selected .select-box,
-.background-control li.selected:hover .select-box,
-.background-control li.selected .select-box {
-    opacity: 1;
-}
-
-.background-control .opacity {
-    background:#222;
-    display:inline-block;
-    width:20px;
-    height:18px;
-}
 
 .map-data-control .layer-list button,
 .background-control .layer-list button {
     float: right;
     height: 100%;
     width: 10%;
-    border-left: 1px solid #CCC;
+    border-left: 1px solid #ccc;
     border-radius: 0;
 }
 [dir='rtl'] .map-data-control .layer-list button,
 [dir='rtl'] .background-control .layer-list button {
     float: left;
     border-left: none;
-    border-right: 1px solid #CCC;
+    border-right: 1px solid #ccc;
 }
 
 .map-data-control .layer-list button .icon,
@@ -4804,47 +5037,60 @@ div.full-screen > button:hover {
     border-radius: 3px 0 0 3px;
 }
 
-.map-data-control .map-overlay,
-.background-control .map-overlay,
-.help-control .map-overlay {
+/* Side panes */
+
+/*.map-data-control .map-pane,
+.background-control .map-pane,
+.help-control .map-pane {
+}
+*/
+.map-pane {
+    position: fixed;
+    top: 60px;
+    bottom: 30px;
+    right: 0;
+    padding-bottom: 50px;
+    overflow: hidden;
     z-index: -1;
 }
-
-/* Geolocator */
-
-.geolocate-control {
-    margin-bottom: 10px;
-}
-
-.geolocate-control button {
-    border-radius: 0 0 0 4px;
-}
-[dir='rtl'] .geolocate-control button {
-  border-radius: 0 0 4px 0;
-}
-
-.map-overlay.content {
-    position: fixed;
-    top:60px;
-    bottom: 30px;
-    padding: 20px 50px 20px 20px;
-    right: 0;
-    overflow: auto;
-}
-[dir='rtl'] .map-overlay.content {
-    padding: 20px 20px 20px 50px;
+[dir='rtl'] .map-pane {
     left: 0;
     right: auto !important;
 }
 
+.pane-heading {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    border-bottom: 1px solid #ccc;
+}
+
+.pane-heading h2 {
+    margin: 15px 20px;
+}
+
+.pane-heading button {
+    width: 40px;
+    height: 61px;
+    border-radius: 0;
+}
+
+.pane-content {
+    height: 100%;
+    padding: 10px 50px 20px 20px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+[dir='rtl'] .pane-content {
+    padding: 10px 20px 20px 50px;
+}
+
+.pane-content > div {
+    padding-bottom: 15px;
+}
+
 /* Help */
 
-.help-control button {
-    border-radius: 0 0 0 4px;
-}
-[dir='rtl'] .help-control button {
-  border-radius: 0 0 4px 0;
-}
 
 .help-wrap p {
     font-size: 15px;
@@ -4852,13 +5098,27 @@ div.full-screen > button:hover {
 }
 
 .help-wrap .left-content .body p code {
-    padding:2px 4px;
-    background:#eee;
+    padding: 3px 4px;
+    font-size: 12px;
+    color: #555;
+    vertical-align: baseline;
+    background-color: #f6f6f6;
+    border: solid 1px #ccc;
+    margin: 0 2px;
+    border-bottom-color: #bbb;
+    border-radius: 3px;
+    box-shadow: inset 0 -1px 0 #bbb;
+}
+
+.help-wrap .left-content .icon.pre-text {
+    vertical-align: text-top;
+    margin-right: 0;
+    margin-left: 0;
+    display: inline-block;
 }
 
 .help-wrap .toc {
-    /* This is two columns, 41.66666 x .4 = 16.6666 */
-    width:40%;
+    width: 40%;
     float:right;
     margin-left: 20px;
     margin-bottom: 20px;
@@ -4868,7 +5128,7 @@ div.full-screen > button:hover {
 .help-wrap .toc li a,
 .help-wrap .nav a {
     display: block;
-    border: 1px solid #CCC;
+    border: 1px solid #ccc;
     padding: 5px 10px;
 }
 
@@ -4877,12 +5137,12 @@ div.full-screen > button:hover {
 }
 
 .help-wrap .toc li a:hover,
-.help-wrap .nav a:hover  {
+.help-wrap .nav a:hover {
     background: #ececec;
 }
 
 .help-wrap .toc li a.selected {
-    background: #E8EBFF;
+    background: #e8ebff;
 }
 
 .help-wrap .toc li:first-child a {
@@ -4890,7 +5150,7 @@ div.full-screen > button:hover {
 }
 
 .help-wrap .toc li:nth-last-child(3) a {
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid #ccc;
     border-radius: 0 0 4px 4px
 }
 
@@ -4908,6 +5168,7 @@ div.full-screen > button:hover {
 
 .help-wrap .nav {
     position: relative;
+    padding-bottom: 30px;
 }
 
 .help-wrap .nav a {
@@ -4935,12 +5196,12 @@ div.full-screen > button:hover {
 ------------------------------------------------------- */
 
 img.tile {
-    position:absolute;
-    transform-origin:0 0;
-    -ms-transform-origin:0 0;
-    -webkit-transform-origin:0 0;
-    -moz-transform-origin:0 0;
-    -o-transform-origin:0 0;
+    position: absolute;
+    transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
 
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -4950,8 +5211,16 @@ img.tile {
     opacity: 0;
 
     -webkit-transition: opacity 200ms linear;
-    transition: opacity 200ms linear;
     -moz-transition: opacity 200ms linear;
+    transition: opacity 200ms linear;
+}
+
+img.tile-loaded {
+    opacity: 1;
+}
+
+img.tile-removing {
+    opacity: 0;
 }
 
 .tile-label-debug {
@@ -4963,14 +5232,14 @@ img.tile {
     padding: 5px;
     border-radius: 3px;
     z-index: 2;
-    margin-left: -50px;
+    margin-left: -70px;
     margin-top: -20px;
 
-    transform-origin:0 0;
-    -ms-transform-origin:0 0;
-    -webkit-transform-origin:0 0;
-    -moz-transform-origin:0 0;
-    -o-transform-origin:0 0;
+    transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
 
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -4982,23 +5251,15 @@ img.tile-debug {
     outline: 1px solid red;
 }
 
-img.tile-loaded {
-    opacity: 1;
-}
-
-img.tile-removing {
-    opacity: 0;
-}
-
 
 /* Map
 ------------------------------------------------------- */
 
 #map {
-    position:relative;
-    overflow:hidden;
-    height:100%;
-    background:#000;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    background: #000;
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -5006,11 +5267,11 @@ img.tile-removing {
 }
 
 #supersurface {
-    transform-origin:0 0;
-    -ms-transform-origin:0 0;
-    -webkit-transform-origin:0 0;
-    -moz-transform-origin:0 0;
-    -o-transform-origin:0 0;
+    transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
 }
 
 #supersurface, .layer {
@@ -5089,9 +5350,10 @@ img.tile-removing {
     stroke-width: 1;
 }
 
+.nocolor { color: rgba(0, 0, 0, 0); }
 .red     { color: rgba(255, 0, 0, 0.75); }
 .green   { color: rgba(0, 255, 0, 0.75); }
-.blue    { color: rgba(0, 0, 255, 0.75); }
+.blue    { color: rgba(176, 176, 255, 0.75); }
 .yellow  { color: rgba(255, 255, 0, 0.75); }
 .cyan    { color: rgba(0, 255, 255, 0.75); }
 .magenta { color: rgba(255, 0, 255, 0.75); }
@@ -5184,6 +5446,12 @@ img.tile-removing {
     position: relative;
 }
 
+.panel-content li span {
+    display: inline-block;
+    white-space: nowrap;
+    margin: 0 8px;
+}
+
 .panel-content .button {
     display: inline-block;
     background: #7092ff;
@@ -5199,11 +5467,11 @@ img.tile-removing {
 }
 
 .panel-content-history .links a {
-    margin-left: 10px;
+    margin-left: 8px;
 }
 [dir='rtl'] .panel-content-history .links a {
     margin-left: auto;
-    margin-right: 10px;
+    margin-right: 8px;
 }
 
 .panel-content-history .view-history-on-osm {
@@ -5277,13 +5545,13 @@ img.tile-removing {
     margin: 0 3px;
 }
 
-
 #footer {
     pointer-events: all;
     display: block;
     height: 30px;
 }
 
+/* footer flash message */
 
 #flash-wrap {
     display: flex;
@@ -5296,7 +5564,7 @@ img.tile-removing {
     left: 0;
 }
 
-#flash-wrap .content {
+.flash-content {
     display: flex;
     flex: 1 0 auto;
     flex-flow: row nowrap;
@@ -5305,15 +5573,38 @@ img.tile-removing {
     height: 30px;
 }
 
-
-#flash-wrap svg.operation-icon {
+.flash-icon {
     flex: 0 0 auto;
     width: 20px;
     height: 20px;
     margin: 0 8px;
 }
 
-#flash-wrap div.operation-tip {
+.flash-icon circle {
+    fill: #eee;
+}
+.flash-icon.disabled circle {
+    cursor: auto;
+    fill: rgba(255,255,255,0.7);
+}
+
+.flash-icon use {
+    color: #222;
+}
+.flash-icon.disabled use {
+    color: rgba(32,32,32,0.7);
+}
+
+.flash-icon.operation use {
+    fill: #222;
+    color: #79f;
+}
+.flash-icon.operation.disabled use {
+    fill: rgba(32,32,32,0.7);
+    color: rgba(40,40,40,0.7);
+}
+
+.flash-text {
     flex: 1 1 auto;
 }
 
@@ -5342,6 +5633,8 @@ img.tile-removing {
     -webkit-transition: bottom 75ms linear;
 }
 
+
+/* footer scale */
 
 #scale-block {
     vertical-align: bottom;
@@ -5470,6 +5763,9 @@ img.tile-removing {
     color: #ccf;
 }
 
+/* Notification Badges */
+
+/* For an icon (e.g. new version) */
 .badge {
     display: inline-block;
     background: #d32232;
@@ -5494,6 +5790,24 @@ img.tile-removing {
     width: 11px;
     height: 11px;
     fill: white;
+}
+
+/* For text (e.g. upcoming events) */
+.badge-text {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    width: 16px;
+    height: 16px;
+    font-size: 10px;
+    font-weight: bold;
+    margin-left: 5px;
+    background: #f00;
+    border-radius: 9px;
+}
+[dir='rtl'] .badge-text {
+    margin-left: 0;
+    margin-right: 5px;
 }
 
 
@@ -5539,7 +5853,7 @@ img.tile-removing {
 
 .modal-section {
     padding: 20px;
-    border-bottom: 1px solid #CCC;
+    border-bottom: 1px solid #ccc;
 }
 
 .modal-section.header h3 {
@@ -5569,20 +5883,23 @@ img.tile-removing {
     text-align: center;
 }
 
-.modal-actions button,
-.save-success a.button {
+.modal-actions button {
     font-weight: normal;
-    color: #7092FF;
-    border-bottom: 1px solid #CCC;
+    color: #7092ff;
+    border-bottom: 1px solid #ccc;
     border-radius: 0;
     height: 160px;
     text-align: center;
     display: inline-block;
 }
-
-.modal-actions button:hover
-.save-success a.button:hover {
+.modal-actions button:hover {
     background-color: #ececec;
+}
+
+.logo-small {
+    height: 40px;
+    width: 40px;
+    margin: auto;
 }
 
 .logo {
@@ -5593,7 +5910,7 @@ img.tile-removing {
 }
 
 .modal-actions > :first-child {
-    border-right: 1px solid #CCC;
+    border-right: 1px solid #ccc;
 }
 
 .modal-section:last-child {
@@ -5603,42 +5920,111 @@ img.tile-removing {
 /* Restore Modal
 ------------------------------------------------------- */
 .modal-actions .logo-restore {
-    color: #7092FF;
+    color: #7092ff;
 }
 .modal-actions .logo-reset {
-    color: #E06C5E;
+    color: #e06c5e;
 }
 
 /* Success Modal
 ------------------------------------------------------- */
+.save-success.body {
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.save-success .link-out {
+    margin: 0px 5px;
+    white-space: nowrap;
+}
+
+.save-summary,
+.save-communityLinks {
+    padding: 0px 20px 15px 20px;
+}
+
+.save-communityLinks {
+    border-top: 1px solid #ccc;
+}
+
+.save-success table,
 .save-success p {
-    padding: 15px 15px 0 15px;
+    margin-top: 15px;
 }
-.save-success a.details {
-    padding-left: 15px;
+.save-success h3 {
+    font-size: 14px;
+    margin-top: 15px;
+    line-height: 1.5;
+    padding-bottom: 0;
 }
-.save-success .button {
-    padding-top: 15px;
+.save-success td {
+    vertical-align: top;
 }
-.save-success .logo-osm {
-    color: #7092FF;
-    margin-bottom: 10px;
+.save-success td.cell-icon {
+    width: 40px;
 }
-.save-success a.button.social {
-    height: auto;
-    border-bottom: none;
+.save-success td.cell-detail {
+    padding: 0 10px;
 }
-.save-success .icon.social {
-    height: 80px;
-    width: 80px;
-    color: #7092FF;
+.save-success td.community-detail {
+    padding-bottom: 15px;
 }
+
+.summary-view-on-osm,
+.community-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+.community-languages {
+    margin-top: 5px;
+    font-style: italic;
+}
+.community-languages:only-child {
+    margin-top: 0;
+}
+
+.community-detail a.hide-toggle,
+.community-detail a:visited.hide-toggle {
+    font-size: 12px;
+    font-weight: normal;
+    padding-bottom: 0;
+}
+.community-detail .hide-toggle svg.icon.pre-text {
+    width: 12px;
+    height: 15px;
+}
+
+.community-events {
+    margin-top: 5px;
+}
+
+.community-event,
+.community-more {
+    background-color: #efefef;
+    padding: 8px;
+    border-radius: 4px;
+    margin-bottom: 5px;
+}
+
+.community-event-name {
+    font-size: 14px;
+    font-weight: bold;
+}
+.community-event-when {
+    font-weight: bold;
+}
+
+.community-missing {
+    padding: 10px;
+    text-align: center;
+}
+
 
 /* Splash Modal
 ------------------------------------------------------- */
 .modal-actions .logo-walkthrough,
 .modal-actions .logo-features {
-    color: #7092FF;
+    color: #7092ff;
 }
 
 
@@ -5727,11 +6113,11 @@ img.tile-removing {
     box-shadow: inset 0 -1px 0 #bbb;
 }
 
-.modal-shortcuts .shortcut-keys svg.mouseclick use.left {
+svg.mouseclick use.left {
     fill: rgba(112, 146, 255, 1);
     color: rgba(112, 146, 255, 0);
 }
-.modal-shortcuts .shortcut-keys svg.mouseclick use.right {
+svg.mouseclick use.right {
     fill: rgba(112, 146, 255, 0);
     color: rgba(112, 146, 255, 1);
 }
@@ -5829,7 +6215,7 @@ img.tile-removing {
 }
 
 .mode-save .commit-section .changeset-list button {
-    border-left: 1px solid #CCC;
+    border-left: 1px solid #ccc;
 }
 
 .changeset-list li span.count:before { content: '('; }
@@ -5928,7 +6314,7 @@ img.tile-removing {
 .tooltip {
     position: absolute;
     display: none;
-    color:#333;
+    color: #333;
     font-size: 12px;
 }
 
@@ -6082,33 +6468,33 @@ img.tile-removing {
 /* Exceptions for tooltip layouts */
 
 /* make tooltips in panels dark */
-.map-overlay .tooltip.top .tooltip-arrow,
+.map-pane .tooltip.top .tooltip-arrow,
 .entity-editor-pane .tooltip.top .tooltip-arrow,
 .warning-section .tooltip.top .tooltip-arrow {
     border-top-color: #000;
 }
 
-.map-overlay .tooltip.bottom .tooltip-arrow,
+.map-pane .tooltip.bottom .tooltip-arrow,
 .entity-editor-pane .tooltip.bottom .tooltip-arrow,
 .warning-section .tooltip.bottom .tooltip-arrow {
     border-bottom-color: #000;
 }
 
-.map-overlay .tooltip.left .tooltip-arrow,
+.map-pane .tooltip.left .tooltip-arrow,
 .entity-editor-pane .tooltip.left .tooltip-arrow,
 .warning-section .tooltip.left .tooltip-arrow {
     border-left-color: #000;
 }
 
-.map-overlay .tooltip.right .tooltip-arrow,
+.map-pane .tooltip.right .tooltip-arrow,
 .entity-editor-pane .tooltip.right .tooltip-arrow,
 .warning-section .tooltip.right .tooltip-arrow {
     border-right-color: #000;
 }
 
-.map-overlay .tooltip-inner,
-.map-overlay .tooltip-heading,
-.map-overlay .keyhint-wrap,
+.map-pane .tooltip-inner,
+.map-pane .tooltip-heading,
+.map-pane .keyhint-wrap,
 .entity-editor-pane .tooltip-inner,
 .warning-section .tooltip-inner {
     background: #000;
@@ -6218,6 +6604,7 @@ li.hide + li.version .badge .tooltip .tooltip-arrow {
 
 .edit-menu-item rect {
     fill: #eee;
+    cursor: default;
 }
 
 .edit-menu-item rect:active,
@@ -6236,6 +6623,7 @@ li.hide + li.version .badge .tooltip .tooltip-arrow {
 .edit-menu-item use {
     fill: #222;
     color: #79f;
+    pointer-events: none;
 }
 
 .edit-menu-item.disabled use {
@@ -6386,7 +6774,7 @@ li.hide + li.version .badge .tooltip .tooltip-arrow {
 .curtain-tooltip .tooltip-inner .instruction {
     font-weight: bold;
     display: block;
-    border-top: 1px solid #CCC;
+    border-top: 1px solid #ccc;
     margin-top: 10px;
     margin-left: -20px;
     margin-right: -20px;
@@ -6464,5 +6852,5 @@ li.hide + li.version .badge .tooltip .tooltip-arrow {
 .huge-modal-button .illustration {
     height: 100px;
     width: 100px;
-    color: #7092FF;
+    color: #7092ff;
 }

@@ -112,27 +112,12 @@ nds:
     location:
       view: Ankieken
       edit: Ännern
-  export:
-    start:
-      licence: Lizenz
-      format: 'Format:'
-      scale: Skaal
-      max: max.
-      image_size: 'Bildgrött:'
-      zoom: Zoom
-      add_marker: Sett en Markteken op de Koort
-      latitude: 'Breed:'
-      longitude: 'Läng:'
-      output: Utgaav
-      export_button: Export
   geocoder:
     search_osm_nominatim:
       prefix:
         amenity:
-          airport: Flegerhaven
           arts_centre: Kunstcenter
           atm: Geldautomaat
-          auditorium: Auditorium
           bank: Bank
           bar: Bar
           bench: Bank
@@ -145,39 +130,29 @@ nds:
           casino: Kasino
           cinema: Kino
           clinic: Krankenhuus
-          club: Club
           college: Hoogschool
           courthouse: Gericht
           crematorium: Krematorium
           dentist: Tähndokter
           doctors: Dokter
-          dormitory: Studentenhuus
           drinking_water: Drinkwater
           driving_school: Fohrschool
           embassy: Baadschop
-          emergency_phone: Noodtelefoon
           fast_food: Fast Food
           ferry_terminal: Fährterminal
-          fire_hydrant: Hydrant
           fire_station: Füürwehr
           fountain: Fontään
           fuel: Tanksteed
           grave_yard: Karkhoff
-          gym: Fitnesscenter
-          hall: Hall
           hospital: Krankenhuus
-          hotel: Hotel
           hunting_stand: Hoogstand
           ice_cream: Iesladen
           kindergarten: Kinnergoorn
           library: Bökeree
-          market: Markt
           marketplace: Marktplatz
           nightclub: Nachtclub
-          nursery: Kita
           nursing_home: Pleeghuus
           office: Kontoor
-          park: Park
           parking: Parkplatz
           pharmacy: Avtheek
           police: Polizei
@@ -192,26 +167,21 @@ nds:
           school: School
           shelter: Schuulruum
           shop: Laden
-          shopping: Ladens
           social_club: Sozialvereen
           studio: Eenkamer-Appartement
-          supermarket: Supermarkt
           taxi: Taxi
           theatre: Theater
           toilets: Toiletten
           university: Universität
           village_hall: Gemeendehuus
-          wifi: Wifi-Togang
           youth_centre: Jöögdcenter
         highway:
           bridleway: Riedpadd
           bus_stop: Busstopp
-          byway: Siedenweg
           cycleway: Radweg
           footway: Footpadd
           ford: Foord
           living_street: Wahnstraat
-          minor: Blangenstraat
           motorway: Autobahn
           motorway_junction: Autobahnkrüüz
           motorway_link: Autobahnopfohrt
@@ -222,7 +192,6 @@ nds:
           residential: Wahnstraat
           road: Straat
           steps: Trepp
-          stile: Stegel
           track: Feldweg
           trail: Padd
         historic:
@@ -233,7 +202,6 @@ nds:
           memorial: Gedenksteed
           mine: Mien
           monument: Monument
-          museum: Museum
           ruins: Ruinen
           tower: Toorn
           wreck: Wrack
@@ -250,13 +218,10 @@ nds:
           meadow: Wisch
           military: Militärrebeed
           mine: Mien
-          park: Park
-          piste: Piste
           quarry: Steenkuhl
           reservoir: Reservoir
           residential: Wahnrebeed
           vineyard: Wiengoorn
-          wood: Holt
         leisure:
           common: Buurmeen
           garden: Goorn
@@ -275,7 +240,6 @@ nds:
           beach: Strand
           cape: Kap
           cave_entrance: Höhleningang
-          channel: Kanaal
           crater: Krater
           fell: Fjell
           fjord: Fjord
@@ -291,10 +255,8 @@ nds:
           peak: Bargtopp
           reef: Riff
           ridge: Bargkamm
-          river: Stroom
           rock: Steen
           scrub: Krattbusch
-          shoal: Sandbank
           spring: Born
           strait: Straat
           tree: Boom
@@ -303,7 +265,6 @@ nds:
           water: Water
           wood: Woold
         place:
-          airport: Flegerhaven
           city: Stadt
           country: Land
           county: Distrikt
@@ -313,7 +274,6 @@ nds:
           houses: Hüüs
           island: Eiland
           islet: lütt Eiland
-          moor: Moor
           municipality: Gemeen
           sea: See
           state: Staat
@@ -345,7 +305,6 @@ nds:
           gift: Geschenkladen
           greengrocer: Gröönhöker
           hairdresser: Putzbüdel
-          insurance: Versekerung
           jewelry: Juwelier
           kiosk: Kiosk
           laundry: Wäscheree
@@ -355,7 +314,6 @@ nds:
           newsagent: Kiosk
           optician: Optiker
           photo: Fotoladen
-          salon: Salon
           shoes: Schohladen
           supermarket: Supermarkt
           toys: Speeltüügladen
@@ -368,7 +326,6 @@ nds:
           hotel: Hotel
           motel: Motel
           museum: Museum
-          valley: Daal
           zoo: Zoo
         waterway:
           canal: Kanaal
@@ -378,9 +335,7 @@ nds:
           dock: Dock
           lock: Slüüs
           lock_gate: Slüsendoor
-          mineral_spring: Mineralborn
           river: Stroom
-          riverbank: Stroomöver
           stream: Beek
           wadi: Wadi
           waterfall: Waterfall
@@ -397,19 +352,6 @@ nds:
     results:
       no_results: nix funnen
       more_results: Mehr
-    distance:
-      one: üm un bi 1 km
-      zero: ünner 1 km
-      other: üm un bi %{count} km
-    direction:
-      south_west: süüdwesten
-      south: süden
-      south_east: süüdoosten
-      east: oosten
-      north_east: noordoosten
-      north: noorden
-      north_west: noordwesten
-      west: westen
   layouts:
     logo:
       alt_text: OpenStreetMap-Logo
@@ -425,9 +367,6 @@ nds:
     help: Hülp
     make_a_donation:
       text: Spenn wat
-  license_page:
-    native:
-      title: Över disse Sied
   notifier:
     diary_comment_notification:
       hi: Moin %{to_user},
@@ -480,11 +419,26 @@ nds:
     delete:
       deleted: Naricht wegdaan
   site:
+    copyright:
+      native:
+        title: Över disse Sied
     index:
       permalink: Permalink
       shortlink: Kortlink
     edit:
       user_page_link: Brukersied
+    export:
+      licence: Lizenz
+      format: 'Format:'
+      scale: Skaal
+      max: max.
+      image_size: 'Bildgrött:'
+      zoom: Zoom
+      add_marker: Sett en Markteken op de Koort
+      latitude: 'Breed:'
+      longitude: 'Läng:'
+      output: Utgaav
+      export_button: Export
     sidebar:
       close: Sluten
     search:
@@ -499,9 +453,7 @@ nds:
           primary: wichtige Landstraat
           secondary: lüttjere Landstraat
           unclassified: Straat
-          unsurfaced: Mullstraat
           track: Feldweg
-          byway: Siedenweg
           bridleway: Riedpadd
           cycleway: Fohrradpadd
           footway: Footpadd
@@ -525,7 +477,6 @@ nds:
           golf: Golfplatz
           park: Park
           resident: Wahnrebeed
-          tourist: Touristenattrakschoon
           common:
           - Wisch
           - Wisch
@@ -645,7 +596,6 @@ nds:
       ago: (vör %{time_in_words_ago})
       email address: 'E-Mail-Adress:'
       description: Beschrieven
-      your friends: Dien Frünn
       km away: '%{count} km weg'
       m away: '%{count} m weg'
       nearby users: Annere Brukers in de Neegd
@@ -656,8 +606,6 @@ nds:
     account:
       title: Brukerkonto ännern
       email never displayed publicly: (nich apen wiesen)
-      openid:
-        openid: OpenID
       public editing:
         enabled link text: Wat is dat?
         disabled link text: Worüm kann ik nix ännern?
@@ -678,12 +626,12 @@ nds:
     remove_friend:
       success: '%{name} is rutnahmen bi de Frünn.'
       not_a_friend: '%{name} is keen von dien Frünn.'
-  user_block:
-    partial:
-      show: Wiesen
-      edit: Ännern
+  user_blocks:
     show:
       status: Status
+      show: Wiesen
+      edit: Ännern
+    block:
       show: Wiesen
       edit: Ännern
   javascripts:

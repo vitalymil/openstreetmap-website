@@ -32,7 +32,7 @@ sudo apt-get install ruby2.3 libruby2.3 ruby2.3-dev \
                      libmagickwand-dev libxml2-dev libxslt1-dev nodejs \
                      apache2 apache2-dev build-essential git-core \
                      postgresql postgresql-contrib libpq-dev postgresql-server-dev-all \
-                     libsasl2-dev imagemagick
+                     libsasl2-dev imagemagick libffi-dev
 sudo gem2.3 install bundler
 ```
 
@@ -47,7 +47,7 @@ sudo yum install ruby ruby-devel rubygem-rdoc rubygem-bundler rubygems \
                  libxml2-devel js \
                  gcc gcc-c++ git \
                  postgresql postgresql-server postgresql-contrib postgresql-devel \
-                 perl-podlators ImageMagick
+                 perl-podlators ImageMagick libffi-devel
 ```
 
 If you didn't already have PostgreSQL installed then create a PostgreSQL instance and start the server:
@@ -69,7 +69,7 @@ For MacOSX, you will need XCode installed from the Mac App Store; OS X 10.7 (Lio
 
 Installing PostgreSQL:
 
-* Install Postgres.app from http://postgresapp.com/
+* Install Postgres.app from https://postgresapp.com/
 * Add PostgreSQL to your path, by editing your profile:
 
 `nano ~/.profile`
@@ -80,7 +80,7 @@ and adding:
 
 Installing other dependencies:
 
-* Install Homebrew from http://brew.sh/
+* Install Homebrew from https://brew.sh/
 * Install the latest version of Ruby: `brew install ruby`
 * Install ImageMagick: `brew install imagemagick`
 * Install libxml2: `brew install libxml2 --with-xml2-config`

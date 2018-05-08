@@ -7,12 +7,12 @@ class ChangesetController < ApplicationController
   skip_before_action :verify_authenticity_token, :except => [:list]
   before_action :authorize_web, :only => [:list, :feed, :comments_feed]
   before_action :set_locale, :only => [:list, :feed, :comments_feed]
-  before_action :authorize, :only => [:create, :update, :delete, :upload, :include, :close, :comment, :subscribe, :unsubscribe, :hide_comment, :unhide_comment]
+  before_action :authorize, :only => [:create, :update, :upload, :close, :comment, :subscribe, :unsubscribe, :hide_comment, :unhide_comment]
   before_action :require_moderator, :only => [:hide_comment, :unhide_comment]
-  before_action :require_allow_write_api, :only => [:create, :update, :delete, :upload, :include, :close, :comment, :subscribe, :unsubscribe, :hide_comment, :unhide_comment]
-  before_action :require_public_data, :only => [:create, :update, :delete, :upload, :include, :close, :comment, :subscribe, :unsubscribe]
-  before_action :check_api_writable, :only => [:create, :update, :delete, :upload, :include, :comment, :subscribe, :unsubscribe, :hide_comment, :unhide_comment]
-  before_action :check_api_readable, :except => [:create, :update, :delete, :upload, :download, :query, :list, :feed, :comment, :subscribe, :unsubscribe, :comments_feed]
+  before_action :require_allow_write_api, :only => [:create, :update, :upload, :close, :comment, :subscribe, :unsubscribe, :hide_comment, :unhide_comment]
+  before_action :require_public_data, :only => [:create, :update, :upload, :close, :comment, :subscribe, :unsubscribe]
+  before_action :check_api_writable, :only => [:create, :update, :upload, :comment, :subscribe, :unsubscribe, :hide_comment, :unhide_comment]
+  before_action :check_api_readable, :except => [:create, :update, :upload, :download, :query, :list, :feed, :comment, :subscribe, :unsubscribe, :comments_feed]
   before_action(:only => [:list, :feed, :comments_feed]) { |c| c.check_database_readable(true) }
   around_action :api_call_handle_error, :except => [:list, :feed, :comments_feed]
   around_action :api_call_timeout, :except => [:list, :feed, :comments_feed, :upload]
@@ -296,9 +296,7 @@ class ChangesetController < ApplicationController
         changesets = changesets.where(:user_id => current_user.nearby)
       end
 
-      if @params[:max_id]
-        changesets = changesets.where("changesets.id <= ?", @params[:max_id])
-      end
+      changesets = changesets.where("changesets.id <= ?", @params[:max_id]) if @params[:max_id]
 
       @edits = changesets.order("changesets.id DESC").limit(20).preload(:user, :changeset_tags, :comments)
 
@@ -334,9 +332,7 @@ class ChangesetController < ApplicationController
 
     # Notify current subscribers of the new comment
     changeset.subscribers.visible.each do |user|
-      if current_user != user
-        Notifier.changeset_comment_notification(comment, user).deliver_now
-      end
+      Notifier.changeset_comment_notification(comment, user).deliver_now if current_user != user
     end
 
     # Add the commenter to the subscribers if necessary
@@ -357,7 +353,6 @@ class ChangesetController < ApplicationController
 
     # Find the changeset and check it is valid
     changeset = Changeset.find(id)
-    raise OSM::APIChangesetNotYetClosedError, changeset if changeset.is_open?
     raise OSM::APIChangesetAlreadySubscribedError, changeset if changeset.subscribers.exists?(current_user.id)
 
     # Add the subscriber
@@ -378,7 +373,6 @@ class ChangesetController < ApplicationController
 
     # Find the changeset and check it is valid
     changeset = Changeset.find(id)
-    raise OSM::APIChangesetNotYetClosedError, changeset if changeset.is_open?
     raise OSM::APIChangesetNotSubscribedError, changeset unless changeset.subscribers.exists?(current_user.id)
 
     # Remove the subscriber
@@ -513,7 +507,7 @@ class ChangesetController < ApplicationController
   # restrict changes to those closed during a particular time period
   def conditions_time(changesets, time)
     if time.nil?
-      return changesets
+      changesets
     elsif time.count(",") == 1
       # if there is a range, i.e: comma separated, then the first is
       # low, second is high - same as with bounding boxes.
@@ -523,10 +517,10 @@ class ChangesetController < ApplicationController
       raise OSM::APIBadUserInput, "bad time range" if times.size != 2
 
       from, to = times.collect { |t| Time.parse(t) }
-      return changesets.where("closed_at >= ? and created_at <= ?", from, to)
+      changesets.where("closed_at >= ? and created_at <= ?", from, to)
     else
       # if there is no comma, assume its a lower limit on time
-      return changesets.where("closed_at >= ?", Time.parse(time))
+      changesets.where("closed_at >= ?", Time.parse(time))
     end
     # stupid Time seems to throw both of these for bad parsing, so
     # we have to catch both and ensure the correct code path is taken.

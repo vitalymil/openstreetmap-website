@@ -241,33 +241,10 @@ az:
       ago: '%{ago} əvvəl'
       newer_comments: Yeni şərhlər
       older_comments: Köhnə Şərhlər
-  export:
-    start:
-      area_to_export: İxrac üçün Ərazi
-      manually_select: Digər ərazini seçmək
-      format_to_export: İxracın forması
-      osm_xml_data: OpenStreetMap XML formasında məlumatlar
-      map_image: Xəritənin Şəkili (standart qatı göstərir)
-      embeddable_html: Quraşdırılan HTML
-      licence: Lisenziya
-      options: Nizamlamalar
-      format: Format
-      scale: Miqyas
-      max: maks
-      image_size: Şəkil ölçüsü
-      zoom: Yaxınlaşdır
-      add_marker: Xəritəyə marker əlavə etmək
-      latitude: 'En:'
-      longitude: 'Uz:'
-      output: Nəticə
-      paste_html: Veb sayta quraşdırmaq üçün HTML kod
-      export_button: İxrac etmək
   geocoder:
     search:
       title:
         latlon: <a href="http://openstreetmap.org/">Daxili nəticələr</a>
-        uk_postcode: <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>
-          nəticələri
         ca_postcode: <a href="http://geocoder.ca/">Geocoder.CA</a> nəticələri
         osm_nominatim: <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a> nəticələri
@@ -309,30 +286,23 @@ az:
           crematorium: Krematoriya
           dentist: Diş həkimi
           doctors: Həkimlər
-          dormitory: Yataqxana
           drinking_water: İçməli su
           driving_school: Sürücülük məktəbi
           embassy: Səfirlik
-          emergency_phone: Fövqəladə hallar üçün telefon
           fast_food: Fəst Fud
           ferry_terminal: Parom Terminalı
-          fire_hydrant: Yanğın Hidrantı
           fire_station: Yanğın söndürmə Stansiyası
           food_court: Açıq havada Yeməkxana
           fountain: Fontan
           fuel: Yanacaq doldurma
           grave_yard: Qəbirsanlıq
-          gym: Fitnes mərkəzi
-          health_centre: Sağlamlıq mərkəzi
           hospital: Qospital
           hunting_stand: Ov stendi
           ice_cream: Dondurma
           kindergarten: Uşaq bağçası
           library: Kitabxana
-          market: Market
           marketplace: Bazar meydanı
           nightclub: Gecə klubu
-          nursery: Pansionat
           nursing_home: Qocalar evi
           office: Ofis
           parking: Dayanacaq
@@ -345,7 +315,6 @@ az:
           prison: Həbsxana
           pub: Pivəxana
           public_building: İctimai Binalar
-          reception_area: Qəbul sahəsi
           recycling: Utilizasiya yeri
           restaurant: Restoran
           retirement_home: Qocalar Evi
@@ -418,7 +387,6 @@ az:
           trunk: Baş yol
           trunk_link: Baş yol
           unclassified: Təsnifatsız yol
-          unsurfaced: Örtüksüz yol
         historic:
           archaeological_site: Arxeoloji qazıntılar
           battlefield: Döyüş meydanı
@@ -546,7 +514,6 @@ az:
           travel_agent: Səyahət Agentliyi
           "yes": Ofislər
         place:
-          airport: Aeroport
           city: Şəhər
           country: Ölkə
           county: Ölkə
@@ -558,7 +525,6 @@ az:
           islet: Adacıq
           isolated_dwelling: Ayrıca ev-ferma
           locality: Təkr edilmiş ərazi
-          moor: Torfluq
           municipality: Bələdiyyə
           postcode: Poçt indeksi
           region: Bölgə
@@ -573,10 +539,8 @@ az:
           abandoned: Sökülmüş dəmiryol xətti
           construction: Dəmiryol xətti təmirdədir
           disused: İstifadə olunmayan (atılmış) dəmiryol xətti
-          disused_station: İstifadə olunmayan (atılmış) dəmiryol stansiyası
           funicular: Funikulyor
           halt: Qatar dayanacağı
-          historic_station: Tarixi dəmiryol stansiyası
           junction: Dəmiryol oxu
           level_crossing: Dəmiryol keçidi
           light_rail: Yüngül resli dəmiryol xətti
@@ -636,7 +600,6 @@ az:
           hairdresser: Saç ustası
           hardware: Məişət Alətləri Dükanı
           hifi: Audio və Video avadanlıqları dükanı
-          insurance: Sığorta şirkəti
           jewelry: Zərgərlik dükanı
           kiosk: Kiosk
           laundry: Camaşırxana
@@ -651,9 +614,7 @@ az:
           outdoor: Küçə satışı
           pet: Zoomaqazin
           photo: Fotomaqazin
-          salon: Salon
           shoes: Ayaqqabı dükanı
-          shopping_centre: Ticarət Mərkəzi
           sports: İdman malları dükanı
           stationery: Dəftərxana Ləvazimatı
           supermarket: Supermarket
@@ -756,40 +717,6 @@ az:
     make_a_donation:
       title: OpenStreetMap-i dəstəkləmək üçün maddi yardım et
       text: Maddi yardım et
-  license_page:
-    foreign:
-      title: Bu tərcümə haqqında
-      english_link: ingiliscə orijinalına
-    native:
-      title: Bu səhifə haqqında
-      native_link: azərbaycan versiyası
-      mapping_link: kartoqrafiyalaşdırmağa başla
-    legal_babble:
-      title_html: Müəllif hüquqları və Lisenziyalar
-      intro_1_html: |-
-        OpenStreetMap <a
-        href="http://opendatacommons.org/licenses/odbl/">Open Data
-        Commons Open Database License</a> (ODbL) lisenziyası üzrə istifadə olunan <i>açıq məlumatlardan</i> ibarətdir.
-      credit_title_html: OpenStreetMap-ə Necə istinad etmək olar
-      attribution_example:
-        alt: Nümunə üçün, veb-səhifədən OpenStreetMap-ə necə istinad vermək
-        title: Müəllifin göstərilməsinin nümunəsi
-      more_title_html: Daha ətraflı öyrən
-      contributors_title_html: Kimlər bizim layihəyə töhfə verir
-      contributors_ca_html: <strong>Kanada</strong> GeoBase ®, GeoGratis (© Kanadanın
-        Təbii Ehtiyatlar Departamenti), CanVec (© Kanadanın Təbii Ehtiyatlar Departamenti)
-        və StatCan (Kanadanın Statistika şöbəsinin, Coğrafiya bölməsi) tərəfindən
-        məlumatlar.
-      contributors_fr_html: '<strong>Fransa</strong>: Baş Vergi İdarəsi tərəfindən
-        məlumatlar.'
-      contributors_nz_html: <strong>Yeni Zelandiya</strong> Yeni Zelandiyanın torpaq
-        resursları haqqında məlumatlardan. Crown Copyright reserved.
-      contributors_gb_html: <strong>Böyük Britaniya Krallığı</strong> Ordnance Survey
-        © Crown copyright tərəfindən məlumatlar. Verilənlər bazasına icazə 2010-12.
-      infringement_title_html: Müəllif hüquqlarının pozulması
-  help_page:
-    beginners_guide:
-      url: http://wiki.openstreetmap.org/wiki/Az:Beginners%27_guide
   notifier:
     diary_comment_notification:
       subject: '[OpenStreetMap] %{user} adlı istifadəçi sənin gündəliy yazına şərh
@@ -883,10 +810,64 @@ az:
     delete:
       deleted: Mesaj silindi
   site:
+    copyright:
+      foreign:
+        title: Bu tərcümə haqqında
+        english_link: ingiliscə orijinalına
+      native:
+        title: Bu səhifə haqqında
+        native_link: azərbaycan versiyası
+        mapping_link: kartoqrafiyalaşdırmağa başla
+      legal_babble:
+        title_html: Müəllif hüquqları və Lisenziyalar
+        intro_1_html: |-
+          OpenStreetMap <a
+          href="http://opendatacommons.org/licenses/odbl/">Open Data
+          Commons Open Database License</a> (ODbL) lisenziyası üzrə istifadə olunan <i>açıq məlumatlardan</i> ibarətdir.
+        credit_title_html: OpenStreetMap-ə Necə istinad etmək olar
+        attribution_example:
+          alt: Nümunə üçün, veb-səhifədən OpenStreetMap-ə necə istinad vermək
+          title: Müəllifin göstərilməsinin nümunəsi
+        more_title_html: Daha ətraflı öyrən
+        contributors_title_html: Kimlər bizim layihəyə töhfə verir
+        contributors_ca_html: <strong>Kanada</strong> GeoBase ®, GeoGratis (© Kanadanın
+          Təbii Ehtiyatlar Departamenti), CanVec (© Kanadanın Təbii Ehtiyatlar Departamenti)
+          və StatCan (Kanadanın Statistika şöbəsinin, Coğrafiya bölməsi) tərəfindən
+          məlumatlar.
+        contributors_fr_html: '<strong>Fransa</strong>: Baş Vergi İdarəsi tərəfindən
+          məlumatlar.'
+        contributors_nz_html: <strong>Yeni Zelandiya</strong> Yeni Zelandiyanın torpaq
+          resursları haqqında məlumatlardan. Crown Copyright reserved.
+        contributors_gb_html: <strong>Böyük Britaniya Krallığı</strong> Ordnance Survey
+          © Crown copyright tərəfindən məlumatlar. Verilənlər bazasına icazə 2010-12.
+        infringement_title_html: Müəllif hüquqlarının pozulması
     index:
       shortlink: Qısa keçid
     edit:
       user_page_link: istifadəçi səhifəsi
+    export:
+      area_to_export: İxrac üçün Ərazi
+      manually_select: Digər ərazini seçmək
+      format_to_export: İxracın forması
+      osm_xml_data: OpenStreetMap XML formasında məlumatlar
+      map_image: Xəritənin Şəkili (standart qatı göstərir)
+      embeddable_html: Quraşdırılan HTML
+      licence: Lisenziya
+      options: Nizamlamalar
+      format: Format
+      scale: Miqyas
+      max: maks
+      image_size: Şəkil ölçüsü
+      zoom: Yaxınlaşdır
+      add_marker: Xəritəyə marker əlavə etmək
+      latitude: 'En:'
+      longitude: 'Uz:'
+      output: Nəticə
+      paste_html: Veb sayta quraşdırmaq üçün HTML kod
+      export_button: İxrac etmək
+    help:
+      beginners_guide:
+        url: http://wiki.openstreetmap.org/wiki/Az:Beginners%27_guide
     sidebar:
       search_results: Axtarış Nəticələri
       close: Bağla
@@ -1037,7 +1018,6 @@ az:
       latest edit: 'Son redaktə %{ago}:'
       email address: 'E-poçt ünvanı:'
       status: 'Status:'
-      your friends: Sənin dostların
       create_block: bu istifadəçini blokla
       activate_user: Bu istifadəçini aktivləşdir
       deactivate_user: Bu istifadəçini deaktivləşdir
@@ -1091,7 +1071,7 @@ az:
       confirm: Təsdiq et
     revoke:
       confirm: Təsdiq et
-  user_block:
+  user_blocks:
     new:
       submit: Blok yarat
       back: Bütün blokları göstər
@@ -1112,19 +1092,6 @@ az:
         edilib'
       revoke: Ləğv et!
       flash: Bu blok ləğv edilib.
-    partial:
-      show: Göstər
-      edit: Redaktə et
-      revoke: Ləğv et!
-      confirm: Əminsinizmi?
-      display_name: Bloklanmış İstifadəçilər
-      creator_name: Yaradıcı
-      reason: Bloklanma səbəbi
-      status: Status
-      revoker_name: Tərəfindən ləgv edilib
-      not_revoked: (ləgv edilməyib)
-      next: Növbəti »
-      previous: « Əvvəlki
     helper:
       time_past: '%{time} əvvəl sona çatıb.'
     blocks_by:
@@ -1135,6 +1102,19 @@ az:
       status: Status
       show: 'Göstər:'
       revoke: Ləğv et!
+    block:
+      not_revoked: (ləgv edilməyib)
+      show: Göstər
+      edit: Redaktə et
+      revoke: Ləğv et!
+    blocks:
+      display_name: Bloklanmış İstifadəçilər
+      creator_name: Yaradıcı
+      reason: Bloklanma səbəbi
+      status: Status
+      revoker_name: Tərəfindən ləgv edilib
+      next: Növbəti »
+      previous: « Əvvəlki
   javascripts:
     map:
       base:
@@ -1142,7 +1122,7 @@ az:
         transport_map: Nəqliyyat Xəritəsi
     site:
       edit_tooltip: Xəritəni redaktə et
-  redaction:
+  redactions:
     edit:
       description: Təsvir
     show:

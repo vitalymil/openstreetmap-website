@@ -19,7 +19,6 @@ class GeocoderController < ApplicationController
       if @params[:query] =~ /^\d{5}(-\d{4})?$/
         @sources.push "osm_nominatim"
       elsif @params[:query] =~ /^(GIR 0AA|[A-PR-UWYZ]([0-9]{1,2}|([A-HK-Y][0-9]|[A-HK-Y][0-9]([0-9]|[ABEHMNPRV-Y]))|[0-9][A-HJKS-UW])\s*[0-9][ABD-HJLNP-UW-Z]{2})$/i
-        @sources.push "uk_postcode"
         @sources.push "osm_nominatim"
       elsif @params[:query] =~ /^[A-Z]\d[A-Z]\s*\d[A-Z]\d$/i
         @sources.push "ca_postcode"
@@ -55,39 +54,13 @@ class GeocoderController < ApplicationController
     end
   end
 
-  def search_uk_postcode
-    # get query parameters
-    query = params[:query]
-
-    # create result array
-    @results = []
-
-    # ask npemap.org.uk to do a combined npemap + freethepostcode search
-    response = fetch_text("http://www.npemap.org.uk/cgi/geocoder.fcgi?format=text&postcode=#{escape_query(query)}")
-
-    # parse the response
-    unless response =~ /Error/
-      dataline = response.split(/\n/)[1]
-      data = dataline.split(/,/) # easting,northing,postcode,lat,long
-      postcode = data[2].delete("'")
-      zoom = POSTCODE_ZOOM - postcode.count("#")
-      @results.push(:lat => data[3], :lon => data[4], :zoom => zoom,
-                    :name => postcode)
-    end
-
-    render :action => "results"
-  rescue StandardError => ex
-    @error = "Error contacting www.npemap.org.uk: #{ex}"
-    render :action => "error"
-  end
-
   def search_ca_postcode
     # get query parameters
     query = params[:query]
     @results = []
 
     # ask geocoder.ca (note - they have a per-day limit)
-    response = fetch_xml("http://geocoder.ca/?geoit=XML&postal=#{escape_query(query)}")
+    response = fetch_xml("https://geocoder.ca/?geoit=XML&postal=#{escape_query(query)}")
 
     # parse the response
     if response.get_elements("geodata/error").empty?
@@ -112,15 +85,13 @@ class GeocoderController < ApplicationController
     maxlat = params[:maxlat]
 
     # get view box
-    if minlon && minlat && maxlon && maxlat
-      viewbox = "&viewbox=#{minlon},#{maxlat},#{maxlon},#{minlat}"
-    end
+    viewbox = "&viewbox=#{minlon},#{maxlat},#{maxlon},#{minlat}" if minlon && minlat && maxlon && maxlat
 
     # get objects to excude
     exclude = "&exclude_place_ids=#{params[:exclude]}" if params[:exclude]
 
     # ask nominatim
-    response = fetch_xml("http:#{NOMINATIM_URL}search?format=xml&extratags=1&q=#{escape_query(query)}#{viewbox}#{exclude}&accept-language=#{http_accept_language.user_preferred_languages.join(',')}")
+    response = fetch_xml("#{NOMINATIM_URL}search?format=xml&extratags=1&q=#{escape_query(query)}#{viewbox}#{exclude}&accept-language=#{http_accept_language.user_preferred_languages.join(',')}")
 
     # extract the results from the response
     results =  response.elements["searchresults"]
@@ -153,9 +124,7 @@ class GeocoderController < ApplicationController
         rank = (place.attributes["place_rank"].to_i + 1) / 2
         prefix_name = t "geocoder.search_osm_nominatim.admin_levels.level#{rank}", :default => prefix_name
         place.elements["extratags"].elements.each("tag") do |extratag|
-          if extratag.attributes["key"] == "place"
-            prefix_name = t "geocoder.search_osm_nominatim.prefix.place.#{extratag.attributes['value']}", :default => prefix_name
-          end
+          prefix_name = t "geocoder.search_osm_nominatim.prefix.place.#{extratag.attributes['value']}", :default => prefix_name if extratag.attributes["key"] == "place"
         end
       end
       prefix = t "geocoder.search_osm_nominatim.prefix_format", :name => prefix_name
@@ -217,7 +186,7 @@ class GeocoderController < ApplicationController
     @results = []
 
     # ask nominatim
-    response = fetch_xml("http:#{NOMINATIM_URL}reverse?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&accept-language=#{http_accept_language.user_preferred_languages.join(',')}")
+    response = fetch_xml("#{NOMINATIM_URL}reverse?lat=#{lat}&lon=#{lon}&zoom=#{zoom}&accept-language=#{http_accept_language.user_preferred_languages.join(',')}")
 
     # parse the response
     response.elements.each("reversegeocode/result") do |result|

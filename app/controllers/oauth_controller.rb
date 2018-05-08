@@ -30,7 +30,7 @@ class OauthController < ApplicationController
     @token = current_user.oauth_tokens.find_by :token => params[:token]
     if @token
       @token.invalidate!
-      flash[:notice] = t("oauth.revoke.flash", :application => @token.client_application.name)
+      flash[:notice] = t(".flash", :application => @token.client_application.name)
     end
     redirect_to oauth_clients_url(:display_name => @token.user.display_name)
   end
@@ -41,7 +41,7 @@ class OauthController < ApplicationController
     append_content_security_policy_directives(:form_action => %w[*])
 
     if @token.invalidated?
-      @message = t "oauth.oauthorize_failure.invalid"
+      @message = t "oauth.authorize_failure.invalid"
       render :action => "authorize_failure"
     elsif request.post?
       if user_authorizes_token?
@@ -63,15 +63,13 @@ class OauthController < ApplicationController
                                     "&oauth_token=#{@token.token}"
                                 end
 
-          unless @token.oauth10?
-            @redirect_url.query += "&oauth_verifier=#{@token.verifier}"
-          end
+          @redirect_url.query += "&oauth_verifier=#{@token.verifier}" unless @token.oauth10?
 
           redirect_to @redirect_url.to_s
         end
       else
         @token.invalidate!
-        @message = t("oauth.oauthorize_failure.denied", :app_name => @token.client_application.name)
+        @message = t("oauth.authorize_failure.denied", :app_name => @token.client_application.name)
         render :action => "authorize_failure"
       end
     end

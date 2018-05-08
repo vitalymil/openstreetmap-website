@@ -1,6 +1,7 @@
 # Messages for Nepali (नेपाली)
 # Exported from translatewiki.net
 # Export driver: phpyaml
+# Author: Drjpoudel
 # Author: Krish Dulal
 # Author: Nirjal stha
 # Author: Njsubedi
@@ -200,7 +201,7 @@ ne:
       wiki_link:
         key: '%{key} संकेतको लागि विकि विवरण पृष्ठ'
         tag: '%{key}=%{value} संकेतको लागि विकि विवरण पृष्ठ'
-      wikidata_link: '%{page} वस्तु Wikidata मा'
+      wikidata_link: '%{page} वस्तु विकिडेटा मा'
       wikipedia_link: '%{page}को बारेमा विकिपीडियामा भएको लेख'
       telephone_link: '%{phone_number} मा फोन गर्नुहोस्'
     note:
@@ -347,58 +348,10 @@ ne:
       ago: '%{ago} पहिले'
       newer_comments: नयाँ टिप्पणीहरू
       older_comments: पूरानो टिप्पणीहरू
-  export:
-    title: निर्यात गर्नुहोस्
-    start:
-      area_to_export: निर्यात गर्ने क्षेत्र
-      manually_select: आफै अर्को क्षेत्र छान्नुहोस
-      format_to_export: निर्यात गर्ने ढाँचा
-      osm_xml_data: OpenStreetMap XML डेटा
-      map_image: नक्साको तस्वीर (सर्वस्वीकृत सतहहरू देखाउँछ)
-      embeddable_html: थप्नलायक HTML
-      licence: इजाजतपत्र
-      export_details: ओपनस्ट्रीटम्यापका जानकारीहरू <a href="http://opendatacommons.org/licenses/odbl/1.0/">अोपन
-        डेटा कमन्स ओपन डेटाबेस लाइसेन्स</a> अनुज्ञप्तिसँग अाबद्ध छन् ।
-      too_large:
-        advice: निर्यात गर्ने प्रक्रिया असफल भएमा तल दिइएका स्रोतहरू प्रयोग गर्नुहोस्-
-        body: यो क्षेत्र ओपनस्ट्रीटम्याप एक्स् एम् एल जानकारीको रूपमा निर्यात गर्नको
-          लागि निकै ठूलो छ । कृपया सानो क्षेत्र छान्नुहोस् वा तल देखाइएका स्रोतहरूबाट
-          ठूलो सङ्ख्यामा जानकारी डाउनलोड गर्नुहोस् ।
-        planet:
-          title: ओएस्एम ग्रह
-          description: नियमित रूपमा अपडेट गरिएका ओपनस्ट्रीटम्याप तथ्याङ्कका प्रतिहरू
-        overpass:
-          title: ओभरपास एपिअाइ
-          description: OpenStreetMap तथ्याङ्कको अर्को स्रोतबाट यो सिमारेखा प्राप्त
-            गर्नुहोस्
-        geofabrik:
-          title: Geofabrik डाउनलोडहरू
-          description: नियमित रूपमा अपडेट गरिएका महादेशहरू, देशहरू तथा चुनिएका सहरहरूका
-            उद्धरणहरू
-        metro:
-          title: मेट्रो उद्धरणहरू
-          description: विश्वका प्रमुख सहर तथा वरिपरीका क्षेत्रहरूको उद्धरण
-        other:
-          title: अन्य स्रोतहरू
-          description: ओपनस्ट्रीटम्याप विकिमा सूचीत थप स्रोतहरू
-      options: विकल्पहरू
-      format: ढाँचा
-      scale: स्केल
-      max: अधिकतम
-      image_size: तस्वीर आकार
-      zoom: जुम
-      add_marker: नक्शामा चिह्न थप्नुहोस्
-      latitude: 'अक्षांश:'
-      longitude: 'देशान्तर:'
-      output: उत्पादन
-      paste_html: वेबसाइट इम्बेड गर्न HTML पेस्ट गर्नुहोस्
-      export_button: निर्यात गर्नुहोस्
   geocoder:
     search:
       title:
         latlon: <a href="http://openstreetmap.org/">आन्तरिक</a> बाट नतिजाहरू
-        uk_postcode: <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>बाट
-          नतिजाहरू
         ca_postcode: <a href="http://geocoder.ca/">Geocoder.CA</aबाट नतिजाहरू
         osm_nominatim: <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a>बाट नतिजाहरू
@@ -453,33 +406,26 @@ ne:
           crematorium: श्मशान
           dentist: दाँतको डाक्टर
           doctors: डाक्टर
-          dormitory: छात्रावास
           drinking_water: पिउने पानी
           driving_school: ड्राइभिङ स्कूल
           embassy: दूतावास
-          emergency_phone: आकस्मिक फोन
           fast_food: चमेना गृह
           ferry_terminal: फेरी टर्मिनल
-          fire_hydrant: अग्नि नियन्त्रक
           fire_station: अग्नि नियन्त्रण स्टेसन्
           food_court: खाजा घर
           fountain: पानीको फोहोरा
           fuel: इन्धन
           gambling: जुवाघर
           grave_yard: श्मशान घाट
-          gym: जिमखाना
-          health_centre: स्वास्थ्य केन्द्र
           hospital: अस्पताल
           hunting_stand: शिकार क्षेत्र
           ice_cream: बरफ
           kindergarten: बाल आश्रम
           library: पुस्तकालय
-          market: बजार
           marketplace: बजार क्षेत्र
           monastery: चैत्य
           motorcycle_parking: मोटर साइकल पार्किङ
           nightclub: रात्री क्लब
-          nursery: नर्सरी
           nursing_home: नर्सिङ होम
           office: कार्यलय
           parking: पार्किङ
@@ -493,7 +439,6 @@ ne:
           prison: कारागार
           pub: पब
           public_building: सार्वजनिक भवन
-          reception_area: रिसेप्सन क्षे्त्र
           recycling: पुनः प्रयोग विन्दु
           restaurant: रेस्टुरेन्ट
           retirement_home: बृद्ध आश्रम
@@ -577,7 +522,6 @@ ne:
           street_lamp: सडक बत्ती
           track: ट्रयाक
           trail: गोरेटो बाटो
-          unsurfaced: नछापिएको मार्ग
           "yes": सडक
         historic:
           bunker: बङ्कर
@@ -610,7 +554,6 @@ ne:
           retail: खुद्रा
           road: सडक क्षेत्र
         leisure:
-          club: कल्ब
           garden: बगैँचा
           park: उद्यान
           resort: रिसोर्ट
@@ -657,8 +600,6 @@ ne:
           travel_agent: ट्राभल एजेन्सी
           "yes": कार्यलय
         place:
-          block: खण्ड
-          airport: हवाइ अड्डा
           city: शहर
           country: देश
           county: ईलाका
@@ -679,7 +620,6 @@ ne:
           "yes": स्थानहरू
         railway:
           abandoned: परित्यक्त रेलमार्ग
-          historic_station: ऐतिहासिक रेलमार्ग स्टेसन
           junction: रेलमार्ग जङ्सन
         shop:
           bakery: बेकरी
@@ -718,7 +658,6 @@ ne:
           hairdresser: नाइ पसल
           hardware: हार्डवेयर पसल
           hifi: हाइ-फाइ
-          insurance: बीमा
           jewelry: गहना पसल
           mall: सपिङ मल
           market: बजार
@@ -729,9 +668,7 @@ ne:
           optician: अप्टिसियन
           pet: पाल्तु पसल
           pharmacy: औषधी पसल
-          salon: सलोन
           shoes: जुत्ता पसल
-          shopping_centre: किनमेल केन्द्र
           sports: खेलकुद सामग्री पसल
           tailor: सुचीकार
           toys: खेलौना पसल
@@ -809,54 +746,6 @@ ne:
       text: दान गर्नुहोस्
     learn_more: थप जान्नुहोस्
     more: थप
-  license_page:
-    native:
-      title: यो पृष्ठको बारेमा
-      mapping_link: म्यापिङ गर्न सुरु गर्नुहोस्
-    legal_babble:
-      more_title_html: थप जान्नको लागि
-      contributors_title_html: हाम्रा योगदान कर्ताहरू
-  welcome_page:
-    title: स्वागतम्!
-    whats_on_the_map:
-      title: म्यापमा के छ
-    rules:
-      title: नियमहरू !
-  fixthemap:
-    how_to_help:
-      title: कसरी सहायता गर्ने
-      join_the_community:
-        title: समूदायमा सहभागी हुनुहोस्
-    other_concerns:
-      title: अन्य चासोहरू
-  help_page:
-    title: कसरी सहायता पाउने
-    welcome:
-      url: /welcome
-      title: OSM मा स्वागत् छ
-    beginners_guide:
-      url: http://wiki.openstreetmap.org/wiki/Beginners%27_guide
-      title: सुरुवातकर्ताहरूको लागि मार्गदर्शन
-      description: सुरुवातकर्ताहरूको लागि समुदायद्वारा निर्मित निर्देशिका
-    help:
-      title: help.openstreetmap.org
-    mailing_lists:
-      title: मेलिङ्ग सूचीहरू
-    forums:
-      title: मञ्च
-    irc:
-      title: आईआरसि
-    switch2osm:
-      title: स्विचटु‍ओएसएम
-    wiki:
-      url: http://wiki.openstreetmap.org/
-  about_page:
-    next: अर्को
-    local_knowledge_title: स्थानीय ज्ञान
-    community_driven_title: समूदायबाट सञ्चालित
-    open_data_title: खुल्ला डेटा
-    legal_title: कानूनी
-    partners_title: समर्थकहरू
   notifier:
     diary_comment_notification:
       hi: नमस्ते %{to_user},
@@ -926,12 +815,103 @@ ne:
     delete:
       deleted: सन्देश मेटियो
   site:
+    about:
+      next: अर्को
+      local_knowledge_title: स्थानीय ज्ञान
+      community_driven_title: समूदायबाट सञ्चालित
+      open_data_title: खुल्ला डेटा
+      legal_title: कानूनी
+      partners_title: समर्थकहरू
+    copyright:
+      native:
+        title: यो पृष्ठको बारेमा
+        mapping_link: म्यापिङ गर्न सुरु गर्नुहोस्
+      legal_babble:
+        more_title_html: थप जान्नको लागि
+        contributors_title_html: हाम्रा योगदान कर्ताहरू
     index:
       permalink: स्थायी लिङ्क
       shortlink: छोटो लिङ्क
       createnote: एक टिप्पणी थप्नुहोस्
     edit:
       user_page_link: प्रयोगकर्ता पृष्ठ
+    export:
+      title: निर्यात गर्नुहोस्
+      area_to_export: निर्यात गर्ने क्षेत्र
+      manually_select: आफै अर्को क्षेत्र छान्नुहोस
+      format_to_export: निर्यात गर्ने ढाँचा
+      osm_xml_data: OpenStreetMap XML डेटा
+      map_image: नक्साको तस्वीर (सर्वस्वीकृत सतहहरू देखाउँछ)
+      embeddable_html: थप्नलायक HTML
+      licence: इजाजतपत्र
+      export_details: ओपनस्ट्रीटम्यापका जानकारीहरू <a href="http://opendatacommons.org/licenses/odbl/1.0/">अोपन
+        डेटा कमन्स ओपन डेटाबेस लाइसेन्स</a> अनुज्ञप्तिसँग अाबद्ध छन् ।
+      too_large:
+        advice: निर्यात गर्ने प्रक्रिया असफल भएमा तल दिइएका स्रोतहरू प्रयोग गर्नुहोस्-
+        body: यो क्षेत्र ओपनस्ट्रीटम्याप एक्स् एम् एल जानकारीको रूपमा निर्यात गर्नको
+          लागि निकै ठूलो छ । कृपया सानो क्षेत्र छान्नुहोस् वा तल देखाइएका स्रोतहरूबाट
+          ठूलो सङ्ख्यामा जानकारी डाउनलोड गर्नुहोस् ।
+        planet:
+          title: ओएस्एम ग्रह
+          description: नियमित रूपमा अपडेट गरिएका ओपनस्ट्रीटम्याप तथ्याङ्कका प्रतिहरू
+        overpass:
+          title: ओभरपास एपिअाइ
+          description: OpenStreetMap तथ्याङ्कको अर्को स्रोतबाट यो सिमारेखा प्राप्त
+            गर्नुहोस्
+        geofabrik:
+          title: Geofabrik डाउनलोडहरू
+          description: नियमित रूपमा अपडेट गरिएका महादेशहरू, देशहरू तथा चुनिएका सहरहरूका
+            उद्धरणहरू
+        metro:
+          title: मेट्रो उद्धरणहरू
+          description: विश्वका प्रमुख सहर तथा वरिपरीका क्षेत्रहरूको उद्धरण
+        other:
+          title: अन्य स्रोतहरू
+          description: ओपनस्ट्रीटम्याप विकिमा सूचीत थप स्रोतहरू
+      options: विकल्पहरू
+      format: ढाँचा
+      scale: स्केल
+      max: अधिकतम
+      image_size: तस्वीर आकार
+      zoom: जुम
+      add_marker: नक्शामा चिह्न थप्नुहोस्
+      latitude: 'अक्षांश:'
+      longitude: 'देशान्तर:'
+      output: उत्पादन
+      paste_html: वेबसाइट इम्बेड गर्न HTML पेस्ट गर्नुहोस्
+      export_button: निर्यात गर्नुहोस्
+    fixthemap:
+      how_to_help:
+        title: कसरी सहायता गर्ने
+        join_the_community:
+          title: समूदायमा सहभागी हुनुहोस्
+      other_concerns:
+        title: अन्य चासोहरू
+    help:
+      title: कसरी सहायता पाउने
+      welcome:
+        url: /welcome
+        title: OSM मा स्वागत् छ
+      beginners_guide:
+        url: http://wiki.openstreetmap.org/wiki/Beginners%27_guide
+        title: सुरुवातकर्ताहरूको लागि मार्गदर्शन
+        description: सुरुवातकर्ताहरूको लागि समुदायद्वारा निर्मित निर्देशिका
+      help:
+        title: help.openstreetmap.org
+      mailing_lists:
+        url: http://lists.openstreetmap.org/
+        title: मेलिङ्ग सूचीहरू
+      forums:
+        url: http://forum.openstreetmap.org/
+        title: मञ्च
+      irc:
+        url: http://irc.openstreetmap.org/
+        title: आईआरसि
+      switch2osm:
+        url: https://switch2osm.org/
+        title: स्विचटु‍ओएसएम
+      wiki:
+        url: http://wiki.openstreetmap.org/
     sidebar:
       close: बन्द गर्नुहोस्
     search:
@@ -985,6 +965,12 @@ ne:
       text: पाठ
       image: छवि
       url: युआरएल
+    welcome:
+      title: स्वागतम्!
+      whats_on_the_map:
+        title: म्यापमा के छ
+      rules:
+        title: नियमहरू !
   trace:
     create:
       upload_trace: GPS Trace अपलोड गर्ने
@@ -1016,7 +1002,6 @@ ne:
       help: सहायता
     trace_header:
       see_all_traces: सबै ट्रेसहरु हेर्ने
-      see_your_traces: तपाईंको सबै ट्रेसहरू हेर्नुहोस्
     trace_optionals:
       tags: ट्यागहरू
     view:
@@ -1056,7 +1041,6 @@ ne:
       map: नक्सा
     list:
       public_traces: सारवजनिक GPS ट्रेसहरु
-      your_traces: तपाईंको GPS ट्रेसहरू
       public_traces_from: '%{user}बाट सार्वकनिक GPS ट्रेसहरु'
       tagged_with: ' %{tags}हरूद्वारा ट्याग गरिएको'
     delete:
@@ -1160,13 +1144,13 @@ ne:
     remove_friend:
       button: साथीबाट हटाउने
     filter:
-      not_an_administrator: यो कार्य गर्न तपाईं प्रवन्धक हुनुपर्छ .
+      not_an_administrator: यो कार्य गर्न तपाईं प्रबन्धक हुनुपर्छ .
     list:
       title: प्रयोगकर्ताहरू
       heading: प्रयोगकर्ताहरू
   user_role:
     filter:
-      not_an_administrator: प्रवन्धकहरूले भूमिका व्यवस्थापन गर्न सक्छन् र तपाईं प्रवन्धक
+      not_an_administrator: प्रबन्धकहरूले भूमिका व्यवस्थापन गर्न सक्छन् र तपाईं प्रबन्धक
         हैन ।
       not_a_role: '`%{role}''  मान्य भूमिका हैन ।'
       already_has_role: प्रयोगकर्ता सँग %{role} भूमिका पहिले देखि नै छ।
@@ -1187,23 +1171,23 @@ ne:
       confirm: निश्चित गर्ने
       fail: भूमिका `%{role}' ,`%{name}'बाट फिर्ता लिन सकिएन । प्रोगकर्ता नाम र भूमिका
         दुबै मान्य छन् भन्ने खुलाउनु होस् ।
-  user_block:
-    partial:
-      show: देखाउनुहोस्
-      edit: सम्पादन
-      confirm: निश्चित हुनुहुन्छ ?
-      creator_name: सर्जक
-      status: वस्तुस्थिति
-      showing_page: पृष्ठ %{page}
-      next: अर्को »
-      previous: « अघिल्लो
+  user_blocks:
     show:
       created: सृजना गरिएको
       status: वस्तुस्थिति
       show: देखाउनुहोस्
       edit: सम्पादन
       confirm: निश्चित हुनुहुन्छ ?
-  note:
+    block:
+      show: देखाउनुहोस्
+      edit: सम्पादन
+    blocks:
+      creator_name: सर्जक
+      status: वस्तुस्थिति
+      showing_page: पृष्ठ %{page}
+      next: अर्को »
+      previous: « अघिल्लो
+  notes:
     entry:
       comment: टिप्पणी
     mine:
@@ -1246,7 +1230,7 @@ ne:
       node: नोड
       way: बाटो
       relation: रिलेशन
-  redaction:
+  redactions:
     edit:
       description: वर्णन
     new:

@@ -329,40 +329,10 @@ cy:
       ago: '%{ago} yn ôl'
       newer_comments: Sylwadau mwy diweddar
       older_comments: Hen Sylwadau
-  export:
-    title: Allforio
-    start:
-      area_to_export: Ardal i'w Hallforio
-      manually_select: Dewisiwch ardal wahanol
-      format_to_export: Fformatiwch i'w Hallforio
-      osm_xml_data: Data XML OpenStreetMap
-      map_image: Delwedd y Map (dangoser yr haen safonol)
-      embeddable_html: Mewnosod HTML
-      licence: Trwydded
-      export_details: Trwyddedir OpenStreetMap ar drwydded <a href="http://opendatacommons.org/licenses/odbl/1.0/">Comin
-        Data Agored (Open Data Commons Open Database License)</a> (ODbL).
-      too_large:
-        advice: 'Os yw''r allforio''n methu, ystyriwch un o''r canlynol:'
-        other:
-          title: Ffynonellau eraill
-          description: Ffynonellau ychwanegol a nodir ar wici OpenStreetMap
-      options: Dewisiadau
-      format: Fformat
-      scale: Graddfa
-      max: uchafswm
-      image_size: Maint y ddelwedd
-      zoom: Chwyddo
-      add_marker: Ychwanegwch bin ar y map
-      latitude: 'Lledred:'
-      longitude: 'Hydred:'
-      output: Allbwn
-      export_button: Allforio
   geocoder:
     search:
       title:
         latlon: Canlyniadau o <a href="http://openstreetmap.org/">Internal</a>
-        uk_postcode: Canlyniadau o <a href="http://www.npemap.org.uk/">NPEMap / FreeThe
-          Postcode</a>
         ca_postcode: Canlyniadau o <a href="http://geocoder.ca/">Geocoder.CA</a>
         osm_nominatim: Canlyniadau o <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a>
@@ -377,12 +347,18 @@ cy:
           chair_lift: Cadair godi
           drag_lift: Cadair lusg
           gondola: Lifft Gondola
+          pylon: Peilon
           station: Gorsaf Awyr
+          t-bar: Lifft T-Bar
         aeroway:
           aerodrome: Maesawyr
+          airstrip: Llain Codi
           apron: Ffedog
           gate: Giat
+          hangar: Hangar
           helipad: Pad Hofrennydd
+          holding_position: Man aros
+          parking_position: Lle Parcio
           runway: Rhedfa Awyr
           taxiway: Safle tacsi
           terminal: Terfynell
@@ -417,37 +393,32 @@ cy:
           crematorium: Amlosgfa
           dentist: Deintydd
           doctors: Meddygfa
-          dormitory: Noswylfa
           drinking_water: Dŵr Yfed
           driving_school: Ysgol Yrru
           embassy: Llysgenhadaeth
-          emergency_phone: Ffôn Argyfwng
           fast_food: Bwyd Parod
           ferry_terminal: Terfynell Fferi
-          fire_hydrant: Hydrant tân
           fire_station: Gorsaf Dân
           food_court: Cwrt Fwydydd
           fountain: Ffynnon
           fuel: Tanwydd
           gambling: Gamblo
           grave_yard: Mynwent
-          gym: Canolfan Ffitrwydd / Campfa
-          health_centre: Canolfan Iechyd
+          grit_bin: Bin Gro Mân
           hospital: Ysbyty
           hunting_stand: Llwyfan Hela
           ice_cream: Hufen Iâ
           kindergarten: Meithrinfa
           library: Llyfrgell
-          market: Marchnad
           marketplace: Marchnad
           monastery: Mynachdy
           motorcycle_parking: Man Parcio Beiciau Modur
           nightclub: Clwb Nôs
-          nursery: Meithrinfa
           nursing_home: Cartref Nyrsio
           office: Swyddfa
           parking: Parcio
           parking_entrance: Mynedfa Man Parcio
+          parking_space: Man Parcio
           pharmacy: Fferyllfa
           place_of_worship: Man addoli
           police: Heddlu
@@ -457,7 +428,6 @@ cy:
           prison: Carchar
           pub: Tafarn
           public_building: Adeilad Cyhoeddus
-          reception_area: Derbyniad
           recycling: Pwynt Ailgylchu
           restaurant: Bwyty
           retirement_home: Cartref Ymddeol
@@ -482,6 +452,7 @@ cy:
           village_hall: Neuadd Bentref
           waste_basket: Bin sbwriel
           waste_disposal: Gwaredu Sbwriel
+          water_point: Cyflenwad Dŵr
           youth_centre: Canolfan Ieuenctid
         boundary:
           administrative: Ffin Gweinyddol
@@ -509,25 +480,31 @@ cy:
           "yes": Siop Grefftau
         emergency:
           ambulance_station: Gorsaf Ambiwlans
+          assembly_point: Man Ymgynull
           defibrillator: Diffibriliwr
           landing_site: Man Glanio Mewn Argyfwng
           phone: Ffôn Argyfwng
+          water_tank: Tanc Dŵr Argyfwng
+          "yes": Argyfwng
         highway:
           abandoned: Hen Briffordd
           bridleway: Llwybr Ceffyl
           bus_guideway: Lon Bysiau
           bus_stop: Stop Bysiau
           construction: Priffordd yn cael ei Adeiladu
+          corridor: Coridor
           cycleway: Llwybr Beicio
           elevator: Codwr
           emergency_access_point: Pwynt Mynediad Argyfwng
           footway: Llwybr Cerdded
           ford: Rhyd
+          give_way: Arwydd "Ildiwch!"
           living_street: Stryd Byw
           milestone: Carreg Filltir
           motorway: Traffordd
           motorway_junction: Cyffordd Traffordd
           motorway_link: Ffordd Traffordd
+          passing_place: Lle Pasio
           path: Llwybr
           pedestrian: Llwybr Cerddwyr
           platform: Platfform
@@ -544,6 +521,7 @@ cy:
           services: Gwasanaethau Traffordd
           speed_camera: Camera Cyflymder
           steps: Grisiau
+          stop: Arwydd Stop
           street_lamp: Golau Stryd
           tertiary: Ffordd Trydyddol
           tertiary_link: Ffordd Trydyddol
@@ -552,8 +530,8 @@ cy:
           trail: Llwybr
           trunk: Cefnffordd
           trunk_link: Cefnffordd
+          turning_loop: Lle Troi
           unclassified: Ffordd Diddosbarth
-          unsurfaced: Ffordd Heb Wyneb
           "yes": Ffordd
         historic:
           archaeological_site: Safle Archaeolegol
@@ -572,6 +550,7 @@ cy:
           manor: Maenor
           memorial: Cofeb
           mine: Mwynfa
+          mine_shaft: Siafft y Mwynglawdd
           monument: Cofadail
           roman_road: Ffordd Rufeinig
           ruins: Adfeilion
@@ -581,6 +560,7 @@ cy:
           wayside_cross: Croes Min Ffordd
           wayside_shrine: Cysegrfa Min Ffordd
           wreck: Llongddrylliad
+          "yes": Safle Hanesyddol
         junction:
           "yes": Cyffordd
         landuse:
@@ -618,9 +598,9 @@ cy:
         leisure:
           beach_resort: Ardal Wyliau
           bird_hide: Cuddle Adar
-          club: Clwb
           common: Tir Comin
           dog_park: Parc Cwn
+          firepit: Ardal Dân
           fishing: Man Pysgota
           fitness_centre: Canolfan Gadw'n Heini
           fitness_station: Lle Cadw'n Heini
@@ -645,15 +625,45 @@ cy:
           water_park: Parc Dŵr
           "yes": Hamdden
         man_made:
+          beacon: Goleufa
+          beehive: Cwch Gwenyn
+          breakwater: Morglawdd
+          bridge: Pont
+          bunker_silo: Byncar
+          chimney: Simne
+          crane: Craen
+          dolphin: Man Angori
+          dyke: Morglawdd
+          embankment: Arglawdd
+          flagpole: Polyn Baner
+          gasometer: Tanc Nwy
+          groyne: Argor
+          kiln: Odyn
           lighthouse: Goleudy
+          mast: Mast
+          mine: Mwynglawdd
+          mineshaft: Siafft Mwynglawdd
+          monitoring_station: Gorsaf Arsylwi
+          petroleum_well: Ffynnon Betroliwm
+          pier: Piyr
           pipeline: Pibell
+          silo: Seilo
+          storage_tank: Tanc Storio
+          surveillance: Gwyliadwraeth
           tower: Tŵr
+          wastewater_plant: Gwaith Dŵr Budr
+          watermill: Melin Ddŵr
+          water_tower: Tŵr Dŵr
+          water_well: Ffynnon
+          water_works: Gwaith Dŵr
+          windmill: Melin Wynt
           works: Ffatri
           "yes": Wnaed gan Ddyn
         military:
           airfield: Maes Awyr Milwrol
           barracks: Barics
           bunker: Byncer
+          "yes": Safle Filwrol
         mountain_pass:
           "yes": Bwlch Mynydd
         natural:
@@ -699,11 +709,14 @@ cy:
           accountant: Cyfrifydd
           administrative: Gweinyddu
           architect: Pensaer
+          association: Cymdeithas
           company: Cwmni
+          educational_institution: Sefydliad Addysgol
           employment_agency: Asiantaeth Cyflogi
           estate_agent: Gwerthwr Tai
           government: Swyddfa Llywodraeth
           insurance: Swyddfa Yswiriant
+          it: Swyddfa TG
           lawyer: Cyfreithiwr
           ngo: Swyddfa'r NGO
           telecommunication: Swyddfa Telegyfathrebu
@@ -711,9 +724,8 @@ cy:
           "yes": Swyddfa
         place:
           allotments: Rhandiroedd
-          block: Bloc
-          airport: Maes Awyr
           city: Dinas
+          city_block: Bloc Dinesig
           country: Gwlad
           county: Sir
           farm: Fferm
@@ -724,12 +736,13 @@ cy:
           islet: Ynysig
           isolated_dwelling: Annedd Unig
           locality: Ardal
-          moor: Gwaun
           municipality: Bwrdeistref
           neighbourhood: Cymdogaeth
           postcode: Cod Post
+          quarter: Maestref
           region: Rhanbarth
           sea: Môr
+          square: Sgwâr
           state: Talaith
           subdivision: Is-adran
           suburb: Maestref
@@ -741,10 +754,8 @@ cy:
           abandoned: Hen Reilffordd
           construction: Rheilffordd yn cael ei Osod
           disused: Rheilffordd Segur
-          disused_station: Gorsaf Drenau Segur
           funicular: Rheilffordd fynydd
           halt: Stop Trenau
-          historic_station: Hen Orsaf Trenau
           junction: Cyffordd Rheilffyrdd
           level_crossing: Croesfan Wastad
           light_rail: Rheilffordd Ysgafn
@@ -770,6 +781,7 @@ cy:
           beauty: Siop Harddwch
           beverages: Siop Ddiodau
           bicycle: Siop Feiciau
+          bookmaker: Llyfrwerthwr
           books: Siop Lyfrau
           boutique: Boutique
           butcher: Cigydd
@@ -808,12 +820,16 @@ cy:
           hairdresser: Siop Drin Gwallt
           hardware: Siop Nwyddau Metel
           hifi: Sain
-          insurance: Yswiriant
+          houseware: Siop Offer Tŷ
+          interior_decoration: Addurniadau'r Cartref
           jewelry: Siop Gemwaith
           kiosk: Siop Fechan
+          kitchen: Siop Offer Cegin
           laundry: Golchdy
+          lottery: Loteri
           mall: Canolfan Siopa
           market: Marchnad
+          massage: Neges
           mobile_phone: Siop Ffonau Symudol
           motorcycle: Siop Beiciau Modur
           music: Siop Gerddoriaeth
@@ -821,13 +837,12 @@ cy:
           optician: Optegydd
           organic: Siop Fwyd Organig
           outdoor: Siop Awyr Agored
+          paint: Siop Baent
           pet: Siop Anifeiliaid Anwes
           pharmacy: Fferyllfa
           photo: Siop Luniau
-          salon: Salon Trin Gwallt
           second_hand: Siol Ail-law
           shoes: Siop Esgidiau
-          shopping_centre: Canolfan Siopa
           sports: Siop Chwaraeon
           stationery: Siop Offer Swyddfa
           supermarket: Archfarchnad
@@ -946,62 +961,6 @@ cy:
       text: Gwneud Cyfraniad
     learn_more: Dysgu Mwy
     more: Mwy
-  license_page:
-    foreign:
-      title: Ynghylch y cyfieithiad hwn
-      text: Os oes gwrthgyferbyniad rhwng y cyfieithiad hwn a %{english_original_link},
-        bydd y dudalen Saesneg yn cael blaenoriaeth.
-      english_link: y Saesneg gwreiddiol
-    native:
-      title: Ynghylch y dudalen hon
-      native_link: Cymraeg
-      mapping_link: dechrau mapio
-    legal_babble:
-      title_html: Hawlfraint a Thrwydded
-      intro_1_html: |-
-        Mae OpenStreetMap yn <i>data agored</i>, dan drwydded <a
-        href="http://opendatacommons.org/licenses/odbl/">Open Data
-        Commons Open Database License</a> (ODbL).
-      credit_title_html: Sut i gydnabod OpenStreetMap
-      attribution_example:
-        title: Enghraifft o gydnabyddiaeth
-      more_title_html: Darganfod rhagor
-      contributors_title_html: Ein cyfrannwyr
-      contributors_gb_html: "<strong>Y Deyrnas Gyfunol</strong>: Cynhwysir data a
-        thestun gan yr Arolwg Ordnans; hawlfraint y Goron a hawl cronfa ddata \n2010-12."
-      infringement_title_html: Torrwyd yr hawlfraint
-  welcome_page:
-    title: Croeso!
-    whats_on_the_map:
-      title: Beth sydd ar y Map
-    basic_terms:
-      title: Termau syml mapio
-    questions:
-      title: Unrhyw gwestiwn?
-    start_mapping: Dechrau Mapio
-    add_a_note:
-      title: Dim amser i olygu? Ychwanegwch nodyn!
-  fixthemap:
-    title: Adrodd am broblem / Cywiro map
-    how_to_help:
-      title: Sut i Helpu
-      join_the_community:
-        title: Ymunwch â'r gymuned
-    other_concerns:
-      title: Gofidion eraill
-  help_page:
-    title: Cael Cymorth
-    welcome:
-      url: /croeso
-      title: Croeso i OSM
-    beginners_guide:
-      title: Llawlyfr Dechreuwyr
-  about_page:
-    next: Nesaf
-    copyright_html: <span>&copy;</span>cyfrannwyr<br>OpenStreetMap
-    local_knowledge_title: Gwybodaeth Leol
-    open_data_title: Data Agored
-    partners_title: Partneriaid
   notifier:
     message_notification:
       hi: Pa hwyl %{to_user}?
@@ -1081,6 +1040,37 @@ cy:
     delete:
       deleted: Dileuwyd y neges
   site:
+    about:
+      next: Nesaf
+      copyright_html: <span>&copy;</span>cyfrannwyr<br>OpenStreetMap
+      local_knowledge_title: Gwybodaeth Leol
+      open_data_title: Data Agored
+      partners_title: Partneriaid
+    copyright:
+      foreign:
+        title: Ynghylch y cyfieithiad hwn
+        text: Os oes gwrthgyferbyniad rhwng y cyfieithiad hwn a %{english_original_link},
+          bydd y dudalen Saesneg yn cael blaenoriaeth.
+        english_link: y Saesneg gwreiddiol
+      native:
+        title: Ynghylch y dudalen hon
+        native_link: Cymraeg
+        mapping_link: dechrau mapio
+      legal_babble:
+        title_html: Hawlfraint a Thrwydded
+        intro_1_html: |-
+          Mae OpenStreetMap yn <i>data agored</i>, dan drwydded <a
+          href="http://opendatacommons.org/licenses/odbl/">Open Data
+          Commons Open Database License</a> (ODbL).
+        credit_title_html: Sut i gydnabod OpenStreetMap
+        attribution_example:
+          title: Enghraifft o gydnabyddiaeth
+        more_title_html: Darganfod rhagor
+        contributors_title_html: Ein cyfrannwyr
+        contributors_gb_html: "<strong>Y Deyrnas Gyfunol</strong>: Cynhwysir data
+          a thestun gan yr Arolwg Ordnans; hawlfraint y Goron a hawl cronfa ddata
+          \n2010-12."
+        infringement_title_html: Torrwyd yr hawlfraint
     index:
       shortlink: Dolen Fyr
       createnote: Ychwanegu nodyn
@@ -1090,6 +1080,48 @@ cy:
       not_public: Nid ydych wedi gosod eich golygiadau i fod yn gyhoeddus.
       user_page_link: tudalen defnyddiwr
       anon_edits_link_text: Darganfyddwch achos hyn.
+    export:
+      title: Allforio
+      area_to_export: Ardal i'w Hallforio
+      manually_select: Dewisiwch ardal wahanol
+      format_to_export: Fformatiwch i'w Hallforio
+      osm_xml_data: Data XML OpenStreetMap
+      map_image: Delwedd y Map (dangoser yr haen safonol)
+      embeddable_html: Mewnosod HTML
+      licence: Trwydded
+      export_details: Trwyddedir OpenStreetMap ar drwydded <a href="http://opendatacommons.org/licenses/odbl/1.0/">Comin
+        Data Agored (Open Data Commons Open Database License)</a> (ODbL).
+      too_large:
+        advice: 'Os yw''r allforio''n methu, ystyriwch un o''r canlynol:'
+        other:
+          title: Ffynonellau eraill
+          description: Ffynonellau ychwanegol a nodir ar wici OpenStreetMap
+      options: Dewisiadau
+      format: Fformat
+      scale: Graddfa
+      max: uchafswm
+      image_size: Maint y ddelwedd
+      zoom: Chwyddo
+      add_marker: Ychwanegwch bin ar y map
+      latitude: 'Lledred:'
+      longitude: 'Hydred:'
+      output: Allbwn
+      export_button: Allforio
+    fixthemap:
+      title: Adrodd am broblem / Cywiro map
+      how_to_help:
+        title: Sut i Helpu
+        join_the_community:
+          title: Ymunwch â'r gymuned
+      other_concerns:
+        title: Gofidion eraill
+    help:
+      title: Cael Cymorth
+      welcome:
+        url: /croeso
+        title: Croeso i OSM
+      beginners_guide:
+        title: Llawlyfr Dechreuwyr
     sidebar:
       search_results: Canlyniadau Chwilio
       close: Cau
@@ -1182,6 +1214,17 @@ cy:
       image: Delwedd
       alt: Testun Amgen
       url: URL
+    welcome:
+      title: Croeso!
+      whats_on_the_map:
+        title: Beth sydd ar y Map
+      basic_terms:
+        title: Termau syml mapio
+      questions:
+        title: Unrhyw gwestiwn?
+      start_mapping: Dechrau Mapio
+      add_a_note:
+        title: Dim amser i olygu? Ychwanegwch nodyn!
   trace:
     edit:
       filename: 'Enw ffeil:'
@@ -1239,7 +1282,7 @@ cy:
     list:
       tagged_with: tagiwyd gyda %{tags}
   oauth:
-    oauthorize:
+    authorize:
       allow_to: 'Caniatáu''r rhaglen cleient i:'
       allow_read_prefs: ddarllen eich gosodiadau defnyddiwr.
       allow_write_prefs: addasu eich gosodiadau defnyddiwr.
@@ -1248,11 +1291,11 @@ cy:
       allow_read_gpx: ddarllen eich dargopiadau GPS.
       allow_write_gpx: uwchlwytho dargopiadau GPS.
       allow_write_notes: addasu nodiadau.
-    oauthorize_success:
+    authorize_success:
       title: Caniatawyd y cais awdurdodiad.
       allowed: Rydych wedi caniatáu mynediad i'ch cyfrif gan y rhaglen %{app_name}.
       verification: Y cod dilysiad yw %{code}
-    oauthorize_failure:
+    authorize_failure:
       title: Methwyd y cais awdurdodiad.
       denied: Rydych wedi gwrthod mynediad i'ch cyfrif gan y rhaglen %{app_name}.
       invalid: Nid yw'r tocyn awdurdodiad yn ddilys.
@@ -1379,7 +1422,6 @@ cy:
       description: Disgrifiad
       user location: Lleoliad defnyddiwr
       settings_link_text: gosodiadau
-      your friends: Eich cyfeillion
       no friends: Nid ydych wedi ychwanegu cyfaill eto.
       km away: '%{count}km i ffwrdd'
       m away: '%{count}m i ffwrdd'
@@ -1475,15 +1517,7 @@ cy:
       confirm: Cadarnhau
     revoke:
       confirm: Cadarnhau
-  user_block:
-    partial:
-      show: Dangos
-      edit: Golygu
-      confirm: Ydych yn sicr?
-      status: Statws
-      showing_page: Tudalen %{page}
-      next: Nesaf »
-      previous: « Blaenorol
+  user_blocks:
     helper:
       time_future: Yn dod i ben mewn %{time}.
       time_past: Wedi dod i ben %{time} yn ôl.
@@ -1492,8 +1526,16 @@ cy:
       show: Dangos
       edit: Golygu
       confirm: Ydych yn sicr?
-  note:
-    description:
+    block:
+      show: Dangos
+      edit: Golygu
+    blocks:
+      status: Statws
+      showing_page: Tudalen %{page}
+      next: Nesaf »
+      previous: « Blaenorol
+  notes:
+    comment:
       commented_at_html: Diweddarwyd %{when} yn ôl
       commented_at_by_html: Diweddarwyd %{when} yn ôl gan %{user}
     rss:
@@ -1566,7 +1608,7 @@ cy:
       way: Llwybr
       nothing_found: Ni ddarganfuwyd nodweddion
       error: 'Gwall cysyltlu gyda %{server}: %{error}'
-  redaction:
+  redactions:
     edit:
       description: Disgrifiad
     new:

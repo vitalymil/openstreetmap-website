@@ -22,6 +22,7 @@
 # Author: Pesder
 # Author: Reke
 # Author: Ruila
+# Author: Sanmosa
 # Author: Shangkuanlc
 # Author: Simon Shek
 # Author: StephDC
@@ -64,7 +65,7 @@ zh-TW:
       trace: 軌跡
       tracepoint: 軌跡點
       tracetag: 軌跡標籤
-      user: 使用者
+      user: 用戶
       user_preference: 使用者偏好設定
       user_token: 使用者權杖
       way: 路徑
@@ -74,16 +75,16 @@ zh-TW:
       diary_comment:
         body: 內文
       diary_entry:
-        user: 使用者
+        user: 用戶
         title: 標題
         latitude: 緯度
         longitude: 經度
         language: 語言
       friend:
-        user: 使用者
+        user: 用戶
         friend: 好友
       trace:
-        user: 使用者
+        user: 用戶
         visible: 可見的
         name: 名稱
         size: 大小
@@ -156,6 +157,7 @@ zh-TW:
         title_comment: 變更集 %{id} - %{comment}
       join_discussion: 登入以參加討論
       discussion: 討論
+      still_open: 變更集仍為開啟 - 討論要在變更集關閉後才會開啟。
     node:
       title: 節點：%{name}
       history_title: 節點歷史：%{name}
@@ -247,13 +249,13 @@ zh-TW:
     changesets:
       id: ID
       saved_at: 已儲存於
-      user: 使用者
+      user: 用戶
       comment: 評論
       area: 區域
     list:
       title: 變更集
       title_user: '%{user} 的變更集'
-      title_friend: 您好友的變更集
+      title_friend: 我的好友之變更集
       title_nearby: 附近使用者的變更集
       empty: 查無變更集。
       empty_area: 此地區沒有變更集。
@@ -282,7 +284,7 @@ zh-TW:
       user_title: '%{user} 的日記'
       in_language_title: 日記 (語言為 %{language})
       new: 新增日記項目
-      new_title: 在您的日記中撰寫新的項目
+      new_title: 在我的使用者日記裡撰寫新內容
       no_entries: 沒有日記項目
       recent_entries: 最近的日記項目
       older_entries: 較舊的項目
@@ -346,59 +348,16 @@ zh-TW:
       ago: '%{ago} 前'
       newer_comments: 較新的評論
       older_comments: 較舊的評論
-  export:
-    title: 匯出
-    start:
-      area_to_export: 要匯出的區域
-      manually_select: 手動選擇不同的區域
-      format_to_export: 要匯出的格式
-      osm_xml_data: OpenStreetMap XML 資料
-      map_image: 地圖影像 (顯示標準圖層)
-      embeddable_html: 內嵌式 HTML
-      licence: 授權
-      export_details: OpenStreetMap 的資料採用 <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open
-        Data Commons 開放資料庫授權條款</a> (ODbL) 授權。
-      too_large:
-        advice: 若以上匯出失敗，請考慮使用下列來源：
-        body: 這個區域太大，無法匯出 OpenStreetMap XML 資料。請放大或選擇一個較小的區域，或使用下列大量資料下載源：
-        planet:
-          title: 地球 OSM
-          description: 定期更新的完整 OpenStreetMap 資料庫副本
-        overpass:
-          title: Overpass API
-          description: 從 OpenStreetMap 資料庫的鏡像，下載此區域
-        geofabrik:
-          title: Geofabrik 下載
-          description: 定期更新的洲、國家及特定城市之摘錄資料
-        metro:
-          title: 都會區的摘錄資料
-          description: 世界主要城市與附近地區的摘錄資料
-        other:
-          title: 其他來源
-          description: OpenStreetMap wiki 上列出的其他來源
-      options: 選項
-      format: 格式
-      scale: 比例
-      max: 最大
-      image_size: 圖片大小
-      zoom: 縮放
-      add_marker: 在地圖加上標記
-      latitude: 緯度：
-      longitude: 經度：
-      output: 輸出
-      paste_html: 貼上 HTML 以於網站內嵌
-      export_button: 匯出
   geocoder:
     search:
       title:
-        latlon: 來自<a href="http://openstreetmap.org/">內部</a>的結果
-        uk_postcode: 來自<a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>的結果
-        ca_postcode: 來自<a href="http://geocoder.ca/">Geocoder.CA</a>的結果
-        osm_nominatim: 來自<a href="http://nominatim.openstreetmap.org/">OpenStreetMap
-          Nominatim</a>的結果
+        latlon: 來自<a href="https://openstreetmap.org/">內部</a>的結果
+        ca_postcode: 來自 <a href="https://geocoder.ca/">Geocoder.CA</a> 的結果
+        osm_nominatim: 來自 <a href="https://nominatim.openstreetmap.org/">OpenStreetMap
+          Nominatim</a> 的結果
         geonames: 來自<a href="http://www.geonames.org/">GeoNames</a>的結果
-        osm_nominatim_reverse: 來自<a href="http://nominatim.openstreetmap.org/">OpenStreetMap
-          Nominatim</a>的結果
+        osm_nominatim_reverse: 來自 <a href="https://nominatim.openstreetmap.org/">OpenStreetMap
+          Nominatim</a> 的結果
         geonames_reverse: 來自<a href="http://www.geonames.org/">GeoNames</a>的結果
     search_osm_nominatim:
       prefix:
@@ -407,12 +366,19 @@ zh-TW:
           chair_lift: 升降吊椅
           drag_lift: 上山牽引梯
           gondola: 小型纜車
+          platter: 纜椅
+          pylon: 高壓電塔
           station: 空中纜車車站
+          t-bar: T 字纜椅
         aeroway:
           aerodrome: 機場
+          airstrip: 飛機跑道
           apron: 停機坪
           gate: 登機口
+          hangar: 機棚
           helipad: 直升機停機坪
+          holding_position: 等待位置
+          parking_position: 停車位置
           runway: 跑道
           taxiway: 滑行道
           terminal: 航廈
@@ -447,37 +413,32 @@ zh-TW:
           crematorium: 火葬場
           dentist: 牙醫
           doctors: 醫師
-          dormitory: 宿舍
           drinking_water: 飲用水
           driving_school: 駕訓班
           embassy: 大使館
-          emergency_phone: 緊急電話
           fast_food: 速食
           ferry_terminal: 渡輪碼頭
-          fire_hydrant: 消防栓
           fire_station: 消防隊
           food_court: 美食廣場
           fountain: 噴泉
           fuel: 燃料
           gambling: 賭場
           grave_yard: 墓園
-          gym: 瘦身中心 / 健身房
-          health_centre: 健康中心
+          grit_bin: 砂箱
           hospital: 醫院
           hunting_stand: 狩獵站
           ice_cream: 冰淇淋
           kindergarten: 幼稚園
           library: 圖書館
-          market: 市場
           marketplace: 市場
           monastery: 修道院
           motorcycle_parking: 機車停車場
           nightclub: 夜總會
-          nursery: 托兒所
           nursing_home: 護理院
           office: 辦公室
           parking: 停車場
           parking_entrance: 停車場入口
+          parking_space: 停車處
           pharmacy: 藥房
           place_of_worship: 宗教場所
           police: 警察
@@ -487,7 +448,6 @@ zh-TW:
           prison: 監獄
           pub: 酒館
           public_building: 公共建築
-          reception_area: 接待區
           recycling: 回收點
           restaurant: 餐廳
           retirement_home: 養老院
@@ -512,6 +472,7 @@ zh-TW:
           village_hall: 村里辦公室
           waste_basket: 垃圾桶
           waste_disposal: 垃圾子車
+          water_point: 取水點
           youth_centre: 青年中心
         boundary:
           administrative: 行政區邊界
@@ -520,6 +481,7 @@ zh-TW:
           protected_area: 保護區
         bridge:
           aqueduct: 高架水道
+          boardwalk: 木板走道
           suspension: 吊橋
           swing: 平旋橋
           viaduct: 高架橋
@@ -539,25 +501,31 @@ zh-TW:
           "yes": 工藝品店
         emergency:
           ambulance_station: 急救站
+          assembly_point: 集合處
           defibrillator: 除顫器
           landing_site: 緊急降落點
           phone: 緊急電話
+          water_tank: 緊急水箱
+          "yes": 緊急
         highway:
           abandoned: 廢棄公路
           bridleway: 馬道
           bus_guideway: 軌道巴士線
           bus_stop: 巴士站
           construction: 建造中道路
+          corridor: 走廊
           cycleway: 自行車道
           elevator: 電梯
           emergency_access_point: 緊急聯絡點
           footway: 步道
           ford: 過水點
+          give_way: 讓路標誌
           living_street: 生活街道
           milestone: 里程標
           motorway: 高速公路
           motorway_junction: 高速公路交匯處
           motorway_link: 高速公路聯絡道
+          passing_place: 讓車道
           path: 小徑
           pedestrian: 人行道
           platform: 月台
@@ -574,6 +542,7 @@ zh-TW:
           services: 高速公路休息區
           speed_camera: 測速照相機
           steps: 階梯
+          stop: 停車標誌
           street_lamp: 路燈
           tertiary: 鄉道
           tertiary_link: 三級道路連接路
@@ -582,8 +551,8 @@ zh-TW:
           trail: 步徑
           trunk: 快速道路
           trunk_link: 主要幹道連接路
+          turning_loop: 環形迴車道
           unclassified: 無分級道路
-          unsurfaced: 未鋪設道路
           "yes": 道路
         historic:
           archaeological_site: 考古遺址
@@ -602,6 +571,7 @@ zh-TW:
           manor: 莊園
           memorial: 紀念館
           mine: 礦場
+          mine_shaft: 礦井
           monument: 古蹟
           roman_road: 羅馬道路
           ruins: 廢墟
@@ -611,6 +581,7 @@ zh-TW:
           wayside_cross: 路邊十字架
           wayside_shrine: 路邊神龕
           wreck: 殘骸
+          "yes": 古蹟
         junction:
           "yes": 路口
         landuse:
@@ -648,9 +619,9 @@ zh-TW:
         leisure:
           beach_resort: 海灘遊樂區
           bird_hide: 賞鳥亭
-          club: 俱樂部
           common: 公共用地
           dog_park: 狗狗公園
+          firepit: 火坑
           fishing: 垂釣區
           fitness_centre: 瘦身中心
           fitness_station: 健身站
@@ -675,15 +646,46 @@ zh-TW:
           water_park: 水上樂園
           "yes": 休閒
         man_made:
+          adit: 坑道
+          beacon: 信標台
+          beehive: 蜂巢
+          breakwater: 防波堤
+          bridge: 橋
+          bunker_silo: 掩體
+          chimney: 煙囪
+          crane: 起重機
+          dolphin: 繫船柱
+          dyke: 堤
+          embankment: 堤
+          flagpole: 旗竿
+          gasometer: 儲氣槽
+          groyne: 丁壩
+          kiln: 窯
           lighthouse: 燈塔
+          mast: 柱杆
+          mine: 礦場
+          mineshaft: 礦井
+          monitoring_station: 監控站台
+          petroleum_well: 油井
+          pier: 碼頭
           pipeline: 管線
+          silo: 筒倉
+          storage_tank: 儲油罐
+          surveillance: 監視攝影機
           tower: 塔
+          wastewater_plant: 污水處理處
+          watermill: 水車
+          water_tower: 水塔
+          water_well: 牆
+          water_works: 供水設施
+          windmill: 風車
           works: 工廠
           "yes": 人工設施
         military:
           airfield: 軍用機場
           barracks: 軍營
           bunker: 掩體
+          "yes": 軍事
         mountain_pass:
           "yes": 埡口
         natural:
@@ -729,11 +731,14 @@ zh-TW:
           accountant: 會計師事務所
           administrative: 管理局
           architect: 建築師事務所
+          association: 協會
           company: 公司
+          educational_institution: 教育機構
           employment_agency: 人力仲介
           estate_agent: 房地產仲介
           government: 政府辦事處
           insurance: 保險事務所
+          it: IT 辦公室
           lawyer: 律師
           ngo: 非政府組織辦公室
           telecommunication: 通訊信辦公室
@@ -741,9 +746,8 @@ zh-TW:
           "yes": 辦公室
         place:
           allotments: 社區農園
-          block: 街區
-          airport: 機場
           city: 城市
+          city_block: 街區
           country: 國家
           county: 縣
           farm: 農田
@@ -754,12 +758,13 @@ zh-TW:
           islet: 小島
           isolated_dwelling: 獨立住宅
           locality: 地區
-          moor: 荒野
           municipality: 自治市
           neighbourhood: 居住區
           postcode: 郵遞區號
+          quarter: 住處
           region: 區域
           sea: 海
+          square: 廣場
           state: 省
           subdivision: 次分區
           suburb: 郊區
@@ -771,10 +776,8 @@ zh-TW:
           abandoned: 已拆除鐵路
           construction: 建造中鐵路
           disused: 廢棄鐵路
-          disused_station: 廢棄鐵路車站
           funicular: 纜索鐵路
           halt: 鐵路停靠站
-          historic_station: 歷史鐵路車站
           junction: 鐵路交匯處
           level_crossing: 平交道
           light_rail: 輕鐵
@@ -800,6 +803,7 @@ zh-TW:
           beauty: 美容店
           beverages: 飲料店
           bicycle: 自行車店
+          bookmaker: 投注處
           books: 書店
           boutique: 精品店
           butcher: 肉品店
@@ -838,12 +842,16 @@ zh-TW:
           hairdresser: 理髮店
           hardware: 五金行
           hifi: 音響店
-          insurance: 保險
+          houseware: 生活用品店
+          interior_decoration: 室內裝潢
           jewelry: 珠寶店
           kiosk: 販售亭
+          kitchen: 廚房用品店
           laundry: 洗衣店
+          lottery: 樂透
           mall: 購物商場
           market: 市場
+          massage: 按摩店
           mobile_phone: 行動通訊行
           motorcycle: 機車行
           music: 唱片行
@@ -851,21 +859,27 @@ zh-TW:
           optician: 驗光師
           organic: 有機食品店
           outdoor: 戶外用品店
+          paint: 油漆店
+          pawnbroker: 當鋪
           pet: 寵物店
           pharmacy: 藥房
           photo: 照相館
-          salon: 美容院
+          seafood: 海產
           second_hand: 二手商品店
           shoes: 鞋店
-          shopping_centre: 購物中心
           sports: 體育用品店
           stationery: 文具店
           supermarket: 超級市場
           tailor: 裁縫店
+          ticket: 售票處
+          tobacco: 菸草販賣
           toys: 玩具店
           travel_agency: 旅行社
+          tyres: 輪胎販售
+          vacant: 空置店舖
+          variety_store: 雜貨店
           video: 影音店
-          wine: 酒館
+          wine: 葡萄酒館
           "yes": 商店
         tourism:
           alpine_hut: 山屋
@@ -889,6 +903,7 @@ zh-TW:
           viewpoint: 觀景點
           zoo: 動物園
         tunnel:
+          building_passage: 建築物通道
           culvert: 涵管
           "yes": 隧道
         waterway:
@@ -920,7 +935,7 @@ zh-TW:
         level10: 郊區邊界
     description:
       title:
-        osm_nominatim: 來自 <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
+        osm_nominatim: 來自 <a href="https://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a> 的位置
         geonames: 位置來自 <a href="http://www.geonames.org/">GeoNames</a>的位置
       types:
@@ -975,198 +990,6 @@ zh-TW:
       text: 進行捐款
     learn_more: 瞭解更多
     more: 更多
-  license_page:
-    foreign:
-      title: 關於這個翻譯
-      text: 這個翻譯頁面和 %{english_original_link} 若有衝突，會以英文頁面為準
-      english_link: 英文原文
-    native:
-      title: 關於此頁
-      text: 您正在檢閱英文版本的版權頁。你可以返回這個網頁的 %{native_link}，您亦可以停止閱讀版權並 %{mapping_link}。
-      native_link: 台灣正體中文版
-      mapping_link: 開始製圖
-    legal_babble:
-      title_html: 版權與授權條款
-      intro_1_html: OpenStreetMap 為<i>開放資料</i>，以<a href="http://opendatacommons.org/licenses/odbl/">Open
-        Data Commons 開放資料庫授權條款</a> (ODbL) 授權。
-      intro_2_html: |-
-        您可以自由地複製、散布、傳輸及修改我們的資料，前提是您須標明作者為 OpenStreetMap 及其貢獻者。若您在我們的資料上作修改或據之衍生其他資料
-        ，則只可依相同授權條款散佈有關成果。授權的<a href="http://opendatacommons.org/licenses/odbl/1.0/">法律原文</a>詳述您的權責。
-      intro_3_html: 我們地圖影像塊的製圖法以及我們的文件，以<a href="http://creativecommons.org/licenses/by-sa/2.0/deed.zh_TW">創用CC
-        姓名標示-相同方式分享 (CC BY-SA) 2.0版</a>條款授權。
-      credit_title_html: 如何標明作者是 OpenStreetMap
-      credit_1_html: 我們要求您以&ldquo;&copy; OpenStreetMap 貢獻者&rdquo;標明作者。
-      credit_2_html: 您亦須清晰註明，有關資料可透過開放資料庫授權條款取得。若使用我們的影像塊，則須註明其製圖法是按 CC-BY-SA 授權。您可以透過連結至<a
-        href="http://www.openstreetmap.org/copyright">此版權頁</a>以作註明。您亦可以指明並直接連結至授權內容
-        (但若您要以資料形式發布 OSM，這是必要條件) 。在無法作出連結的媒體 (如印刷品) ，我們建議你引導你的讀者至 openstreetmap.org
-        (如註明 OpenStreetMap 的完整網址) 、opendatacommons.org，及 (如相關的話) creativecommons.org。
-      credit_3_html: |-
-        對於可瀏覽的電子地圖，標明出處的文字應放在地圖的一角。
-        例如：
-      attribution_example:
-        alt: 如何在網頁上署名 OpenStreetMap 的例子
-        title: 署名的例子
-      more_title_html: 尋找更多
-      more_1_html: |-
-        在<a
-        href="http://osmfoundation.org/Licence"> OSMF 授權條款頁面</a>可閱讀更多關於使用我們的資料，以及如何標明我們是作者的資料。
-      more_2_html: 雖然 OpenStreetMap 是開放資料，但我們無法為第三方提供免費的地圖 API。詳見我們的<a href="https://operations.osmfoundation.org/policies/api/">API
-        使用政策</a>、<a href="https://operations.osmfoundation.org/policies/tiles/">地圖影像塊使用政策</a>及<a
-        href="https://operations.osmfoundation.org/policies/nominatim/">Nominatim
-        服務使用政策</a>。
-      contributors_title_html: 我們的貢獻者
-      contributors_intro_html: 我們的貢獻者為成千上萬的人。我們也收納了從國家測繪機構及其他來源等取得的開放版權資料，其中包括：
-      contributors_at_html: <strong>奧地利</strong>：包含來自 <a href="http://data.wien.gv.at/">Stadt
-        Wien</a> (<a href="http://creativecommons.org/licenses/by/3.0/at/deed.zh_TW">CC
-        BY</a>授權) 、<a href="http://www.vorarlberg.at/vorarlberg/bauen_wohnen/bauen/vermessung_geoinformation/weitereinformationen/services/wmsdienste.htm">Land
-        Vorarlberg</a>及 Land Tirol (修訂的<a href="http://www.tirol.gv.at/applikationen/e-government/data/nutzungsbedingungen/">CC-BY
-        AT</a>授權) 的資料。
-      contributors_ca_html: |-
-        <strong>加拿大</strong>：包含來自 GeoBase&reg;，GeoGratis (&copy; Department of Natural
-        Resources Canada) ，CanVec (&copy; Department of Natural
-        Resources Canada) 和 StatCan (Geography Division,
-        Statistics Canada) 的資料。
-      contributors_fi_html: |-
-        <strong>芬蘭</strong>: 包含來自
-        National Land Survey of Finland's Topographic Database
-        及其他資料集的資料，以
-        <a href="http://www.maanmittauslaitos.fi/en/NLS_open_data_licence_version1_20120501">NLSFI License</a>授權。
-      contributors_fr_html: |-
-        <strong>法國</strong>: 包含來自
-        Direction Générale des Impôts 的資料。
-      contributors_nl_html: |-
-        <strong>荷蘭</strong>: 包含來自&copy; AND data, 2007
-        (<a href="http://www.and.com">www.and.com</a>) 的資料。
-      contributors_nz_html: |-
-        <strong>紐西蘭</strong>: 包含來自
-        Land Information New Zealand (Crown Copyright reserved) 的資料。
-      contributors_si_html: |-
-        <strong>斯洛維尼亞</strong>：包含來自<a href="http://www.gu.gov.si/en/">Surveying and Mapping Authority</a>和
-        <a href="http://www.mkgp.gov.si/en/">Ministry of Agriculture, Forestry and Food</a>
-        (斯洛維尼亞公開資訊).
-      contributors_za_html: |-
-        <strong>南非</strong>: 包含來自
-        <a href="http://www.ngi.gov.za/">Chief Directorate:
-        National Geo-Spatial Information</a> (State copyright reserved) 的資料。
-      contributors_gb_html: |-
-        <strong>英國</strong>: 包含來自 Ordnance
-        Survey data (&copy; Crown copyright and database right
-        2010-12) 的資料。
-      contributors_footer_1_html: |-
-        若需要進一步詳情，以及其他曾用以協助改進
-         OpenStreetMap 的資料來源，請參閱 OpenStreetMap Wiki 上的 <a
-        href="http://wiki.openstreetmap.org/wiki/Contributors">貢獻者
-        頁面</a>。
-      contributors_footer_2_html: OpenStreetMap 收錄一項資料，並不意味原本的資料提供者認可 OpenStreetMap、提供任何保證或承擔任何法律責任。
-      infringement_title_html: 侵犯版權
-      infringement_1_html: OSM 的貢獻者會被提醒，絕不要在沒有版權所有人的明確淮許下，加入來自任何有版權的來源的資料 (如 Google
-        地圖或印刷地圖)。
-      infringement_2_html: 如果你認為有版權的材料被不恰當地加入到 OpenStreetMap 資料庫或此網站，請請參考我們的<a href="http://www.osmfoundation.org/wiki/License/Takedown_procedure">撤除程序</a>，或直接在我們的<a
-        href="http://dmca.openstreetmap.org/">網上申報頁面</a>提出。
-      trademarks_title_html: <span id="trademarks"></span>商標
-      trademarks_1_html: OpenStreetMap、放大鏡標誌和 OpenStreetMap 研討會是 OpenStreetMap 基金會的註冊商標。如果你對於使用這些商標有疑問的話，請將你的問題寄到<a
-        href="http://wiki.osmfoundation.org/wiki/Licensing_Working_Group">授權條款工作小組
-        (Licence Working Group)</a>。
-  welcome_page:
-    title: 歡迎！
-    introduction_html: 歡迎來到 OpenStreetMap，自由和可編輯的世界地圖。您目前已經登入，可以開始繪製地圖。這裡有一份您須知道最重要事項的快速指南。
-    whats_on_the_map:
-      title: 地圖上有什麼
-      on_html: |-
-        OpenStreetMap 是一個為<em>真實且現存</em>物件繪製地圖的地方 -
-        它包含數以百萬計的建築物、道路以及關於位置其他詳細資料。您可以
-        在地圖上畫出任何現實世界中令您感興趣的地理特徵。
-      off_html: 然而它<em>不包含</em>一些例如評分的主觀意見資料、歷史或假設性的地理特徵，以及有版權的來源資料。除非你獲特別許可，不要抄襲網上或印刷的地圖。
-    basic_terms:
-      title: 繪製地圖的基本術語
-      paragraph_1_html: OpenStreetMap 有自己的術語。以下是一些常用的關鍵詞。
-      editor_html: <strong>編輯器</strong>是你可以用於編輯地圖的程序或網站。
-      node_html: <strong>節點</strong>是地圖上的一個點，例如一間餐廳或一棵樹。
-      way_html: <strong>路徑</strong>是一條線或一個區域，例如一條道路、一條溪、一個湖或一棟建築物。
-      tag_html: <strong>標籤</strong>是關於節點或路徑的簡要資料，例如餐廳的名字或道路的速度限制。
-    rules:
-      title: 規則！
-      paragraph_1_html: OpenStreetMap 沒有多少正式規則，除了所有參與者都得與社群合作和溝通。如果你有想過用人工以外的方式參與的話，請先熟讀和遵循<a
-        href='http://wiki.openstreetmap.org/wiki/Import/Guidelines'>匯入</a>以及<a href='http://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct'>自動化編輯</a>守則。
-    questions:
-      title: 有任何問題嗎？
-      paragraph_1_html: OpenStreetMap 有一些資源，可用於學習本專案、提出和回答問題，以及討論和紀錄與製作地圖相關的話題。 <a
-        href='%{help_url}'>按此取得說明</a>。
-    start_mapping: 開始製圖
-    add_a_note:
-      title: 沒有時間編輯嗎？可加入註記！
-      paragraph_1_html: 如果你只想做一些微小改動，而沒有時間登入來學習如何編輯，那麼加入一項註記還是非常容易的。
-      paragraph_2_html: 只要到<a href='%{map_url}'>地圖</a>並點選註記圖示： <span class='icon note'></span>。這將在地圖上加入一個標記，你可以拖動它，並新增你的註記，然後點選儲存，其他製圖者會作出查證。
-  fixthemap:
-    title: 回報問題／改進地圖
-    how_to_help:
-      title: 如何協助
-      join_the_community:
-        title: 加入社群
-        explanation_html: 如果你發現我們的地圖資料有問題，例如缺少某條道路或者你的地址，最好的方法就是加入 OpenStreetMap 社群，然後自己加入或者改進資料。
-      add_a_note:
-        instructions_html: |-
-          只須點選 <a class='icon note'></a>或地圖上的同一圖示，
-          這將在地圖上加入一個標記，你可以拖動它，並新增你的註記，然後點選儲存，其他製圖者會作出查證。
-    other_concerns:
-      title: 其他問題
-      explanation_html: 如果您對我們的資料如何被應用或有關的內容有任何問題，請參閱我們的<a href='/copyright'>版權頁</a>瞭解更多法律資訊，或聯絡適當的<a
-        href='http://wiki.osmfoundation.org/wiki/Working_Groups'>OSMF 工作小組</a>。
-  help_page:
-    title: 取得協助
-    introduction: OpenStreetMap 有一些資源，可用於學習本專案、提出和回答問題，以及討論和紀錄與製作地圖相關的話題。
-    welcome:
-      url: /welcome
-      title: 歡迎來到開放街圖
-      description: 這個快速指南涵蓋了開放街圖的基礎知識。
-    beginners_guide:
-      url: http://wiki.openstreetmap.org/wiki/Zh-hant:Beginners%27_guide
-      title: 新手指南
-      description: 社群維護的新手指南
-    help:
-      url: https://help.openstreetmap.org/
-      title: help.openstreetmap.org
-      description: 在 OSM 的問答網站提出問題或搜尋答案。
-    mailing_lists:
-      title: 郵件論壇
-      description: 在不同主題或是地區的郵件論壇問問題或是討論有趣的事物。
-    forums:
-      title: 論壇
-      description: 給習慣論壇型式的地方問問題和討論
-    irc:
-      title: IRC
-      description: 使用各種不同語言在各種主題聊天互動。
-    switch2osm:
-      title: switch2osm
-      description: 協助公司與組織改用 OpenStreetMap 為基礎的地圖與相關服務。
-    wiki:
-      url: http://wiki.openstreetmap.org/
-      title: wiki.openstreetmap.org
-      description: 瀏覽 wiki，取得詳盡的 OSM 文件。
-  about_page:
-    next: 下一頁
-    copyright_html: <span>&copy;</span>OpenStreetMap<br>貢獻者
-    used_by: '%{name} 為數以千計的網站、app 與硬體裝置提供地圖資料'
-    lede_text: OpenStreetMap 是由製圖者社群所建立，他們提供及不斷更新包括有關世界各地的道路、路徑、咖啡館、火車站等等的資料。
-    local_knowledge_title: 地方知識
-    local_knowledge_html: |-
-      OpenStreetMap 強調地方知識。貢獻者們使用
-      航照圖、GPS 裝置與低技術的實地考察製圖，來檢驗 OSM
-      是準確而且最新的。
-    community_driven_title: 社群推動
-    community_driven_html: |-
-      OpenStreetMap 的社群多元化、懷有熱情，而且日益壯大。我們的貢獻者包括地圖製作愛好者，地理訊息系統的專業人員，提供 OSM 伺服器的工程師，為受災害影響區域製圖的人道主義志願人士，以及其他各界人士。
-      想進一步了解這個社群，請參閱<a href='https://blog.openstreetmap.org'> OpenStreetMap 部落格</a>、<a href='%{diary_path}'>使用者日記</a>,
-      <a href='http://blogs.openstreetmap.org/'>社群部落格</a>，以及<a href='http://www.osmfoundation.org/'>OSM 基金會</a> 網站。
-    open_data_title: 開放資料
-    open_data_html: OpenStreetMap 是<i>開放資料</i>的：您可以自由地使用作任何用途，前提是您須標明作者為 OpenStreetMap
-      及其貢獻者。若您在我們的資料上作修改或以之透過某些方式衍生其他資料，則只可依相同授權條款散佈有關成果。詳情請參閱<a href='%{copyright_path}'>版權及授權條款頁面</a>。
-    legal_title: 法律資訊
-    legal_html: "本站以及許多相關的服務正式由<a href='http://osmfoundation.org/'>OpenStreetMap 基金會</a>
-      (OSMF) 代表社群所營運。所有使用的OSMF運行服務皆符合我們的<a href=\"http://wiki.openstreetmap.org/wiki/Acceptable_Use_Policy\">可接受使用政策</a>和<a
-      href=\"http://wiki.osmfoundation.org/wiki/Privacy_Policy\">隱私政策</a>\n<br> \n若您有任何授權、版權或其他法律諮詢與問題，請<a
-      href='http://osmfoundation.org/Contact'>聯絡 OSMF</a>。"
-    partners_title: 合作夥伴
   notifier:
     diary_comment_notification:
       subject: '[OpenStreetMap] %{user} 已評論日記項目'
@@ -1325,6 +1148,123 @@ zh-TW:
     delete:
       deleted: 訊息已刪除
   site:
+    about:
+      next: 下一頁
+      copyright_html: <span>&copy;</span>OpenStreetMap<br>貢獻者
+      used_by: '%{name} 為數以千計的網站、app 與硬體裝置提供地圖資料'
+      lede_text: OpenStreetMap 是由製圖者社群所建立，他們提供及不斷更新包括有關世界各地的道路、路徑、咖啡館、火車站等等的資料。
+      local_knowledge_title: 地方知識
+      local_knowledge_html: |-
+        OpenStreetMap 強調地方知識。貢獻者們使用
+        航照圖、GPS 裝置與低技術的實地考察製圖，來檢驗 OSM
+        是準確而且最新的。
+      community_driven_title: 社群推動
+      community_driven_html: |-
+        OpenStreetMap 的社群多元化、懷有熱情，而且日益壯大。我們的貢獻者包括地圖製作愛好者，地理訊息系統的專業人員，提供 OSM 伺服器的工程師，為受災害影響區域製圖的人道主義志願人士，以及其他各界人士。
+        想進一步了解這個社群，請參閱<a href='https://blog.openstreetmap.org'> OpenStreetMap 部落格</a>、<a href='%{diary_path}'>使用者日記</a>,
+        <a href='https://blogs.openstreetmap.org/'>社群部落格</a>，以及<a href='https://www.osmfoundation.org/'> OSM 基金會</a> 網站。
+      open_data_title: 開放資料
+      open_data_html: OpenStreetMap 是<i>開放資料</i>的：您可以自由地使用作任何用途，前提是您須標明作者為 OpenStreetMap
+        及其貢獻者。若您在我們的資料上作修改或以之透過某些方式衍生其他資料，則只可依相同授權條款散佈有關成果。詳情請參閱<a href='%{copyright_path}'>版權及授權條款頁面</a>。
+      legal_title: 法律資訊
+      legal_html: "本站以及許多相關的服務正式由<a href='https://osmfoundation.org/'> OpenStreetMap
+        基金會</a>（OSMF）代表社群所營運。所有使用的 OSMF 運行服務皆符合我們的<a href=\"https://wiki.openstreetmap.org/wiki/Acceptable_Use_Policy\">可接受使用政策</a>和<a
+        href=\"https://wiki.osmfoundation.org/wiki/Privacy_Policy\">隱私政策</a>\n<br>
+        \n若您有任何授權、版權或其他法律諮詢，請<a href='https://osmfoundation.org/Contact'>聯絡 OSMF </a>。\n<br>\nOpenStreetMap、放大鏡標誌，和地圖狀態是<a
+        href=\"https://wiki.osmfoundation.org/wiki/Trademark_Policy\"> OSMF 的註冊商標</a>。"
+      partners_title: 合作夥伴
+    copyright:
+      foreign:
+        title: 關於這個翻譯
+        text: 這個翻譯頁面和 %{english_original_link} 若有衝突，會以英文頁面為準
+        english_link: 英文原文
+      native:
+        title: 關於此頁
+        text: 您正在檢閱英文版本的版權頁。你可以返回這個網頁的 %{native_link}，您亦可以停止閱讀版權並 %{mapping_link}。
+        native_link: 台灣正體中文版
+        mapping_link: 開始製圖
+      legal_babble:
+        title_html: 版權與授權條款
+        intro_1_html: OpenStreetMap 為<i>開放資料</i>，以<a href="https://osmfoundation.org/">
+          OpenStreetMap 基金會</a>（OSMF）採用的<a href="https://opendatacommons.org/licenses/odbl/">
+          Open Data Commons 開放資料庫授權條款</a>（ODbL）授權。
+        intro_2_html: |-
+          您可以自由地複製、散布、傳輸及修改我們的資料，前提是您須標明作者為 OpenStreetMap 及其貢獻者。若您在我們的資料上作修改或據之衍生其他資料
+          ，則只可依相同授權條款散佈有關成果。授權的<a href="https://opendatacommons.org/licenses/odbl/1.0/">法律原文</a>詳述您的權責。
+        intro_3_html: 我們地圖影像塊的製圖法以及我們的文件，以<a href="https://creativecommons.org/licenses/by-sa/2.0/deed.zh_TW">創用CC
+          姓名標示-相同方式分享 (CC BY-SA) 2.0版</a>條款授權。
+        credit_title_html: 如何標明作者是 OpenStreetMap
+        credit_1_html: 我們要求您以&ldquo;&copy; OpenStreetMap 貢獻者&rdquo;標明作者。
+        credit_2_html: 您亦須清晰註明，有關資料可透過開放資料庫授權條款取得。若使用我們的影像塊，則須註明其製圖法是按 CC-BY-SA 授權。您可以透過連結至<a
+          href="https://www.openstreetmap.org/copyright">此版權頁</a>以作註明。您亦可以指明並直接連結至授權內容
+          (但若您要以資料形式發布 OSM，這是必要條件) 。在無法作出連結的媒體 (如印刷品) ，我們建議你引導你的讀者至 openstreetmap.org
+          (如註明 OpenStreetMap 的完整網址) 、opendatacommons.org，及 (如相關的話) creativecommons.org。
+        credit_3_html: |-
+          對於可瀏覽的電子地圖，標明出處的文字應放在地圖的一角。
+          例如：
+        attribution_example:
+          alt: 如何在網頁上署名 OpenStreetMap 的例子
+          title: 署名的例子
+        more_title_html: 尋找更多
+        more_1_html: |-
+          在<a
+          href="https://osmfoundation.org/Licence"> OSMF 授權條款頁面</a>可閱讀更多關於使用我們的資料，以及如何標明我們是作者的資料。
+        more_2_html: 雖然 OpenStreetMap 是開放資料，但我們無法為第三方提供免費的地圖 API。詳見我們的<a href="https://operations.osmfoundation.org/policies/api/">API
+          使用政策</a>、<a href="https://operations.osmfoundation.org/policies/tiles/">地圖影像塊使用政策</a>及<a
+          href="https://operations.osmfoundation.org/policies/nominatim/">Nominatim
+          服務使用政策</a>。
+        contributors_title_html: 我們的貢獻者
+        contributors_intro_html: 我們的貢獻者為成千上萬的人。我們也收納了從國家測繪機構及其他來源等取得的開放版權資料，其中包括：
+        contributors_at_html: <strong>奧地利</strong>：包含來自 <a href="https://data.wien.gv.at/">Stadt
+          Wien</a> (<a href="https://creativecommons.org/licenses/by/3.0/at/deed.zh_TW">CC
+          BY</a>授權) 、<a href="https://www.vorarlberg.at/vorarlberg/bauen_wohnen/bauen/vermessung_geoinformation/weitereinformationen/services/wmsdienste.htm">Land
+          Vorarlberg</a>及 Land Tirol (修訂的<a href="https://www.tirol.gv.at/applikationen/e-government/data/nutzungsbedingungen/">CC-BY
+          AT</a>授權) 的資料。
+        contributors_ca_html: |-
+          <strong>加拿大</strong>：包含來自 GeoBase&reg;，GeoGratis (&copy; Department of Natural
+          Resources Canada) ，CanVec (&copy; Department of Natural
+          Resources Canada) 和 StatCan (Geography Division,
+          Statistics Canada) 的資料。
+        contributors_fi_html: |-
+          <strong>芬蘭</strong>: 包含來自
+          National Land Survey of Finland's Topographic Database
+          及其他資料集的資料，以
+          <a href="https://www.maanmittauslaitos.fi/en/opendata-licence-version1"> NLSFI License </a>授權。
+        contributors_fr_html: |-
+          <strong>法國</strong>: 包含來自
+          Direction Générale des Impôts 的資料。
+        contributors_nl_html: |-
+          <strong>荷蘭</strong>: 包含來自&copy; AND data, 2007
+          (<a href="https://www.and.com">www.and.com</a>) 的資料。
+        contributors_nz_html: |-
+          <strong>紐西蘭</strong>: 包含來自
+          Land Information New Zealand (Crown Copyright reserved) 的資料。
+        contributors_si_html: |-
+          <strong>斯洛維尼亞</strong>：包含來自<a href="http://www.gu.gov.si/en/">Surveying and Mapping Authority</a>和
+          <a href="http://www.mkgp.gov.si/en/">Ministry of Agriculture, Forestry and Food</a>
+          (斯洛維尼亞公開資訊).
+        contributors_za_html: |-
+          <strong>南非</strong>: 包含來自
+          <a href="http://www.ngi.gov.za/">Chief Directorate:
+          National Geo-Spatial Information</a> (State copyright reserved) 的資料。
+        contributors_gb_html: |-
+          <strong>英國</strong>: 包含來自 Ordnance
+          Survey data (&copy; Crown copyright and database right
+          2010-12) 的資料。
+        contributors_footer_1_html: |-
+          若需要進一步詳情，以及其他曾用以協助改進
+           OpenStreetMap 的資料來源，請參閱 OpenStreetMap Wiki 上的<a
+          href="https://wiki.openstreetmap.org/wiki/Contributors">貢獻者
+          頁面</a>。
+        contributors_footer_2_html: OpenStreetMap 收錄一項資料，並不意味原本的資料提供者認可 OpenStreetMap、提供任何保證或承擔任何法律責任。
+        infringement_title_html: 侵犯版權
+        infringement_1_html: OSM 的貢獻者會被提醒，絕不要在沒有版權所有人的明確淮許下，加入來自任何有版權的來源的資料 (如 Google
+          地圖或印刷地圖)。
+        infringement_2_html: 如果你認為有版權的材料被不恰當地加入到 OpenStreetMap 資料庫或此網站，請請參考我們的<a href="https://www.osmfoundation.org/wiki/License/Takedown_procedure">撤除程序</a>，或直接在我們的<a
+          href="http://dmca.openstreetmap.org/">網上申報頁面</a>提出。
+        trademarks_title_html: <span id="trademarks"></span>商標
+        trademarks_1_html: OpenStreetMap、放大鏡標誌和 OpenStreetMap 研討會是 OpenStreetMap 基金會的註冊商標。如果你對於使用這些商標有疑問的話，請查看我們的<a
+          href="https://wiki.osmfoundation.org/wiki/Trademark_Policy">商標方針</a>。
     index:
       js_1: 您使用不支援 JavaScript 的瀏覽器，或者停用了 JavaScript。
       js_2: OpenStreetMap 使用 JavaScript 讓地圖更平順。
@@ -1340,16 +1280,107 @@ zh-TW:
       user_page_link: 使用者頁面
       anon_edits_link_text: 瞭解為什麼這很重要。
       flash_player_required: 您需要 Flash player 才能使用 Potlatch，OpenStreetMap Flash 編輯器。您可以<a
-        href="http://www.adobe.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">在
-        Adobe.com 下載 Flash Player</a>。<a href="http://wiki.openstreetmap.org/wiki/Editing">還有其他許多選擇</a>也可以編輯
-        OpenStreetMap。
+        href="https://get.adobe.com/flashplayer/">在 Adobe.com 下載 Flash Player</a>。<a
+        href="https://wiki.openstreetmap.org/wiki/Editing">還有其他許多選擇</a>也可以編輯 OpenStreetMap。
       potlatch_unsaved_changes: 您還有未儲存的變更。 (要在 Potlatch 中儲存，您應該取消選擇目前的路徑或節點 (如果是在清單模式編輯)，或是點選儲存
         (如果有儲存按鈕)。)
-      potlatch2_not_configured: Potlatch 2 尚未設定 - 請參閱 http://wiki.openstreetmap.org/wiki/The_Rails_Port#Potlatch_2
+      potlatch2_not_configured: Potlatch 2 尚未設定 - 請參閱 https://wiki.openstreetmap.org/wiki/The_Rails_Port#Potlatch_2
         以取得更多資訊
       potlatch2_unsaved_changes: 您有未儲存的更改。 (要在 Potlatch 2 中儲存，您應按一下儲存。)
       id_not_configured: iD 尚未設定
       no_iframe_support: 您的瀏覽器不支援 HTML 嵌入式框架，這是這項功能所必要的。
+    export:
+      title: 匯出
+      area_to_export: 要匯出的區域
+      manually_select: 手動選擇不同的區域
+      format_to_export: 要匯出的格式
+      osm_xml_data: OpenStreetMap XML 資料
+      map_image: 地圖影像 (顯示標準圖層)
+      embeddable_html: 內嵌式 HTML
+      licence: 授權
+      export_details: OpenStreetMap 的資料採用 <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open
+        Data Commons 開放資料庫授權條款</a>（ODbL）授權。
+      too_large:
+        advice: 若以上匯出失敗，請考慮使用下列來源：
+        body: 這個區域太大，無法匯出 OpenStreetMap XML 資料。請放大或選擇一個較小的區域，或使用下列大量資料下載源：
+        planet:
+          title: 地球 OSM
+          description: 定期更新的完整 OpenStreetMap 資料庫副本
+        overpass:
+          title: Overpass API
+          description: 從 OpenStreetMap 資料庫的鏡像，下載此區域
+        geofabrik:
+          title: Geofabrik 下載
+          description: 定期更新的洲、國家及特定城市之摘錄資料
+        metro:
+          title: 都會區的摘錄資料
+          description: 世界主要城市與附近地區的摘錄資料
+        other:
+          title: 其他來源
+          description: OpenStreetMap wiki 上列出的其他來源
+      options: 選項
+      format: 格式
+      scale: 比例
+      max: 最大
+      image_size: 圖片大小
+      zoom: 縮放
+      add_marker: 在地圖加上標記
+      latitude: 緯度：
+      longitude: 經度：
+      output: 輸出
+      paste_html: 貼上 HTML 以於網站內嵌
+      export_button: 匯出
+    fixthemap:
+      title: 回報問題／改進地圖
+      how_to_help:
+        title: 如何協助
+        join_the_community:
+          title: 加入社群
+          explanation_html: 如果你發現我們的地圖資料有問題，例如缺少某條道路或者你的地址，最好的方法就是加入 OpenStreetMap
+            社群，然後自己加入或者改進資料。
+        add_a_note:
+          instructions_html: |-
+            只須點選 <a class='icon note'></a>或地圖上的同一圖示，
+            這將在地圖上加入一個標記，你可以拖動它，並新增你的註記，然後點選儲存，其他製圖者會作出查證。
+      other_concerns:
+        title: 其他問題
+        explanation_html: 如果您對我們的資料如何被應用或有關的內容有任何問題，請參閱我們的<a href='/copyright'>版權頁</a>瞭解更多法律資訊，或聯絡適當的<a
+          href='https://wiki.osmfoundation.org/wiki/Working_Groups'> OSMF 工作小組</a>。
+    help:
+      title: 取得協助
+      introduction: OpenStreetMap 有一些資源，可用於學習本專案、提出和回答問題，以及討論和紀錄與製作地圖相關的話題。
+      welcome:
+        url: /welcome
+        title: 歡迎來到開放街圖
+        description: 這個快速指南涵蓋了開放街圖的基礎知識。
+      beginners_guide:
+        url: https://wiki.openstreetmap.org/wiki/Zh-hant:Beginners%27_guide
+        title: 新手指南
+        description: 社群維護的新手指南
+      help:
+        url: https://help.openstreetmap.org/
+        title: help.openstreetmap.org
+        description: 在 OSM 的問答網站提出問題或搜尋答案。
+      mailing_lists:
+        url: https://lists.openstreetmap.org/
+        title: 郵件論壇
+        description: 在不同主題或是地區的郵件論壇問問題或是討論有趣的事物。
+      forums:
+        url: https://forum.openstreetmap.org/
+        title: 論壇
+        description: 給習慣論壇型式的地方問問題和討論
+      irc:
+        url: https://irc.openstreetmap.org/
+        title: IRC
+        description: 使用各種不同語言在各種主題聊天互動。
+      switch2osm:
+        url: https://switch2osm.org/
+        title: switch2osm
+        description: 協助公司與組織改用 OpenStreetMap 為基礎的地圖與相關服務。
+      wiki:
+        url: https://wiki.openstreetmap.org/
+        title: wiki.openstreetmap.org
+        description: 瀏覽 wiki，取得詳盡的 OSM 文件。
     sidebar:
       search_results: 搜尋結果
       close: 關閉
@@ -1362,6 +1393,7 @@ zh-TW:
       where_am_i: 這是哪裡？
       where_am_i_title: 使用搜尋引擎描述目前的位置
       submit_text: 出發
+      reverse_directions_text: 反向
     key:
       table:
         entry:
@@ -1436,7 +1468,7 @@ zh-TW:
       edit: 編輯
       preview: 預覽
     markdown_help:
-      title_html: 使用 <a href="http://daringfireball.net/projects/markdown/">Markdown</a>
+      title_html: 使用 <a href="https://daringfireball.net/projects/markdown/">Markdown</a>
         解析
       headings: 標題
       heading: 標題
@@ -1450,6 +1482,38 @@ zh-TW:
       image: 圖片
       alt: 替代文字
       url: URL
+    welcome:
+      title: 歡迎！
+      introduction_html: 歡迎來到 OpenStreetMap，自由和可編輯的世界地圖。您目前已經登入，可以開始繪製地圖。這裡有一份您須知道最重要事項的快速指南。
+      whats_on_the_map:
+        title: 地圖上有什麼
+        on_html: |-
+          OpenStreetMap 是一個為<em>真實且現存</em>物件繪製地圖的地方 -
+          它包含數以百萬計的建築物、道路以及關於位置其他詳細資料。您可以
+          在地圖上畫出任何現實世界中令您感興趣的地理特徵。
+        off_html: 然而它<em>不包含</em>一些例如評分的主觀意見資料、歷史或假設性的地理特徵，以及有版權的來源資料。除非你獲特別許可，不要抄襲網上或印刷的地圖。
+      basic_terms:
+        title: 繪製地圖的基本術語
+        paragraph_1_html: OpenStreetMap 有自己的術語。以下是一些常用的關鍵詞。
+        editor_html: <strong>編輯器</strong>是你可以用於編輯地圖的程序或網站。
+        node_html: <strong>節點</strong>是地圖上的一個點，例如一間餐廳或一棵樹。
+        way_html: <strong>路徑</strong>是一條線或一個區域，例如一條道路、一條溪、一個湖或一棟建築物。
+        tag_html: <strong>標籤</strong>是關於節點或路徑的簡要資料，例如餐廳的名字或道路的速度限制。
+      rules:
+        title: 規則！
+        paragraph_1_html: OpenStreetMap 沒有多少正式規則，除了所有參與者都得與社群合作和溝通。如果你有想過用人工以外的方式參與的話，請先熟讀和遵循<a
+          href='https://wiki.openstreetmap.org/wiki/Import/Guidelines'>匯入</a>以及<a
+          href='https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct'>自動化編輯</a>守則。
+      questions:
+        title: 有任何問題嗎？
+        paragraph_1_html: OpenStreetMap 有一些資源，可用於學習本專案、提出和回答問題，以及討論和紀錄與製作地圖相關的話題。
+          <a href='%{help_url}'>按此取得說明</a>。
+      start_mapping: 開始製圖
+      add_a_note:
+        title: 沒有時間編輯嗎？可加入註記！
+        paragraph_1_html: 如果你只想做一些微小改動，而沒有時間登入來學習如何編輯，那麼加入一項註記還是非常容易的。
+        paragraph_2_html: 只要到<a href='%{map_url}'>地圖</a>並點選註記圖示： <span class='icon
+          note'></span>。這將在地圖上加入一個標記，你可以拖動它，並新增你的註記，然後點選儲存，其他製圖者會作出查證。
   trace:
     visibility:
       private: 私人 (以匿名方式分享，節點無順序)
@@ -1488,7 +1552,7 @@ zh-TW:
     trace_header:
       upload_trace: 上傳軌跡
       see_all_traces: 查看所有的軌跡
-      see_your_traces: 查看您所有的軌跡
+      see_my_traces: 查看我的軌跡
       traces_waiting: 您有 %{count} 個軌跡等待上傳。請先等待先前的軌跡處理完後，再來繼續上傳其他軌跡，以免影響其他使用者的排程。
     trace_optionals:
       tags: 標籤
@@ -1506,11 +1570,12 @@ zh-TW:
       owner: 擁有者：
       description: 描述：
       tags: 標籤
-      none: 沒有
+      none: 無
       edit_track: 編輯這個軌跡
       delete_track: 刪除這個軌跡
       trace_not_found: 找不到軌跡！
       visibility: 可見性：
+      confirm_delete: 刪除這個軌跡？
     trace_paging_nav:
       showing_page: 第 %{page} 頁
       older: 較舊軌跡
@@ -1533,11 +1598,11 @@ zh-TW:
       map: 地圖
     list:
       public_traces: 公開 GPS 軌跡
-      your_traces: 您的 GPS 軌跡
+      my_traces: 我的 GPS 軌跡
       public_traces_from: '%{user} 的公開 GPS 軌跡'
       description: 瀏覽最近的 GPS 軌跡上傳
       tagged_with: 有如下標籤：%{tags}
-      empty_html: 還沒有軌跡。<a href='%{upload_link}'>上傳新的軌跡</a>或在 <a href='http://wiki.openstreetmap.org/wiki/Zh-hant:Beginners_Guide_1.2'>wiki
+      empty_html: 還沒有軌跡。<a href='%{upload_link}'>上傳新的軌跡</a>或在 <a href='https://wiki.openstreetmap.org/wiki/Zh-hant:Beginners_Guide_1.2'>wiki
         頁面</a>上瞭解更多有關 GPS 軌跡的資訊。
     delete:
       scheduled_for_deletion: 軌跡已被排程刪除
@@ -1565,7 +1630,7 @@ zh-TW:
       blocked: 您已經被封鎖使用 API。請登入網頁介面以瞭解更多資訊。
       need_to_see_terms: 我們已暫時中止您使用 API 的權限，請登入網頁介面查閱貢獻者條款，您不需要同意有關條款，但必須查閱它們。
   oauth:
-    oauthorize:
+    authorize:
       title: 授權使用您的帳號
       request_access: 應用程式 %{app_name} 要求使用您的帳號，%{user}。請確定您要讓此應用程式使用下列功能。您可以依自己喜好，選擇多少項功能。
       allow_to: 允許用戶端應用程式：
@@ -1577,11 +1642,11 @@ zh-TW:
       allow_write_gpx: 上傳 GPS 軌跡。
       allow_write_notes: 修改註記。
       grant_access: 授權存取
-    oauthorize_success:
+    authorize_success:
       title: 允許授權請求
       allowed: 您已授權應用程式 %{app_name} 使用您的帳號。
       verification: 驗證碼是 %{code}。
-    oauthorize_failure:
+    authorize_failure:
       title: 授權請求失敗
       denied: 您已拒絕應用程式 %{app_name} 使用您的帳號。
       invalid: 授權權杖無效。
@@ -1726,11 +1791,11 @@ zh-TW:
         html: |-
           <p>與其他地圖不同，OpenStreetMap 是完全由像你一樣的人們建立的，而且任何人都可自由地修正、更新、下載和使用。</p>
           <p>請註冊以開始貢獻吧。我們將發出電子郵件以確認你的帳號。</p>
-      license_agreement: 當您確認您的帳號，您需要同意<a href="http://www.osmfoundation.org/wiki/License/Contributor_Terms">貢獻者條款</a>
+      license_agreement: 當您確認您的帳號，您需要同意<a href="https://www.osmfoundation.org/wiki/License/Contributor_Terms">貢獻者條款</a>
         。
       email address: 電子郵件地址：
       confirm email address: 確認電子郵件地址：
-      not displayed publicly: 您的地址未公開顯示，請看我們的<a href="http://wiki.osmfoundation.org/wiki/Privacy_Policy"
+      not displayed publicly: 您的地址未公開顯示，請看我們的<a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy"
         title="包含部份電郵地址的OSMF隱私權政策">隱私權政策</a>來獲得更多訊息
       display name: 顯示名稱：
       display name description: 您公開顯示的使用者名稱。您可以稍後在偏好設定中改變它。
@@ -1797,7 +1862,7 @@ zh-TW:
       user location: 使用者位置
       if set location: 您可以在 %{settings_link} 頁面設定您家的位置，以檢視附近的使用者。
       settings_link_text: 設定
-      your friends: 您的好友
+      my friends: 我的好友
       no friends: 您尚未加入任何好友。
       km away: '%{count} 公里遠'
       m away: '%{count} 公尺遠'
@@ -1839,21 +1904,20 @@ zh-TW:
       email never displayed publicly: (永遠不公開顯示)
       external auth: 外部認證：
       openid:
-        link: HTTP://wiki.openstreetmap.org/wiki/OpenID
+        link: https://wiki.openstreetmap.org/wiki/OpenID
         link text: 這是什麼？
       public editing:
         heading: 公開編輯：
         enabled: 已開啟。非匿名且可以編輯資料。
-        enabled link: http://wiki.openstreetmap.org/wiki/Disabling_anonymous_edits
+        enabled link: https://wiki.openstreetmap.org/wiki/Anonymous_edits
         enabled link text: 這是什麼？
         disabled: 已停用且不能編輯資料，所有先前的編輯都會成為匿名的。
         disabled link text: 為什麼我不能編輯？
       public editing note:
         heading: 公開編輯
         text: 目前您的編輯是匿名的，人們不能發送郵件給您或看到您的位置。為了顯示你的編輯，讓別人透過網站與您聯繫，請點選下面的按鈕。 <b>由於 0.6
-          API 的轉換，只有公開的使用者可以編輯地圖資料</b> 。  ( <a href="http://wiki.openstreetmap.org/wiki/Anonymous_edits">知道為什麼</a>
-          ) 。 <ul><li>您的電子郵件地址將不會被因為成為公開使用者而被透露。 </li><li>這個動作不能逆轉，所有新的使用者現在都預設為公開的。
-          </li></ul>
+          API 的轉換，只有公開的使用者可以編輯地圖資料</b>。（<a href="https://wiki.openstreetmap.org/wiki/Anonymous_edits">知道為什麼</a>）。<ul><li>您的電子郵件地址將不會被因為成為公開使用者而被透露。
+          </li><li>這個動作不能逆轉，所有新的使用者現在都預設為公開的。 </li></ul>
       contributor terms:
         heading: 貢獻者條款：
         agreed: 您已同意新的貢獻者條款。
@@ -1924,8 +1988,8 @@ zh-TW:
     filter:
       not_an_administrator: 您需要一個行政員才可執行該動作。
     list:
-      title: 使用者
-      heading: 使用者
+      title: 用戶
+      heading: 用戶
       showing:
         one: 頁面 %{page} (%{first_item} / %{items})
         other: 頁面 %{page} (%{first_item}-%{last_item} / %{items})
@@ -1956,6 +2020,7 @@ zh-TW:
       not_a_role: 字串 "%{role}" 不是有效的身份。
       already_has_role: 這個使用者已經有 %{role} 身份。
       doesnt_have_role: 這個使用者沒有 %{role} 身份。
+      not_revoke_admin_current_user: 無法撤銷目前使用者的管理員身份。
     grant:
       title: 確認授與身份
       heading: 確認授與身份
@@ -1968,7 +2033,7 @@ zh-TW:
       are_you_sure: 您確定要撤銷使用者 "%{name}"  "%{role}" 的身份？
       confirm: 確認
       fail: 無法撤銷使用者 "%{name}"  "%{role}" 的身份。請檢查使用者和身份是否都正確。
-  user_block:
+  user_blocks:
     model:
       non_moderator_update: 只有管理者才可作出或更新封鎖。
       non_moderator_revoke: 只有管理者才可撤銷封鎖。
@@ -2019,20 +2084,6 @@ zh-TW:
     period:
       one: 1 小時
       other: '%{count} 小時'
-    partial:
-      show: 顯示
-      edit: 編輯
-      revoke: 撤銷！
-      confirm: 您確定嗎？
-      display_name: 被封鎖的使用者
-      creator_name: 建立者
-      reason: 封鎖的理由
-      status: 狀態
-      revoker_name: 撤銷者
-      not_revoked: (沒有撤銷)
-      showing_page: 第 %{page} 頁
-      next: 下一頁 »
-      previous: « 上一頁
     helper:
       time_future: 於 %{time} 結束。
       until_login: 生效直至這個使用者登入為止。
@@ -2062,8 +2113,22 @@ zh-TW:
       back: 檢視所有封鎖
       revoker: 撤銷者：
       needs_view: 在還原這個封鎖之前，該使用者需要先登入。
-  note:
-    description:
+    block:
+      not_revoked: (沒有撤銷)
+      show: 顯示
+      edit: 編輯
+      revoke: 撤銷！
+    blocks:
+      display_name: 被封鎖的使用者
+      creator_name: 建立者
+      reason: 封鎖的理由
+      status: 狀態
+      revoker_name: 撤銷者
+      showing_page: 第 %{page} 頁
+      next: 下一頁 »
+      previous: « 上一頁
+  notes:
+    comment:
       opened_at_html: 於 %{when} 前建立
       opened_at_by_html: 於 %{when} 前由 %{user} 建立
       commented_at_html: 於 %{when} 前更新
@@ -2169,7 +2234,7 @@ zh-TW:
         resolve: 解決
         reactivate: 重新開啟
         comment_and_resolve: 評論並解決
-        comment: 送出評論
+        comment: 評論
     edit_help: 將地圖移至你想編輯的位置並放大，然後按這裡。
     directions:
       ascend: 上升
@@ -2181,20 +2246,28 @@ zh-TW:
         mapquest_car: 開車 (MapQuest)
         mapquest_foot: 徒步 (MapQuest)
         osrm_car: 開車 (OSRM)
-        mapzen_bicycle: 腳踏車 (Mapzen)
-        mapzen_car: 開車 (Mapzen)
-        mapzen_foot: 徒步 (Mapzen)
       descend: 下降
       directions: 路線
       distance: 距離
       errors:
         no_route: 查無兩個地點間的路徑。
-        no_place: 抱歉 - 查無該地點。
+        no_place: 抱歉 - 查無地點「%{place}」。
       instructions:
         continue_without_exit: 繼續行駛 %{name}
         slight_right_without_exit: 靠右至 %{name}
-        offramp_right_without_exit: 在右側上坡前往%{name}
+        offramp_right: 往右側上坡
+        offramp_right_with_exit: 在右側往出口 %{exit}
+        offramp_right_with_exit_name: 在右側沿著出口 %{exit} 前往 %{name}
+        offramp_right_with_exit_directions: 在右側沿著出口 %{exit} 朝 %{directions}
+        offramp_right_with_exit_name_directions: 在右側沿著出口 %{exit} 前往 %{name} 朝 %{directions}
+        offramp_right_with_name: 在右側上坡前往%{name}
+        offramp_right_with_directions: 在右側上坡朝%{directions}
+        offramp_right_with_name_directions: 在右側往%{name}的上坡朝%{directions}
         onramp_right_without_exit: 右轉上坡至%{name}
+        onramp_right_with_directions: 右轉前往上坡朝%{directions}
+        onramp_right_with_name_directions: 在往%{name}的上坡右轉朝%{directions}
+        onramp_right_without_directions: 右轉前往上坡
+        onramp_right: 右轉前往上坡
         endofroad_right_without_exit: 在道路盡頭右轉至%{name}
         merge_right_without_exit: 向右併線至%{name}
         fork_right_without_exit: 在叉路口右轉至%{name}
@@ -2203,29 +2276,48 @@ zh-TW:
         uturn_without_exit: 迴轉沿著 %{name}
         sharp_left_without_exit: 左急轉至 %{name}
         turn_left_without_exit: 左轉至 %{name}
-        offramp_left_without_exit: 在左側上坡前往%{name}
+        offramp_left: 往左側上坡
+        offramp_left_with_exit: 在左側往出口 %{exit}
+        offramp_left_with_exit_name: 在左側沿著出口 %{exit} 前往 %{name}
+        offramp_left_with_exit_directions: 在左側沿著出口 %{exit} 朝 %{directions}
+        offramp_left_with_exit_name_directions: 在左側沿著出口 %{exit} 前往 %{name} 朝 %{directions}
+        offramp_left_with_name: 在左側上坡前往%{name}
+        offramp_left_with_directions: 在左側上坡朝%{directions}
+        offramp_left_with_name_directions: 在左側往%{name}的上坡朝%{directions}
         onramp_left_without_exit: 左轉上坡至%{name}
+        onramp_left_with_directions: 左轉前往上坡朝%{directions}
+        onramp_left_with_name_directions: 在往%{name}的上坡左轉朝%{directions}
+        onramp_left_without_directions: 左轉前往上坡
+        onramp_left: 左轉前往上坡
         endofroad_left_without_exit: 在道路盡頭左轉至%{name}
         merge_left_without_exit: 向左併線至%{name}
         fork_left_without_exit: 在叉路口左轉至%{name}
         slight_left_without_exit: 靠左至 %{name}
         via_point_without_exit: (通過點)
         follow_without_exit: 延著 %{name}
-        roundabout_without_exit: 於圓環進入 %{name}
+        roundabout_without_exit: 於圓環離開進入 %{name}
         leave_roundabout_without_exit: 離開圓環 - %{name}
         stay_roundabout_without_exit: 繼續在圓環 - %{name}
-        start_without_exit: 於 %{name} 的終點開始
+        start_without_exit: 在 %{name} 開始
         destination_without_exit: 到達目地
         against_oneway_without_exit: 沿著單行道 %{name} 行駛
         end_oneway_without_exit: 單行道終點於 %{name}
         roundabout_with_exit: 從圓環出口 %{exit} 離開至 %{name}
-        turn_left_with_exit: 於圓環左轉至%{name}
-        slight_left_with_exit: 於圓環靠左至%{name}
-        turn_right_with_exit: 於圓環右轉至%{name}
-        slight_right_with_exit: 於圓環靠右至%{name}
-        continue_with_exit: 於圓環繼續直行至%{name}
+        roundabout_with_exit_ordinal: 於圓環的 %{exit} 出口離開進入 %{name}
+        exit_roundabout: 離開圓環進入 %{name}
         unnamed: 未命名
         courtesy: 感謝 %{link} 提供路線資訊
+        exit_counts:
+          first: 第 1
+          second: 第 2
+          third: 第 3
+          fourth: 第 4
+          fifth: 第 5
+          sixth: 第 6
+          seventh: 第 7
+          eighth: 第 8
+          ninth: 第 9
+          tenth: 第 10
       time: 時間
     query:
       node: 節點
@@ -2241,7 +2333,7 @@ zh-TW:
       show_address: 顯示地址
       query_features: 查詢圖徵
       centre_map: 中央地圖在此
-  redaction:
+  redactions:
     edit:
       description: 說明
       heading: 編輯修訂

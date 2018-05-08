@@ -31,6 +31,7 @@
 # Author: Tombi-aburage
 # Author: Vigorous action
 # Author: Wrightbus
+# Author: Yusuke1109
 # Author: ネイ
 # Author: 青子守歌
 # Author: 아라
@@ -159,6 +160,7 @@ ja:
         title_comment: 変更セット %{id} - %{comment}
       join_discussion: 議論に参加するにはログインしてください
       discussion: 議論
+      still_open: 変更セットが開いたままです - 議論を行うには変更セットが閉じられている必要があります。
     node:
       title: 'ノード: %{name}'
       history_title: 'ノードの履歴: %{name}'
@@ -349,58 +351,15 @@ ja:
       ago: '%{ago}前'
       newer_comments: 新しいコメント
       older_comments: 古いコメント
-  export:
-    title: エクスポート
-    start:
-      area_to_export: エクスポートする領域
-      manually_select: ドラッグして別の領域を選択
-      format_to_export: エクスポートするファイル形式
-      osm_xml_data: OpenStreetMap XML データ
-      map_image: 地図画像 (標準レイヤーを表示)
-      embeddable_html: 埋め込み HTML
-      licence: ライセンス
-      export_details: OpenStreetMap のデータは <a href="http://opendatacommons.org/licenses/odbl/1.0/">Open
-        Data Commons Open Database License</a> (ODbL) の下にライセンスされています。
-      too_large:
-        advice: '上のエクスポートが失敗した場合は、以下に列挙した情報源のいずれかの使用を検討してください:'
-        body: 領域が大きすぎて OpenStreetMap XML データとしてエクスポートできません。拡大するか、領域を小さくするか、以下に列挙したソースから一括データダウンロードを使用するかしてください。
-        planet:
-          title: Planet OSM
-          description: 定期的に更新される、OpenStreetMap データベースの完全な複製
-        overpass:
-          title: Overpass API
-          description: OpenStreetMapデータベースのミラーからこの範囲をダウンロード
-        geofabrik:
-          title: Geofabrik のダウンロード
-          description: 大陸、国、および選択した都市を抽出したもので、定期的に更新されます
-        metro:
-          title: Metro Extracts
-          description: 世界の主要都市とその周辺地域を抽出します
-        other:
-          title: 他の情報源
-          description: OpenStreetMap ウィキに記載されている追加の情報源
-      options: オプション
-      format: ファイル形式
-      scale: 縮尺
-      max: 最大
-      image_size: 画像サイズ
-      zoom: ズーム
-      add_marker: マーカーを地図に追加
-      latitude: '緯度:'
-      longitude: '経度:'
-      output: 出力
-      paste_html: 以下の HTML をあなたのサイトに貼り付けてください
-      export_button: エクスポート
   geocoder:
     search:
       title:
-        latlon: <a href="http://openstreetmap.org/">Internal</a>からの結果
-        uk_postcode: <a href="http://www.npemap.org.uk/">NPEMap / FreeThe Postcode</a>からの結果
-        ca_postcode: <a href="http://geocoder.ca/">Geocoder.CA</a>からの結果
-        osm_nominatim: <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
+        latlon: <a href="https://openstreetmap.org/">Internal</a>からの結果
+        ca_postcode: <a href="https://geocoder.ca/">Geocoder.CA</a>からの結果
+        osm_nominatim: <a href="https://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a> からの結果
         geonames: <a href="http://www.geonames.org/">GeoNames</a> からの結果
-        osm_nominatim_reverse: <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
+        osm_nominatim_reverse: <a href="https://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a> からの結果
         geonames_reverse: <a href="http://www.geonames.org/">GeoNames</a> からの結果
     search_osm_nominatim:
@@ -450,33 +409,26 @@ ja:
           crematorium: 火葬場
           dentist: 歯科医
           doctors: 医師
-          dormitory: 寮
           drinking_water: 飲み水
           driving_school: 自動車学校
           embassy: 大使館
-          emergency_phone: 緊急電話
           fast_food: ファストフード
           ferry_terminal: フェリー乗り場
-          fire_hydrant: 消火栓
           fire_station: 消防署
           food_court: フードコート
           fountain: 噴水
           fuel: 燃料
           gambling: ギャンブル
           grave_yard: 墓地
-          gym: フィットネス センター/ジム
-          health_centre: 保健所
           hospital: 病院
           hunting_stand: ハンティング スタンド
           ice_cream: アイスクリーム販売店
           kindergarten: 幼稚園
           library: 図書館
-          market: 市場
           marketplace: 市場
           monastery: 修道院
           motorcycle_parking: バイクの駐輪場
           nightclub: ナイト クラブ
-          nursery: 保育所
           nursing_home: 老人ホーム
           office: オフィス
           parking: 駐車場
@@ -490,7 +442,6 @@ ja:
           prison: 刑務所
           pub: パブ
           public_building: 公共建築物
-          reception_area: レセプションエリア
           recycling: リサイクル場
           restaurant: レストラン
           retirement_home: 老人ホーム
@@ -556,6 +507,7 @@ ja:
           emergency_access_point: 緊急アクセスポイント
           footway: 歩道
           ford: 砦
+          give_way: 前方優先道路標識
           living_street: 住宅街
           milestone: マイルストーン
           motorway: 高速道路
@@ -586,7 +538,6 @@ ja:
           trunk: 国道
           trunk_link: 国道
           unclassified: 未分類の道路
-          unsurfaced: 未舗装道路
           "yes": 道路
         historic:
           archaeological_site: 考古学サイト
@@ -651,7 +602,6 @@ ja:
         leisure:
           beach_resort: ビーチ リゾート
           bird_hide: 観察小屋
-          club: クラブ
           common: 共有地
           dog_park: ドッグ・パーク
           fishing: 釣り場
@@ -680,8 +630,12 @@ ja:
           water_park: 親水公園
           "yes": レジャー
         man_made:
+          bridge: 橋
           lighthouse: 灯台
+          mine: 鉱山
           pipeline: パイプライン
+          silo: サイロ
+          storage_tank: 貯蔵タンク
           tower: 塔
           works: 工房
           "yes": 人工
@@ -735,6 +689,7 @@ ja:
           administrative: 管理
           architect: 建築士
           company: 会社
+          educational_institution: 教育施設
           employment_agency: 職業紹介
           estate_agent: 不動産代理店
           government: 官公庁
@@ -746,8 +701,6 @@ ja:
           "yes": オフィス
         place:
           allotments: 家庭菜園
-          block: ブロック
-          airport: 空港
           city: 市
           country: 国
           county: 郡
@@ -759,7 +712,6 @@ ja:
           islet: 小島
           isolated_dwelling: 免震住宅
           locality: 地域
-          moor: 沼地
           municipality: 市町村
           neighbourhood: 小字
           postcode: Postcode
@@ -776,10 +728,8 @@ ja:
           abandoned: 廃止鉄道
           construction: 建設中の鉄道
           disused: 廃線跡
-          disused_station: 廃駅
           funicular: ケーブル鉄道
           halt: 列車停止
-          historic_station: 廃駅
           junction: 鉄道連絡駅
           level_crossing: 踏切
           light_rail: ライトレール
@@ -805,6 +755,7 @@ ja:
           beauty: 美容室
           beverages: 飲料ショップ
           bicycle: 自転車販売店
+          bookmaker: ブックメーカー
           books: 書店
           boutique: ブティック
           butcher: 肉屋
@@ -843,7 +794,6 @@ ja:
           hairdresser: 美容室
           hardware: ホームセンター
           hifi: 高級オーディオ
-          insurance: 保険
           jewelry: 宝石店
           kiosk: キオスク
           laundry: クリーニング店
@@ -856,21 +806,24 @@ ja:
           optician: メガネ店
           organic: 有機食材店
           outdoor: アウトドア ショップ
+          paint: 画材店
           pet: ペット ショップ
           pharmacy: 薬局
           photo: 写真屋
-          salon: サロン
+          seafood: 海鮮品屋
           second_hand: 中古品店
           shoes: 靴屋
-          shopping_centre: ショッピング センター
           sports: スポーツ用品専門店
           stationery: 文房具店
           supermarket: スーパーマーケット
           tailor: 洋服店
+          ticket: チケット店
+          tobacco: タバコ屋
           toys: 玩具店
           travel_agency: 旅行代理店
+          variety_store: 雑貨店
           video: ビデオ ショップ
-          wine: 酒屋
+          wine: ワイン屋
           "yes": 店舗
         tourism:
           alpine_hut: 高山小屋
@@ -925,7 +878,7 @@ ja:
         level10: 街区境
     description:
       title:
-        osm_nominatim: <a href="http://nominatim.openstreetmap.org/">OpenStreetMap
+        osm_nominatim: <a href="https://nominatim.openstreetmap.org/">OpenStreetMap
           Nominatim</a> からの位置
         geonames: <a href="http://www.geonames.org/">GeoNames</a> からの位置
       types:
@@ -980,181 +933,6 @@ ja:
       text: 寄付
     learn_more: 詳細
     more: その他
-  license_page:
-    foreign:
-      title: この翻訳について
-      text: この翻訳版のページと%{english_original_link}の間で競合が発生した場合は、英語版の内容が優先されます
-      english_link: 英語の原文
-    native:
-      title: このページについて
-      text: 閲覧中のこのページは著作権情報ページの英語版です。このページの%{native_link}に戻れます。または%{mapping_link}からマッピングに戻れます。
-      native_link: 日本語版
-      mapping_link: マッピングを開始
-    legal_babble:
-      title_html: 著作権とライセンス
-      intro_1_html: |-
-        OpenStreetMap<a href="#trademarks">&reg;</a> は著作権者である<a
-        href="http://osmfoundation.org/">OpenStreetMap財団</a> (OSMF)が<a
-        href="http://opendatacommons.org/licenses/odbl/">Open Data Commons Open Database License</a> (ODbL) の下にライセンスする<i>オープンデータ</i>です。
-      intro_2_html: OpenStreetMapとその協力者をクレジットすれば、データを自由にコピー、配布、送信、利用することができます。変更したり翻案したりしたデータは同じライセンスに従う場合のみ、提供することができます。あなたの権利と責任は、<a
-        href="http://opendatacommons.org/licenses/odbl/1.0/">ライセンス契約</a>の全文で説明しています。
-      intro_3_html: |-
-        地図タイルの作成法やドキュメントは、<a href="http://creativecommons.org/licenses/by-sa/2.0/">Creative
-        Commons Attribution-ShareAlike 2.0</a> ライセンス (CC BY-SA) に基づいてライセンスされます。
-      credit_title_html: OpenStreetMap のクレジット表記の仕方
-      credit_1_html: '&ldquo;&copy; OpenStreetMap contributors&rdquo;のクレジットを必ず使用してください。'
-      credit_2_html: あなたはデータが Open Database License に基づいて提供されていること、そして地図タイルを使用する場合は、地図製作が
-        CC BY-SA としてライセンスされていることを明確にしなければなりません。<a href="http://www.openstreetmap.org/copyright">著作権表示ページ</a>にリンクすることでこれを表現することができます。また、データの形式でOpenStreetMapを配布する場合の要件として、名前を表示の上、ライセンスに直接リンクすることができます。リンクを張れないメディア（印刷など）の場合は、openstreetmap.org（OpenStreetMapをアドレスとして展開した形）、opendatacommons.org、さらに関連がある場合はcreativecommons.orgへ読者を誘導することをお勧めします。
-      credit_3_html: |-
-        閲覧可能な電子地図の場合は、地図の隅にクレジットを表示してください。
-        例:
-      attribution_example:
-        alt: ウェブページに OpenStreetMap を記述する方法の例
-        title: 権利表示の例
-      more_title_html: 詳細を見る
-      more_1_html: |-
-        データの利用やクレジット方法についての詳細は<a
-        href="http://osmfoundation.org/Licence">OSMF ライセンスページ</a>をお読みください。
-      more_2_html: OpenStreetMap はオープンデータですが、サードパーティーの開発者のための無料の地図 API は提供できません。<a
-        href="https://operations.osmfoundation.org/policies/api/">API 利用規約</a>、<a
-        href="https://operations.osmfoundation.org/policies/tiles/">タイル利用規約</a>ならびに<a
-        href="https://operations.osmfoundation.org/policies/nominatim/">Nominatim利用ポリシー</a>をお読みください。
-      contributors_title_html: 協力者
-      contributors_intro_html: 数千人もの個人が協力者となっています。それに加え、各国の地図作成機関や、以下のように、その他の情報源も含め、公開されたライセンスによるデータを含みます。
-      contributors_at_html: '<strong>オーストリア</strong>: <a href="http://data.wien.gv.at/">Stadt
-        Wien</a> (ライセンス <a href="http://creativecommons.org/licenses/by/3.0/at/deed.de">CC
-        BY</a>)、<a href="http://www.vorarlberg.at/vorarlberg/bauen_wohnen/bauen/vermessung_geoinformation/weitereinformationen/services/wmsdienste.htm">Land
-        Vorarlberg</a>、Land Tirol (ライセンス <a href="http://www.tirol.gv.at/applikationen/e-government/data/nutzungsbedingungen/">CC
-        BY AT with amendments</a>) によるデータを含みます。'
-      contributors_ca_html: '<strong>カナダ</strong>: GeoBase&reg;、GeoGratis (&copy;
-        Department of Natural Resources Canada)、CanVec (&copy; Department of Natural
-        Resources Canada)、StatCan (Geography Division, Statistics Canada) によるデータを含みます。'
-      contributors_fi_html: '<strong>フィンランド</strong>: <a href="http://www.maanmittauslaitos.fi/en/NLS_open_data_licence_version1_20120501">NLSFI
-        License</a>に基づき、National Land Survey of Finland''s Topographic Database及びその他のデータセットのデータを含んでいます。'
-      contributors_fr_html: '<strong>フランス</strong>: Direction Générale des Impôts
-        によるデータを含みます。'
-      contributors_nl_html: '<strong>オランダ</strong>: &copy; AND データ、2007 (<a href="http://www.and.com">www.and.com</a>)
-        を含みます。'
-      contributors_nz_html: '<strong>ニュージーランド</strong>: Land Information New Zealand
-        によるデータを含みます。著作権はクラウン・コピーライトになります。'
-      contributors_si_html: '<strong>スロベニア</strong>: <a href="http://www.gu.gov.si/en/">調査地図庁</a>ならびに<a
-        href="http://www.mkgp.gov.si/en/">農林食料省</a>(スロベニアの公開情報)による。'
-      contributors_za_html: '<strong>南アフリカ</strong>: <a href="http://www.ngi.gov.za/">Chief
-        Directorate: National Geo-Spatial Information</a>,政府によるデータを含み、著作権を保持します。'
-      contributors_gb_html: '<strong>イギリス</strong>: 陸地測量データ &copy;著作権はクラウン・コピーライト及びdatabase
-        right 2010-12 を含みます。'
-      contributors_footer_1_html: |-
-        これらの詳細について、またOpenStreetMapの向上に使用されたその他のソースについては、OpenStreetMap Wikiの<a
-        href="http://wiki.openstreetmap.org/wiki/Contributors">協力者ページ</a>をご覧ください。
-      contributors_footer_2_html: OpenStreetMapのデータに含めることは、元データの提供者がOpenStreetMapを支持したり、何かしらの保証を行ったり、何かしらの責任を負ったりすることを意味するものではありません。
-      infringement_title_html: 著作権侵害
-      infringement_1_html: 'OpenStreetMapの協力者は、著作権者から明確な許諾を得ずに、著作権のある情報源 (例: Google
-        マップや印刷された地図) から決してデータを持ち込まないよう注意するものとします。'
-      infringement_2_html: もし著作権のある素材がOpenStreetMapのデータベースや本サイトに不正に追加されたとお考えの場合は、<a
-        href="http://www.osmfoundation.org/wiki/License/Takedown_procedure">却下手順</a>をお読みになるか、<a
-        href="http://dmca.openstreetmap.org/"オンライン却下のページ</a>から直接申し立てを行ってください。
-      trademarks_title_html: <span id="trademarks"></span>商標
-      trademarks_1_html: OpenStreetMapならびに拡大鏡のロゴおよびState of the MapはOpenStreetMap財団の登録商標です。商標の利用に関するお問い合わせは<a
-        href="http://wiki.osmfoundation.org/wiki/Licensing_Working_Group">ライセンス担当部</a>までお寄せください。
-  welcome_page:
-    title: ようこそ!
-    introduction_html: フリーで編集可能な世界地図、OpenStreetMapへようこそ。サインアップしたので、マッピングの準備はすべて整いました。知っておかなければならない重要事項を簡単に説明します。
-    whats_on_the_map:
-      title: 地図上にあるもの
-      on_html: OpenStreetMapは<em>現実かつ現存</em>のもの - 数々の建物、道路、場所に関するその他の詳細をマッピングする場所です。あなたは関心のある現実世界のものを何でもマッピングできます。
-      off_html: 含めては<em>いけない</em>ものは、評価のような主観的なデータ、歴史的または仮想的なもの、著作権のある情報源からのデータです。特別な許可がない場合は、オンラインや紙の地図からコピーをしてはいけません。
-    basic_terms:
-      title: マッピングのための基本的な用語
-      paragraph_1_html: OpenStreetMap には独自の用語がいくつかあります。ここでは手早く、いくつかのキーワードを紹介しましょう。
-      editor_html: <strong>エディター</strong>は、地図を編集できるプログラムやウェブサイトです。
-      node_html: <strong>ノード</strong>は地図上の点です。1 軒のレストランや 1 本の樹木が該当します。
-      way_html: <strong>ウェイ</strong>は線または領域です。道路、水路、湖、建物などが該当します。
-      tag_html: <strong>タグ</strong>はノードやウェイについて補足するデータです。レストランの名前、道路の制限速度などが該当します。
-    rules:
-      title: ルール
-      paragraph_1_html: |-
-        OpenStreetMapには正規の規約がいくつかありますが、すべての利用者とコミュニティの協力と意思疎通をお願いしています。手動で編集する以外をご検討の場合は、<a href='http://wiki.openstreetmap.org/wiki/Import/Guidelines'>インポート</a>ならびに
-        <a href='http://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct'>自動的な編集</a>ガイドラインをよく読んで従ってください。
-    questions:
-      title: 何か質問はありますか?
-      paragraph_1_html: |-
-        OpenStreetMapにはプロジェクトについて学んだり、質疑応答したり、共同で議論したり、マッピングについての知識を文書化したりするさまざまなリソースがあります。
-        <a href='%{help_url}'>ここからヘルプを得ましょう</a>。
-    start_mapping: マッピングを開始
-    add_a_note:
-      title: 編集する時間がないためメモを残します
-      paragraph_1_html: |-
-        些細な修正だけをしたいが、サインアップしたり編集の仕方を勉強する時間がない場合は、
-        簡単にメモを追加できます。
-      paragraph_2_html: <a href='%{map_url}'>地図</a>に移動してメモアイコン（<span class='icon note'></span>）をクリックするだけです。これで地図上に印が追加され、ドラッグして移動させることができます。あなたのメッセージを追加し、保存をクリックすれば、他のマッパーが調査するでしょう。
-  fixthemap:
-    title: 問題点の報告 / 地図の修正
-    how_to_help:
-      title: 支援する方法
-      join_the_community:
-        title: コミュニティへの参加
-        explanation_html: 道路やあなたの住所が抜けているなど地図データの問題を見つけた場合、OpenStreetMapのコミュニティに参加して自分でデータの修正や追加をすることが最善の方法です。
-      add_a_note:
-        instructions_html: |-
-          <a class='icon note'></a> をクリックするか、または地図上の同じアイコンをクリックしてください。
-          地図にマーカーが追加されます。マーカーはドラッグで移動できます。
-          メッセージを追加して保存をクリックすると、他のマッパーたちが調査します。
-    other_concerns:
-      title: 他の問題
-      explanation_html: 私たちのデータの使い方やコンテンツに問題がある場合、<a href='/copyright'>著作権のページ</a>を参照して法的情報をご確認いただくか、適切な
-        <a href='http://wiki.osmfoundation.org/wiki/Working_Groups'>OSMF ワーキング グループ</a>
-        までご連絡ください。
-  help_page:
-    title: ヘルプの取得
-    introduction: OpenStreetMapにはプロジェクトについて学んだり、質疑応答したり、協議したり、マッピングについての知識を文書化したりするさまざまなリソースがあります。
-    welcome:
-      url: /welcome
-      title: OSM へようこそ
-      description: OpenStreetMap の基礎を網羅しているこのクイック ガイドから始めましょう。
-    beginners_guide:
-      url: http://wiki.openstreetmap.org/wiki/Beginners%27_guide
-      title: 初心者向けの手引き
-      description: コミュニティは、初心者向けガイドが整備しています。
-    help:
-      url: https://help.openstreetmap.org/
-      title: help.openstreetmap.org
-      description: OSM の質問回答サイトで質問したり回答を検索したりする。
-    mailing_lists:
-      title: メーリング リスト
-      description: メーリングリストは話題や地域ごとに多種多様で、質問や興味のある事項について議論できる場です。
-    forums:
-      title: フォーラム
-      description: 掲示板方式のインタフェイスを好む人を対象とした質問や議論
-    irc:
-      title: IRC
-      description: 多様な言語によるいろいろな話題を取上げた双方向性チャット
-    switch2osm:
-      title: switch2osm
-      description: ヘルプ、OpenStreetMapをベースにした地図その他のサービスへ切り替えた法人や団体向け。
-    wiki:
-      url: http://wiki.openstreetmap.org/
-      title: wiki.openstreetmap.org
-      description: 詳細なOSMの説明が書かれたウィキを参照します。
-  about_page:
-    next: 次へ
-    copyright_html: <span>&copy;</span>OpenStreetMap<br>協力者
-    used_by: '%{name} は、数多くのウェブ サイト、モバイル アプリ、ハードウェア機器で利用されています'
-    lede_text: OpenStreetMapは、道路、通路、カフェ、鉄道駅など、世界中にあるすべてのものに関するデータを提供・メンテナンスしているマッパーのコミュニティによって構築されました。
-    local_knowledge_title: 地元の情報
-    local_knowledge_html: OpenStreetMapは地域の知識を強調します。協力者は航空写真やGPS機器、ローテクのフィールド地図を使用して、OpenStreetMapが正確で最新の状態であることを確認します。
-    community_driven_title: コミュニティ主導
-    community_driven_html: OpenStreetMapのコミュニティは多様で、情熱的で、毎日成長しています。協力者には地図作りマニア、GISの専門家、OpenStreetMapサーバーを稼働させている技術者、被災地の地図作りをする人道主義者などを含みます。コミュニティについて詳しくは、<a
-      href='https://blog.openstreetmap.org'>OpenStreetMap のブログ</a>、<a href='%{diary_path}'>利用者の日記</a>、<a
-      href='http://blogs.openstreetmap.org/'>コミュニティのブログ</a>と<a href='http://www.osmfoundation.org/'>OSM財団</a>のウェブサイトをご覧ください。
-    open_data_title: オープン データ
-    open_data_html: OpenStreetMapは<i>オープンデータ</i>です。あなたはOpenStreetMapと協力者の著作権を表示すれば、いかなる目的でも無料で利用することができます。もし何らかの方法でデータを変更したり二次データを作成したりした場合も、同じライセンス条件下でのみ結果を配布できます。詳しくは、<a
-      href='%{copyright_path}'>著作権とライセンス</a>をご覧ください。
-    legal_title: 法律関係
-    legal_html: "このサイトおよび関連のサービスは<a href='http://osmfoundation.org/'>OpenStreetMap財団</a>
-      (OSMF)のコミュニティから継承したものです。OpenStreetMap財団の運営するサービスの利用者には<a href=\"http://wiki.openstreetmap.org/wiki/Acceptable_Use_Policy\">利用規定</a>ならびに当財団の<a
-      href=\"http://wiki.osmfoundation.org/wiki/Privacy_Policy\">プライバシーに関する規定</a>の対象となります。\n<br>
-      \nライセンス、著作権その他法的な質問や問題がある場合は、<a href='http://osmfoundation.org/Contact'>OpenStreetMap財団までご連絡ください</a>。"
-    partners_title: パートナー
   notifier:
     diary_comment_notification:
       subject: '[OpenStreetMap]の%{user}さんが日記エントリにコメントしました'
@@ -1308,6 +1086,103 @@ ja:
     delete:
       deleted: メッセージを削除しました
   site:
+    about:
+      next: 次へ
+      copyright_html: <span>&copy;</span>OpenStreetMap<br>協力者
+      used_by: '%{name} は、数多くのウェブ サイト、モバイル アプリ、ハードウェア機器で利用されています'
+      lede_text: OpenStreetMapは、道路、通路、カフェ、鉄道駅など、世界中にあるすべてのものに関するデータを提供・メンテナンスしているマッパーのコミュニティによって構築されました。
+      local_knowledge_title: 地元の情報
+      local_knowledge_html: OpenStreetMapは地域の知識を強調します。協力者は航空写真やGPS機器、ローテクのフィールド地図を使用して、OpenStreetMapが正確で最新の状態であることを確認します。
+      community_driven_title: コミュニティ主導
+      community_driven_html: OpenStreetMapのコミュニティは多様で、情熱的で、毎日成長しています。協力者には地図作りマニア、GISの専門家、OpenStreetMapサーバーを稼働させている技術者、被災地の地図作りをする人道主義者などを含みます。コミュニティについて詳しくは、<a
+        href='https://blog.openstreetmap.org'>OpenStreetMap のブログ</a>、<a href='%{diary_path}'>利用者の日記</a>、<a
+        href='https://blogs.openstreetmap.org/'>コミュニティのブログ</a>と<a href='https://www.osmfoundation.org/'>OSM財団</a>のウェブサイトをご覧ください。
+      open_data_title: オープン データ
+      open_data_html: OpenStreetMapは<i>オープンデータ</i>です。あなたはOpenStreetMapと協力者の著作権を表示すれば、いかなる目的でも無料で利用することができます。もし何らかの方法でデータを変更したり二次データを作成したりした場合も、同じライセンス条件下でのみ結果を配布できます。詳しくは、<a
+        href='%{copyright_path}'>著作権とライセンス</a>をご覧ください。
+      legal_title: 法律関係
+      legal_html: "このサイトおよびその他の関連サービスは、コミュニティを代表して<a href='https://osmfoundation.org/'>OpenStreetMap財団</a>
+        (OSMF) が運営しています。OpenStreetMap財団の運営するサービス利用者は、私たちの定める<a href=\"https://wiki.openstreetmap.org/wiki/Acceptable_Use_Policy\">利用規定</a>ならびに当財団の<a
+        href=\"https://wiki.osmfoundation.org/wiki/Privacy_Policy\">プライバシーに関する規定</a>の対象となります。\n<br>
+        \nライセンス、著作権その他法的な質問や問題がある場合は、<a href='https://osmfoundation.org/Contact'>OpenStreetMap財団までご連絡ください</a>。\n<br>\nOpenStreetMapならびに拡大鏡のロゴおよびState
+        of the Mapは<a href=\"https://wiki.osmfoundation.org/wiki/Trademark_Policy\">OpenStreetMap財団の登録商標</a>です。"
+      partners_title: パートナー
+    copyright:
+      foreign:
+        title: この翻訳について
+        text: この翻訳版のページと%{english_original_link}の間で競合が発生した場合は、英語版の内容が優先されます
+        english_link: 英語の原文
+      native:
+        title: このページについて
+        text: 閲覧中のこのページは著作権情報ページの英語版です。このページの%{native_link}に戻れます。または%{mapping_link}からマッピングに戻れます。
+        native_link: 日本語版
+        mapping_link: マッピングを開始
+      legal_babble:
+        title_html: 著作権とライセンス
+        intro_1_html: |-
+          OpenStreetMap<a href="#trademarks">&reg;</a> は著作権者である<a
+          href="https://osmfoundation.org/">OpenStreetMap財団</a> (OSMF)が<a
+          href="https://opendatacommons.org/licenses/odbl/">Open Data Commons Open Database License</a> (ODbL) の下にライセンスする<i>オープンデータ</i>です。
+        intro_2_html: OpenStreetMapとその協力者をクレジットすれば、データを自由にコピー、配布、送信、利用することができます。変更したり翻案したりしたデータは同じライセンスに従う場合のみ、提供することができます。あなたの権利と責任は、<a
+          href="https://opendatacommons.org/licenses/odbl/1.0/">ライセンス契約</a>の全文で説明しています。
+        intro_3_html: |-
+          地図タイルの作成法やドキュメントは、<a href="https://creativecommons.org/licenses/by-sa/2.0/">Creative
+          Commons Attribution-ShareAlike 2.0</a> ライセンス (CC BY-SA) に基づいてライセンスされます。
+        credit_title_html: OpenStreetMap のクレジット表記の仕方
+        credit_1_html: '&ldquo;&copy; OpenStreetMap contributors&rdquo;のクレジットを必ず使用してください。'
+        credit_2_html: あなたはデータが Open Database License に基づいて提供されていること、そして地図タイルを使用する場合は、地図製作が
+          CC BY-SA としてライセンスされていることを明確にしなければなりません。<a href="https://www.openstreetmap.org/copyright">著作権表示ページ</a>にリンクすることでこれを表現することができます。また、データの形式でOpenStreetMapを配布する場合の要件として、名前を表示の上、ライセンスに直接リンクすることができます。リンクを張れないメディア（印刷など）の場合は、openstreetmap.org（OpenStreetMapをアドレスとして展開した形）、opendatacommons.org、さらに関連がある場合はcreativecommons.orgへ読者を誘導することをお勧めします。
+        credit_3_html: |-
+          閲覧可能な電子地図の場合は、地図の隅にクレジットを表示してください。
+          例:
+        attribution_example:
+          alt: ウェブページに OpenStreetMap を記述する方法の例
+          title: 権利表示の例
+        more_title_html: 詳細を見る
+        more_1_html: |-
+          データの利用やクレジット方法についての詳細は<a
+          href="https://osmfoundation.org/Licence">OSMF ライセンスページ</a>をお読みください。
+        more_2_html: OpenStreetMap はオープンデータですが、サードパーティーの開発者のための無料の地図 API は提供できません。<a
+          href="https://operations.osmfoundation.org/policies/api/">API 利用規約</a>、<a
+          href="https://operations.osmfoundation.org/policies/tiles/">タイル利用規約</a>ならびに<a
+          href="https://operations.osmfoundation.org/policies/nominatim/">Nominatim利用ポリシー</a>をお読みください。
+        contributors_title_html: 協力者
+        contributors_intro_html: 数千人もの個人が協力者となっています。それに加え、各国の地図作成機関や、以下のように、その他の情報源も含め、公開されたライセンスによるデータを含みます。
+        contributors_at_html: '<strong>オーストリア</strong>: <a href="https://data.wien.gv.at/">Stadt
+          Wien</a> (ライセンス <a href="https://creativecommons.org/licenses/by/3.0/at/deed.de">CC
+          BY</a>)、<a href="https://www.vorarlberg.at/vorarlberg/bauen_wohnen/bauen/vermessung_geoinformation/weitereinformationen/services/wmsdienste.htm">Land
+          Vorarlberg</a>、Land Tirol (ライセンス <a href="https://www.tirol.gv.at/applikationen/e-government/data/nutzungsbedingungen/">CC
+          BY AT with amendments</a>) によるデータを含みます。'
+        contributors_ca_html: '<strong>カナダ</strong>: GeoBase&reg;、GeoGratis (&copy;
+          Department of Natural Resources Canada)、CanVec (&copy; Department of Natural
+          Resources Canada)、StatCan (Geography Division, Statistics Canada) によるデータを含みます。'
+        contributors_fi_html: '<strong>フィンランド</strong>: <a href="https://www.maanmittauslaitos.fi/en/opendata-licence-version1">NLSFI
+          License</a>に基づき、National Land Survey of Finland''s Topographic Database及びその他のデータセットのデータを含んでいます。'
+        contributors_fr_html: '<strong>フランス</strong>: Direction Générale des Impôts
+          によるデータを含みます。'
+        contributors_nl_html: '<strong>オランダ</strong>: &copy; AND データ、2007 (<a href="https://www.and.com">www.and.com</a>)
+          を含みます。'
+        contributors_nz_html: '<strong>ニュージーランド</strong>: Land Information New Zealand
+          によるデータを含みます。著作権はクラウン・コピーライトになります。'
+        contributors_si_html: '<strong>スロベニア</strong>: <a href="http://www.gu.gov.si/en/">調査地図庁</a>ならびに<a
+          href="http://www.mkgp.gov.si/en/">農林食料省</a>(スロベニアの公開情報)による。'
+        contributors_za_html: '<strong>南アフリカ</strong>: <a href="http://www.ngi.gov.za/">Chief
+          Directorate: National Geo-Spatial Information</a>,政府によるデータを含み、著作権を保持します。'
+        contributors_gb_html: '<strong>イギリス</strong>: 陸地測量データ &copy;著作権はクラウン・コピーライト及びdatabase
+          right 2010-12 を含みます。'
+        contributors_footer_1_html: |-
+          これらの詳細について、またOpenStreetMapの向上に使用されたその他のソースについては、OpenStreetMap Wikiの<a
+          href="https://wiki.openstreetmap.org/wiki/Contributors">協力者ページ</a>をご覧ください。
+        contributors_footer_2_html: OpenStreetMapのデータに含めることは、元データの提供者がOpenStreetMapを支持したり、何かしらの保証を行ったり、何かしらの責任を負ったりすることを意味するものではありません。
+        infringement_title_html: 著作権侵害
+        infringement_1_html: 'OpenStreetMapの協力者は、著作権者から明確な許諾を得ずに、著作権のある情報源 (例: Google
+          マップや印刷された地図) から決してデータを持ち込まないよう注意するものとします。'
+        infringement_2_html: もし著作権のある素材がOpenStreetMapのデータベースや本サイトに不正に追加されたとお考えの場合は、<a
+          href="https://www.osmfoundation.org/wiki/License/Takedown_procedure">却下手順</a>をお読みになるか、<a
+          href="http://dmca.openstreetmap.org">オンライン却下のページ</a>から直接申し立てを行ってください。
+        trademarks_title_html: <span id="trademarks"></span>商標
+        trademarks_1_html: OpenStreetMapならびに拡大鏡のロゴおよびState of the MapはOpenStreetMap財団の登録商標です。商標の利用に関しては、<a
+          href="https://wiki.osmfoundation.org/wiki/Trademark_Policy">商標利用ポリシー</a>を参照ください。
     index:
       js_1: JavaScript に対応していないブラウザーを使用しているか、JavaScript を無効にしているかのどちらかです。
       js_2: OpenStreetMap は地図の表示に JavaScript を使用します。
@@ -1323,13 +1198,103 @@ ja:
       user_page_link: ユーザーページ
       anon_edits_link_text: なぜこれれが事例なのかを見る。
       flash_player_required: Flash 版 OpenStreetMap エディターである Potlatch を使用するには、Flash
-        Player が必要です。Flash Player は<a href="http://www.adobe.com/shockwave/download/index.cgi?P1_Prod_Version=ShockwaveFlash">Adobe.com</a>
-        でダウンロードできます。OpenStreetMap を編集する<a href="http://wiki.openstreetmap.org/wiki/JA:Editing?uselang=ja">他の方法</a>もあります。
+        Player が必要です。Flash Player は<a href="https://get.adobe.com/flashplayer">Adobe.com</a>
+        でダウンロードできます。OpenStreetMap を編集する<a href="https://wiki.openstreetmap.org/wiki/JA:Editing?uselang=ja">他の方法</a>もあります。
       potlatch_unsaved_changes: 保存していない変更があります。(Potlatch では、一覧モードで編集している場合、ウェイや点の選択を解除する必要があります。または、保存ボタンをクリックして保存してください。)
-      potlatch2_not_configured: 'Potlatch 2 が設定されていません - 詳細情報はこちらをご覧ください: http://wiki.openstreetmap.org/wiki/The_Rails_Port#Potlatch_2'
+      potlatch2_not_configured: 'Potlatch 2 が設定されていません - 詳細情報はこちらをご覧ください: https://wiki.openstreetmap.org/wiki/The_Rails_Port#Potlatch_2'
       potlatch2_unsaved_changes: 保存していない変更があります。(Potlatch 2 では、保存をクリックして保存する必要があります。)
       id_not_configured: iDが設定されていません。
       no_iframe_support: あなたのブラウザーは、この機能に必須の HTML iframe に未対応です。
+    export:
+      title: エクスポート
+      area_to_export: エクスポートする領域
+      manually_select: ドラッグして別の領域を選択
+      format_to_export: エクスポートするファイル形式
+      osm_xml_data: OpenStreetMap XML データ
+      map_image: 地図画像 (標準レイヤーを表示)
+      embeddable_html: 埋め込み HTML
+      licence: ライセンス
+      export_details: OpenStreetMap のデータは <a href="https://opendatacommons.org/licenses/odbl/1.0/">Open
+        Data Commons Open Database License</a> (ODbL) の下にライセンスされています。
+      too_large:
+        advice: '上のエクスポートが失敗した場合は、以下に列挙した情報源のいずれかの使用を検討してください:'
+        body: 領域が大きすぎて OpenStreetMap XML データとしてエクスポートできません。拡大するか、領域を小さくするか、以下に列挙したソースから一括データダウンロードを使用するかしてください。
+        planet:
+          title: Planet OSM
+          description: 定期的に更新される、OpenStreetMap データベースの完全な複製
+        overpass:
+          title: Overpass API
+          description: OpenStreetMapデータベースのミラーからこの範囲をダウンロード
+        geofabrik:
+          title: Geofabrik のダウンロード
+          description: 大陸、国、および選択した都市を抽出したもので、定期的に更新されます
+        metro:
+          title: Metro Extracts
+          description: 世界の主要都市とその周辺地域を抽出します
+        other:
+          title: 他の情報源
+          description: OpenStreetMap ウィキに記載されている追加の情報源
+      options: オプション
+      format: ファイル形式
+      scale: 縮尺
+      max: 最大
+      image_size: 画像サイズ
+      zoom: ズーム
+      add_marker: マーカーを地図に追加
+      latitude: '緯度:'
+      longitude: '経度:'
+      output: 出力
+      paste_html: 以下の HTML をあなたのサイトに貼り付けてください
+      export_button: エクスポート
+    fixthemap:
+      title: 問題点の報告 / 地図の修正
+      how_to_help:
+        title: 支援する方法
+        join_the_community:
+          title: コミュニティへの参加
+          explanation_html: 道路やあなたの住所が抜けているなど地図データの問題を見つけた場合、OpenStreetMapのコミュニティに参加して自分でデータの修正や追加をすることが最善の方法です。
+        add_a_note:
+          instructions_html: |-
+            <a class='icon note'></a> をクリックするか、または地図上の同じアイコンをクリックしてください。
+            地図にマーカーが追加されます。マーカーはドラッグで移動できます。
+            メッセージを追加して保存をクリックすると、他のマッパーたちが調査します。
+      other_concerns:
+        title: 他の問題
+        explanation_html: 私たちのデータの使い方やコンテンツに問題がある場合、<a href='/copyright'>著作権のページ</a>を参照して法的情報をご確認いただくか、適切な
+          <a href='https://wiki.osmfoundation.org/wiki/Working_Groups'>OSMF ワーキング
+          グループ</a> までご連絡ください。
+    help:
+      title: ヘルプの取得
+      introduction: OpenStreetMapにはプロジェクトについて学んだり、質疑応答したり、協議したり、マッピングについての知識を文書化したりするさまざまなリソースがあります。
+      welcome:
+        url: /welcome
+        title: OSM へようこそ
+        description: OpenStreetMap の基礎を網羅しているこのクイック ガイドから始めましょう。
+      beginners_guide:
+        url: https://wiki.openstreetmap.org/wiki/Beginners%27_guide
+        title: 初心者向けの手引き
+        description: コミュニティは、初心者向けガイドが整備しています。
+      help:
+        url: https://help.openstreetmap.org/
+        title: help.openstreetmap.org
+        description: OSM の質問回答サイトで質問したり回答を検索したりする。
+      mailing_lists:
+        url: http://lists.openstreetmap.org/
+        title: メーリング リスト
+        description: メーリングリストは話題や地域ごとに多種多様で、質問や興味のある事項について議論できる場です。
+      forums:
+        title: フォーラム
+        description: 掲示板方式のインタフェイスを好む人を対象とした質問や議論
+      irc:
+        title: IRC
+        description: 多様な言語によるいろいろな話題を取上げた双方向性チャット
+      switch2osm:
+        title: switch2osm
+        description: ヘルプ、OpenStreetMapをベースにした地図その他のサービスへ切り替えた法人や団体向け。
+      wiki:
+        url: https://wiki.openstreetmap.org/
+        title: wiki.openstreetmap.org
+        description: 詳細なOSMの説明が書かれたウィキを参照します。
     sidebar:
       search_results: 検索結果
       close: 閉じる
@@ -1339,7 +1304,7 @@ ja:
       get_directions_title: 2点を結ぶルートを検索
       from: 出発点
       to: 目的地
-      where_am_i: これはどこにありますか?
+      where_am_i: 現在表示中の位置情報
       where_am_i_title: 検索エンジンを使用して現在の場所を記述
       submit_text: 検索
     key:
@@ -1416,7 +1381,7 @@ ja:
       edit: 編集
       preview: プレビュー
     markdown_help:
-      title_html: <a href="http://daringfireball.net/projects/markdown/">Markdown</a>
+      title_html: <a href="https://daringfireball.net/projects/markdown/">Markdown</a>
         で構文解析されます
       headings: 見出し
       heading: 見出し
@@ -1430,6 +1395,38 @@ ja:
       image: 画像
       alt: 代替テキスト
       url: URL
+    welcome:
+      title: ようこそ!
+      introduction_html: フリーで編集可能な世界地図、OpenStreetMapへようこそ。サインアップしたので、マッピングの準備はすべて整いました。知っておかなければならない重要事項を簡単に説明します。
+      whats_on_the_map:
+        title: 地図上にあるもの
+        on_html: OpenStreetMapは<em>現実かつ現存</em>のもの - 数々の建物、道路、場所に関するその他の詳細をマッピングする場所です。あなたは関心のある現実世界のものを何でもマッピングできます。
+        off_html: 含めては<em>いけない</em>ものは、評価のような主観的なデータ、歴史的または仮想的なもの、著作権のある情報源からのデータです。特別な許可がない場合は、オンラインや紙の地図からコピーをしてはいけません。
+      basic_terms:
+        title: マッピングのための基本的な用語
+        paragraph_1_html: OpenStreetMap には独自の用語がいくつかあります。ここでは手早く、いくつかのキーワードを紹介しましょう。
+        editor_html: <strong>エディター</strong>は、地図を編集できるプログラムやウェブサイトです。
+        node_html: <strong>ノード</strong>は地図上の点です。1 軒のレストランや 1 本の樹木が該当します。
+        way_html: <strong>ウェイ</strong>は線または領域です。道路、水路、湖、建物などが該当します。
+        tag_html: <strong>タグ</strong>はノードやウェイについて補足するデータです。レストランの名前、道路の制限速度などが該当します。
+      rules:
+        title: ルール
+        paragraph_1_html: |-
+          OpenStreetMapには正規の規約がいくつかありますが、すべての利用者とコミュニティの協力と意思疎通をお願いしています。手動で編集する以外をご検討の場合は、<a href='https://wiki.openstreetmap.org/wiki/Import/Guidelines'>インポート</a>ならびに
+          <a href='https://wiki.openstreetmap.org/wiki/Automated_Edits_code_of_conduct'>自動的な編集</a>ガイドラインをよく読んで従ってください。
+      questions:
+        title: 何か質問はありますか?
+        paragraph_1_html: |-
+          OpenStreetMapにはプロジェクトについて学んだり、質疑応答したり、共同で議論したり、マッピングについての知識を文書化したりするさまざまなリソースがあります。
+          <a href='%{help_url}'>ここからヘルプを得ましょう</a>。
+      start_mapping: マッピングを開始
+      add_a_note:
+        title: 編集する時間がないためメモを残します
+        paragraph_1_html: |-
+          些細な修正だけをしたいが、サインアップしたり編集の仕方を勉強する時間がない場合は、
+          簡単にメモを追加できます。
+        paragraph_2_html: <a href='%{map_url}'>地図</a>に移動してメモアイコン（<span class='icon
+          note'></span>）をクリックするだけです。これで地図上に印が追加され、ドラッグして移動させることができます。あなたのメッセージを追加し、保存をクリックすれば、他のマッパーが調査するでしょう。
   trace:
     visibility:
       private: 非公開 (匿名、点は順不同)
@@ -1471,7 +1468,6 @@ ja:
     trace_header:
       upload_trace: トレースをアップロード
       see_all_traces: すべてのトレースを見る
-      see_your_traces: 自分のトレースをすべて見る
       traces_waiting:
         one: You は%{count} 件のトレースがアップロード待ちです。これらが完了するまで、アップロードはお控えください。さもなければ他のユーザーのアップロードが制限されてしまいます。
         other: You have %{count}件のトレースがアップロード待ちです。これらが完了するまでアップロードはお控えください。さもなければ他のユーザーのアップロードが制限されてしまいます。
@@ -1518,12 +1514,11 @@ ja:
       map: 地図
     list:
       public_traces: 公開GPSトレース
-      your_traces: あなたのGPSトレース
       public_traces_from: '%{user}さんによる公開GPSトレース'
-      description: 最近のGPSトラックのアップロードを参照
+      description: 最近のGPSトレースのアップロードを参照
       tagged_with: (タグ %{tags} が付いているもの)
       empty_html: ここにはまだ何もありません。<a href='%{upload_link}'>新しくトレースをアップロード</a>するか、<a
-        href='http://wiki.openstreetmap.org/wiki/JA:Beginners_Guide_1.2?uselang=ja'>ウィキページ</a>でGPSトレースの詳細情報をお読みください。
+        href='https://wiki.openstreetmap.org/wiki/JA:Beginners_Guide_1.2?uselang=ja'>ウィキページ</a>でGPSトレースの詳細情報をお読みください。
     delete:
       scheduled_for_deletion: トレースの削除準備を行いました
     make_public:
@@ -1549,7 +1544,7 @@ ja:
       blocked: APIへのアクセスがブロックされました。Web インターフェイスからログインし直して詳細を確認してください。
       need_to_see_terms: あなたは一時的にAPIの利用を停止されています。ウェブインターフェイスにログインして協力者規約をご覧ください。同意しなくてもかまいませんが、必ずご覧ください。
   oauth:
-    oauthorize:
+    authorize:
       title: あなたのアカウントへのアクセスの認証
       request_access: アプリケーション %{app_name} があなたのアカウント%{user} への接続許可を求めています。そのアプリケーションに以下を許可してもよいかどうかを確認してください。単独もしくは複数の許可を与えることができます。
       allow_to: 'クライアント アプリケーションに以下の操作を許可する:'
@@ -1561,11 +1556,11 @@ ja:
       allow_write_gpx: GPSトレースをアップロードする。
       allow_write_notes: メモを変更する。
       grant_access: アクセスを許可
-    oauthorize_success:
+    authorize_success:
       title: 認証リクエストが成功しました
       allowed: アプリケーション %{app_name} によるあなたのアカウントへのアクセスを許可しました。
       verification: 検証コードは %{code} です。
-    oauthorize_failure:
+    authorize_failure:
       title: 認証リクエストに失敗しました
       denied: アプリケーション %{app_name} によるあなたのアカウントへのアクセスを拒否しました。
       invalid: 認証トークンが有効ではありません。
@@ -1713,10 +1708,10 @@ ja:
         html: |-
           <p>他の地図とは異なり、OpenStreetMapは完全にあなたのような人々によって作成され、だれでも自由に修正、更新、ダウンロード、利用することができます。</p>
           <p>協力を始めるにはサインアップしてください。あなたのアカウントの確認メールが送信されます。</p>
-      license_agreement: アカウントを確認するには<a href="http://www.osmfoundation.org/wiki/License/Contributor_Terms">協力者規約</a>を承諾する必要があります。
+      license_agreement: アカウントを確認するには<a href="https://www.osmfoundation.org/wiki/License/Contributor_Terms">協力者規約</a>を承諾する必要があります。
       email address: 'メール アドレス:'
       confirm email address: 'メール アドレスの確認:'
-      not displayed publicly: あなたのアドレスは非公開です。詳細は弊財団の<a href="http://wiki.osmfoundation.org/wiki/Privacy_Policy"
+      not displayed publicly: あなたのアドレスは非公開です。詳細は弊財団の<a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy"
         title="メール アドレスの節を含む、OSMFのプライバシーポリシー">プライバシーポリシー</a>をご参照ください
       display name: '表示名:'
       display name description: あなたの公開利用者名です。あとで個人設定で変更できます。
@@ -1728,7 +1723,7 @@ ja:
       continue: ユーザー登録
       terms accepted: 新しい協力者規約を承諾していただき、ありがとうございます!
       terms declined: 新しい協力者規約を承諾いただけず残念です。詳しい情報は、<a href="%{url}">このウィキページ</a>をご覧ください。
-      terms declined url: http://wiki.openstreetmap.org/wiki/JA:Contributor_Terms_Declined
+      terms declined url: https://wiki.openstreetmap.org/wiki/JA:Contributor_Terms_Declined
     terms:
       title: 協力者規約
       heading: 協力者規約
@@ -1786,7 +1781,6 @@ ja:
       user location: 利用者の位置
       if set location: '%{settings_link}ページから活動地域を指定すると、近くで活動している利用者を見つけることができます。'
       settings_link_text: 設定
-      your friends: あなたの友達
       no friends: あなたはまだ誰も友達として登録していません。
       km away: 距離 %{count} km
       m away: 距離 %{count} m
@@ -1828,7 +1822,7 @@ ja:
       email never displayed publicly: (非公開)
       external auth: '外部認証:'
       openid:
-        link: http://wiki.openstreetmap.org/wiki/JA:OpenID?uselang=ja
+        link: https://wiki.openstreetmap.org/wiki/JA:OpenID?uselang=ja
         link text: これは何ですか?
       public editing:
         heading: '公開編集:'
@@ -1840,7 +1834,7 @@ ja:
       public editing note:
         heading: 公開編集
         text: 現在、あなたの編集作業はIP利用者扱いであるため、他の人々からメッセージを受信したり、あなたの場所を見つけてもらったりすることはできません。あなたの編集結果を表示できるようにして、他の人々がウェブサイト経由であなたに連絡できるようにするには、下のボタンをクリックしてください。<b>0.6
-          API 更新より地図データの編集は公開利用者以外、できなくなりました</b>。 (<a href="http://wiki.openstreetmap.org/wiki/JA:Anonymous_edits?uselang=ja">その理由はこちらで</a>)。<ul><li>公開扱いに変更しても、あなたのメール
+          API 更新より地図データの編集は公開利用者以外、できなくなりました</b>。 (<a href="https://wiki.openstreetmap.org/wiki/JA:Anonymous_edits?uselang=ja">その理由はこちらで</a>)。<ul><li>公開扱いに変更しても、あなたのメール
           アドレスが暴露されることはありません。</li><li>この変更は取り消せません。なお新しい利用者は、既定で公開扱いとなります。</li></ul>
       contributor terms:
         heading: '協力者規約:'
@@ -1848,6 +1842,7 @@ ja:
         not yet agreed: あなたはまだ新しい投稿規約を承諾していません。
         review link text: ご都合の良い時にこのリンクをクリックして新しい協力者規約を確認の上、承諾してしてください。
         agreed_with_pd: また、あなたは、自分の編集結果がパブリックドメインにあるべきだと考えているということも宣言しています。
+        link: https://www.osmfoundation.org/wiki/License/Contributor_Terms
         link text: これは何ですか?
       profile description: 'プロフィールの説明:'
       preferred languages: '優先言語:'
@@ -1951,6 +1946,7 @@ ja:
       not_a_role: 文字列「%{role}」は、有効な権限ではありません。
       already_has_role: 利用者は既に %{role} 権限を付与されています。
       doesnt_have_role: ユーザーに %{role} 権限が付与されていません。
+      not_revoke_admin_current_user: 現在のユーザに管理者権限がありません。
     grant:
       title: 権限付与の確認
       heading: 権限付与の確認
@@ -1963,7 +1959,7 @@ ja:
       are_you_sure: 利用者「%{name}」の「%{role}」権限を本当に取り消しますか?
       confirm: 確認
       fail: 利用者「%{name}」の「%{role}」権限を取り消せませんでした。利用者および権限が両方とも正しいか確認してください。
-  user_block:
+  user_blocks:
     model:
       non_moderator_update: ブロックの作成/更新にはモデレーター権限が必要です。
       non_moderator_revoke: ブロックの取り消しにはモデレーター権限が必要です。
@@ -2012,20 +2008,6 @@ ja:
       revoke: 取り消す!
       flash: このブロックは取り消されました。
     period: '%{count} 時間'
-    partial:
-      show: 表示する
-      edit: 編集
-      revoke: 取り消す!
-      confirm: 本当によろしいですか?
-      display_name: ブロックされている利用者
-      creator_name: 作成者
-      reason: ブロックされた理由
-      status: 状態
-      revoker_name: 取り消し者
-      not_revoked: (取り消されていません)
-      showing_page: ページ %{page}
-      next: 次へ »
-      previous: « 前へ
     helper:
       time_future: '%{time} に終了します。'
       until_login: 利用者がログインするまで有効です。
@@ -2055,8 +2037,22 @@ ja:
       back: すべてのブロックを表示
       revoker: '取消:'
       needs_view: ブロックを解除するには、利用者はログインし直す必要があります。
-  note:
-    description:
+    block:
+      not_revoked: (取り消されていません)
+      show: 表示する
+      edit: 編集
+      revoke: 取り消す!
+    blocks:
+      display_name: ブロックされている利用者
+      creator_name: 作成者
+      reason: ブロックされた理由
+      status: 状態
+      revoker_name: 取り消し者
+      showing_page: ページ %{page}
+      next: 次へ »
+      previous: « 前へ
+  notes:
+    comment:
       opened_at_html: '%{when}前に作成'
       opened_at_by_html: '%{user}さんが%{when}前に作成'
       commented_at_html: '%{when}前に更新'
@@ -2155,6 +2151,7 @@ ja:
     notes:
       new:
         intro: 間違いや情報の抜けがありましたか？　他のマッパーが修正できるよう、お知らせください。マーカーを正しい位置に移動し、問題を説明するメモを入力します。
+        advice: 投稿した地図メモは公開され、地図の更新に利用されます。そのため、著作権保護された地図や一覧情報からの転用情報や、個人情報の入力は行わないでください。
         add: メモを追加
       show:
         anonymous_warning: このメモはIP利用者によるコメントも含んでいるため、個別に確認してください。
@@ -2168,25 +2165,25 @@ ja:
       ascend: 上り坂
       engines:
         graphhopper_bicycle: 自転車
+        graphhopper_car: 自動車(GraphHopper)
         graphhopper_foot: 歩行
         mapquest_bicycle: 自転車
         mapquest_car: 自動車
         mapquest_foot: 歩行
         osrm_car: 自動車
-        mapzen_bicycle: 自転車
-        mapzen_car: 自動車
-        mapzen_foot: 歩行
       descend: 下り坂
       directions: 方向
       distance: 距離
       errors:
         no_route: ２点間のルートが見つかりません。
-        no_place: 残念ながら、その場所は見つかりませんでした。
+        no_place: 残念ながら、場所「%{place}」は見つかりませんでした。
       instructions:
         continue_without_exit: '%{name}を続行'
         slight_right_without_exit: 道なりに右折して%{name}へ
-        offramp_right_without_exit: 右のランプに進んで%{name}へ
+        offramp_right_with_name: 右のランプに進んで%{name}へ
         onramp_right_without_exit: ランプで右折して%{name}へ
+        onramp_right_without_directions: ランプを右折
+        onramp_right: ランプを右折
         endofroad_right_without_exit: 行き止まりで右折して%{name}へ
         merge_right_without_exit: 右車線に合流して%{name}へ
         fork_right_without_exit: 分岐点で右折して%{name}へ
@@ -2195,27 +2192,24 @@ ja:
         uturn_without_exit: '%{name}沿いにUターン'
         sharp_left_without_exit: 鋭角に左折して%{name}へ
         turn_left_without_exit: 左に曲がって%{name}へ
-        offramp_left_without_exit: 左のランプに進んで%{name}へ
+        offramp_left_with_name: 左のランプに進んで%{name}へ
         onramp_left_without_exit: ランプで左折して%{name}へ
+        onramp_left_without_directions: ランプを左折
+        onramp_left: ランプを左折
         endofroad_left_without_exit: 行き止まりで左折して%{name}へ
         merge_left_without_exit: 左車線に合流して%{name}へ
         fork_left_without_exit: 分岐点で左折して%{name}へ
         slight_left_without_exit: 道なりに左折して%{name}へ
         via_point_without_exit: (経由)
         follow_without_exit: '%{name}を進む'
-        roundabout_without_exit: ロータリーで%{name}へ
+        roundabout_without_exit: ロータリーの出口で%{name}へ
         leave_roundabout_without_exit: '%{name}でロータリーを出る'
         stay_roundabout_without_exit: ロータリーで%{name}を通過
-        start_without_exit: '%{name}の終わりからスタート'
+        start_without_exit: '%{name}からスタート'
         destination_without_exit: 目的地に到着
         against_oneway_without_exit: '%{name}の一方通行を逆走'
         end_oneway_without_exit: '%{name}の一方通行の終わり'
         roundabout_with_exit: ロータリーの%{exit}出口で%{name}へ
-        turn_left_with_exit: 分岐点で左折して%{name}へ
-        slight_left_with_exit: ロータリーで道なりに左折して%{name}へ
-        turn_right_with_exit: 分岐点で右折して%{name}へ
-        slight_right_with_exit: ロータリーで道なりに右折して%{name}へ
-        continue_with_exit: 分岐点で直進して%{name}へ
         unnamed: 名前なし
         courtesy: 道順は%{link}による
       time: 時刻
@@ -2233,7 +2227,7 @@ ja:
       show_address: アドレスを表示
       query_features: 地物を検索
       centre_map: ここで地図を中央に置く
-  redaction:
+  redactions:
     edit:
       description: 説明
       heading: 改訂の編集
