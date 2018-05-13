@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 
 gem "ruby-debug-ide", "0.4.32"
-gem "dbase", "0.2.1"
+gem "debase", "0.2.1"
 gem "byebug"
 
 # Require rails
