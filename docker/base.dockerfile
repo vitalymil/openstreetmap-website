@@ -1,16 +1,20 @@
 FROM ubuntu:16.04
 
 # Needed for phantomjs to work (for running tests)
-ENV QT_QPA_PLATFORM=offscreen 
+ENV QT_QPA_PLATFORM=offscreen
 
+COPY apt.conf /etc/apt/
 RUN apt-get update -q
 RUN apt-get install -y \
         ruby2.3 libruby2.3 ruby2.3-dev \
         libmagickwand-dev libxml2-dev libxslt1-dev nodejs \
         apache2 apache2-dev build-essential git-core \
         postgresql postgresql-contrib libpq-dev postgresql-server-dev-9.5 \
-        libsasl2-dev imagemagick phantomjs \
- && gem2.3 install bundler
+        libsasl2-dev imagemagick phantomjs
+Az
+ENV https_proxy=http://user108:User108!@172.16.0.254:8080
+ENV http_proxy=http://user108:User108!@172.16.0.254:8080
+RUN gem2.3 install bundler
 
 RUN apt-get install -y dirmngr gnupg
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 561F9B9CAC40B2F7
@@ -32,3 +36,6 @@ RUN apt-get install -y libpqxx-dev libfcgi-dev \
         libcrypto++-dev automake autoconf libtool libyajl-dev
 
 WORKDIR /
+ENV https_proxy=
+ENV http_proxy=
+RUN rm /etc/apt/apt.conf
